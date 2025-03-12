@@ -85,17 +85,6 @@
 \setlength{\marginparwidth}{0pt}
 
 \setlength{\parindent}{3em} %Indent approx 6 character
-
-
-
-
-
-
-
-
-
-
-
 %------------------------------------------------------------
 %The form of page numbering
 %------------------------------------------------------------

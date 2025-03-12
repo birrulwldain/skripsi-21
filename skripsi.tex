@@ -40,7 +40,7 @@
 \makeatother
 
 \usepackage[justification=centering]{caption}% or e.g. [format=hang]
-
+\usepackage{amssymb}
 % Ini tambahan dari budi
 \newcommand*{\enableboldchapterintoc}{%
   \addtocontents{toc}{\string\renewcommand{\protect\cftchapfont}{\protect\normalfont\protect\bfseries}}
@@ -284,14 +284,15 @@
     \renewcommand{\footrulewidth}{0pt} % Hapus garis pemisah footer dengan konten
 }
 
-
 % Halaman Daftar Pustaka dengan penomoran halaman berada di tengah dan nomor halaman selanjutnya di kanan
 \addcontentsline{toc}{chapter}{DAFTAR PUSTAKA}
 \begin{onehalfspace}
 \begin{spacing}{1}
 \pagestyle{daftarpustaka}
-\bibliography{daftar-pustaka}
 \end{spacing}
+\bibliography{daftar-pustaka}
+\end{onehalfspace}
+
 %-----------------------------------------------------------------
 % Disini akhir masukan Daftar Pustaka
 %-----------------------------------------------------------------
@@ -301,5 +302,4 @@
 \addcontentsline{toc}{chapter}{LAMPIRAN} %daftar lampiran
 
 \end{onehalfspace}
-
 \end{document}
