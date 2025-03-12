@@ -307,7 +307,7 @@
       \vspace{2.5cm}
       \MakeUppercase{\large{\bfseries{PROPOSAL PENELITIAN}}}\\ %it's me!
       \vspace{1.0cm}
-	  \normalsize{Diajukan untuk melengkapi tugas-tugas dan\\ memenuhi syarat-syarat guna pelaksanaan penelitian Tugas Akhir\\} %it's me!
+	  \normalsize{Diajukan untuk melengkapi tugas-tugas dan\\memenuhi syarat-syarat guna pelaksanaan penelitian Tugas Akhir\\} %it's me!
        \vspace{1.0cm}
        {\normalfont
         Oleh:\\
@@ -330,7 +330,7 @@
 }
 
 %------------------------------------------------------------
-%Approval Page
+% Cover
 %------------------------------------------------------------
 \def\cover{%
 	% it's me!
@@ -346,9 +346,9 @@
 		\begin{singlespace}
 			\fontsize{18pt}{20pt}\selectfont\MakeUppercase{\Large{\bfseries\@judulcover}}\par\nobreak
 			\vspace{2.5cm}
-			\MakeUppercase{\large{\bfseries{PROPOSAL PENELITIAN}}}\\ %it's me!
+			\MakeUppercase{\large{\bfseries{PROPOSAL PENELITIAN}}}\\ % it's me!
 			\vspace{1.0cm}
-			\normalsize{Diajukan untuk melengkapi tugas-tugas dan\\ memenuhi syarat-syarat guna pelaksanaan penelitian Tugas Akhir\\} %it's me!
+			\normalsize{Diajukan untuk melengkapi tugas-tugas dan\\ memenuhi syarat-syarat guna pelaksanaan penelitian Tugas Akhir\\} % it's me!
 			\vspace{1.0cm}
 			{\normalfont
 				Oleh:\\
@@ -371,70 +371,44 @@
 }
 
 %------------------------------------------------------------
-%Approval Page
+% Approval Page Definition (Revised)
 %------------------------------------------------------------
 \def\approvalpage{%
-	\clearpage\addcontentsline{toc}{chapter}{Halaman Pengesahan}
-	\chapter*{\approvalname}%
-	\thispagestyle{empty}
-	\begin{center}
-		\begin{doublespace}
-			\vspace{0.5cm}
-			\fontsize{12pt}{10pt}\selectfont\MakeUppercase{\large{\bfseries\@judul}}\par\nobreak
-
-			% \vspace{1cm}
-			% \fontsize{12pt}{10pt}\selectfont\MakeUppercase{\large{\bfseries\@judull}}\par\nobreak
-
-			\vspace{0.9cm}
-			Oleh:
-			%\vspace{-0.5cm}
-			\begin{singlespace}
-				\begin{compactitem}
-					\addtolength{\itemindent}{3cm}
-					\setlength{\parsep}{0pt}
-					\item[]{\makebox[2cm]{Nama\hfill} : \@fullname}
-					\item[]{\makebox[2cm]{NPM\hfill} : \@idnum}
-					\item[]{\makebox[2cm]{Departemen\hfill} : \@dept}
-				\end{compactitem}
-			\end{singlespace}
-			%\vspace{2.0cm} edited 16/04/2022
-			\vspace{0.9cm}
-			
-			%Telah disetujui dan disahkan\\
-			%pada tanggal \@approvaldate
-			%\vspace{1.0cm}
-
-			Menyetujui:\\
-			\vspace{1.0cm}
-			\onehalfspacing
-				\begin{tabular}{lll}
-					Pembimbing I & \hspace{2.5cm} & Pembimbing II \\
-					\vspace{0.3cm} & \vspace{0.3cm} & \vspace{0.3cm}\\
-					\underline{\@firstsupervisor}& &
-					\underline{\@secondsupervisor} \\
-					NIP. \@firstnip & &  NIP. \@secondnip
-				\end{tabular}	
-			%\vspace{2.0cm} edited 16/04/2022
-			\vspace{1.0cm}
-			
-			% Mengetahui dekan dan kajur informatika
-			% Tanpa mengetahui dekan
-			
-			Mengetahui:\\
-			\vspace{0.9cm}
-			Ketua Departemen Fisika \\ 
-			\vspace{-0.27cm}\\
-			Universitas Syiah Kuala,\\
-			\vspace{1.7cm}\\
-			\underline{Dr. Saumi Syahreza, S.Si, M.Si.} & \\
-			NIP. \@kaprodinip &
-
-			\end{doublespace}
-		% \vspace{0.9cm}
-		% Lulus Sidang Sarjana pada hari \@approvaldate
-	\end{center}
-
-
+  \clearpage
+  \addcontentsline{toc}{chapter}{Halaman Pengesahan}%
+  \chapter*{\approvalname}%
+  \thispagestyle{empty}%
+  \begin{center}%
+    \begin{doublespace}%
+      \vspace{0.5cm}%
+      \fontsize{12pt}{10pt}\selectfont\MakeUppercase{\large{\bfseries\@judul}}\par\nobreak%
+      \vspace{0.9cm}%
+      Oleh:%
+      \begin{singlespace}%
+        \begin{compactitem}%
+          \addtolength{\itemindent}{3cm}%
+          \setlength{\parsep}{0pt}%
+          \item[]{\makebox[2cm]{Nama\hfill} : \@fullname}%
+          \item[]{\makebox[2cm]{NPM\hfill} : \@idnum}%
+          \item[]{\makebox[2cm]{Departemen\hfill} : \@dept}%
+        \end{compactitem}%
+      \end{singlespace}%
+      \vspace{0.9cm}%
+      Menyetujui:\\[1ex]%
+      \onehalfspacing%
+      \begin{tabular}{lll}%
+         Pembimbing I & \hspace{2.5cm} & Pembimbing II \\%
+         \underline{\@firstsupervisor} & & \underline{\@secondsupervisor} \\%
+         NIP. \@firstnip & & NIP. \@secondnip%
+      \end{tabular}%
+      \vspace{1.0cm}%
+      Mengetahui:\\[1ex]%
+      Ketua Departemen Fisika \\[0.5ex]%
+      Universitas Syiah Kuala,\\[2ex]%
+      \underline{Dr. Saumi Syahreza, S.Si, M.Si.}\\%
+      NIP. \@kaprodinip%
+    \end{doublespace}%
+  \end{center}%
 }
 %------------------------------------------------------------
 % Acknowlegment

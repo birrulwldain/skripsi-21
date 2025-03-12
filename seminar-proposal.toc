@@ -8,8 +8,8 @@
 \contentsline {chapter}{Halaman Pengesahan}{ii}{Doc-Start}%
 \contentsline {chapter}{Kata Pengantar}{iii}{chapter*.2}%
 \contentsline {chapter}{Daftar Isi}{iv}{Item.7}%
-\contentsline {chapter}{Daftar Tabel}{v}{chapter*.4}%
-\contentsline {chapter}{Daftar Gambar}{vi}{chapter*.5}%
+\contentsline {chapter}{Daftar Tabel}{vi}{chapter*.4}%
+\contentsline {chapter}{Daftar Gambar}{vii}{chapter*.5}%
 \renewcommand {\cftchapfont }{\normalfont \bfseries }
 \renewcommand {\cftchappagefont }{\normalfont }
 \setlength {\cftbeforechapskip }{12pt}
@@ -38,7 +38,7 @@
 \contentsline {subsubsection}{Interaksi laser-materi: proses absorpsi energi dan peningkatan suhu.}{4}{subsection.2.2.1}%
 \contentsline {subsubsection}{Mekanisme ablasi laser: \textit {thermal vaporization}, \textit {photochemical decomposition}, \textit {photophysical sputtering}.}{4}{subsection.2.2.1}%
 \contentsline {subsubsection}{Formasi plasma: ionisasi atom dan molekul, pembentukan spesies tereksitasi.}{4}{subsection.2.2.1}%
-\contentsline {subsubsection}{Emisi atomik: de-eksitasi radiatif dan emisi foton pada panjang gelombang karakteristik.}{4}{subsection.2.2.1}%
+\contentsline {subsubsection}{Emisi atomik: de-eksitasi radiatif dan emisi foton pada panjang gelombang karakteristik.}{5}{subsection.2.2.1}%
 \contentsline {subsubsection}{Simulasi Spektrum Emisi:}{5}{subsection.2.2.1}%
 \contentsline {subsubsection}{Akuisisi dan analisis spektrum: identifikasi unsur dan kuantifikasi konsentrasi.}{5}{subsection.2.2.1}%
 \contentsline {subsection}{\numberline {2.2.2}Karakteristik Plasma LIBS}{5}{subsection.2.2.2}%
@@ -51,7 +51,7 @@
 \contentsline {subsubsection}{Karakteristik laser Nd:YAG: panjang gelombang (1064 nm, 532 nm, 355 nm, 266 nm), energi pulsa, durasi pulsa (nanosecond, picosecond, femtosecond), mode operasi (\textit {Q-switched}, \textit {mode-locked}).}{5}{subsection.2.2.3}%
 \contentsline {subsubsection}{Diagram Grotrian Nd:YAG:}{5}{subsection.2.2.3}%
 \contentsline {subsubsection}{Keuntungan menggunakan laser Nd:YAG dalam LIBS: ketersediaan, keandalan, fleksibilitas panjang gelombang.}{5}{subsection.2.2.3}%
-\contentsline {subsubsection}{Pertimbangan dalam menggunakan laser Nd:YAG untuk CF-LIBS: validitas asumsi LTE.}{5}{subsection.2.2.3}%
+\contentsline {subsubsection}{Pertimbangan dalam menggunakan laser Nd:YAG untuk CF-LIBS: validitas asumsi LTE.}{6}{subsection.2.2.3}%
 \contentsline {subsection}{\numberline {2.2.4}Calibration-Free LIBS (CF-LIBS)}{6}{subsection.2.2.4}%
 \contentsline {subsubsection}{Motivasi CF-LIBS: mengatasi keterbatasan kalibrasi standar (efek matriks, kesulitan mendapatkan standar yang sesuai).}{6}{subsection.2.2.4}%
 \contentsline {subsubsection}{Prinsip dasar CF-LIBS: penggunaan persamaan Boltzmann dan Saha untuk menghubungkan intensitas emisi dengan konsentrasi unsur.}{6}{subsection.2.2.4}%
@@ -88,5 +88,5 @@
 \contentsline {subsection}{\numberline {3.5.1}One-Hot Encoding}{16}{subsection.3.5.1}%
 \contentsline {section}{\numberline {3.6}Menangani Urutan dengan Panjang Bervariasi}{16}{section.3.6}%
 \contentsline {subsection}{\numberline {3.6.1}Padding}{16}{subsection.3.6.1}%
-\contentsline {section}{\numberline {3.7}Prediksi Urutan sebagai Pembelajaran Terawasi}{16}{section.3.7}%
+\contentsline {section}{\numberline {3.7}Prediksi Urutan sebagai Pembelajaran Terawasi}{17}{section.3.7}%
 \contentsline {chapter}{DAFTAR PUSTAKA}{18}{section.3.7}%
