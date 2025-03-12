@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  13 MAR 2025 01:03
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  13 MAR 2025 01:47
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -686,7 +686,59 @@ File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
 File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count350
 \l__pdf_internal_box=\box83
-) (./seminar-proposal.aux (./include/daftar-singkatan.aux) (./include/kata-pengantar.aux) (./include/daftar-singkatan.aux) (./include/bab1.aux) (./include/bab2.aux) (./include/bab3.aux))
+) (./seminar-proposal.aux (./include/daftar-singkatan.aux) (./include/kata-pengantar.aux) (./include/daftar-singkatan.aux) (./include/bab1.aux) (./include/bab2.aux) (./include/bab3.aux)
+
+Package natbib Warning: Citation `Beiser1992' multiply defined.
+
+
+Package natbib Warning: Citation `bengio2012' multiply defined.
+
+
+Package natbib Warning: Citation `brownlee2017' multiply defined.
+
+
+Package natbib Warning: Citation `dandrea-2014' multiply defined.
+
+
+Package natbib Warning: Citation `Demtroder2010' multiply defined.
+
+
+Package natbib Warning: Citation `fiantis2020land' multiply defined.
+
+
+Package natbib Warning: Citation `gasior2023analysis' multiply defined.
+
+
+Package natbib Warning: Citation `graves2013' multiply defined.
+
+
+Package natbib Warning: Citation `Griffiths2005' multiply defined.
+
+
+Package natbib Warning: Citation `hochreiter1997' multiply defined.
+
+
+Package natbib Warning: Citation `hollas-2013' multiply defined.
+
+
+Package natbib Warning: Citation `Kaufmann2020' multiply defined.
+
+
+Package natbib Warning: Citation `Liboff2003' multiply defined.
+
+
+Package natbib Warning: Citation `mason2015' multiply defined.
+
+
+Package natbib Warning: Citation `pathria2011' multiply defined.
+
+
+Package natbib Warning: Citation `thorne-1999' multiply defined.
+
+
+Package natbib Warning: Citation `zhang2019' multiply defined.
+
+)
 \openout1 = `seminar-proposal.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 195.
@@ -946,9 +998,15 @@ BAB I.
 
 
 
-])
+] (./seminar-proposal.bbl
 
 [2]
+
+[3
+
+]))
+
+[4]
 \openout2 = `include/bab2.aux'.
 
  (./include/bab2.tex
@@ -958,20 +1016,20 @@ LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 35
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 )
 
-[3
+[5
 
 
 
 
 ]
 
-[4]
-
-[5]
-
 [6]
 
 [7]
+
+[8]
+
+[9]
 LaTeX Font Info:    Trying to load font information for T1+pcr on input line 157.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/psnfss/t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
@@ -982,63 +1040,144 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             See the microtype manual for details.
 
 
-[8]
+[10]
 Overfull \hbox (141.8348pt too wide) in paragraph at lines 170--170
 []\T1/pcr/m/n/12 model.add(LSTM(64, return_sequences=True, input_shape=(timesteps, features)))[] 
  []
 
 
 
-[9]
-
-[10]
-
 [11]
 
 [12]
 
-Package natbib Warning: Citation `Godio2016' on page 13 undefined on input line 246.
-
-)
-
 [13]
+
+[14])
+
+[15]
 \openout2 = `include/bab3.aux'.
 
  (./include/bab3.tex
 BAB III.
 
 
-[14
+[16
 
 
 
 
 ]
-<image/lstm1.png, id=451, 90.3375pt x 235.88126pt>
+<image/lstm1.png, id=461, 90.3375pt x 235.88126pt>
 File: image/lstm1.png Graphic file (type png)
 <use image/lstm1.png>
 Package pdftex.def Info: image/lstm1.png  used on input line 44.
 (pdftex.def)             Requested size: 82.51173pt x 215.44771pt.
 
 
-[15 <./image/lstm1.png>]
+[17 <./image/lstm1.png>]
 Overfull \hbox (33.83484pt too wide) in paragraph at lines 76--76
 []\T1/pcr/m/n/12 padded_sequences = pad_sequences(sequences, maxlen=max_length)[] 
  []
 
 
 
-[16])
+[18])
 
-[17] (./seminar-proposal.bbl
+[19] (./seminar-proposal.bbl
+pdfTeX warning (ext4): destination with the same identifier (name{cite.Beiser1992}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.3 \bibitem[Beiser, 1992]{Beiser1992}
+                                      
+pdfTeX warning (ext4): destination with the same identifier (name{cite.bengio2012}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.8 \bibitem[Bengio et~al., 2012]{bengio2012}
+                                             
+pdfTeX warning (ext4): destination with the same identifier (name{cite.brownlee2017}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.13 \bibitem[Brownlee, 2017]{brownlee2017}
+                                           
+pdfTeX warning (ext4): destination with the same identifier (name{cite.dandrea-2014}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.18 \bibitem[D'Andrea et~al., 2014]{dandrea-2014}
+                                                  
+pdfTeX warning (ext4): destination with the same identifier (name{cite.Demtroder2010}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.23 \bibitem[Demtröder, 2010]{Demtroder2010}
+                                              
+pdfTeX warning (ext4): destination with the same identifier (name{cite.fiantis2020land}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.28 ...tem[Fiantis et~al., 2020]{fiantis2020land}
+                                                  
+pdfTeX warning (ext4): destination with the same identifier (name{cite.gasior2023analysis}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.33 ...m[Gasior et~al., 2023]{gasior2023analysis}
+                                                  
+pdfTeX warning (ext4): destination with the same identifier (name{cite.graves2013}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.38 \bibitem[Graves et~al., 2013]{graves2013}
+                                              
+pdfTeX warning (ext4): destination with the same identifier (name{cite.Griffiths2005}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.43 \bibitem[Griffiths, 2005]{Griffiths2005}
+                                             
+pdfTeX warning (ext4): destination with the same identifier (name{cite.hochreiter1997}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.48 ...ter and Schmidhuber, 1997]{hochreiter1997}
+                                                  
+pdfTeX warning (ext4): destination with the same identifier (name{cite.hollas-2013}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.53 \bibitem[Hollas, 2013]{hollas-2013}
+                                        
+pdfTeX warning (ext4): destination with the same identifier (name{cite.Kaufmann2020}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.58 ...Kaufmann and Freedman, 2020]{Kaufmann2020}
+                                                  
+pdfTeX warning (ext4): destination with the same identifier (name{cite.Liboff2003}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.63 \bibitem[Liboff, 2003]{Liboff2003}
+                                       
+pdfTeX warning (ext4): destination with the same identifier (name{cite.mason2015}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.68 \bibitem[Mason, 2015]{mason2015}
+                                     
+pdfTeX warning (ext4): destination with the same identifier (name{cite.pathria2011}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.73 ...item[Pathria and Beale, 2011]{pathria2011}
+                                                  
+pdfTeX warning (ext4): destination with the same identifier (name{cite.thorne-1999}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.78 \bibitem[Thorne et~al., 1999]{thorne-1999}
+                                               
+pdfTeX warning (ext4): destination with the same identifier (name{cite.zhang2019}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.83 \bibitem[Zhang et~al., 2019]{zhang2019}
+                                            
 
-[18
+[20
 
 
 
 ])
 
-Package natbib Warning: There were undefined citations.
+Package natbib Warning: There were multiply defined citations.
 
 
 Package caption Warning: Unused \captionsetup[table] on input line 247.
@@ -1046,7 +1185,7 @@ See the caption package documentation for explanation.
 
 
 
-[19] (./seminar-proposal.aux (./include/daftar-singkatan.aux) (./include/kata-pengantar.aux) (./include/daftar-singkatan.aux) (./include/bab1.aux) (./include/bab2.aux) (./include/bab3.aux))
+[21] (./seminar-proposal.aux (./include/daftar-singkatan.aux) (./include/kata-pengantar.aux) (./include/daftar-singkatan.aux) (./include/bab1.aux) (./include/bab2.aux) (./include/bab3.aux))
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
@@ -1055,18 +1194,18 @@ Package rerunfilecheck Info: File `seminar-proposal.out' has not changed.
 (rerunfilecheck)             Checksum: D57B62BD60861600DAACA3E313D7D746;8100.
  ) 
 Here is how much of TeX's memory you used:
- 25392 strings out of 473190
- 468166 string characters out of 5715801
- 878628 words of memory out of 5000000
+ 25397 strings out of 473190
+ 468232 string characters out of 5715801
+ 878681 words of memory out of 5000000
  47768 multiletter control sequences out of 15000+600000
  608241 words of font info for 241 fonts, out of 8000000 for 9000
  1219 hyphenation exceptions out of 8191
- 75i,12n,85p,1528b,1747s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,12n,85p,1528b,1748s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on seminar-proposal.pdf (26 pages, 393405 bytes).
+Output written on seminar-proposal.pdf (28 pages, 395377 bytes).
 PDF statistics:
- 574 PDF objects out of 1000 (max. 8388607)
- 506 compressed objects within 6 object streams
- 111 named destinations out of 1000 (max. 500000)
+ 583 PDF objects out of 1000 (max. 8388607)
+ 513 compressed objects within 6 object streams
+ 114 named destinations out of 1000 (max. 500000)
  47523 words of extra memory for PDF output out of 51595 (max. 10000000)
 

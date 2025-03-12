@@ -3,13 +3,13 @@ entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/Users/birrulwalidain/Downloads/skripsi-2/skripsi
-(/Users/birrulwalidain/Downloads/skripsi-2/skripsi.tex
+**/Users/birrulwalidain/Downloads/skripsi-2/seminar-hasil
+(/Users/birrulwalidain/Downloads/skripsi-2/seminar-hasil.tex
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
-(./lib/jifhasiltheme-final.cls
+(./lib/jifhasiltheme.cls
 
-LaTeX Warning: You have requested document class `lib/jifhasiltheme-final',
+LaTeX Warning: You have requested document class `lib/jifhasiltheme',
                but the document class provides `jifhasiltheme'.
 
 Document Class: jifhasiltheme 
@@ -281,7 +281,7 @@ Package: fancyhdr 2025/02/07 v5.2 Extensive control of page headers and footers
 \@temptokenb=\toks33
 ))
 
-LaTeX Warning: \include should only be used after \begin{document} on input line 28.
+LaTeX Warning: \include should only be used after \begin{document} on input line 29.
 
 (./language/hype.indonesia.tex) (/usr/local/texlive/2025/texmf-dist/tex/latex/tocloft/tocloft.sty
 Package: tocloft 2017/08/31 v2.3i parameterised ToC, etc., typesetting
@@ -342,16 +342,7 @@ Package caption Info: Standard document class detected.
 \c@caption@flags=\count300
 \c@continuedfloat=\count301
 Package caption Info: float package is loaded.
-) (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/amssymb.sty
-Package: amssymb 2013/01/14 v3.01 AMS font symbols
- (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/amsfonts.sty
-Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
-\symAMSa=\mathgroup5
-\symAMSb=\mathgroup6
-LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
-LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
-(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
-))
+)
 \c@appendices=\count302
 \cftbeforeappendicesskip=\skip113
 \cftappendicesindent=\skip114
@@ -486,7 +477,16 @@ Package caption Info: New subtype `subfigure' on input line 238.
 \c@subfigure=\count315
 Package caption Info: New subtype `subtable' on input line 238.
 \c@subtable=\count316
-) (/usr/local/texlive/2025/texmf-dist/tex/latex/tools/longtable.sty
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup5
+\symAMSb=\mathgroup6
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+)) (/usr/local/texlive/2025/texmf-dist/tex/latex/tools/longtable.sty
 Package: longtable 2024-10-27 v4.22 Multi-page Table package (DPC)
 \LTleft=\skip122
 \LTright=\skip123
@@ -665,7 +665,7 @@ Package: ulem 2019/11/18
 \ULdepth=\dimen284
 )
 
-LaTeX Warning: \include should only be used after \begin{document} on input line 119.
+LaTeX Warning: \include should only be used after \begin{document} on input line 149.
 
 (./include/sampul-depan.tex) (/usr/local/texlive/2025/texmf-dist/tex/latex/graphics/rotating.sty
 Package: rotating 2016/08/11 v2.16d rotated objects in LaTeX
@@ -717,91 +717,36 @@ File: pppdftex.def 2025/01/30 v0.6e Pdfpages driver for pdfTeX (AM)
 \c@AM@survey=\count357
 \AM@templatesizebox=\box84
 )
-
-LaTeX Warning: Package "xcolor" has already been loaded: ignoring load-time
-(LaTeX)        option "xcdraw".
-
-LaTeX Font Info:    Trying to load font information for T1+ptm on input line 143.
-(/usr/local/texlive/2025/texmf-dist/tex/latex/psnfss/t1ptm.fd
+LaTeX Font Info:    Trying to load font information for T1+ptm on input line 176.
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/psnfss/t1ptm.fd
 File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count358
 \l__pdf_internal_box=\box85
-) (./skripsi.aux (./include/bebas-plagiasi.aux) (./include/surat-pernyataan.aux) (./include/abstrak-indonesia.aux) (./include/abstrak-english.aux) (./include/kata-pengantar.aux) (./include/daftar-singkatan.aux) (./include/bab1.aux) (./include/bab2.aux) (./include/bab3.aux) (./include/bab4.aux) (./include/bab5.aux)
+)
+No file seminar-hasil.aux.
+\openout1 = `seminar-hasil.aux'.
 
-Package natbib Warning: Citation `Beiser1992' multiply defined.
-
-
-Package natbib Warning: Citation `bengio2012' multiply defined.
-
-
-Package natbib Warning: Citation `brownlee2017' multiply defined.
-
-
-Package natbib Warning: Citation `dandrea-2014' multiply defined.
-
-
-Package natbib Warning: Citation `Demtroder2010' multiply defined.
-
-
-Package natbib Warning: Citation `fiantis2020land' multiply defined.
-
-
-Package natbib Warning: Citation `gasior2023analysis' multiply defined.
-
-
-Package natbib Warning: Citation `graves2013' multiply defined.
-
-
-Package natbib Warning: Citation `Griffiths2005' multiply defined.
-
-
-Package natbib Warning: Citation `hochreiter1997' multiply defined.
-
-
-Package natbib Warning: Citation `hollas-2013' multiply defined.
-
-
-Package natbib Warning: Citation `Kaufmann2020' multiply defined.
-
-
-Package natbib Warning: Citation `Liboff2003' multiply defined.
-
-
-Package natbib Warning: Citation `mason2015' multiply defined.
-
-
-Package natbib Warning: Citation `pathria2011' multiply defined.
-
-
-Package natbib Warning: Citation `thorne-1999' multiply defined.
-
-
-Package natbib Warning: Citation `zhang2019' multiply defined.
-
-(./include/lampiran.aux))
-\openout1 = `skripsi.aux'.
-
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 143.
-LaTeX Font Info:    ... okay on input line 143.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 143.
-LaTeX Font Info:    ... okay on input line 143.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 143.
-LaTeX Font Info:    ... okay on input line 143.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 143.
-LaTeX Font Info:    ... okay on input line 143.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 143.
-LaTeX Font Info:    ... okay on input line 143.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 143.
-LaTeX Font Info:    ... okay on input line 143.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 143.
-LaTeX Font Info:    ... okay on input line 143.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 143.
-LaTeX Font Info:    ... okay on input line 143.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 143.
-LaTeX Font Info:    ... okay on input line 143.
- (/usr/local/texlive/2025/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 176.
+LaTeX Font Info:    ... okay on input line 176.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 176.
+LaTeX Font Info:    ... okay on input line 176.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 176.
+LaTeX Font Info:    ... okay on input line 176.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 176.
+LaTeX Font Info:    ... okay on input line 176.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 176.
+LaTeX Font Info:    ... okay on input line 176.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 176.
+LaTeX Font Info:    ... okay on input line 176.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 176.
+LaTeX Font Info:    ... okay on input line 176.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 176.
+LaTeX Font Info:    ... okay on input line 176.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 176.
+LaTeX Font Info:    ... okay on input line 176.
+(/usr/local/texlive/2025/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count359
 \scratchdimen=\dimen292
@@ -863,40 +808,39 @@ Package: ltcaption 2021/01/08 v1.4c longtable captions (AR)
 )
 Package caption Info: rotating package is loaded.
 Package caption Info: End \AtBeginDocument code.
-Package hyperref Info: Link coloring OFF on input line 143.
- (./skripsi.out) (./skripsi.out)
+Package hyperref Info: Link coloring OFF on input line 176.
 \@outlinefile=\write4
-\openout4 = `skripsi.out'.
+\openout4 = `seminar-hasil.out'.
 
 \c@lstlisting=\count365
 Package microtype Info: Patching varwidth to enable character protrusion.
 \MT@vwid@leftmargin=\dimen294
 \MT@vwid@rightmargin=\dimen295
-LaTeX Info: Redefining \microtypecontext on input line 143.
-Package microtype Info: Applying patch `item' on input line 143.
-Package microtype Info: Applying patch `toc' on input line 143.
-Package microtype Info: Applying patch `eqnum' on input line 143.
-Package microtype Info: Applying patch `footnote' on input line 143.
-Package microtype Info: Applying patch `verbatim' on input line 143.
-LaTeX Info: Redefining \microtypesetup on input line 143.
+LaTeX Info: Redefining \microtypecontext on input line 176.
+Package microtype Info: Applying patch `item' on input line 176.
+Package microtype Info: Applying patch `toc' on input line 176.
+Package microtype Info: Applying patch `eqnum' on input line 176.
+Package microtype Info: Applying patch `footnote' on input line 176.
+Package microtype Info: Applying patch `verbatim' on input line 176.
+LaTeX Info: Redefining \microtypesetup on input line 176.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
 Package microtype Info: Automatic font expansion enabled (level 2),
 (microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
 Package microtype Info: Using default expansion set `alltext-nott'.
-LaTeX Info: Redefining \showhyphens on input line 143.
+LaTeX Info: Redefining \showhyphens on input line 176.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/microtype/mt-ptm.cfg
 File: mt-ptm.cfg 2006/04/20 v1.7 microtype config. file: Times (RS)
 )
-Package translations Info: no dictionary file `translations-basic-dictionary-malay.trsl' found. on input line 143.
+Package translations Info: no dictionary file `translations-basic-dictionary-malay.trsl' found. on input line 176.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/translations/translations-basic-dictionary-english.trsl
 File: translations-basic-dictionary-english.trsl (english translation file `translations-basic-dictionary')
 )
-Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 143.
+Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 176.
 
 
 Package geometry Warning: `a4paper': not available in `\newgeometry'; skipped.
@@ -936,26 +880,26 @@ Package geometry Warning: `a4paper': not available in `\newgeometry'; skipped.
 (/usr/local/texlive/2025/texmf-dist/tex/latex/microtype/mt-cmr.cfg
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+lasy on input line 148.
+LaTeX Font Info:    Trying to load font information for U+lasy on input line 180.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-LaTeX Font Info:    Trying to load font information for U+msa on input line 148.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 180.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 148.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 180.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/microtype/mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
-<image/logo_unsyiah.png, id=247, 264.99pt x 264.99pt>
+<image/logo_unsyiah.png, id=4, 264.99pt x 264.99pt>
 File: image/logo_unsyiah.png Graphic file (type png)
 <use image/logo_unsyiah.png>
-Package pdftex.def Info: image/logo_unsyiah.png  used on input line 148.
+Package pdftex.def Info: image/logo_unsyiah.png  used on input line 180.
 (pdftex.def)             Requested size: 123.77074pt x 123.77301pt.
 
 
@@ -963,39 +907,31 @@ Package pdftex.def Info: image/logo_unsyiah.png  used on input line 148.
 
 
 {/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/base/8r.enc} <./image/logo_unsyiah.png>]
-Overfull \hbox (27.15996pt too wide) in paragraph at lines 149--149
- [][] 
- []
+\openout2 = `include/abstrak-indonesia.aux'.
 
-
+ (./include/abstrak-indonesia.tex)
 
 [2
 
 
+
 ]
-\openout2 = `include/bebas-plagiasi.aux'.
+\openout2 = `include/abstrak-english.aux'.
 
- (./include/bebas-plagiasi.tex
-Overfull \hbox (159.54651pt too wide) in paragraph at lines 9--24
-[][] 
- []
-
-)
-Overfull \hbox (73.46774pt too wide) in paragraph at lines 37--151
-[][] 
- []
-
-
+ (./include/abstrak-english.tex)
 
 [3
 
 
-]
-\openout2 = `include/surat-pernyataan.aux'.
 
- (./include/surat-pernyataan.tex)
-Overfull \hbox (4.24031pt too wide) in paragraph at lines 35--152
-[][]
+
+
+]
+\openout2 = `include/kata-pengantar.aux'.
+
+ (./include/kata-pengantar.tex)
+Overfull \hbox (73.46774pt too wide) in paragraph at lines 29--192
+[][] 
  []
 
 
@@ -1006,82 +942,41 @@ Overfull \hbox (4.24031pt too wide) in paragraph at lines 35--152
 
 
 ]
-\openout2 = `include/abstrak-indonesia.aux'.
+No file seminar-hasil.toc.
+\tf@toc=\write5
+\openout5 = `seminar-hasil.toc'.
 
- (./include/abstrak-indonesia.tex)
+
 
 [5
 
 
 
-
-
 ]
-\openout2 = `include/abstrak-english.aux'.
+No file seminar-hasil.lot.
+\tf@lot=\write6
+\openout6 = `seminar-hasil.lot'.
 
- (./include/abstrak-english.tex)
+
 
 [6
 
-
-
-
-
 ]
-\openout2 = `include/kata-pengantar.aux'.
-
- (./include/kata-pengantar.tex)
-Overfull \hbox (73.46774pt too wide) in paragraph at lines 29--158
-[][] 
- []
+No file seminar-hasil.lof.
+\tf@lof=\write7
+\openout7 = `seminar-hasil.lof'.
 
 
 
 [7
 
+] (./seminar-hasil.apc)
+\tf@apc=\write8
+\openout8 = `seminar-hasil.apc'.
 
 
-
-] (./skripsi.toc
 
 [8
-
-
-
-]
-Overfull \hbox (0.50574pt too wide) detected at line 89
-\T1/ptm/m/n/12 2.10. 
- []
-
-)
-\tf@toc=\write5
-\openout5 = `skripsi.toc'.
-
-
-
-[9] (./skripsi.lot)
-\tf@lot=\write6
-\openout6 = `skripsi.lot'.
-
-
-
-[10
-
-] (./skripsi.lof)
-\tf@lof=\write7
-\openout7 = `skripsi.lof'.
-
-
-
-[11
-
-] (./skripsi.apc)
-\tf@apc=\write8
-\openout8 = `skripsi.apc'.
-
-
-
-[12
 
 ]
 \openout2 = `include/daftar-singkatan.aux'.
@@ -1092,6 +987,21 @@ Overfull \hbox (0.50574pt too wide) detected at line 89
  (./include/bab1.tex
 BAB I.
 
+Package natbib Warning: Citation `hollas-2013' on page 1 undefined on input line 11.
+
+
+Package natbib Warning: Citation `thorne-1999' on page 1 undefined on input line 11.
+
+
+Package natbib Warning: Citation `gasior2023analysis' on page 1 undefined on input line 12.
+
+
+Package natbib Warning: Citation `dandrea-2014' on page 1 undefined on input line 12.
+
+
+Package natbib Warning: Citation `fiantis2020land' on page 1 undefined on input line 13.
+
+
 
 [1
 
@@ -1099,7 +1009,11 @@ BAB I.
 
 
 
-] (./skripsi.bbl
+]
+
+Package natbib Warning: Citation `fiantis2020land' on page 2 undefined on input line 17.
+
+(./seminar-hasil.bbl
 
 [2]
 
@@ -1112,10 +1026,29 @@ BAB I.
 
  (./include/bab2.tex
 BAB II.
+
+Package natbib Warning: Citation `Beiser1992' on page 5 undefined on input line 20.
+
+
+Package natbib Warning: Citation `Beiser1992' on page 5 undefined on input line 25.
+
+
+Package natbib Warning: Citation `Griffiths2005' on page 5 undefined on input line 25.
+
+
+Package natbib Warning: Citation `Liboff2003' on page 5 undefined on input line 31.
+
 LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 35.
 (/usr/local/texlive/2025/texmf-dist/tex/latex/psnfss/ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 )
+
+Package natbib Warning: Citation `Demtroder2010' on page 5 undefined on input line 35.
+
+
+Package natbib Warning: Citation `Kaufmann2020' on page 5 undefined on input line 36.
+
+
 
 [5
 
@@ -1124,15 +1057,39 @@ File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 
 ]
 
+Package natbib Warning: Citation `Demtroder2010' on page 6 undefined on input line 40.
+
+
+
 [6]
 
 [7]
 
+Package natbib Warning: Citation `hochreiter1997' on page 8 undefined on input line 124.
+
+
+Package natbib Warning: Citation `graves2013' on page 8 undefined on input line 125.
+
+
+
 [8]
 
+Package natbib Warning: Citation `graves2013' on page 9 undefined on input line 130.
+
+
+Package natbib Warning: Citation `zhang2019' on page 9 undefined on input line 135.
+
+
+Package natbib Warning: Citation `bengio2012' on page 9 undefined on input line 140.
+
+
+
 [9]
+
+Package natbib Warning: Citation `hochreiter1997' on page 10 undefined on input line 151.
+
 LaTeX Font Info:    Trying to load font information for T1+pcr on input line 157.
- (/usr/local/texlive/2025/texmf-dist/tex/latex/psnfss/t1pcr.fd
+(/usr/local/texlive/2025/texmf-dist/tex/latex/psnfss/t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
 )
 Package microtype Info: Loading generic protrusion settings for font family
@@ -1141,10 +1098,20 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             See the microtype manual for details.
 
 
+Package natbib Warning: Citation `graves2013' on page 10 undefined on input line 163.
+
+
+
 [10]
 Overfull \hbox (141.8348pt too wide) in paragraph at lines 170--170
 []\T1/pcr/m/n/12 model.add(LSTM(64, return_sequences=True, input_shape=(timesteps, features)))[] 
  []
+
+
+Package natbib Warning: Citation `bengio2012' on page 11 undefined on input line 175.
+
+
+Package natbib Warning: Citation `zhang2019' on page 11 undefined on input line 187.
 
 
 
@@ -1152,7 +1119,15 @@ Overfull \hbox (141.8348pt too wide) in paragraph at lines 170--170
 
 [12]
 
+Package natbib Warning: Citation `pathria2011' on page 13 undefined on input line 211.
+
+
+
 [13]
+
+Package natbib Warning: Citation `mason2015' on page 14 undefined on input line 218.
+
+
 
 [14])
 
@@ -1169,17 +1144,30 @@ BAB III.
 
 
 ]
-<image/lstm1.png, id=538, 90.3375pt x 235.88126pt>
+
+LaTeX Warning: Reference `fig:lstm_architecture' on page 17 undefined on input line 40.
+
+<image/lstm1.png, id=200, 90.3375pt x 235.88126pt>
 File: image/lstm1.png Graphic file (type png)
 <use image/lstm1.png>
 Package pdftex.def Info: image/lstm1.png  used on input line 44.
 (pdftex.def)             Requested size: 82.51173pt x 215.44771pt.
 
+Package natbib Warning: Citation `brownlee2017' on page 17 undefined on input line 49.
+
+
 
 [17 <./image/lstm1.png>]
+
+Package natbib Warning: Citation `brownlee2017' on page 18 undefined on input line 59.
+
+
 Overfull \hbox (33.83484pt too wide) in paragraph at lines 76--76
 []\T1/pcr/m/n/12 padded_sequences = pad_sequences(sequences, maxlen=max_length)[] 
  []
+
+
+Package natbib Warning: Citation `brownlee2017' on page 18 undefined on input line 80.
 
 
 
@@ -1209,7 +1197,7 @@ BAB V.
 
 
 
-] (./skripsi.bbl
+] (./seminar-hasil.bbl
 pdfTeX warning (ext4): destination with the same identifier (name{cite.Beiser1992}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
@@ -1223,72 +1211,72 @@ l.8 \bibitem[Bengio et~al., 2012]{bengio2012}
 pdfTeX warning (ext4): destination with the same identifier (name{cite.brownlee2017}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.14 \bibitem[Brownlee, 2017]{brownlee2017}
+l.13 \bibitem[Brownlee, 2017]{brownlee2017}
                                            
 pdfTeX warning (ext4): destination with the same identifier (name{cite.dandrea-2014}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.19 \bibitem[D'Andrea et~al., 2014]{dandrea-2014}
+l.18 \bibitem[D'Andrea et~al., 2014]{dandrea-2014}
                                                   
 pdfTeX warning (ext4): destination with the same identifier (name{cite.Demtroder2010}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.26 \bibitem[Demtröder, 2010]{Demtroder2010}
+l.23 \bibitem[Demtröder, 2010]{Demtroder2010}
                                               
 pdfTeX warning (ext4): destination with the same identifier (name{cite.fiantis2020land}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.31 ...tem[Fiantis et~al., 2020]{fiantis2020land}
+l.28 ...tem[Fiantis et~al., 2020]{fiantis2020land}
                                                   
 pdfTeX warning (ext4): destination with the same identifier (name{cite.gasior2023analysis}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.37 ...{a}}sior et~al., 2023]{gasior2023analysis}
+l.33 ...{a}}sior et~al., 2023]{gasior2023analysis}
                                                   
 pdfTeX warning (ext4): destination with the same identifier (name{cite.graves2013}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.43 \bibitem[Graves et~al., 2013]{graves2013}
+l.38 \bibitem[Graves et~al., 2013]{graves2013}
                                               
 pdfTeX warning (ext4): destination with the same identifier (name{cite.Griffiths2005}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.49 \bibitem[Griffiths, 2005]{Griffiths2005}
+l.43 \bibitem[Griffiths, 2005]{Griffiths2005}
                                              
 pdfTeX warning (ext4): destination with the same identifier (name{cite.hochreiter1997}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.54 ...ter and Schmidhuber, 1997]{hochreiter1997}
+l.48 ...ter and Schmidhuber, 1997]{hochreiter1997}
                                                   
 pdfTeX warning (ext4): destination with the same identifier (name{cite.hollas-2013}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.59 \bibitem[Hollas, 2013]{hollas-2013}
+l.53 \bibitem[Hollas, 2013]{hollas-2013}
                                         
 pdfTeX warning (ext4): destination with the same identifier (name{cite.Kaufmann2020}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.64 ...Kaufmann and Freedman, 2020]{Kaufmann2020}
+l.58 ...Kaufmann and Freedman, 2020]{Kaufmann2020}
                                                   
 pdfTeX warning (ext4): destination with the same identifier (name{cite.Liboff2003}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.69 \bibitem[Liboff, 2003]{Liboff2003}
+l.63 \bibitem[Liboff, 2003]{Liboff2003}
                                        
 pdfTeX warning (ext4): destination with the same identifier (name{cite.mason2015}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.74 \bibitem[Mason, 2015]{mason2015}
+l.68 \bibitem[Mason, 2015]{mason2015}
                                      
 pdfTeX warning (ext4): destination with the same identifier (name{cite.pathria2011}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.79 ...item[Pathria and Beale, 2011]{pathria2011}
+l.73 ...item[Pathria and Beale, 2011]{pathria2011}
                                                   
 pdfTeX warning (ext4): destination with the same identifier (name{cite.thorne-1999}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.84 \bibitem[Thorne et~al., 1999]{thorne-1999}
+l.78 \bibitem[Thorne et~al., 1999]{thorne-1999}
                                                
 
 [22
@@ -1299,7 +1287,7 @@ l.84 \bibitem[Thorne et~al., 1999]{thorne-1999}
 pdfTeX warning (ext4): destination with the same identifier (name{cite.zhang2019}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.89 \bibitem[Zhang et~al., 2019]{zhang2019}
+l.83 \bibitem[Zhang et~al., 2019]{zhang2019}
                                             )
 
 [23]
@@ -1312,29 +1300,47 @@ l.89 \bibitem[Zhang et~al., 2019]{zhang2019}
 
 ]
 
-Package natbib Warning: There were multiply defined citations.
+Package natbib Warning: There were undefined citations.
 
-(./skripsi.aux (./include/bebas-plagiasi.aux) (./include/surat-pernyataan.aux) (./include/abstrak-indonesia.aux) (./include/abstrak-english.aux) (./include/kata-pengantar.aux) (./include/daftar-singkatan.aux) (./include/bab1.aux) (./include/bab2.aux) (./include/bab3.aux) (./include/bab4.aux) (./include/bab5.aux) (./include/lampiran.aux))
+(./seminar-hasil.aux (./include/abstrak-indonesia.aux) (./include/abstrak-english.aux) (./include/kata-pengantar.aux) (./include/daftar-singkatan.aux) (./include/bab1.aux
+
+Package natbib Warning: Citation(s) may have changed.
+(natbib)                Rerun to get citations correct.
+
+) (./include/bab2.aux) (./include/bab3.aux) (./include/bab4.aux) (./include/bab5.aux) (./include/lampiran.aux))
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
-Package rerunfilecheck Info: File `skripsi.out' has not changed.
-(rerunfilecheck)             Checksum: DF8862E41DB506DD5CA85DCC39AFEB1B;9266.
+
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+Package rerunfilecheck Warning: File `seminar-hasil.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `seminar-hasil.out':
+(rerunfilecheck)             Before: <no file>
+(rerunfilecheck)             After:  206924A26A99B1F2E6AF681C2CF6C493;8384.
  ) 
 Here is how much of TeX's memory you used:
- 26361 strings out of 473190
- 486311 string characters out of 5715801
- 897708 words of memory out of 5000000
- 48642 multiletter control sequences out of 15000+600000
- 609256 words of font info for 253 fonts, out of 8000000 for 9000
+ 26173 strings out of 473190
+ 482265 string characters out of 5715801
+ 884212 words of memory out of 5000000
+ 48522 multiletter control sequences out of 15000+600000
+ 608579 words of font info for 244 fonts, out of 8000000 for 9000
  1219 hyphenation exceptions out of 8191
- 75i,19n,85p,1502b,1790s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,12n,85p,1512b,1252s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on skripsi.pdf (36 pages, 407114 bytes).
+Output written on seminar-hasil.pdf (32 pages, 390004 bytes).
 PDF statistics:
- 675 PDF objects out of 1000 (max. 8388607)
- 597 compressed objects within 6 object streams
- 135 named destinations out of 1000 (max. 500000)
- 47603 words of extra memory for PDF output out of 51595 (max. 10000000)
+ 344 PDF objects out of 1000 (max. 8388607)
+ 273 compressed objects within 3 object streams
+ 126 named destinations out of 1000 (max. 500000)
+ 47115 words of extra memory for PDF output out of 51595 (max. 10000000)
 
