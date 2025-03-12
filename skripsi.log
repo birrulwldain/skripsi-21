@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  13 MAR 2025 01:05
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  13 MAR 2025 01:06
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1096,9 +1096,6 @@ Package natbib Warning: Citation `Demtroder2010' on page 3 undefined on input li
 Package natbib Warning: Citation `Kaufmann2020' on page 3 undefined on input line 36.
 
 
-Package natbib Warning: Citation `Demtroder2010' on page 3 undefined on input line 40.
-
-
 
 [3
 
@@ -1106,6 +1103,10 @@ Package natbib Warning: Citation `Demtroder2010' on page 3 undefined on input li
 
 
 ]
+
+Package natbib Warning: Citation `Demtroder2010' on page 4 undefined on input line 40.
+
+
 
 [4]
 
@@ -1117,19 +1118,22 @@ Package natbib Warning: Citation `hochreiter1997' on page 6 undefined on input l
 Package natbib Warning: Citation `graves2013' on page 6 undefined on input line 125.
 
 
-Package natbib Warning: Citation `graves2013' on page 6 undefined on input line 130.
-
-
-Package natbib Warning: Citation `zhang2019' on page 6 undefined on input line 135.
-
-
 
 [6]
+
+Package natbib Warning: Citation `graves2013' on page 7 undefined on input line 130.
+
+
+Package natbib Warning: Citation `zhang2019' on page 7 undefined on input line 135.
+
 
 Package natbib Warning: Citation `bengio2012' on page 7 undefined on input line 140.
 
 
-Package natbib Warning: Citation `hochreiter1997' on page 7 undefined on input line 151.
+
+[7]
+
+Package natbib Warning: Citation `hochreiter1997' on page 8 undefined on input line 151.
 
 LaTeX Font Info:    Trying to load font information for T1+pcr on input line 157.
 (/usr/local/texlive/2025/texmf-dist/tex/latex/psnfss/t1pcr.fd
@@ -1141,69 +1145,70 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             See the microtype manual for details.
 
 
-[7]
-
 Package natbib Warning: Citation `graves2013' on page 8 undefined on input line 163.
 
 
+
+[8]
 Overfull \hbox (141.8348pt too wide) in paragraph at lines 170--170
 []\T1/pcr/m/n/12 model.add(LSTM(64, return_sequences=True, input_shape=(timesteps, features)))[] 
  []
 
 
-Package natbib Warning: Citation `bengio2012' on page 8 undefined on input line 175.
+Package natbib Warning: Citation `bengio2012' on page 9 undefined on input line 175.
 
 
-Package natbib Warning: Citation `zhang2019' on page 8 undefined on input line 187.
+Package natbib Warning: Citation `zhang2019' on page 9 undefined on input line 187.
 
 
-
-[8]
 
 [9]
 
-Package natbib Warning: Citation `pathria2011' on page 10 undefined on input line 211.
-
-
-Package natbib Warning: Citation `mason2015' on page 10 undefined on input line 218.
-
-
-
 [10]
 
-Package natbib Warning: Citation `Godio2016' on page 11 undefined on input line 246.
+Package natbib Warning: Citation `pathria2011' on page 11 undefined on input line 211.
 
 
 
-[11])
+[11]
+
+Package natbib Warning: Citation `mason2015' on page 12 undefined on input line 218.
+
+
 
 [12]
+
+Package natbib Warning: Citation `Godio2016' on page 13 undefined on input line 246.
+
+)
+
+[13]
 \openout2 = `include/bab3.aux'.
 
  (./include/bab3.tex
 BAB III.
 
 
-[13
+[14
 
 
 
 
 ]
-<image/lstm1.png, id=456, 90.3375pt x 235.88126pt>
+<image/lstm1.png, id=460, 90.3375pt x 235.88126pt>
 File: image/lstm1.png Graphic file (type png)
 <use image/lstm1.png>
 Package pdftex.def Info: image/lstm1.png  used on input line 44.
 (pdftex.def)             Requested size: 82.51173pt x 215.44771pt.
 
 
-Package natbib Warning: Citation `brownlee2017' on page 14 undefined on input line 49.
+Package natbib Warning: Citation `brownlee2017' on page 15 undefined on input line 49.
 
 
 
-[14 <./image/lstm1.png>]
+[15 <./image/lstm1.png>]
 
-Package natbib Warning: Citation `brownlee2017' on page 15 undefined on input line 59.
+Package natbib Warning: Citation `brownlee2017' on page 16 undefined on input line 59.
 
 
 Overfull \hbox (33.83484pt too wide) in paragraph at lines 76--76
@@ -1211,18 +1216,20 @@ Overfull \hbox (33.83484pt too wide) in paragraph at lines 76--76
  []
 
 
-Package natbib Warning: Citation `brownlee2017' on page 15 undefined on input line 80.
+Package natbib Warning: Citation `brownlee2017' on page 16 undefined on input line 80.
 
-)
 
-[15]
+
+[16])
+
+[17]
 \openout2 = `include/bab4.aux'.
 
  (./include/bab4.tex
 BAB IV.
 )
 
-[16
+[18
 
 
 
@@ -1234,24 +1241,20 @@ BAB IV.
 BAB V.
 )
 
-[17
+[19
 
 
 
 
 ]
 No file skripsi.bbl.
-
-
-[18
-
-
-]
 \openout2 = `include/lampiran.aux'.
 
- (./include/lampiran.tex)
+(./include/lampiran.tex)
 
-[19
+[20
+
+
 
 
 ]
@@ -1263,22 +1266,26 @@ Package natbib Warning: There were undefined citations.
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
 Package rerunfilecheck Info: File `skripsi.out' has not changed.
 (rerunfilecheck)             Checksum: 6C96E1957DDF0F9760BD0C27DFDDBD9C;9266.
  ) 
 Here is how much of TeX's memory you used:
- 26266 strings out of 473190
- 484655 string characters out of 5715801
+ 26269 strings out of 473190
+ 484730 string characters out of 5715801
  897115 words of memory out of 5000000
- 48585 multiletter control sequences out of 15000+600000
+ 48587 multiletter control sequences out of 15000+600000
  608673 words of font info for 247 fonts, out of 8000000 for 9000
  1219 hyphenation exceptions out of 8191
- 75i,19n,85p,1506b,1263s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,19n,85p,1506b,1607s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on skripsi.pdf (31 pages, 396462 bytes).
+Output written on skripsi.pdf (32 pages, 397233 bytes).
 PDF statistics:
- 576 PDF objects out of 1000 (max. 8388607)
- 503 compressed objects within 6 object streams
- 111 named destinations out of 1000 (max. 500000)
+ 580 PDF objects out of 1000 (max. 8388607)
+ 506 compressed objects within 6 object streams
+ 112 named destinations out of 1000 (max. 500000)
  47603 words of extra memory for PDF output out of 51595 (max. 10000000)
 

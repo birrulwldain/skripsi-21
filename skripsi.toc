@@ -48,7 +48,7 @@
 \contentsline {subsubsection}{Mekanisme ablasi laser: \textit {thermal vaporization}, \textit {photochemical decomposition}, \textit {photophysical sputtering}.}{4}{subsection.2.2.1}%
 \contentsline {subsubsection}{Formasi plasma: ionisasi atom dan molekul, pembentukan spesies tereksitasi.}{4}{subsection.2.2.1}%
 \contentsline {subsubsection}{Emisi atomik: de-eksitasi radiatif dan emisi foton pada panjang gelombang karakteristik.}{4}{subsection.2.2.1}%
-\contentsline {subsubsection}{Simulasi Spektrum Emisi:}{4}{subsection.2.2.1}%
+\contentsline {subsubsection}{Simulasi Spektrum Emisi:}{5}{subsection.2.2.1}%
 \contentsline {subsubsection}{Akuisisi dan analisis spektrum: identifikasi unsur dan kuantifikasi konsentrasi.}{5}{subsection.2.2.1}%
 \contentsline {subsection}{\numberline {2.2.2}Karakteristik Plasma LIBS}{5}{subsection.2.2.2}%
 \contentsline {subsubsection}{Parameter plasma: suhu, densitas elektron, komposisi spesies.}{5}{subsection.2.2.2}%
@@ -61,46 +61,46 @@
 \contentsline {subsubsection}{Diagram Grotrian Nd:YAG:}{5}{subsection.2.2.3}%
 \contentsline {subsubsection}{Keuntungan menggunakan laser Nd:YAG dalam LIBS: ketersediaan, keandalan, fleksibilitas panjang gelombang.}{5}{subsection.2.2.3}%
 \contentsline {subsubsection}{Pertimbangan dalam menggunakan laser Nd:YAG untuk CF-LIBS: validitas asumsi LTE.}{5}{subsection.2.2.3}%
-\contentsline {subsection}{\numberline {2.2.4}Calibration-Free LIBS (CF-LIBS)}{5}{subsection.2.2.4}%
-\contentsline {subsubsection}{Motivasi CF-LIBS: mengatasi keterbatasan kalibrasi standar (efek matriks, kesulitan mendapatkan standar yang sesuai).}{5}{subsection.2.2.4}%
-\contentsline {subsubsection}{Prinsip dasar CF-LIBS: penggunaan persamaan Boltzmann dan Saha untuk menghubungkan intensitas emisi dengan konsentrasi unsur.}{5}{subsection.2.2.4}%
-\contentsline {subsubsection}{Metode CF-LIBS: \textit {one-line}, \textit {multi-line}, \textit {iterative}.}{5}{subsection.2.2.4}%
-\contentsline {subsubsection}{Asumsi LTE dalam CF-LIBS dan validitasnya pada plasma yang dihasilkan oleh laser Nd:YAG.}{5}{subsection.2.2.4}%
-\contentsline {subsubsection}{Keunggulan CF-LIBS: analisis kuantitatif tanpa standar, kecepatan, fleksibilitas.}{5}{subsection.2.2.4}%
+\contentsline {subsection}{\numberline {2.2.4}Calibration-Free LIBS (CF-LIBS)}{6}{subsection.2.2.4}%
+\contentsline {subsubsection}{Motivasi CF-LIBS: mengatasi keterbatasan kalibrasi standar (efek matriks, kesulitan mendapatkan standar yang sesuai).}{6}{subsection.2.2.4}%
+\contentsline {subsubsection}{Prinsip dasar CF-LIBS: penggunaan persamaan Boltzmann dan Saha untuk menghubungkan intensitas emisi dengan konsentrasi unsur.}{6}{subsection.2.2.4}%
+\contentsline {subsubsection}{Metode CF-LIBS: \textit {one-line}, \textit {multi-line}, \textit {iterative}.}{6}{subsection.2.2.4}%
+\contentsline {subsubsection}{Asumsi LTE dalam CF-LIBS dan validitasnya pada plasma yang dihasilkan oleh laser Nd:YAG.}{6}{subsection.2.2.4}%
+\contentsline {subsubsection}{Keunggulan CF-LIBS: analisis kuantitatif tanpa standar, kecepatan, fleksibilitas.}{6}{subsection.2.2.4}%
 \contentsline {subsubsection}{Tantangan CF-LIBS: akurasi pengukuran parameter plasma, efek \textit {self-absorption}.}{6}{subsection.2.2.4}%
 \contentsline {subsection}{\numberline {2.2.5}Aplikasi LIBS}{6}{subsection.2.2.5}%
 \contentsline {subsubsection}{Contoh aplikasi LIBS di berbagai bidang:}{6}{subsection.2.2.5}%
 \contentsline {section}{\numberline {2.3}Model Long Short-Term Memory (LSTM)}{6}{section.2.3}%
-\contentsline {section}{\numberline {2.4}Struktur dan Mekanisme LSTM}{6}{section.2.4}%
+\contentsline {section}{\numberline {2.4}Struktur dan Mekanisme LSTM}{7}{section.2.4}%
 \contentsline {section}{\numberline {2.5}Aplikasi LSTM}{7}{section.2.5}%
-\contentsline {section}{\numberline {2.6}Pelatihan dan Evaluasi Model LSTM}{7}{section.2.6}%
-\contentsline {subsection}{\numberline {2.6.1}Input Layer}{7}{subsection.2.6.1}%
-\contentsline {subsection}{\numberline {2.6.2}LSTM Layer}{8}{subsection.2.6.2}%
-\contentsline {subsection}{\numberline {2.6.3}Dropout Layer}{8}{subsection.2.6.3}%
-\contentsline {subsection}{\numberline {2.6.4}Dense Layer}{8}{subsection.2.6.4}%
-\contentsline {section}{\numberline {2.7}Struktur Kelas}{9}{section.2.7}%
-\contentsline {section}{\numberline {2.8}Metode Utama}{9}{section.2.8}%
-\contentsline {subsection}{\numberline {2.8.1}Fungsi Partisi}{9}{subsection.2.8.1}%
-\contentsline {subsection}{\numberline {2.8.2}Menghitung Intensitas}{10}{subsection.2.8.2}%
-\contentsline {section}{\numberline {2.9}Profil Voigt dalam Analisis Spektrum}{10}{section.2.9}%
-\contentsline {subsection}{\numberline {2.9.1}Profil Lorentzian}{10}{subsection.2.9.1}%
-\contentsline {subsection}{\numberline {2.9.2}Profil Gaussian}{11}{subsection.2.9.2}%
-\contentsline {subsection}{\numberline {2.9.3}Konvolusi Gaussian dan Lorentzian}{11}{subsection.2.9.3}%
-\contentsline {section}{\numberline {2.10}Simulasi Spektrum}{12}{section.2.10}%
-\contentsline {chapter}{\numberline {III}METODE PENENILITIAN}{13}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Waktu dan Lokasi Penelitian}{13}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Alat dan Bahan}{13}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Metode Penelitian}{14}{section.3.3}%
-\contentsline {section}{\numberline {3.4}Persiapan Data Numerik}{14}{section.3.4}%
-\contentsline {subsection}{\numberline {3.4.1}Normalisasi}{14}{subsection.3.4.1}%
-\contentsline {section}{\numberline {3.5}Persiapan Data Kategorikal}{15}{section.3.5}%
-\contentsline {subsection}{\numberline {3.5.1}One-Hot Encoding}{15}{subsection.3.5.1}%
-\contentsline {section}{\numberline {3.6}Menangani Urutan dengan Panjang Bervariasi}{15}{section.3.6}%
-\contentsline {subsection}{\numberline {3.6.1}Padding}{15}{subsection.3.6.1}%
-\contentsline {section}{\numberline {3.7}Prediksi Urutan sebagai Pembelajaran Terawasi}{15}{section.3.7}%
-\contentsline {chapter}{\numberline {IV}HASIL DAN PEMBAHASAN}{16}{chapter.4}%
-\contentsline {chapter}{\numberline {V}KESIMPULAN DAN SARAN}{17}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Kesimpulan}{17}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Saran}{17}{section.5.2}%
-\contentsline {chapter}{DAFTAR PUSTAKA}{18}{section.5.2}%
-\contentsline {chapter}{LAMPIRAN}{19}{section.5.2}%
+\contentsline {section}{\numberline {2.6}Pelatihan dan Evaluasi Model LSTM}{8}{section.2.6}%
+\contentsline {subsection}{\numberline {2.6.1}Input Layer}{8}{subsection.2.6.1}%
+\contentsline {subsection}{\numberline {2.6.2}LSTM Layer}{9}{subsection.2.6.2}%
+\contentsline {subsection}{\numberline {2.6.3}Dropout Layer}{9}{subsection.2.6.3}%
+\contentsline {subsection}{\numberline {2.6.4}Dense Layer}{10}{subsection.2.6.4}%
+\contentsline {section}{\numberline {2.7}Struktur Kelas}{10}{section.2.7}%
+\contentsline {section}{\numberline {2.8}Metode Utama}{10}{section.2.8}%
+\contentsline {subsection}{\numberline {2.8.1}Fungsi Partisi}{11}{subsection.2.8.1}%
+\contentsline {subsection}{\numberline {2.8.2}Menghitung Intensitas}{11}{subsection.2.8.2}%
+\contentsline {section}{\numberline {2.9}Profil Voigt dalam Analisis Spektrum}{12}{section.2.9}%
+\contentsline {subsection}{\numberline {2.9.1}Profil Lorentzian}{12}{subsection.2.9.1}%
+\contentsline {subsection}{\numberline {2.9.2}Profil Gaussian}{12}{subsection.2.9.2}%
+\contentsline {subsection}{\numberline {2.9.3}Konvolusi Gaussian dan Lorentzian}{13}{subsection.2.9.3}%
+\contentsline {section}{\numberline {2.10}Simulasi Spektrum}{13}{section.2.10}%
+\contentsline {chapter}{\numberline {III}METODE PENENILITIAN}{14}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Waktu dan Lokasi Penelitian}{14}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Alat dan Bahan}{14}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Metode Penelitian}{15}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Persiapan Data Numerik}{15}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}Normalisasi}{15}{subsection.3.4.1}%
+\contentsline {section}{\numberline {3.5}Persiapan Data Kategorikal}{16}{section.3.5}%
+\contentsline {subsection}{\numberline {3.5.1}One-Hot Encoding}{16}{subsection.3.5.1}%
+\contentsline {section}{\numberline {3.6}Menangani Urutan dengan Panjang Bervariasi}{16}{section.3.6}%
+\contentsline {subsection}{\numberline {3.6.1}Padding}{16}{subsection.3.6.1}%
+\contentsline {section}{\numberline {3.7}Prediksi Urutan sebagai Pembelajaran Terawasi}{16}{section.3.7}%
+\contentsline {chapter}{\numberline {IV}HASIL DAN PEMBAHASAN}{18}{chapter.4}%
+\contentsline {chapter}{\numberline {V}KESIMPULAN DAN SARAN}{19}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Kesimpulan}{19}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Saran}{19}{section.5.2}%
+\contentsline {chapter}{LAMPIRAN}{20}{section.5.2}%
+\contentsline {chapter}{DAFTAR PUSTAKA}{20}{section.5.2}%
