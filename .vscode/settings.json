@@ -19,5 +19,6 @@
       ]
     }
   ],
-  "formatting.latex": "default"
+  "formatting.latex": true,
+  "latex-workshop.view.outline.enabled": true
 }

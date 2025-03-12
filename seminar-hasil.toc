@@ -5,11 +5,17 @@
 \renewcommand {\cftchapfont }{\normalfont }
 \setlength {\cftbeforechapskip }{0pt}
 \contentsline {chapter}{Halaman Judul}{i}{Doc-Start}%
-\contentsline {chapter}{Halaman Pengesahan}{ii}{Doc-Start}%
-\contentsline {chapter}{Kata Pengantar}{iii}{chapter*.2}%
-\contentsline {chapter}{Daftar Isi}{iv}{Item.7}%
-\contentsline {chapter}{Daftar Tabel}{v}{chapter*.4}%
-\contentsline {chapter}{Daftar Gambar}{vi}{chapter*.5}%
+\contentsline {chapter}{Abstrak}{ii}{chapter*.1}%
+\babel@toc {english}{}\relax 
+\contentsline {chapter}{\textit {Abstract}}{iii}{chapter*.2}%
+\babel@toc {bahasa}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {bahasa}{}\relax 
+\contentsline {chapter}{Kata Pengantar}{iv}{chapter*.3}%
+\thispagestyle {empty}
+\addvspace {1ex}\addcontentsline {toc}{chapter}{Daftar Tabel}
+\addvspace {1ex}\addcontentsline {toc}{chapter}{Daftar Gambar}
+\addvspace {1ex}\addcontentsline {toc}{chapter}{Daftar Lampiran}
 \renewcommand {\cftchapfont }{\normalfont \bfseries }
 \renewcommand {\cftchappagefont }{\normalfont }
 \setlength {\cftbeforechapskip }{12pt}
@@ -89,4 +95,9 @@
 \contentsline {section}{\numberline {3.6}Menangani Urutan dengan Panjang Bervariasi}{18}{section.3.6}%
 \contentsline {subsection}{\numberline {3.6.1}Padding}{18}{subsection.3.6.1}%
 \contentsline {section}{\numberline {3.7}Prediksi Urutan sebagai Pembelajaran Terawasi}{18}{section.3.7}%
-\contentsline {chapter}{DAFTAR PUSTAKA}{20}{section.3.7}%
+\contentsline {chapter}{\numberline {IV}HASIL DAN PEMBAHASAN}{20}{chapter.4}%
+\contentsline {chapter}{\numberline {V}KESIMPULAN DAN SARAN}{21}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Kesimpulan}{21}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Saran}{21}{section.5.2}%
+\contentsline {chapter}{DAFTAR PUSTAKA}{22}{section.5.2}%
+\contentsline {chapter}{LAMPIRAN}{24}{chapter*.11}%
