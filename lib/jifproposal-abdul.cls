@@ -391,9 +391,10 @@
          NIP. \@firstnip & & NIP. \@secondnip%
       \end{tabular}%
       \vspace{1.0cm}%
-      Mengetahui:\\[1ex]%
+      \\Mengetahui:\\[1ex]%
       Ketua Departemen Fisika \\[0.5ex]%
       Universitas Syiah Kuala,\\[2ex]%
+      \vspace{-0.27cm}%
       \underline{Dr. Saumi Syahreza, S.Si, M.Si.}\\%
       NIP. \@kaprodinip%
     \end{doublespace}%
