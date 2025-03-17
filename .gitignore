@@ -1,0 +1,6 @@
+# Contoh .gitignore untuk proyek ML
+*.zip
+*.tar.gz
+*.h5
+*.pth
+/Users/birrulwalidain/skripsi-2/!project/proyek-lIbs
