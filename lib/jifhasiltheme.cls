@@ -24,7 +24,6 @@
 \usepackage{tabularx}
 
 % Membantu penulisan notasi matematika terutama untuk dokumen dengan banyak rumus. it's me!
-\usepackage{amsmath}
 
 \usepackage{booktabs}
 \usepackage[table]{xcolor}

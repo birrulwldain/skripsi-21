@@ -42,7 +42,7 @@ Alat dan Bahan yang akan digunakan pada penelitian ini terdiri dari beberapa per
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.2\textwidth]{image/lstm1.png} 
-    \caption{ LSTM Architecture.}
+    \caption{ LSTM Data kategorikal perlu diubah menjadi format numerik agar dapat digunakan dalam model LSTM. Dua metode umum untuk melakukan ini adalah One-Hot Encoding dan Label Encoding. One-Hot Encoding mengubah setiap kategori menjadi vektor biner, sedangkan Label Encoding memberikan setiap kategori nilai integer \citep{brownlee2017}}
     \label{fig:lstm_architecture}
 \end{figure}
 \section{Persiapan Data Numerik}
@@ -82,14 +82,81 @@ padded_sequences = pad_sequences(sequences, maxlen=max_length)
 
 \par Persiapan data yang tepat adalah langkah penting dalam pengembangan model LSTM. Dengan menggunakan teknik yang tepat untuk normalisasi, encoding, dan padding, kita dapat meningkatkan kinerja model dan memastikan bahwa data siap untuk analisis lebih lanjut.
 
+\begin{equation}
+    \frac{n_i \cdot n_e}{n_a} = \left( \frac{2}{\Lambda^3} \right) \cdot \left( \frac{g_i}{g_a} \right) \cdot \exp \left( -\frac{E_{ion}}{kT} \right)
+    \label{eq:rate}
+\end{equation}
 
-$$\frac{n_i \cdot n_e}{n_a} = \left( \frac{2}{\Lambda^3} \right) \cdot \left( \frac{g_i}{g_a} \right) \cdot \exp \left( -\frac{E_{ion}}{kT} \right)$$
 
-%-----------------------------------------------------------------------------%
+----------------------------------------------------------%
+\begin{lstlisting}[language=Python, caption=Contoh Fungsi Python]
+    def fibonacci(n):
+        """Menghitung deret Fibonacci"""
+        a, b = 0, 1
+        for _ in range(n):
+            print(a, end=' ')
+            a, b = b, a + b
+        return a
+    \end{lstlisting}
+----------------------------------------------------------
+% Tanpa figure
+\lstinputlisting[
+    language=Python,
+    caption= Ini adalah sebuah teorema.
+    Ini adalah sebuah teorema.
+    Ini adalah sebuah teorema.
+    Ini adalah sebuah teorema.
+    Implementasi Algoritma Dijkstra,
+    label=code:dijkstra
+]{/Users/birrulwalidain/skripsi-2/!project/src/train.py}
+
+
+
+\begin{theorem}
+Ini adalah sebuah teorema.
+\end{theorem}
+
+\begin{definition}
+Ini adalah definisi.
+\end{definition}
+
+\begin{remark}
+Ini adalah catatan tanpa nomor.
+\end{remark} 
+
+\begin{proof}
+Ini adalah bukti.
+\end{proof}
+ \begin{example}
+        f
+ \end{example}
+
+
+ \begin{table}[H]
+    \centering
+    \caption{Perbandingan Performa Model Performa Model Performa Model Performa Model Machine Learning pada Data LIBS}
+    \label{tab:performa_ml}
+    \centering
+    \begin{tabular}{lcccc}
+      \toprule
+      Model & Akurasi (\%) & Presisi (\%) & Recall (\%) & RMSE \\
+      \midrule
+      Random Forest & 95.2 & 94.8 & 95.1 & 0.12 \\
+      SVM & 89.7 & 88.5 & 90.2 & 0.21 \\
+      Transformer & 97.1 & 96.9 & 97.0 & 0.08 \\
+      CNN & 93.4 & 92.7 & 93.5 & 0.15 \\
+      \bottomrule
+    \end{tabular}
+    
+    \smallskip
+    \footnotesize
+    \textit{Keterangan:} Data diperoleh dari 100 sampel logam dengan 5 kelas komposisi.
+  \end{table}
+
 
 % Baris ini digunakan untuk membantu dalam melakukan sitasi
 % Karena diapit dengan comment, maka baris ini akan diabaikan
 % oleh compiler LaTeX.
-\begin{comment}
-\bibliography{daftar-pustaka}
-\end{comment}
+%\begin{comment}
+%\bibliography{daftar-pustaka}
+%\end{comment}

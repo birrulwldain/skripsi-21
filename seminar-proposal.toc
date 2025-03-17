@@ -21,8 +21,8 @@
 \contentsline {chapter}{\numberline {II}TINJAUAN PUSTAKA}{3}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Spektroskopi Emisi Atom}{3}{section.2.1}%
 \contentsline {subsection}{\numberline {2.1.1}Prinsip Dasar}{3}{subsection.2.1.1}%
-\contentsline {subsubsection}{Mekanisme eksitasi dan de-eksitasi atom.}{4}{equation.2.2}%
-\contentsline {subsubsection}{Panjang gelombang emisi dan hubungannya dengan identifikasi unsur.}{4}{equation.2.2}%
+\contentsline {subsubsection}{Mekanisme eksitasi dan de-eksitasi atom.}{4}{equation.2.3}%
+\contentsline {subsubsection}{Panjang gelombang emisi dan hubungannya dengan identifikasi unsur.}{4}{equation.2.3}%
 \contentsline {subsection}{\numberline {2.1.2}Hukum Beer-Lambert}{4}{subsection.2.1.2}%
 \contentsline {subsubsection}{Hukum Beer-Lambert dan aplikasinya dalam analisis kuantitatif.}{4}{subsection.2.1.2}%
 \contentsline {subsubsection}{Absorbansi, transmitansi, dan konsentrasi analit.}{4}{subsection.2.1.2}%
@@ -89,4 +89,4 @@
 \contentsline {section}{\numberline {3.6}Menangani Urutan dengan Panjang Bervariasi}{16}{section.3.6}%
 \contentsline {subsection}{\numberline {3.6.1}Padding}{16}{subsection.3.6.1}%
 \contentsline {section}{\numberline {3.7}Prediksi Urutan sebagai Pembelajaran Terawasi}{17}{section.3.7}%
-\contentsline {chapter}{DAFTAR PUSTAKA}{18}{section.3.7}%
+\contentsline {chapter}{DAFTAR PUSTAKA}{20}{table.caption.7}%

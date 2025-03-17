@@ -20,13 +20,15 @@
 \setlength{\paperheight}{297mm}
 %\usepackage[a4paper,left=4cm,right=3cm,top=3cm,bottom=3cm]{geometry}
 \usepackage[a4paper,left=3.5cm,right=3cm,top=3cm,bottom=3cm]{geometry}
-\usepackage{verbatim,enumerate}
+%\usepackage{verbatim,enumerate}
+
 %tabularx untuk membuat tabel yang ukurannya bisa disesuaikan dengan lebar halaman
 \usepackage{tabularx}
 
 % Membantu penulisan notasi matematika terutama untuk dokumen dengan banyak rumus. it's me!
-\usepackage{amsmath}
-
+\usepackage{graphicx}
+\usepackage[fleqn,reqno]{amsmath} % Opsi fleqn + reqno
+\usepackage{amssymb}
 \usepackage{booktabs}
 \usepackage[table]{xcolor}
 \usepackage{multirow}
@@ -68,7 +70,6 @@
 %\renewcommand{\nomname}{\nomenclaturename}%
 %\makeglossary%
 %\makenomenclature
-
 %------------------------------------------------------------
 %Layout
 %------------------------------------------------------------
@@ -179,6 +180,7 @@
 
 
 
+     
 %------------------------------------------------------------
 % Redefine caption names
 %------------------------------------------------------------
@@ -385,18 +387,26 @@
       \vspace{0.9cm}%
       Menyetujui:\\[1ex]%
       \onehalfspacing%
-      \begin{tabular}{lll}%
-         Pembimbing I & \hspace{2.5cm} & Pembimbing II \\%
-         \underline{\@firstsupervisor} & & \underline{\@secondsupervisor} \\%
-         NIP. \@firstnip & & NIP. \@secondnip%
-      \end{tabular}%
-      \vspace{1.0cm}%
-      \\Mengetahui:\\[1ex]%
-      Ketua Departemen Fisika \\[0.5ex]%
-      Universitas Syiah Kuala,\\[2ex]%
-      \vspace{-0.27cm}%
-      \underline{Dr. Saumi Syahreza, S.Si, M.Si.}\\%
-      NIP. \@kaprodinip%
+      \begin{tabular}{lll}
+        Pembimbing I, &   \hspace{2.5cm}  &
+        Pembimbing II, \\ 
+        \vspace{0.3cm} & \vspace{0.3cm} & \vspace{0.3cm}\\
+         \underline{\@firstsupervisor} & & \underline{\@secondsupervisor}\\
+              NIP. \@firstnip & & NIP. \@secondnip
+      \vspace{0.9cm}%
+      \end{tabular}
+
+      Mengetahui:\\[1ex]%
+      \onehalfspacing%
+      \begin{tabular}{lll}
+         & Koordinator Program Studi S1 Fisika FMIPA  & \\ 
+        \vspace{-0.27cm} & \vspace{-0.27cm} & \vspace{-0.27cm}\\
+         & Universitas Syiah Kuala,&\\
+        \vspace{0.3cm} & \vspace{0.3cm} & \vspace{0.3cm}\\
+         & \underline{\@kaprodi}& \\
+             & NIP. \@kaprodinip & 
+      \vspace{0.9cm}%
+      \end{tabular}
     \end{doublespace}%
   \end{center}%
 }
