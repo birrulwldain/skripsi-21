@@ -97,7 +97,78 @@
 \usepackage{longtable}
 \usepackage{pdflscape}
 \usepackage{lscape}
-\usepackage{listings, lstautogobble}
+% Agar bisa menulis code snippet
+\usepackage{lstautogobble} % it's me!
+\usepackage{listings}
+\usepackage{xcolor}  % Untuk warna sintaks (opsional)
+\usepackage{inconsolata}  % Font monospace yang rapi (disarankan)
+\usepackage{adjustbox}
+% Konfigurasi dasar untuk listings
+\lstset{
+    basicstyle=\ttfamily\small,       % Gunakan font monospace (Inconsolata)
+    keywordstyle=\color{blue},        % Warna keyword (biru)
+    commentstyle=\color{gray},        % Warna komentar (abu-abu)
+    stringstyle=\color{red},          % Warna string (merah)
+    numbers=left,                     % Tampilkan nomor baris di kiri
+    numberstyle=\tiny\color{gray},    % Gaya nomor baris
+    stepnumber=1,                     % Interval nomor baris
+    tabsize=4,                        % Ukuran tab
+    showstringspaces=false,           % Jangan tunjukkan spasi di string
+    breaklines=true,                  % Potong baris panjang
+    frame=single,                     % Bingkai sekitar kode
+    rulecolor=\color{lightgray},      % Warna bingkai
+    backgroundcolor=\color{white},    % Warna latar belakang
+    literate=                         % Handle karakter khusus
+        {á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+        {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
+        {à}{{\`a}}1 {è}{{\`e}}1 {ì}{{\`i}}1 {ò}{{\`o}}1 {ù}{{\`u}}1
+        {À}{{\`A}}1 {È}{{\'E}}1 {Ì}{{\`I}}1 {Ò}{{\`O}}1 {Ù}{{\`U}}1
+        {ä}{{\"a}}1 {ë}{{\"e}}1 {ï}{{\"i}}1 {ö}{{\"o}}1 {ü}{{\"u}}1
+        {Ä}{{\"A}}1 {Ë}{{\"E}}1 {Ï}{{\"I}}1 {Ö}{{\"O}}1 {Ü}{{\"U}}1
+        {â}{{\^a}}1 {ê}{{\^e}}1 {î}{{\^i}}1 {ô}{{\^o}}1 {û}{{\^u}}1
+        {Â}{{\^A}}1 {Ê}{{\^E}}1 {Î}{{\^I}}1 {Ô}{{\^O}}1 {Û}{{\^U}}1
+        {œ}{{\oe}}1 {Œ}{{\OE}}1 {æ}{{\ae}}1 {Æ}{{\AE}}1 {ß}{{\ss}}1
+        {ç}{{\c c}}1 {Ç}{{\c C}}1 {ø}{{\o}}1 {å}{{\r a}}1 {Å}{{\r A}}1
+        {€}{{\euro}}1 {£}{{\pounds}}1
+}
+\lstset{autogobble=true}
+% Contoh bahasa yang didukung (sesuaikan dengan kebutuhan)
+\lstdefinestyle{Java}{
+    language=Java,
+    morekeywords={String, interface, implements, class}
+}
+
+\lstdefinestyle{Python}{
+    language=Python,
+    keywordstyle=\color{teal}
+}
+\usepackage{caption} % Untuk kustomisasi caption
+%Gaya Caption
+\captionsetup[lstlisting]{
+    labelfont=md,          % Label tidak bold
+    textfont=md,           % Teks caption tidak bold
+    singlelinecheck=true,  % Centang caption 1 baris
+    justification=raggedright, % Rata kiri untuk multi-baris
+    labelsep=space,
+    format=hang,              % Format "hang" untuk indentasi
+    indention=0pt             % Hapus indentasi pada baris kedua+
+}
+%untuk definisi teorema
+\usepackage{amsthm}
+
+% Definisi lingkungan teorema
+\theoremstyle{plain}
+\newtheorem{theorem}{Teorema}[section]
+\newtheorem{corollary}[theorem]{Korolari}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definisi}[section]
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Catatan}
+% Contoh definisi untuk lingkungan "example"
+\theoremstyle{definition} % Gaya: teks normal, judul tebal
+\newtheorem{example}{Contoh}[section] % Nomor mengikuti bagian
 \usepackage{adjustbox}
 \usepackage{fancybox, graphicx} % shadow gambar
 \usepackage{url}
@@ -183,8 +254,17 @@
 \fancyfoot[C]{\thepage}
 \pagenumbering{arabic}
 
-\captionsetup[figure]{labelfont={normalfont}, textfont={normalfont}}
-\captionsetup[table]{labelfont={normalfont}, textfont={normalfont}}
+\captionsetup[figure]{labelfont={normalfont}, textfont={normalfont},     singlelinecheck=false,    % Nonaktifkan penengahan otomatis
+justification=raggedright, % Rata kiri penuh
+labelsep=space,           % Spasi antara label dan teks
+format=hang,              % Format "hang" untuk indentasi
+indention=0pt, skip=10pt } % Unbold caption gambar
+\captionsetup[table]{labelfont={normalfont}, textfont={normalfont}, 
+singlelinecheck=false,    % Nonaktifkan penengahan otomatis
+justification=raggedright, % Rata kiri penuh
+labelsep=space,           % Spasi antara label dan teks
+format=hang,              % Format "hang" untuk indentasi
+indention=0pt, skip=10pt } % Unbold caption tabel
 
 \fancyhf{} 
 \fancyfoot[R]{\thepage}

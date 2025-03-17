@@ -38,8 +38,7 @@
 % Agar bisa menggunakan compactitem
 \usepackage{paralist} %it's me!
 
-% Agar bisa menulis code snippet
-%\usepackage{listings} %it's me!
+
 
 \newif\if@msthesis
 \newif\if@msproposal
