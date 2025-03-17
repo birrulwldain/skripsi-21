@@ -1,10 +1,63 @@
-# Contoh .gitignore untuk proyek ML
-*.zip
-*.tar.gz
-*.h5
-*.pth
+# ================================================
+# File Hasil Kompilasi LaTeX
+# ================================================
 *.aux
 *.log
+*.toc
 *.out
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.synctex.gz
+*.pdfsync
+*.nav
+*.snm
+*.vrb
+*.xdv
+*.run.xml
+*.bcf
+*-concordance.tex
 
+# ================================================
+# File Temporary dan Backup
+# ================================================
+*~
+*.bak
+*.backup
+*.swp
+*.swo
+*.tmp
+\#*#
+.#*
+
+# ================================================
+# File Sistem dan IDE
+# ================================================
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# ================================================
+# Direktori dan File Khusus Package
+# ================================================
+# Untuk minted (pygments)
+_minted-*/
+auto/
+
+# Untuk TikZ externalize
+tikz-external/
+
+# ================================================
+# Output dari editor LaTeX tertentu
+# ================================================
+*.texpadtmp  # TeXShop
+*.tps        # TeXnicCenter
+
+# ================================================
+# File Version Control
+# ================================================
+.git/
+.svn/
 /Users/birrulwalidain/skripsi-2/!project/proyek-lIbs/
