@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  18 MAR 2025 01:28
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.8)  18 MAR 2025 01:39
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1072,17 +1072,13 @@ LaTeX Font Info:    Font shape `T1/zi4/m/n' will be
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package rerunfilecheck Info: File `seminar-proposal.out' has not changed.
 (rerunfilecheck)             Checksum: B5CD8536D9B07EBB87CD57AB646D0B1B;8104.
  ) 
 Here is how much of TeX's memory you used:
  26226 strings out of 473190
  479009 string characters out of 5715801
- 1224974 words of memory out of 5000000
+ 1225031 words of memory out of 5000000
  48490 multiletter control sequences out of 15000+600000
  617787 words of font info for 260 fonts, out of 8000000 for 9000
  1219 hyphenation exceptions out of 8191
