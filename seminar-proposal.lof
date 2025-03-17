@@ -1,4 +1,0 @@
-~\hfill \textit {Halaman}\par 
-\babel@toc {bahasa}{}\relax 
-\babel@toc {bahasa}{}\relax 
-\contentsline {figure}{\numberline {3.1}{\ignorespaces LSTM Data kategorikal perlu diubah menjadi format numerik agar dapat digunakan dalam model LSTM. Dua metode umum untuk melakukan ini adalah One-Hot Encoding dan Label Encoding. One-Hot Encoding mengubah setiap kategori menjadi vektor biner, sedangkan Label Encoding memberikan setiap kategori nilai integer \citep {brownlee2017}}}{15}{figure.caption.6}%
