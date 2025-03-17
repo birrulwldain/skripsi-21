@@ -45,7 +45,7 @@ Thumbs.db
 # Direktori dan File Khusus Package
 # ================================================
 # Untuk minted (pygments)
-_minted-*/
+/Users/birrulwalidain/skripsi-2/_minted-*/
 auto/
 
 # Untuk TikZ externalize
@@ -62,4 +62,5 @@ tikz-external/
 # ================================================
 .git/
 .svn/
-/Users/birrulwalidain/skripsi-2/!project/proyek-lIbs/
+/Users/birrulwalidain/skripsi-2/project/old/
+/Users/birrulwalidain/skripsi-2/project/old/*
