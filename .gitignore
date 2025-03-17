@@ -62,5 +62,5 @@ tikz-external/
 # ================================================
 .git/
 .svn/
-/Users/birrulwalidain/skripsi-2/project/old/
-/Users/birrulwalidain/skripsi-2/project/old/*
+project/old/
+project/old/*
