@@ -24,6 +24,8 @@
 \usepackage{tabularx}
 
 % Membantu penulisan notasi matematika terutama untuk dokumen dengan banyak rumus. it's me!
+\usepackage[fleqn,reqno]{amsmath} % Opsi fleqn + reqno
+\setlength{\mathindent}{1cm}
 
 \usepackage{booktabs}
 \usepackage[table]{xcolor}

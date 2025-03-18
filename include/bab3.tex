@@ -50,31 +50,36 @@ Alat dan Bahan yang akan digunakan pada penelitian ini terdiri dari beberapa per
 
 \subsection{Normalisasi}
 \par Normalisasi data dilakukan dengan rumus:
-$$
-I' = \frac{I - I_{min}}{I_{max} - I_{min}}
-$$
-di mana $$I'$$ adalah data yang dinormalisasi, $$I$$ adalah data asli, $$I_{min}$$ dan $$I_{max}$$ adalah nilai minimum dan maksimum dari dataset.
+\begin{equation}
+    I' = \frac{I - I_{min}}{I_{max} - I_{min}}
+\end{equation}
+di mana $I'$ adalah data yang dinormalisasi, $I$ adalah data asli, $I_{min}$ dan $I_{max}$ adalah nilai minimum dan maksimum dari dataset.
 
 \section{Persiapan Data Kategorikal}
 \par Data kategorikal perlu diubah menjadi format numerik agar dapat digunakan dalam model LSTM. Dua metode umum untuk melakukan ini adalah One-Hot Encoding dan Label Encoding. One-Hot Encoding mengubah setiap kategori menjadi vektor biner, sedangkan Label Encoding memberikan setiap kategori nilai integer \citep{brownlee2017}.
 
 \subsection{One-Hot Encoding}
 \par One-Hot Encoding dapat dilakukan dengan menggunakan pustaka seperti scikit-learn. Misalnya, untuk mengubah kolom kategorikal menjadi format one-hot:
-\begin{verbatim}
+\begin{lstlisting}[language=Python, caption=Contoh One-Hot Encoding (scikit-learn)]
 from sklearn.preprocessing import OneHotEncoder
 encoder = OneHotEncoder()
 encoded_data = encoder.fit_transform(data).toarray()
-\end{verbatim}
+\end{lstlisting}
 
 \section{Menangani Urutan dengan Panjang Bervariasi}
 \par Dalam banyak kasus, urutan data yang digunakan dalam LSTM memiliki panjang yang bervariasi. Untuk menangani ini, kita dapat menggunakan padding untuk menambahkan nilai nol ke urutan yang lebih pendek, sehingga semua urutan memiliki panjang yang sama. Keras menyediakan fungsi \texttt{pad\_sequences()} untuk tujuan ini.
 
 \subsection{Padding}
 \par Padding dapat dilakukan sebagai berikut:
-\begin{verbatim}
-from keras.preprocessing.sequence import pad_sequences
-padded_sequences = pad_sequences(sequences, maxlen=max_length)
-\end{verbatim}
+\begin{lstlisting}[language=Python, caption=Contoh Padding Sequence (Keras)]
+from tensorflow.keras.preprocessing.sequence import pad_sequences
+padded_sequences = pad_sequences(
+    sequences, 
+    maxlen=max_length, 
+    padding='post', 
+    truncating='post'
+)
+\end{lstlisting}
 
 \section{Prediksi Urutan sebagai Pembelajaran Terawasi}
 \par Dalam konteks LSTM, prediksi urutan dapat dipandang sebagai masalah pembelajaran terawasi. Ini melibatkan transformasi data urutan menjadi format yang dapat digunakan untuk pelatihan model, di mana input dan output ditentukan berdasarkan langkah waktu tertentu \citep{brownlee2017}.
@@ -89,15 +94,7 @@ padded_sequences = pad_sequences(sequences, maxlen=max_length)
 
 
 ----------------------------------------------------------%
-\begin{lstlisting}[language=Python, caption=Contoh Fungsi Python]
-    def fibonacci(n):
-        """Menghitung deret Fibonacci"""
-        a, b = 0, 1
-        for _ in range(n):
-            print(a, end=' ')
-            a, b = b, a + b
-        return a
-    \end{lstlisting}
+
 ----------------------------------------------------------
 % Tanpa figure
 \lstinputlisting[
@@ -153,10 +150,9 @@ Ini adalah bukti.
     \textit{Keterangan:} Data diperoleh dari 100 sampel logam dengan 5 kelas komposisi.
   \end{table}
 
-
 % Baris ini digunakan untuk membantu dalam melakukan sitasi
 % Karena diapit dengan comment, maka baris ini akan diabaikan
 % oleh compiler LaTeX.
 %\begin{comment}
-%\bibliography{daftar-pustaka}
+\bibliography{daftar-pustaka}
 %\end{comment}

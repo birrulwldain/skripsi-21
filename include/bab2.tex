@@ -147,19 +147,16 @@ Intensitas garis spektrum bergantung pada probabilitas transisi dan populasi ele
 
 \subsection{Input Layer}
 \par Input layer adalah komponen pertama dalam arsitektur LSTM yang bertanggung jawab untuk menerima data masukan. Dalam konteks analisis spektrum, data yang dimasukkan biasanya berupa serangkaian nilai intensitas yang diukur pada berbagai panjang gelombang. Data ini perlu diubah menjadi format tiga dimensi, yaitu (samples, timesteps, features), agar dapat diproses oleh model LSTM. Misalnya, jika kita memiliki 1000 sampel, 10 timestep, dan 5 fitur, maka bentuk inputnya adalah:
-$$
-\text{Input Shape} = (1000, 10, 5)
-$$
+\lstinline[]|\text{Input Shape} = (1000, 10, 5)|
+
 Pengaturan yang tepat dari input layer sangat penting untuk memastikan bahwa model dapat belajar dari data dengan efektif \cite{hochreiter1997}.
 
 \par Selain itu, input layer juga berfungsi untuk menstandarisasi dan menormalisasi data sebelum diproses lebih lanjut. Proses ini penting untuk menghindari masalah yang dapat muncul akibat skala data yang berbeda, yang dapat mempengaruhi kinerja model. Normalisasi data dapat dilakukan dengan berbagai metode, seperti Min-Max Scaling atau Z-score Normalization. Dengan memastikan bahwa data berada dalam rentang yang sesuai, model dapat belajar dengan lebih cepat dan efisien, serta mengurangi risiko konvergensi yang lambat selama pelatihan.
 
 \par Konfigurasi untuk input layer dalam kode Python menggunakan Keras dapat dituliskan sebagai berikut:
-\begin{minipage}{\textwidth}
-\begin{verbatim}
-model.add(InputLayer(input_shape=(timesteps, features)))
-\end{verbatim}
-\end{minipage}
+    
+\lstinline[]|model.add(InputLayer(input_shape=(timesteps, features)))|
+  
 
 \subsection{LSTM Layer}
 \par LSTM layer adalah inti dari model ini, yang dirancang untuk menangkap dependensi temporal dalam data sekuensial. Layer ini terdiri dari unit-unit LSTM yang memiliki kemampuan untuk menyimpan informasi dalam jangka waktu yang lebih lama dibandingkan dengan jaringan saraf tradisional. Setiap unit LSTM memiliki tiga pintu: pintu input, pintu lupa, dan pintu output, yang mengatur aliran informasi ke dalam dan keluar dari sel memori. Dengan mekanisme ini, LSTM dapat mengatasi masalah vanishing gradient yang sering terjadi pada jaringan saraf konvensional \cite{graves2013}.
@@ -167,11 +164,8 @@ model.add(InputLayer(input_shape=(timesteps, features)))
 \par Mekanisme pintu dalam LSTM memungkinkan model untuk memutuskan informasi mana yang harus disimpan dan mana yang harus dilupakan. Pintu input mengontrol informasi baru yang masuk ke dalam sel memori, pintu lupa menentukan informasi mana yang harus dihapus dari sel memori, dan pintu output mengatur informasi yang akan dikeluarkan dari sel memori. Dengan cara ini, LSTM dapat mempertahankan informasi yang relevan untuk jangka waktu yang lebih lama, sehingga sangat efektif dalam aplikasi yang memerlukan pemahaman konteks temporal, seperti analisis deret waktu dan pemrosesan bahasa alami.
 
 \par Konfigurasi untuk LSTM layer dalam kode Python menggunakan Keras dapat dituliskan sebagai berikut:
-\begin{minipage}{\textwidth}
-\begin{verbatim}
-model.add(LSTM(64, return_sequences=True, input_shape=(timesteps, features)))
-\end{verbatim}
-\end{minipage}
+
+\lstinline[]|model.add(LSTM(64, return_sequences=True, input_shape=(timesteps, features)))|
 
 \subsection{Dropout Layer}
 \par Dropout layer ditambahkan setelah LSTM layer untuk mengurangi risiko overfitting, yang merupakan masalah umum dalam pelatihan model dengan banyak parameter. Layer ini bekerja dengan cara mengabaikan sejumlah neuron secara acak selama proses pelatihan, sehingga model tidak terlalu bergantung pada neuron tertentu. Dengan demikian, dropout membantu meningkatkan generalisasi model terhadap data yang belum pernah dilihat sebelumnya \cite{bengio2012}.
@@ -179,11 +173,9 @@ model.add(LSTM(64, return_sequences=True, input_shape=(timesteps, features)))
 \par Penentuan tingkat dropout yang tepat sangat penting untuk mencapai keseimbangan antara pelatihan yang efektif dan generalisasi yang baik. Biasanya, tingkat dropout berkisar antara 0.2 hingga 0.5, tergantung pada kompleksitas model dan ukuran dataset. Penelitian menunjukkan bahwa penggunaan dropout dapat secara signifikan meningkatkan akurasi model dalam berbagai aplikasi, termasuk analisis spektrum. Dengan mengurangi overfitting, model dapat memberikan prediksi yang lebih akurat dan dapat diandalkan ketika diterapkan pada data baru.
 
 \par Konfigurasi untuk dropout layer dalam kode Python menggunakan Keras dapat dituliskan sebagai berikut:
-\begin{minipage}{\textwidth}
-\begin{verbatim}
-model.add(Dropout(0.3))
-\end{verbatim}
-\end{minipage}
+    
+\lstinline[]|model.add(Dropout(0.3))|
+  
 
 \subsection{Dense Layer}
 \par Dense layer, atau fully connected layer, berfungsi untuk mengolah informasi yang diekstrak oleh LSTM layer dan menghasilkan output akhir dari model. Dalam konteks LSTM, dense layer biasanya digunakan setelah LSTM layer dan dropout layer. Layer ini menghubungkan setiap neuron di layer sebelumnya dengan setiap neuron di layer berikutnya, memungkinkan model untuk belajar dari kombinasi fitur yang lebih kompleks. Dengan cara ini, dense layer dapat menangkap interaksi yang lebih dalam antara fitur-fitur yang ada dalam data \cite{zhang2019}.
@@ -191,11 +183,9 @@ model.add(Dropout(0.3))
 \par Fungsi aktivasi yang umum digunakan dalam dense layer adalah \texttt{ReLU} (Rectified Linear Unit) atau \texttt{tanh}. Pemilihan fungsi aktivasi yang tepat dapat mempengaruhi kinerja model secara signifikan. Setelah dense layer, biasanya terdapat satu output layer yang menghasilkan prediksi akhir, baik untuk regresi maupun klasifikasi. Dengan mengoptimalkan arsitektur dense layer, model dapat mencapai kinerja yang lebih baik dalam memprediksi hasil yang diinginkan, sehingga meningkatkan akurasi dan efisiensi dalam analisis data.
 
 \par Konfigurasi untuk dense layer dalam kode Python menggunakan Keras dapat dituliskan sebagai berikut:
-\begin{minipage}{\textwidth}
-\begin{verbatim}
-model.add(Dense(1024, activation='tanh'))
-\end{verbatim}
-\end{minipage}
+    
+\lstinline[]|model.add(Dense(1024, activation='tanh'))|
+  
 
 \par Simulasi spektrum adalah alat penting dalam analisis spektroskopi, yang memungkinkan peneliti untuk memprediksi intensitas cahaya yang dipancarkan atau diserap oleh suatu substansi pada berbagai panjang gelombang. Kelas \texttt{SpectrumSimulator} dirancang untuk melakukan simulasi ini dengan mempertimbangkan berbagai parameter fisik, termasuk tingkat energi, degenerasi, dan koefisien Einstein.
 
@@ -206,18 +196,19 @@ model.add(Dense(1024, activation='tanh'))
 \par Kelas ini memiliki beberapa metode statis dan non-statis yang berfungsi untuk menghitung berbagai aspek dari simulasi spektrum:
 
 \subsection{Fungsi Partisi}
-\par Metode \texttt{partition\_function} menghitung fungsi partisi $$Z$$ berdasarkan tingkat energi dan degenerasi. Fungsi partisi adalah konsep penting dalam statistik termal yang digunakan untuk menghitung probabilitas distribusi keadaan dalam sistem termal. Fungsi ini didefinisikan sebagai:
-$$
-Z = \sum_{i} g_i e^{-\frac{E_i}{k_B T}}
-$$
-di mana $$g_i$$ adalah degenerasi, $$E_i$$ adalah tingkat energi, $$k_B$$ adalah konstanta Boltzmann, dan $$T$$ adalah suhu \citep{pathria2011}.
+\par Metode \texttt{partition\_function} menghitung fungsi partisi $Z$ berdasarkan tingkat energi dan degenerasi. Fungsi partisi adalah konsep penting dalam statistik termal yang digunakan untuk menghitung probabilitas distribusi keadaan dalam sistem termal. Fungsi ini didefinisikan sebagai:
+\begin{equation}
+    Z = \sum_{i} g_i e^{-\frac{E_i}{k_B T}}
+\end{equation}
+di mana $g_i$ adalah degenerasi, $E_i$ adalah tingkat energi, $k_B$ adalah konstanta Boltzmann, dan $T$ adalah suhu \citep{pathria2011}.
 
 \subsection{Menghitung Intensitas}
 \par Metode \texttt{calculate\_intensity} digunakan untuk menghitung intensitas spektrum berdasarkan suhu, energi, degenerasi, dan koefisien Einstein. Intensitas dapat dihitung dengan rumus:
-$$
+\begin{equation}
 I = \frac{g \cdot e^{-\frac{E}{k_B T}} \cdot A}{Z}
-$$
-di mana $$I$$ adalah intensitas, $$g$$ adalah degenerasi, $$E$$ adalah energi, $$A$$ adalah koefisien Einstein, dan $$Z$$ adalah fungsi partisi \citep{mason2015}.
+\end{equation}
+
+di mana $I$ adalah intensitas, $g$ adalah degenerasi, $E$ adalah energi, $A$ adalah koefisien Einstein, dan $Z$ adalah fungsi partisi \citep{mason2015}.
 
 
 \section{Profil Voigt dalam Analisis Spektrum}
