@@ -91,3 +91,173 @@ Transformers, yang awalnya dirancang untuk pemrosesan bahasa alami (NLP), semaki
 
 ### **Kesimpulan**  
 Transformers menawarkan fleksibilitas dan kekuatan dalam pemodelan data spektroskopi atom, terutama untuk urutan panjang dan tugas yang memerlukan konteks global. Dengan menggabungkan mekanisme perhatian, paralelisasi, dan arsitektur hybrid, Transformer dapat menjadi alternatif superior untuk LSTM/CNN dalam banyak skenario. Mulailah dengan eksperimen sederhana (misalnya, klasifikasi spektrum) dan tingkatkan kompleksitas model secara bertahap!
+
+
+### **TUTOR SITASI**
+
+(Due to technical issues, the search service is temporarily unavailable.)
+
+Berikut adalah panduan cara melakukan sitasi menggunakan `biblatex-apa` (sesuai gaya APA 7th Edition) dalam LaTeX:
+
+---
+
+### **Prasyarat**
+1. Pastikan menggunakan `biblatex-apa` dengan opsi yang benar di preamble:
+   ```latex
+   \usepackage[style=apa, backend=biber]{biblatex}
+   \addbibresource{referensi.bib} % File .bib Anda
+   \DeclareLanguageMapping{english}{english-apa} % Untuk gaya APA
+   ```
+
+2. Gunakan `biber` sebagai backend (bukan BibTeX).
+
+---
+
+### **Jenis Sitasi dalam Teks**
+
+#### 1. **Sitasi Parenthetical (Penulis-Tahun dalam Kurung)**
+   - Umum untuk referensi di akhir kalimat.
+   ```latex
+   Perubahan iklim memengaruhi ekosistem laut \parencite{smith2020}.
+   ```
+   **Hasil**:  
+   (Smith, 2020)
+
+#### 2. **Sitasi Naratif (Penulis sebagai Subjek Kalimat)**
+   - Gunakan `\textcite` untuk menyebutkan penulis dalam kalimat.
+   ```latex
+   \textcite{jones2019} menyatakan bahwa keanekaragaman hayati...
+   ```
+   **Hasil**:  
+   Jones (2019) menyatakan...
+
+#### 3. **Dua Penulis**
+   ```latex
+   \parencite{smith2020, jones2019} % Parenthetical
+   \textcite{smith2020} dan \textcite{jones2019} % Naratif
+   ```
+   **Hasil**:  
+   (Smith, 2020; Jones, 2019)  
+   Smith (2020) dan Jones (2019)
+
+#### 4. **Tiga Penulis atau Lebih**
+   - Otomatis disingkat dengan "et al." setelah penulis pertama.
+   ```latex
+   \parencite{lee2021} % Jika entri memiliki 3+ penulis
+   ```
+   **Hasil**:  
+   (Lee et al., 2021)
+
+#### 5. **Halaman Spesifik (Kutipan Langsung)**
+   ```latex
+   \parencite[hlm. 45]{smith2020} % Untuk kutipan langsung
+   ```
+   **Hasil**:  
+   (Smith, 2020, hlm. 45)
+
+#### 6. **Sumber Tanpa Penulis**
+   - Gunakan judul sumber.
+   ```latex
+   \parencite{WHO2022} % Jika entri di .bib memiliki key "WHO2022" dengan judul
+   ```
+   **Hasil**:  
+   (World Health Organization, 2022)
+
+---
+
+### **Contoh Entri dalam File `.bib`**
+
+#### 1. **Artikel Jurnal**
+   ```bib
+   @article{smith2020,
+     author  = {Smith, John and Doe, Jane},
+     title   = {Climate Change Impacts on Marine Ecosystems},
+     journal = {Environmental Science Journal},
+     year    = {2020},
+     volume  = {15},
+     number  = {3},
+     pages   = {123-145},
+     doi     = {10.1234/ej.2020.123}
+   }
+   ```
+
+#### 2. **Buku**
+   ```bib
+   @book{jones2019,
+     author    = {Jones, Michael},
+     title     = {Biodiversity Conservation},
+     publisher = {Cambridge University Press},
+     year      = {2019},
+     address   = {Cambridge}
+   }
+   ```
+
+#### 3. **Sumber Online**
+   ```bib
+   @online{WHO2022,
+     author  = {{World Health Organization}},
+     title   = {Global Health Report},
+     year    = {2022},
+     url     = {https://www.who.int/report},
+     urldate = {2023-05-01}
+   }
+   ```
+
+---
+
+### **Daftar Pustaka (References)**
+- Gunakan `\printbibliography` di akhir dokumen untuk menampilkan daftar pustaka.
+- Format otomatis sesuai APA:
+  ```
+  Smith, J., & Doe, J. (2020). Climate change impacts on marine ecosystems. 
+  Environmental Science Journal, 15(3), 123–145. https://doi.org/10.1234/ej.2020.123
+  ```
+
+---
+
+### **Catatan Penting**
+1. **Singkatan "et al."**:  
+   `biblatex-apa` otomatis mengatur singkatan "et al." untuk 3+ penulis dalam teks dan daftar pustaka.
+
+2. **DOI/URL**:  
+   - DOI/URL ditampilkan otomatis jika tersedia di entri `.bib`.
+   - Gunakan `doi = {...}` atau `url = {...}`.
+
+3. **Penerjemahan ke Bahasa Indonesia**:  
+   Jika ingin istilah seperti "diakses dari" atau "hlm." dalam Bahasa Indonesia, tambahkan:
+   ```latex
+   \DefineBibliographyStrings{english}{% 
+     urlseen = {diakses pada}, 
+     page = {hlm\adddot}, 
+     pages = {hlm\adddot},
+   }
+   ```
+
+---
+
+### **Contoh Dokumen Lengkap**
+```latex
+\documentclass[a4paper]{article}
+\usepackage[style=apa, backend=biber]{biblatex}
+\addbibresource{referensi.bib}
+\DeclareLanguageMapping{english}{english-apa}
+
+% Untuk penyesuaian Bahasa Indonesia
+\DefineBibliographyStrings{english}{
+  urlseen = {diakses pada},
+  page    = {hlm\adddot},
+  pages   = {hlm\adddot},
+}
+
+\begin{document}
+
+\textcite{smith2020} menemukan bahwa... \parencite[hlm. 45]{jones2019}.
+
+\printbibliography
+
+\end{document}
+```
+
+---
+
+Dengan konfigurasi di atas, Anda dapat membuat sitasi dan daftar pustaka sesuai gaya APA secara otomatis.
