@@ -42,11 +42,11 @@ Alat dan Bahan yang akan digunakan pada penelitian ini terdiri dari beberapa per
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.2\textwidth]{image/lstm1.png} 
-    \caption{ LSTM Data kategorikal perlu diubah menjadi format numerik agar dapat digunakan dalam model LSTM. Dua metode umum untuk melakukan ini adalah One-Hot Encoding dan Label Encoding. One-Hot Encoding mengubah setiap kategori menjadi vektor biner, sedangkan Label Encoding memberikan setiap kategori nilai integer \citep{brownlee2017}}
+    \caption{ LSTM Data kategorikal perlu diubah menjadi format numerik agar dapat digunakan dalam model LSTM. Dua metode umum untuk melakukan ini adalah One-Hot Encoding dan Label Encoding. One-Hot Encoding mengubah setiap kategori menjadi vektor biner, sedangkan Label Encoding memberikan setiap kategori nilai integer \parencite{brownlee2017}}
     \label{fig:lstm_architecture}
 \end{figure}
 \section{Persiapan Data Numerik}
-\par Data numerik memerlukan normalisasi atau standardisasi sebelum digunakan dalam model LSTM. Normalisasi membantu dalam mengurangi skala data, sehingga mempercepat proses pelatihan dan meningkatkan konvergensi model. Metode umum yang digunakan termasuk Min-Max Scaling dan Z-score Normalization \citep{brownlee2017}.
+\par Data numerik memerlukan normalisasi atau standardisasi sebelum digunakan dalam model LSTM. Normalisasi membantu dalam mengurangi skala data, sehingga mempercepat proses pelatihan dan meningkatkan konvergensi model. Metode umum yang digunakan termasuk Min-Max Scaling dan Z-score Normalization \parencite{brownlee2017}.
 
 \subsection{Normalisasi}
 \par Normalisasi data dilakukan dengan rumus:
@@ -56,7 +56,7 @@ Alat dan Bahan yang akan digunakan pada penelitian ini terdiri dari beberapa per
 di mana $I'$ adalah data yang dinormalisasi, $I$ adalah data asli, $I_{min}$ dan $I_{max}$ adalah nilai minimum dan maksimum dari dataset.
 
 \section{Persiapan Data Kategorikal}
-\par Data kategorikal perlu diubah menjadi format numerik agar dapat digunakan dalam model LSTM. Dua metode umum untuk melakukan ini adalah One-Hot Encoding dan Label Encoding. One-Hot Encoding mengubah setiap kategori menjadi vektor biner, sedangkan Label Encoding memberikan setiap kategori nilai integer \citep{brownlee2017}.
+\par Data kategorikal perlu diubah menjadi format numerik agar dapat digunakan dalam model LSTM. Dua metode umum untuk melakukan ini adalah One-Hot Encoding dan Label Encoding. One-Hot Encoding mengubah setiap kategori menjadi vektor biner, sedangkan Label Encoding memberikan setiap kategori nilai integer \parencite{brownlee2017}.
 
 \subsection{One-Hot Encoding}
 \par One-Hot Encoding dapat dilakukan dengan menggunakan pustaka seperti scikit-learn. Misalnya, untuk mengubah kolom kategorikal menjadi format one-hot:
@@ -82,7 +82,7 @@ padded_sequences = pad_sequences(
 \end{lstlisting}
 
 \section{Prediksi Urutan sebagai Pembelajaran Terawasi}
-\par Dalam konteks LSTM, prediksi urutan dapat dipandang sebagai masalah pembelajaran terawasi. Ini melibatkan transformasi data urutan menjadi format yang dapat digunakan untuk pelatihan model, di mana input dan output ditentukan berdasarkan langkah waktu tertentu \citep{brownlee2017}.
+\par Dalam konteks LSTM, prediksi urutan dapat dipandang sebagai masalah pembelajaran terawasi. Ini melibatkan transformasi data urutan menjadi format yang dapat digunakan untuk pelatihan model, di mana input dan output ditentukan berdasarkan langkah waktu tertentu \parencite{brownlee2017}.
 
 
 \par Persiapan data yang tepat adalah langkah penting dalam pengembangan model LSTM. Dengan menggunakan teknik yang tepat untuk normalisasi, encoding, dan padding, kita dapat meningkatkan kinerja model dan memastikan bahwa data siap untuk analisis lebih lanjut.

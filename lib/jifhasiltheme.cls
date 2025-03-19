@@ -63,7 +63,7 @@
 \LoadClass[a4paper,12pt]{report}
 \RequirePackage{natbib}
 %\bibliographystyle{style/jifbibstyle}
-\bibliographystyle{apalike}
+\bibliographystyle{style/apa-good-2}
 %\RequirePackage{glossaries}%
 %\renewcommand{\nomname}{\nomenclaturename}%
 %\makeglossary%

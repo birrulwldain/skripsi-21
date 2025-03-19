@@ -27,14 +27,19 @@ ENTRY
   }
   {}
   { label extra.label sort.label short.list }
+
+STRINGS { s t }
+
 INTEGERS { output.state before.all mid.sentence after.sentence after.block }
+
 FUNCTION {init.state.consts}
-{ #0 'before.all :=
+{
+  #0 'before.all :=
   #1 'mid.sentence :=
   #2 'after.sentence :=
   #3 'after.block :=
 }
-STRINGS { s t}
+
 FUNCTION {output.nonnull}
 { 's :=
   output.state mid.sentence =
@@ -157,8 +162,7 @@ FUNCTION {bbl.etal}
 { "dkk." } % Leave as is for international convention
 
 FUNCTION {bbl.editors}
-{ "eds." } % Can remain "eds." or "editor" if preferred
-
+{ "Eds." } % Can remain "Eds." or "Editors"
 FUNCTION {bbl.editor}
 { "ed." } % Can remain "ed." or "editor"
 
@@ -184,10 +188,10 @@ FUNCTION {bbl.in}
 { "dalam" }
 
 FUNCTION {bbl.pages}
-{ "hal." }
+{ "hlm." }
 
 FUNCTION {bbl.page}
-{ "hal." }
+{ "hlm." }
 
 FUNCTION {bbl.chapter}
 { "bab" }
@@ -199,7 +203,7 @@ FUNCTION {bbl.mthesis}
 { "Tesis Magister" }
 
 FUNCTION {bbl.phdthesis}
-{ "Disertasi Ph.D." }
+{ "Disertasi Doktor" }
 
 % Month abbreviations in Indonesian
 MACRO {jan} {"Jan."}
@@ -292,10 +296,14 @@ FUNCTION {bibinfo.warn}
     }
   if$
 }
-FUNCTION {write.url}
-{ url empty$
-    { skip$ }
-    { "\newline\urlprefix\url{" url * "}" * write$ newline$ }
+FUNCTION {write.url} {
+  doi empty$
+    { url empty$
+        { skip$ }
+        { "\newline\url{" url * "}" * write$ }
+      if$
+    }
+    { "\newline\url{https://doi.org/" doi * "}" * write$ }
   if$
 }
 
@@ -590,7 +598,6 @@ FUNCTION {format.date}
   if$
   extra.label *
   before.all 'output.state :=
-  " (" swap$ * ")" *
 }
 FUNCTION {format.btitle}
 { title "title" bibinfo.check
@@ -641,17 +648,10 @@ FUNCTION {format.number.series}
     { "" }
   if$
 }
-
-FUNCTION {format.edition}
-{ edition duplicate$ empty$ 'skip$
-    {
-      output.state mid.sentence =
-        { "l" }
-        { "t" }
-      if$ change.case$
-      "edition" bibinfo.check
-      " " * bbl.edition *
-    }
+FUNCTION {format.edition} {
+  edition duplicate$ empty$
+    'skip$
+    { " (Edisi ke-" swap$ * ")" * }
   if$
 }
 INTEGERS { multiresult }
@@ -830,9 +830,6 @@ FUNCTION {format.org.or.pub}
     }
   if$
 }
-FUNCTION {format.publisher.address}
-{ publisher "publisher" bibinfo.warn format.org.or.pub
-}
 
 FUNCTION {format.organization.address}
 { organization "organization" bibinfo.check format.org.or.pub
@@ -841,28 +838,18 @@ FUNCTION {format.organization.address}
 FUNCTION {article}
 { output.bibitem
   format.authors "author" output.check
-  author format.key output
   format.date "year" output.check
   date.block
   format.title "title" output.check
   new.block
-  crossref missing$
-    {
-      journal
-      "journal" bibinfo.check
-      emphasize
-      "journal" output.check
-      format.vol.num.pages output
-    }
-    { format.article.crossref output.nonnull
-      format.pages output
-    }
-  if$
+  journal "journal" output.check
+  format.vol.num.pages output
   new.block
   format.note output
-  fin.entry
   write.url
+  fin.entry
 }
+
 FUNCTION {book}
 { output.bibitem
   author empty$
@@ -885,8 +872,7 @@ FUNCTION {book}
       new.block
       format.number.series output
       new.sentence
-      format.publisher.address output
-    }
+        }
     {
       new.block
       format.book.crossref output.nonnull
@@ -1222,7 +1208,7 @@ FUNCTION {calc.short.authors}
 FUNCTION {calc.label}
 { calc.short.authors
   short.list
-  "("
+  ""
   *
   year duplicate$ empty$
   short.list key field.or.null = or
@@ -1399,23 +1385,18 @@ FUNCTION {begin.bib}
   if$
   "\begin{thebibliography}{" number.label int.to.str$ * "}" *
   write$ newline$
-  "\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi"
-  write$ newline$
-  "\expandafter\ifx\csname url\endcsname\relax"
-  write$ newline$
-  "  \def\url#1{{\tt #1}}\fi"
-  write$ newline$
-  "\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi"
+  "\providecommand{\url}[1]{\texttt{#1}}"
   write$ newline$
 }
-EXECUTE {begin.bib}
-EXECUTE {init.state.consts}
-ITERATE {call.type$}
 FUNCTION {end.bib}
 { newline$
   "\end{thebibliography}" write$ newline$
 }
+EXECUTE {begin.bib}
+EXECUTE {init.state.consts}
+ITERATE {call.type$}
 EXECUTE {end.bib}
+
 %% End of customized bst file
 %%
 %% End of file `apa-ben.bst'.

@@ -7,7 +7,7 @@
 
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{jifhasiltheme}
+%\ProvidesClass{jifhasiltheme}
 
 \RequirePackage[english,bahasa]{babel}
 \RequirePackage{indentfirst}
@@ -62,9 +62,12 @@
 \ExecuteOptions{jifhasil,satusetengahspasi,indonesia}
 \ProcessOptions
 \LoadClass[a4paper,12pt]{report}
-\RequirePackage{natbib}
+
+
+%\RequirePackage{natbib}
+%\def\input@path{{style/}}
 %\bibliographystyle{style/jifbibstyle}
-\bibliographystyle{apalike}
+%\bibliographystyle{style/apa-good-2}
 %\RequirePackage{glossaries}%
 %\renewcommand{\nomname}{\nomenclaturename}%
 %\makeglossary%

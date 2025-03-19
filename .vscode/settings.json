@@ -9,16 +9,26 @@
         "-file-line-error",
         "%DOC%"
       ]
+    },
+    {
+      "name": "biber",
+      "command": "biber",
+      "args": [
+        "%DOCFILE%"
+      ]
     }
   ],
   "latex-workshop.latex.recipes": [
     {
-      "name": "pdflatex",
+      "name": "pdflatex -> biber -> pdflatex x2",
       "tools": [
+        "pdflatex",
+        "biber",
+        "pdflatex",
         "pdflatex"
       ]
     }
   ],
-  "formatting.latex": true,
-  "latex-workshop.view.outline.enabled": true
+  "latex-workshop.latex.autoBuild.run": "never",
+  "latex-workshop.view.pdf.viewer": "tab"
 }
