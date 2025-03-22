@@ -63,5 +63,3 @@ tikz-external/
 # ================================================
 .git/
 .svn/
-project/old/
-project/old/*

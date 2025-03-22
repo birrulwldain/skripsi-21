@@ -5,6 +5,7 @@
       "command": "pdflatex",
       "args": [
         "-synctex=1",
+        "-aux-directory=build",
         "-interaction=nonstopmode",
         "-file-line-error",
         "%DOC%"
