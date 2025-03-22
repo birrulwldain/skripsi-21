@@ -6,7 +6,7 @@
 %
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{jifhasiltheme}
+%\ProvidesClass{jifhasiltheme}
 
 \RequirePackage[english,bahasa]{babel}
 \RequirePackage{indentfirst}
