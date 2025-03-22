@@ -10,13 +10,19 @@
 %
 % karena jifhasiltheme.cls ada di folder lib, maka kita harus menambahkan path lib/
 % ke dalam path pencarian file
+
 \makeatletter
-\def\input@path{{lib/}}
+\def\input@path{{/Users/birrulwalidain/skripsi-21/thesis/lib}}
 \makeatother
 
 % Template pembuatan naskah tugas akhir.
 \documentclass[dvipsnames]{jifproposal-abdul}
 \usepackage[style=apa, backend=biber, date=year]{biblatex}
+
+\makeatletter
+\def\input@path{{/Users/birrulwalidain/skripsi-21/literature/bib}}
+\makeatother
+
 \addbibresource{daftar-pustaka.bib}
 \DeclareLanguageMapping{bahasa}{english-apa}
 \DeclareLabeldate{%
@@ -42,7 +48,7 @@
 % karena file hype.indonesia.tex ada di folder language, maka kita harus menambahkan path language/
 % ke dalam path pencarian file
 \makeatletter
-\def\input@path{{language/}}
+\def\input@path{{/Users/birrulwalidain/skripsi-21/thesis/language/}}
 \makeatother
 
 % Daftar pemenggalan suku kata dan istilah dalam LaTeX
@@ -231,7 +237,7 @@
 \newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1}}
 
 \makeatletter
-\def\input@path{{include/}}
+\def\input@path{{/Users/birrulwalidain/skripsi-21/thesis/include/}}
 \makeatother
 
 % Sampul Depan

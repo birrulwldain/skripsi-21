@@ -266,7 +266,7 @@
 \newcommand{\secondsupervisor}[1]{\gdef\@secondsupervisor{Dr. Khairun Saddami, S.T.
 }}
 \newcommand{\@secondsupervisor}{}
-\newcommand{\kajur}[1]{\gdef\@kajur{Dr. Saumi Syahreza, S.Si, M.Si.}}
+\newcommand{\kajur}[1]{\gdef\@kajur{Dr. Saumi Syahreza, S.Si., M.Si.}}
 \newcommand{\@kajur}{}
 \newcommand{\firstnip}[1]{\gdef\@firstnip{197607031995121001}}
 \newcommand{\@firstnip}{}
@@ -309,7 +309,7 @@
         \MakeUppercase{\normalfont\bfseries \@idnum}}\\
 		\vspace{2cm}
 		\vfill
-		\includegraphics[width=0.3\textwidth]{image/logo_unsyiah.png}
+		\includegraphics[width=0.3\textwidth]{/Users/birrulwalidain/skripsi-21/output/figures/logo_unsyiah.png}
         \vfill
 		\vspace{2cm}
        {\normalfont
@@ -350,7 +350,7 @@
 				\MakeUppercase{\normalfont\bfseries \@idnum}}\\
 			\vspace{2cm}
 			\vfill
-			\includegraphics[width=0.3\textwidth]{image/logo_unsyiah.png}
+			\includegraphics[width=0.3\textwidth]{/Users/birrulwalidain/skripsi-21/output/figures/logo_unsyiah.png}
 			\vfill
 			\vspace{2cm}
 			{\normalfont
