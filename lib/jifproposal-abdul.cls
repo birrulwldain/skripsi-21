@@ -379,11 +379,11 @@
       Oleh:%
       \begin{singlespace}%
         \begin{compactitem}%
-          \addtolength{\itemindent}{3cm}%
+          \addtolength{\itemindent}{3,5cm}%
           \setlength{\parsep}{0pt}%
-          \item[]{\makebox[2cm]{Nama\hfill} : \@fullname}%
-          \item[]{\makebox[2cm]{NPM\hfill} : \@idnum}%
-          \item[]{\makebox[2cm]{Program Studi\hfill} : \@dept}%
+          \item[]{\makebox[2.5cm]{Nama\hfill} : \@fullname}%
+          \item[]{\makebox[2.5cm]{NPM\hfill} : \@idnum}%
+          \item[]{\makebox[2.5cm]{Program Studi\hfill} : \@dept}%
         \end{compactitem}%
       \end{singlespace}%
       \vspace{0.9cm}%
