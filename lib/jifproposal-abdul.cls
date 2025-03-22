@@ -5,8 +5,9 @@
 % Template ini telah disesuaikan dengan aturan penulisan tugas akhir yang terdapat pada dokumen Panduan Tugas Akhir FMIPA Unsyiah tahun 2010.
 %
 
+
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{jifhasiltheme}
+%\ProvidesClass{jifhasiltheme}
 
 \RequirePackage[english,bahasa]{babel}
 \RequirePackage{indentfirst}
@@ -19,13 +20,15 @@
 \setlength{\paperheight}{297mm}
 %\usepackage[a4paper,left=4cm,right=3cm,top=3cm,bottom=3cm]{geometry}
 \usepackage[a4paper,left=3.5cm,right=3cm,top=3cm,bottom=3cm]{geometry}
-\usepackage{verbatim,enumerate}
+%\usepackage{verbatim,enumerate}
+
 %tabularx untuk membuat tabel yang ukurannya bisa disesuaikan dengan lebar halaman
 \usepackage{tabularx}
 
 % Membantu penulisan notasi matematika terutama untuk dokumen dengan banyak rumus. it's me!
+\usepackage{graphicx}
 \usepackage[fleqn,reqno]{amsmath} % Opsi fleqn + reqno
-\setlength{\mathindent}{1cm}
+\usepackage{amssymb}
 \usepackage{booktabs}
 \usepackage[table]{xcolor}
 \usepackage{multirow}
@@ -35,8 +38,7 @@
 % Agar bisa menggunakan compactitem
 \usepackage{paralist} %it's me!
 
-% Agar bisa menulis code snippet
-%\usepackage{listings} %it's me!
+
 
 \newif\if@msthesis
 \newif\if@msproposal
@@ -60,14 +62,16 @@
 \ExecuteOptions{jifhasil,satusetengahspasi,indonesia}
 \ProcessOptions
 \LoadClass[a4paper,12pt]{report}
+
+
 %\RequirePackage{natbib}
+%\def\input@path{{style/}}
 %\bibliographystyle{style/jifbibstyle}
-%\bibliographystyle{apalike}
+%\bibliographystyle{style/apa-good-2}
 %\RequirePackage{glossaries}%
 %\renewcommand{\nomname}{\nomenclaturename}%
 %\makeglossary%
 %\makenomenclature
-
 %------------------------------------------------------------
 %Layout
 %------------------------------------------------------------
@@ -84,7 +88,6 @@
 \setlength{\marginparwidth}{0pt}
 
 \setlength{\parindent}{3em} %Indent approx 6 character
-
 %------------------------------------------------------------
 %The form of page numbering
 %------------------------------------------------------------
@@ -177,6 +180,9 @@
 \renewcommand \thetable
      {\ifnum \c@chapter>\z@ \@arabic\c@chapter.\fi \@arabic\c@table}
 
+
+
+     
 %------------------------------------------------------------
 % Redefine caption names
 %------------------------------------------------------------
@@ -185,16 +191,16 @@
 \def\contentsname{DAFTAR ISI}%
 \def\listfigurename{DAFTAR GAMBAR}%
 \def\listtablename{DAFTAR TABEL}%
-\def\listappendixname{DAFTAR LAMPIRAN}%
+%\def\listappendixname{DAFTAR LAMPIRAN}%
 \def\nomenclaturename{DAFTAR SINGKATAN}%
 \def\abstractname{ABSTRAK}%
 \def\acknowledgmentname{HALAMAN PERSEMBAHAN}%
-\def\approvalname{PENGESAHAN}%
+\def\approvalname{PENGESAHAN PROPOSAL}%
 \def\partname{BAGIAN}%
 \def\chaptername{BAB}%
-\def\appendixname{LAMPIRAN}%
-\def\refname{DAFTAR PUSTAKA}%
-\def\bibname{DAFTAR PUSTAKA}%
+%\def\appendixname{LAMPIRAN}%
+\def\refname{DAFTAR KEPUSTAKAAN}%
+\def\bibname{DAFTAR KEPUSTAKAAN}%
 \def\indexname{Indeks}%
 \def\figurename{Gambar}%
 \def\tablename{Tabel}%
@@ -211,7 +217,7 @@
 \def\listtablename{LIST OF TABLES}%
 \def\listappendixname{LIST OF APPENDICES}%
 \def\nomenclaturename{NOMENCLATURE}%
-\def\abstractname{\textit{ABSTRACT}}%
+\def\abstractname{ABSTRACT}%
 \def\partname{PART}%
 \def\chaptername{CHAPTER}%
 \def\appendixname{APPENDIX}%
@@ -249,21 +255,22 @@
 \newcommand{\@degree}{}
 \newcommand{\yearsubmit}[1]{\gdef\@yearsubmit{#1}}
 \newcommand{\@yearsubmit}{}
-\newcommand{\program}[1]{\gdef\@program{#1}}
+\newcommand{\program}[1]{\gdef\@program{Fisika}}
 \newcommand{\@program}{}
-\newcommand{\headprogram}[1]{\gdef\@headprogram{#1}}
+\newcommand{\headprogram}[1]{\gdef\@headprogram{Fisika}}
 \newcommand{\@headprogram}{}
-\newcommand{\dept}[1]{\gdef\@dept{#1}}
+\newcommand{\dept}[1]{\gdef\@dept{Fisika}}
 \newcommand{\@dept}{}
-\newcommand{\firstsupervisor}[1]{\gdef\@firstsupervisor{#1}}
+\newcommand{\firstsupervisor}[1]{\gdef\@firstsupervisor{Prof. Dr. Eng. Nasrullah, S.Si., M.T.}}
 \newcommand{\@firstsupervisor}{}
-\newcommand{\secondsupervisor}[1]{\gdef\@secondsupervisor{#1}}
+\newcommand{\secondsupervisor}[1]{\gdef\@secondsupervisor{Dr. Khairun Saddami, S.T.
+}}
 \newcommand{\@secondsupervisor}{}
-\newcommand{\kajur}[1]{\gdef\@kajur{#1}}
+\newcommand{\kajur}[1]{\gdef\@kajur{Dr. Saumi Syahreza, S.Si., M.Si.}}
 \newcommand{\@kajur}{}
-\newcommand{\firstnip}[1]{\gdef\@firstnip{#1}}
+\newcommand{\firstnip}[1]{\gdef\@firstnip{197607031995121001}}
 \newcommand{\@firstnip}{}
-\newcommand{\secondnip}[1]{\gdef\@secondnip{#1}}
+\newcommand{\secondnip}[1]{\gdef\@secondnip{199103182022031008}}
 \newcommand{\@secondnip}{}
 \newcommand{\kajurnip}[1]{\gdef\@kajurnip{#1}}
 \newcommand{\@kajurnip}{}
@@ -273,7 +280,7 @@
 \newcommand{\@dekannip}{}
 \newcommand{\kaprodi}[1]{\gdef\@kaprodi{#1}}
 \newcommand{\@kaprodi}{}
-\newcommand{\kaprodinip}[1]{\gdef\@kaprodinip{#1}}
+\newcommand{\kaprodinip}[1]{\gdef\@kaprodinip{197609172005011002}}
 \newcommand{\@kaprodinip}{}
 
 %------------------------------------------------------------
@@ -291,9 +298,9 @@
       \begin{singlespace}
       \fontsize{14pt}{16pt}\selectfont\MakeUppercase{\Large{\bfseries\@judul}}\par\nobreak
       \vspace{2.5cm}
-      \MakeUppercase{\large{\bfseries{TUGAS AKHIR}}}\\ %it's me!
+      \MakeUppercase{\large{\bfseries{PROPOSAL PENELITIAN}}}\\ %it's me!
       \vspace{1.0cm}
-	  \normalsize{Diajukan untuk melengkapi tugas-tugas dan\\ memenuhi syarat-syarat guna memperoleh gelar Sarjana Sains\\} %it's me!
+	  \normalsize{Diajukan untuk melengkapi tugas-tugas dan\\memenuhi syarat-syarat guna pelaksanaan penelitian Tugas Akhir\\} %it's me!
        \vspace{1.0cm}
        {\normalfont
         Oleh:\\
@@ -302,11 +309,11 @@
         \MakeUppercase{\normalfont\bfseries \@idnum}}\\
 		\vspace{2cm}
 		\vfill
-		\includegraphics[width=0.3\textwidth]{/output/figures/logo_unsyiah.png}
+		\includegraphics[width=0.3\textwidth]{images/logo_unsyiah.png}
         \vfill
 		\vspace{2cm}
        {\normalfont
-         \MakeUppercase{\normalfont\bfseries Program Studi Fisika Jurusan \@dept}\\
+         \MakeUppercase{\normalfont\bfseries Program Studi Fisika  Departemen Fisika}\\
          \MakeUppercase{\normalfont\bfseries\@faculty} \MakeUppercase{\normalfont\bfseries\@university}\\
          \MakeUppercase{\normalfont\bfseries\@city}\\
          %\vspace{0.5cm}
@@ -316,7 +323,7 @@
 }
 
 %------------------------------------------------------------
-%Approval Page
+% Cover
 %------------------------------------------------------------
 \def\cover{%
 	% it's me!
@@ -332,9 +339,9 @@
 		\begin{singlespace}
 			\fontsize{18pt}{20pt}\selectfont\MakeUppercase{\Large{\bfseries\@judulcover}}\par\nobreak
 			\vspace{2.5cm}
-			\MakeUppercase{\large{\bfseries{TUGAS AKHIR}}}\\ %it's me!
+			\MakeUppercase{\large{\bfseries{PROPOSAL PENELITIAN}}}\\ % it's me!
 			\vspace{1.0cm}
-			\normalsize{Diajukan untuk melengkapi tugas-tugas dan\\ memenuhi syarat-syarat guna memperoleh gelar Sarjana Sains\\} %it's me!
+			\normalsize{Diajukan untuk melengkapi tugas-tugas dan\\ memenuhi syarat-syarat guna pelaksanaan penelitian Tugas Akhir\\} % it's me!
 			\vspace{1.0cm}
 			{\normalfont
 				Oleh:\\
@@ -343,11 +350,11 @@
 				\MakeUppercase{\normalfont\bfseries \@idnum}}\\
 			\vspace{2cm}
 			\vfill
-			\includegraphics[width=0.3\textwidth]{/Users/birrulwalidain/a/skripsi-21/output/figures/logo_unsyiah.png}
+			\includegraphics[width=0.3\textwidth]{images/logo_unsyiah.png}
 			\vfill
 			\vspace{2cm}
 			{\normalfont
-				\MakeUppercase{\normalfont\bfseries Program Studi Fisika  Departemen \@dept}\\
+				\MakeUppercase{\normalfont\bfseries Program Studi Sarjana Fisika Departemen \@dept}\\
 				\MakeUppercase{\normalfont\bfseries\@faculty} \MakeUppercase{\normalfont\bfseries\@university ,  \@city}\\
 				%\MakeUppercase{\normalfont\bfseries\@city}\\
 				%\vspace{0.5cm}
@@ -357,138 +364,54 @@
 }
 
 %------------------------------------------------------------
-%Approval Page
+% Approval Page Definition (Revised)
 %------------------------------------------------------------
 \def\approvalpage{%
-	\clearpage\addcontentsline{toc}{chapter}{Halaman Pengesahan}
-	\chapter*{\approvalname}%
-	%\thispagestyle{empty}
-	\begin{center}
-		\begin{doublespace}
-			\vspace{0.5cm}
-			\fontsize{12pt}{10pt}\selectfont\MakeUppercase{\large{\bfseries\@judul}}\par\nobreak
+  \clearpage
+  \addcontentsline{toc}{chapter}{Halaman Pengesahan}%
+  \chapter*{\approvalname}%
+  \thispagestyle{empty}%
+  \begin{center}%
+    \begin{doublespace}%
+      \vspace{0.5cm}%
+      \fontsize{12pt}{10pt}\selectfont\MakeUppercase{\large{\bfseries\@judul}}\par\nobreak%
+      \vspace{0.9cm}%
+      Oleh:%
+      \begin{singlespace}%
+        \begin{compactitem}%
+          \addtolength{\itemindent}{3,5cm}%
+          \setlength{\parsep}{0pt}%
+          \item[]{\makebox[2.5cm]{Nama\hfill} : \@fullname}%
+          \item[]{\makebox[2.5cm]{NPM\hfill} : \@idnum}%
+          \item[]{\makebox[2.5cm]{Program Studi\hfill} : \@dept}%
+        \end{compactitem}%
+      \end{singlespace}%
+      \vspace{0.9cm}%
+      Menyetujui:\\[1ex]%
+      \onehalfspacing%
+      \begin{tabular}{lll}
+        Pembimbing I, &   \hspace{2.5cm}  &
+        Pembimbing II, \\ 
+        \vspace{0.3cm} & \vspace{0.3cm} & \vspace{0.3cm}\\
+         \underline{\@firstsupervisor} & & \underline{\@secondsupervisor}\\
+              NIP. \@firstnip & & NIP. \@secondnip
+      \vspace{0.9cm}%
+      \end{tabular}
 
-			\vspace{1cm}
-			\fontsize{12pt}{10pt}\selectfont\MakeUppercase{\large{\bfseries\@judull}}\par\nobreak
-
-			\vspace{0.9cm}
-			Oleh:
-			%\vspace{-0.5cm}
-			\begin{singlespace}
-				\begin{compactitem}
-					\addtolength{\itemindent}{3.5cm}
-					\setlength{\parsep}{0pt}
-					\item[]{\makebox[2.5cm]{Nama\hfill} : \@fullname}
-					\item[]{\makebox[2.5cm]{NPM\hfill} : \@idnum}
-					\item[]{\makebox[2.5cm]{Program Studi\hfill} : \@dept}
-				\end{compactitem}
-			\end{singlespace}
-			%\vspace{2.0cm} edited 16/04/2022
-			\vspace{0.9cm}
-			
-			%Telah disetujui dan disahkan\\
-			%pada tanggal \@approvaldate
-			%\vspace{1.0cm}
-
-			Menyetujui:\\
-			\onehalfspacing
-				\begin{tabular}{lll}
-					Pembimbing I, & \hspace{2.5cm} & Pembimbing II, \\
-					\vspace{0.3cm} & \vspace{0.3cm} & \vspace{0.3cm}\\
-					\underline{\@firstsupervisor}& &
-					\underline{\@secondsupervisor} \\
-					NIP. \@firstnip & &  NIP. \@secondnip
-				\end{tabular}	
-			%\vspace{2.0cm} edited 16/04/2022
-			\vspace{1.0cm}
-			
-			% Mengetahui dekan dan kajur informatika
-			% Tanpa mengetahui dekan
-			Mengetahui:\\
-				\begin{tabular}{lll}
-					Dekan FMIPA & \hfill &
-					Koordinator Prodi S1 Fisika FMIPA\\ 
-					\vspace{-0.27cm} & \vspace{-0.27cm} & \vspace{-0.27cm}\\
-					Universitas Syiah Kuala, & & Universitas Syiah Kuala,\\
-					\vspace{0.3cm} & \vspace{0.3cm} & \vspace{0.3cm}\\
-			 		\underline{\@dekan} & & \underline{\@kaprodi}\\
-		      			NIP. \@dekannip & & NIP. \@kaprodinip
-				\end{tabular}
-		\end{doublespace}
-
-		\vspace{0.9cm}
-		Lulus Sidang Sarjana pada hari \@approvaldate
-	\end{center}
-} 
-%sidang
-
-%------------------------------------------------------------
-%Approval Page
-%------------------------------------------------------------
-% \def\approvalpage{%
-% 	\clearpage\addcontentsline{toc}{chapter}{Halaman Pengesahan}
-% 	\chapter*{\approvalname}%
-% 	\thispagestyle{empty}
-% 	\begin{center}
-% 		\begin{doublespace}
-% 			\vspace{0.5cm}
-% 			\fontsize{12pt}{10pt}\selectfont\MakeUppercase{\large{\bfseries\@judul}}\par\nobreak
-
-% 			% \vspace{1cm}
-% 			% \fontsize{12pt}{10pt}\selectfont\MakeUppercase{\large{\bfseries\@judull}}\par\nobreak
-
-% 			\vspace{0.9cm}
-% 			Oleh:
-% 			%\vspace{-0.5cm}
-% 			\begin{singlespace}
-% 				\begin{compactitem}
-% 					\addtolength{\itemindent}{3cm}
-% 					\setlength{\parsep}{0pt}
-% 					\item[]{\makebox[2cm]{Nama\hfill} : \@fullname}
-% 					\item[]{\makebox[2cm]{NPM\hfill} : \@idnum}
-% 					\item[]{\makebox[2cm]{Jurusan\hfill} : \@dept}
-% 				\end{compactitem}
-% 			\end{singlespace}
-% 			%\vspace{2.0cm} edited 16/04/2022
-% 			\vspace{0.9cm}
-			
-% 			%Telah disetujui dan disahkan\\
-% 			%pada tanggal \@approvaldate
-% 			%\vspace{1.0cm}
-
-% 			Menyetujui:\\
-% 			\vspace{1.0cm}
-% 			\onehalfspacing
-% 				\begin{tabular}{lll}
-% 					Pembimbing I & \hspace{2.5cm} & Pembimbing II \\
-% 					\vspace{0.3cm} & \vspace{0.3cm} & \vspace{0.3cm}\\
-% 					\underline{\@firstsupervisor}& &
-% 					\underline{\@secondsupervisor} \\
-% 					NIP. \@firstnip & &  NIP. \@secondnip
-% 				\end{tabular}	
-% 			%\vspace{2.0cm} edited 16/04/2022
-% 			\vspace{1.0cm}
-			
-% 			% Mengetahui dekan dan kajur informatika
-% 			% Tanpa mengetahui dekan
-			
-% 			Mengetahui:\\
-% 			\vspace{0.9cm}
-% 			Koordinator Program Studi Informatika \\ 
-% 			\vspace{-0.27cm}\\
-% 			Universitas Syiah Kuala,\\
-% 			\vspace{1.7cm}\\
-% 			\underline{\@kaprodi} & \\
-% 			NIP. \@kaprodinip &
-
-% 			\end{doublespace}
-% 		% \vspace{0.9cm}
-% 		% Lulus Sidang Sarjana pada hari \@approvaldate
-% 	\end{center}
-
-
-% } % seminar-hasil
-
+      Mengetahui:\\[1ex]%
+      \onehalfspacing%
+      \begin{tabular}{lll}
+         & Koordinator Program Studi S1 Fisika FMIPA  & \\ 
+        \vspace{-0.27cm} & \vspace{-0.27cm} & \vspace{-0.27cm}\\
+         & Universitas Syiah Kuala,&\\
+        \vspace{0.3cm} & \vspace{0.3cm} & \vspace{0.3cm}\\
+         & \underline{\@kaprodi}& \\
+             & NIP. \@kaprodinip & 
+      \vspace{0.9cm}%
+      \end{tabular}
+    \end{doublespace}%
+  \end{center}%
+}
 %------------------------------------------------------------
 % Acknowlegment
 %------------------------------------------------------------
@@ -543,7 +466,7 @@
     }
   \begin{singlespacing}%
   %\vskip 20\p@
-  \addcontentsline{toc}{chapter}{Abstrak}
+  %\addcontentsline{toc}{chapter}{Abstrak}
 }
 \def\endabstractind{\par\vfil\null\end{singlespacing}}
 
@@ -559,7 +482,7 @@
     }
   \begin{singlespacing}%
   %\vskip 20\p@
-  \addcontentsline{toc}{chapter}{\textit{Abstract}}
+  %\addcontentsline{toc}{chapter}{Abstract}
 }
 \def\endabstracteng{\par\vfil\null\end{singlespacing}%
 \selectlanguage{bahasa}}

@@ -303,7 +303,7 @@
         \MakeUppercase{\normalfont\bfseries \@idnum}}\\
 		\vspace{2cm}
 		\vfill
-		\includegraphics[width=0.3\textwidth]{image/logo_unsyiah.png}
+		\includegraphics[width=0.3\textwidth]{images/logo_unsyiah.png}
         \vfill
 		\vspace{2cm}
        {\normalfont
@@ -344,7 +344,7 @@
 				\MakeUppercase{\normalfont\bfseries \@idnum}}\\
 			\vspace{2cm}
 			\vfill
-			\includegraphics[width=0.3\textwidth]{image/logo_unsyiah.png}
+			\includegraphics[width=0.3\textwidth]{images/logo_unsyiah.png}
 			\vfill
 			\vspace{2cm}
 			{\normalfont
