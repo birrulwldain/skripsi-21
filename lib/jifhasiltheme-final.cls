@@ -60,9 +60,9 @@
 \ExecuteOptions{jifhasil,satusetengahspasi,indonesia}
 \ProcessOptions
 \LoadClass[a4paper,12pt]{report}
-\RequirePackage{natbib}
+%\RequirePackage{natbib}
 %\bibliographystyle{style/jifbibstyle}
-\bibliographystyle{apalike}
+%\bibliographystyle{apalike}
 %\RequirePackage{glossaries}%
 %\renewcommand{\nomname}{\nomenclaturename}%
 %\makeglossary%
@@ -293,7 +293,7 @@
       \vspace{2.5cm}
       \MakeUppercase{\large{\bfseries{TUGAS AKHIR}}}\\ %it's me!
       \vspace{1.0cm}
-	  \normalsize{Diajukan untuk melengkapi tugas-tugas dan\\ memenuhi syarat-syarat guna memperoleh gelar Sarjana Komputer\\} %it's me!
+	  \normalsize{Diajukan untuk melengkapi tugas-tugas dan\\ memenuhi syarat-syarat guna memperoleh gelar Sarjana Sains\\} %it's me!
        \vspace{1.0cm}
        {\normalfont
         Oleh:\\
@@ -306,7 +306,7 @@
         \vfill
 		\vspace{2cm}
        {\normalfont
-         \MakeUppercase{\normalfont\bfseries Program Studi \@dept Jurusan \@dept}\\
+         \MakeUppercase{\normalfont\bfseries Program Studi Fisika Jurusan \@dept}\\
          \MakeUppercase{\normalfont\bfseries\@faculty} \MakeUppercase{\normalfont\bfseries\@university}\\
          \MakeUppercase{\normalfont\bfseries\@city}\\
          %\vspace{0.5cm}
@@ -334,7 +334,7 @@
 			\vspace{2.5cm}
 			\MakeUppercase{\large{\bfseries{TUGAS AKHIR}}}\\ %it's me!
 			\vspace{1.0cm}
-			\normalsize{Diajukan untuk melengkapi tugas-tugas dan\\ memenuhi syarat-syarat guna memperoleh gelar Sarjana Komputer\\} %it's me!
+			\normalsize{Diajukan untuk melengkapi tugas-tugas dan\\ memenuhi syarat-syarat guna memperoleh gelar Sarjana Sains\\} %it's me!
 			\vspace{1.0cm}
 			{\normalfont
 				Oleh:\\
@@ -347,7 +347,7 @@
 			\vfill
 			\vspace{2cm}
 			{\normalfont
-				\MakeUppercase{\normalfont\bfseries Program Studi Informatika Departemen \@dept}\\
+				\MakeUppercase{\normalfont\bfseries Program Studi Fisika  Departemen \@dept}\\
 				\MakeUppercase{\normalfont\bfseries\@faculty} \MakeUppercase{\normalfont\bfseries\@university ,  \@city}\\
 				%\MakeUppercase{\normalfont\bfseries\@city}\\
 				%\vspace{0.5cm}
@@ -376,11 +376,11 @@
 			%\vspace{-0.5cm}
 			\begin{singlespace}
 				\begin{compactitem}
-					\addtolength{\itemindent}{3cm}
+					\addtolength{\itemindent}{3.5cm}
 					\setlength{\parsep}{0pt}
-					\item[]{\makebox[2cm]{Nama\hfill} : \@fullname}
-					\item[]{\makebox[2cm]{NPM\hfill} : \@idnum}
-					\item[]{\makebox[2cm]{Jurusan\hfill} : \@dept}
+					\item[]{\makebox[2.5cm]{Nama\hfill} : \@fullname}
+					\item[]{\makebox[2.5cm]{NPM\hfill} : \@idnum}
+					\item[]{\makebox[2.5cm]{Program Studi\hfill} : \@dept}
 				\end{compactitem}
 			\end{singlespace}
 			%\vspace{2.0cm} edited 16/04/2022
@@ -393,7 +393,7 @@
 			Menyetujui:\\
 			\onehalfspacing
 				\begin{tabular}{lll}
-					Pembimbing I & \hspace{2.5cm} & Pembimbing II \\
+					Pembimbing I, & \hspace{2.5cm} & Pembimbing II, \\
 					\vspace{0.3cm} & \vspace{0.3cm} & \vspace{0.3cm}\\
 					\underline{\@firstsupervisor}& &
 					\underline{\@secondsupervisor} \\
@@ -406,8 +406,8 @@
 			% Tanpa mengetahui dekan
 			Mengetahui:\\
 				\begin{tabular}{lll}
-					Dekan FMIPA & &
-					Koordinator Prodi S1 Informatika FMIPA \\ 
+					Dekan FMIPA & \hfill &
+					Koordinator Prodi S1 Fisika FMIPA\\ 
 					\vspace{-0.27cm} & \vspace{-0.27cm} & \vspace{-0.27cm}\\
 					Universitas Syiah Kuala, & & Universitas Syiah Kuala,\\
 					\vspace{0.3cm} & \vspace{0.3cm} & \vspace{0.3cm}\\

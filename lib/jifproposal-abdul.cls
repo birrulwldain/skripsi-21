@@ -199,8 +199,8 @@
 \def\partname{BAGIAN}%
 \def\chaptername{BAB}%
 %\def\appendixname{LAMPIRAN}%
-\def\refname{DAFTAR PUSTAKA}%
-\def\bibname{DAFTAR PUSTAKA}%
+\def\refname{DAFTAR KEPUSTAKAAN}%
+\def\bibname{DAFTAR KEPUSTAKAAN}%
 \def\indexname{Indeks}%
 \def\figurename{Gambar}%
 \def\tablename{Tabel}%
@@ -313,7 +313,7 @@
         \vfill
 		\vspace{2cm}
        {\normalfont
-         \MakeUppercase{\normalfont\bfseries Program Studi Fisika  Jurusan Fisika}\\
+         \MakeUppercase{\normalfont\bfseries Program Studi Fisika  Departemen Fisika}\\
          \MakeUppercase{\normalfont\bfseries\@faculty} \MakeUppercase{\normalfont\bfseries\@university}\\
          \MakeUppercase{\normalfont\bfseries\@city}\\
          %\vspace{0.5cm}
@@ -383,7 +383,7 @@
           \setlength{\parsep}{0pt}%
           \item[]{\makebox[2cm]{Nama\hfill} : \@fullname}%
           \item[]{\makebox[2cm]{NPM\hfill} : \@idnum}%
-          \item[]{\makebox[2cm]{Departemen\hfill} : \@dept}%
+          \item[]{\makebox[2cm]{Program Studi\hfill} : \@dept}%
         \end{compactitem}%
       \end{singlespace}%
       \vspace{0.9cm}%

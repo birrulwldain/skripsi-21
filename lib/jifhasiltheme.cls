@@ -61,9 +61,9 @@
 \ExecuteOptions{jifhasil,satusetengahspasi,indonesia}
 \ProcessOptions
 \LoadClass[a4paper,12pt]{report}
-\RequirePackage{natbib}
+%\RequirePackage{natbib}
 %\bibliographystyle{style/jifbibstyle}
-\bibliographystyle{style/apa-good-2}
+%\bibliographystyle{style/apa-good-2}
 %\RequirePackage{glossaries}%
 %\renewcommand{\nomname}{\nomenclaturename}%
 %\makeglossary%
