@@ -55,8 +55,6 @@ auto/
 -dev-app/
 -media/
 -output/
-
-
 # Untuk TikZ externalize
 tikz-external/
 
