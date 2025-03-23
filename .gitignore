@@ -49,12 +49,13 @@ Thumbs.db
 # Untuk minted (pygments)
 /Users/birrulwalidain/skripsi-2/_minted-*/
 auto/
--data/
+#-data/
 -bintrash/
--raw/
--dev-app/
--media/
--output/
+#-raw/
+#-dev-app/
+#-media/
+#-output/
+node_modules/
 # Untuk TikZ externalize
 tikz-external/
 
@@ -69,3 +70,15 @@ tikz-external/
 # ================================================
 .git/
 .svn/
+*.pdf
+*.db
+*.sqlite
+*.xlsx
+*.xls
+*.csv
+*.dat
+*.dta
+*.png 
+*.jpg
+*.jpeg
+*.adoc

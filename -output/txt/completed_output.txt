@@ -1,0 +1,12 @@
+Element	Ion	Wavelength (nm)	Ei (eV)	Ek (eV)	Accuracy
+Dy	2	396.839000	Ei	Ek	nan)
+Th	2	396.150300	Ei	Ek	nan
+Tc	1	393.370500	Ei	Ek	nan
+Ti	1	279.539900	Ei	Ek	nan
+Cr	2	280.237530	Ei	Ek	nan)
+V	1	394.393700	Ei	Ek	C+
+W	1	288.160600	Ei	Ek	nan
+W	1	309.267600	Ei	Ek	nan
+Cr	2	390.564390	Ei	Ek	nan
+Fe	1	285.201460	Ei	Ek	nan
+Al	2	422.681300	Ei	Ek	C+

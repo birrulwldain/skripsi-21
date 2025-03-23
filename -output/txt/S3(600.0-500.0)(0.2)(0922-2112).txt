@@ -1,0 +1,6 @@
+Spektrum Sampel: S3
+Segment Size: 10.0 nm
+
+Puncak terpilih:
+Ti 1 506.465200 A)
+Mg 1 518.360420 A)

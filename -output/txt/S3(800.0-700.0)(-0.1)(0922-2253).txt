@@ -1,0 +1,15 @@
+Spektrum Sampel: S3
+Segment Size: 10.0 nm
+
+Puncak terpilih:
+Te 2 746.875000 nan
+Rh 1 744.239000 nan
+Hf 1 747.367000 nan
+Cu 2 748.155400 nan
+Fe 1 748.429700 nan
+F 1 748.272300 C+
+Th 1 748.550000 nan
+Zr 1 747.958000 nan
+Th 1 742.380430 nan
+W 1 777.165000 nan
+Fe 2 777.347820 C+

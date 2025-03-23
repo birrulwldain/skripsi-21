@@ -1,0 +1,5 @@
+Spektrum Sampel: S3
+Segment Size: 200.0 nm
+
+Puncak terpilih:
+Ca 2 396.847000 C)
