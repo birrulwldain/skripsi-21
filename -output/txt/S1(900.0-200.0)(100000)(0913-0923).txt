@@ -1,8 +1,0 @@
-Spektrum Sampel: S1
-Segment Size: 200.0 nm
-
-Puncak terpilih:
-Ar 2 396.835890 B
-Th 2 396.150300 nan
-Tc 1 393.370500 nan
-Ti 1 279.539900 nan

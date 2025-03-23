@@ -1,6 +1,0 @@
-Spektrum Sampel: S3
-Segment Size: 10.0 nm
-
-Puncak terpilih:
-La 1 766.434000 C+
-Sc 1 769.865000 nan
