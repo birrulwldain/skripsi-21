@@ -55,7 +55,7 @@ auto/
 -dev-app/
 -media/
 -output/
-
+node_modules/
 
 # Untuk TikZ externalize
 tikz-external/
