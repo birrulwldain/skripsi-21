@@ -82,3 +82,4 @@ tikz-external/
 *.jpg
 *.jpeg
 *.adoc
+.DS_Store
