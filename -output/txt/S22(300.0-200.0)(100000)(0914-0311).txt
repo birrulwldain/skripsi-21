@@ -1,0 +1,9 @@
+Spektrum Sampel: S2
+Segment Size: 200.0 nm
+
+Puncak terpilih:
+Ti 1 279.539900 nan
+Cr 1 280.265000 nan
+W 1 288.160600 nan
+Fe 1 285.201460 nan
+Rb 2 251.611300 nan

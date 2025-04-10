@@ -1,0 +1,321 @@
+%
+% Template Laporan Tugas Akhir Jurusan Informatika Unsyiah 
+%
+% @author Abdul Hafidh
+% @version 1.1
+% @since 08.09.2023
+%
+% Template ini telah disesuaikan dengan aturan penulisan tugas akhir 
+% yang terdapat pada dokumen Panduan Tugas Akhir FMIPA Unsyiah tahun 2016.
+%
+
+% karena jifhasiltheme.cls ada di folder lib, maka kita harus menambahkan path lib/ ke dalam path pencarian file
+\makeatletter
+\def\input@path{{lib/}}
+\makeatother
+% Template pembuatan naskah tugas akhir.
+\documentclass[dvipsnames]{3skripsi}
+\usepackage[style=apa, backend=biber, date=year]{biblatex}
+\addbibresource{daftar-pustaka.bib}
+\DeclareLanguageMapping{bahasa}{english-apa}
+\DeclareLabeldate{%
+  \field{date}
+  \field{year}
+  \literal{n.d.}
+}
+\DefineBibliographyStrings{bahasa}{
+  andothers   = {{dkk\adddot}},
+  page        = {{hlm\adddot}},
+  pages       = {{hlm\adddot}},
+  in          = {{Dalam}},
+  bibliography= {{DAFTAR KEPUSTAKAAN}},
+  references  = {{DAFTAR KEPUSTAKAAN}}
+}
+\tolerance=1
+\emergencystretch=\maxdimen
+\hyphenpenalty=10000
+\hbadness=10000
+
+% Karena file hype.indonesia.tex ada di folder language, tambah path pencarian file
+\makeatletter
+\def\input@path{{language/}}
+\makeatother
+\include{hype.indonesia}
+
+% Untuk prefiks pada daftar gambar dan tabel
+\usepackage[titles]{tocloft}
+
+\usepackage{etoolbox}% http://ctan.org/pkg/etoolbox
+\makeatletter
+\patchcmd{\@chapter}{\addtocontents{lof}{\protect\addvspace{10\p@}}}{}{}{} % LoF
+\patchcmd{\@chapter}{\addtocontents{lot}{\protect\addvspace{10\p@}}}{}{}{} % LoT
+\makeatother
+
+\usepackage[justification=centering]{caption} % atau misalnya [format=hang]
+\usepackage{amssymb}
+% Tambahan dari Budi
+\newcommand*{\enableboldchapterintoc}{%
+  \addtocontents{toc}{\string\renewcommand{\protect\cftchapfont}{\protect\normalfont\protect\bfseries}}%
+  \addtocontents{toc}{\string\renewcommand{\protect\cftchappagefont}{\protect\normalfont\protect}}%
+  \addtocontents{toc}{\protect\setlength{\cftbeforechapskip}{12pt}}%
+}
+\newcommand*{\disableboldchapterintoc}{%
+  \addtocontents{toc}{\string\renewcommand{\protect\cftchappagefont}{\protect\normalfont}}%
+  \addtocontents{toc}{\string\renewcommand{\protect\cftchapfont}{\protect\normalfont}}%
+  \addtocontents{toc}{\protect\setlength{\cftbeforechapskip}{0pt}}%
+}
+% End tambahan dari Budi
+
+\renewcommand{\cftdotsep}{0.5}
+\renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}}
+
+\renewcommand\cftfigpresnum{Gambar\  }
+\renewcommand\cfttabpresnum{Tabel\   }
+
+\newcommand{\listappendicesname}{DAFTAR LAMPIRAN}
+\newlistof{appendices}{apc}{\listappendicesname}
+\newcommand{\appendices}[1]{\addcontentsline{apc}{appendices}{#1}}
+\newcommand{\newappendix}[1]{\section*{#1}\appendices{#1}}
+
+% Untuk hyperlink dan table of content
+\usepackage[hidelinks]{hyperref}
+\renewcommand\UrlFont{\rmfamily\itshape}
+\newlength{\mylenf}
+\settowidth{\mylenf}{\cftfigpresnum}
+\setlength{\cftfignumwidth}{\dimexpr\mylenf+2em}
+\setlength{\cfttabnumwidth}{\dimexpr\mylenf+2em}
+
+% Agar ada tulisan BAB pada TOC
+\renewcommand\cftchappresnum{BAB } 
+\cftsetindents{chapter}{0em}{4.5em}
+\cftsetindents{section}{4.5em}{2em}
+\cftsetindents{subsection}{6.5em}{3em}
+
+\renewcommand{\cftsecaftersnum}{.}
+\renewcommand{\cftsubsecaftersnum}{.}
+
+\addtocontents{toc}{~\hfill \textit{Halaman}\par}
+\addtocontents{lof}{~\hfill \textit{Halaman}\par}
+\addtocontents{lot}{~\hfill \textit{Halaman}\par}
+\addtocontents{apc}{~\hfill \textit{Halaman}\par}
+
+% Untuk judul section
+\usepackage{titlesec}
+\titlelabel{\thetitle.\quad}
+
+% Untuk caption dengan titik sebagai pemisah
+\usepackage[labelsep=period]{caption}
+\usepackage[labelfont=bf]{caption}
+\usepackage{subcaption}
+
+\usepackage{color} % untuk warna
+\usepackage{longtable}
+\usepackage{pdflscape}
+\usepackage{lscape}
+% Agar bisa menulis code snippet
+\usepackage{lstautogobble} % it's me!
+\usepackage{listings}
+\usepackage{xcolor}  % Untuk warna sintaks (opsional)
+\usepackage{inconsolata}  % Font monospace yang rapi (disarankan)
+\usepackage{adjustbox}
+% Konfigurasi dasar untuk listings
+\lstset{
+    basicstyle=\ttfamily\small,       % Gunakan font monospace (Inconsolata)
+    keywordstyle=\color{blue},        % Warna keyword (biru)
+    commentstyle=\color{gray},        % Warna komentar (abu-abu)
+    stringstyle=\color{red},          % Warna string (merah)
+    numbers=left,                     % Tampilkan nomor baris di kiri
+    numberstyle=\tiny\color{gray},    % Gaya nomor baris
+    stepnumber=1,                     % Interval nomor baris
+    tabsize=4,                        % Ukuran tab
+    showstringspaces=false,           % Jangan tunjukkan spasi di string
+    breaklines=true,                  % Potong baris panjang
+    frame=single,                     % Bingkai sekitar kode
+    rulecolor=\color{lightgray},      % Warna bingkai
+    backgroundcolor=\color{white},    % Warna latar belakang
+    literate=                         % Handle karakter khusus
+        {á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+        {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
+        {à}{{\`a}}1 {è}{{\`e}}1 {ì}{{\`i}}1 {ò}{{\`o}}1 {ù}{{\`u}}1
+        {À}{{\`A}}1 {È}{{\'E}}1 {Ì}{{\`I}}1 {Ò}{{\`O}}1 {Ù}{{\`U}}1
+        {ä}{{\"a}}1 {ë}{{\"e}}1 {ï}{{\"i}}1 {ö}{{\"o}}1 {ü}{{\"u}}1
+        {Ä}{{\"A}}1 {Ë}{{\"E}}1 {Ï}{{\"I}}1 {Ö}{{\"O}}1 {Ü}{{\"U}}1
+        {â}{{\^a}}1 {ê}{{\^e}}1 {î}{{\^i}}1 {ô}{{\^o}}1 {û}{{\^u}}1
+        {Â}{{\^A}}1 {Ê}{{\^E}}1 {Î}{{\^I}}1 {Ô}{{\^O}}1 {Û}{{\^U}}1
+        {œ}{{\oe}}1 {Œ}{{\OE}}1 {æ}{{\ae}}1 {Æ}{{\AE}}1 {ß}{{\ss}}1
+        {ç}{{\c c}}1 {Ç}{{\c C}}1 {ø}{{\o}}1 {å}{{\r a}}1 {Å}{{\r A}}1
+        {€}{{\euro}}1 {£}{{\pounds}}1
+}
+\lstset{autogobble=true}
+% Contoh bahasa yang didukung (sesuaikan dengan kebutuhan)
+\lstdefinestyle{Java}{
+    language=Java,
+    morekeywords={String, interface, implements, class}
+}
+
+\lstdefinestyle{Python}{
+    language=Python,
+    keywordstyle=\color{teal}
+}
+\usepackage{caption} % Untuk kustomisasi caption
+%Gaya Caption
+\captionsetup[lstlisting]{
+    labelfont=md,          % Label tidak bold
+    textfont=md,           % Teks caption tidak bold
+    singlelinecheck=true,  % Centang caption 1 baris
+    justification=raggedright, % Rata kiri untuk multi-baris
+    labelsep=space,
+    format=hang,              % Format "hang" untuk indentasi
+    indention=0pt             % Hapus indentasi pada baris kedua+
+}
+%untuk definisi teorema
+\usepackage{amsthm}
+
+% Definisi lingkungan teorema
+\theoremstyle{plain}
+\newtheorem{theorem}{Teorema}[section]
+\newtheorem{corollary}[theorem]{Korolari}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definisi}[section]
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Catatan}
+% Contoh definisi untuk lingkungan "example"
+\theoremstyle{definition} % Gaya: teks normal, judul tebal
+\newtheorem{example}{Contoh}[section] % Nomor mengikuti bagian
+\usepackage{adjustbox}
+\usepackage{fancybox, graphicx} % shadow gambar
+\usepackage{url}
+\usepackage{microtype}
+\usepackage{siunitx}
+\usepackage{xcolor}
+\usepackage{multirow}
+\usepackage[normalem]{ulem}
+\useunder{\uline}{\ul}{}
+\usepackage{array}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1}}
+
+\makeatletter
+\def\input@path{{include/}}
+\makeatother
+
+% Sampul Depan
+\include{sampul-depan}
+
+% Awal dokumen
+\usepackage{fancyhdr}
+\usepackage{rotating}
+% Untuk daftar program
+\makeatletter
+\begingroup\let\newcounter\@gobble\let\setcounter\@gobbletwo
+\globaldefs\@ne \let\c@loldepth\@ne
+\newlistof{listings}{lol}{\lstlistlistingname}
+\endgroup
+\let\l@lstlisting\l@listings
+\AtBeginDocument{\addtocontents{lol}{\protect\addvspace{10\p@}}}
+\makeatother
+\renewcommand{\lstlistoflistings}{\listoflistings}
+\renewcommand\cftlistingspresnum{Program~}
+\cftsetindents{listings}{1.5em}{7em}
+
+
+
+
+% Tab untuk daftar pustaka
+\setlength{\bibhang}{30pt}
+\usepackage{pdfpages}
+\usepackage[table,xcdraw]{xcolor} % Jika diperlukan, pastikan xcdraw hanya dimuat sekali
+\usepackage{colortbl}
+
+\begin{document}
+\sloppy
+\fancyhf{} 
+\fancyfoot[C]{\thepage}
+
+\cover
+\approvalpage
+
+\include{bebas-plagiasi}
+\include{surat-pernyataan}
+
+\include{abstrak-indonesia} 
+\include{abstrak-english} 
+
+% Kata pengantar
+\include{kata-pengantar}
+
+\titleformat{\section}{\normalfont\bfseries\uppercase}{\thesection}{1.7em}{}
+\titleformat{\subsection}{\normalfont\bfseries}{\thesubsection}{0.9em}{}
+
+\addcontentsline{toc}{chapter}{Daftar Isi}
+\begin{singlespace}
+  \tableofcontents
+\end{singlespace}
+\listoftables
+\addcontentsline{toc}{chapter}{Daftar Tabel}
+\listoffigures
+\addcontentsline{toc}{chapter}{Daftar Gambar}
+\listofappendices
+\addcontentsline{toc}{chapter}{Daftar Lampiran}
+
+\enableboldchapterintoc
+
+\include{daftar-singkatan}
+
+\renewcommand{\thelstlisting}{\arabic{chapter}.\arabic{lstlisting}}
+\renewcommand*\lstlistingname{Program}
+
+\begin{onehalfspace}
+\fancyhf{} 
+\fancyfoot[C]{\thepage}
+\pagenumbering{arabic}
+
+\captionsetup[figure]{labelfont={normalfont}, textfont={normalfont},     singlelinecheck=false,    % Nonaktifkan penengahan otomatis
+justification=raggedright, % Rata kiri penuh
+labelsep=space,           % Spasi antara label dan teks
+format=hang,              % Format "hang" untuk indentasi
+indention=0pt, skip=10pt } % Unbold caption gambar
+\captionsetup[table]{labelfont={normalfont}, textfont={normalfont}, 
+singlelinecheck=false,    % Nonaktifkan penengahan otomatis
+justification=raggedright, % Rata kiri penuh
+labelsep=space,           % Spasi antara label dan teks
+format=hang,              % Format "hang" untuk indentasi
+indention=0pt, skip=10pt } % Unbold caption tabel
+
+\fancyhf{} 
+\fancyfoot[R]{\thepage}
+
+\include{bab1}
+\include{bab2}
+\include{bab3}
+\include{bab4}
+\include{bab5}
+
+\fancypagestyle{daftarpustaka}{
+  \fancyhf{}
+  \renewcommand{\headrulewidth}{0pt}
+  \fancyfoot[C]{\thepage} % Halaman pertama di tengah
+  \fancyfoot[R]{\thepage} % Halaman selanjutnya di kanan
+}
+
+% Atur spasi dan format daftar pustaka
+
+\AtBeginEnvironment{thebibliography}{%
+  \clearpage
+  \addcontentsline{toc}{chapter}{DAFTAR KEPUSTAKAAN}
+  \pagestyle{daftarpustaka}
+  \onehalfspacing
+}
+
+% Untuk memaksa semua entri muncul
+\nocite{*}
+
+% Tampilkan daftar pustaka
+\printbibliography[heading=bibintoc, title={DAFTAR KEPUSTAKAAN}]
+\include{lampiran}
+\addcontentsline{toc}{chapter}{LAMPIRAN}
+
+\end{onehalfspace}
+\end{document}

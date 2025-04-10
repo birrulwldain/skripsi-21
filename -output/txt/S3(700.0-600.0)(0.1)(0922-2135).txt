@@ -1,0 +1,15 @@
+Spektrum Sampel: S3
+Segment Size: 10.0 nm
+
+Puncak terpilih:
+Al 2 606.847000 C)
+Eu 1 607.558000 B)
+Ca 1 616.217000 C)
+Ca 1 612.222000 C)
+Pr 2 614.151000 C)
+Fe 1 635.502860 C)
+Ca 1 649.378000 D)
+Mn 2 646.221000 C)
+V 2 656.192900 C)
+Li 1 670.776000 AAA)
+Eu 1 678.254000 nan)

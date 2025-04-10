@@ -1,0 +1,11 @@
+Spektrum Sampel: S3
+Segment Size: 100.0 nm
+
+Puncak terpilih:
+Cr 2 279.521120 nan
+Ti 1 280.249400 nan
+V 2 396.808760 B+
+Ne 2 393.346900 nan
+W 2 396.119360 nan
+Ge 1 422.656250 C
+W 1 777.165000 nan

@@ -1,0 +1,10 @@
+Spektrum Sampel: S5
+Segment Size: 10.0 nm
+
+Puncak terpilih:
+Ti 1 506.465200 A)
+Ti 1 503.590300 nan)
+Mo 1 505.806900 B)
+Ti 1 503.995500 A)
+Mo 1 506.251400 B+)
+Ti 1 503.839700 C+)

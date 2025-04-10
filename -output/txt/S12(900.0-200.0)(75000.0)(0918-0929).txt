@@ -1,0 +1,4 @@
+Spektrum Sampel: S1
+Segment Size: 20.0 nm
+
+Puncak terpilih:

@@ -1,0 +1,4 @@
+Spektrum Sampel: S4
+Segment Size: 100.0 nm
+
+Puncak terpilih:
