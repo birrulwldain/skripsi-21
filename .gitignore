@@ -82,7 +82,6 @@ tikz-external/
 *.jpg
 *.jpeg
 *.adoc
-<<<<<<< HEAD
+
 .DS_Store
-=======
->>>>>>> plasma
+node_modules/
