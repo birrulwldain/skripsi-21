@@ -1,8 +1,0 @@
-Spektrum Sampel: S1
-Segment Size: 200.0 nm
-
-Puncak terpilih:
-Hf 1 394.416000 nan
-Cr 2 390.564390 nan
-Hf 1 279.798000 nan
-Th 2 383.234690 nan

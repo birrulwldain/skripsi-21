@@ -1,4 +1,0 @@
-Spektrum Sampel: S7
-Segment Size: 2.0 nm
-
-Puncak terpilih:

@@ -1,6 +1,0 @@
-Spektrum Sampel: S3
-Segment Size: 10.0 nm
-
-Puncak terpilih:
-K 1 766.489913 AAA)
-K 1 769.896456 AAA)
