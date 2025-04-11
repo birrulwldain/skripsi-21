@@ -1,0 +1,88 @@
+# ================================================
+# File Hasil Kompilasi LaTeX
+# ================================================
+*.aux
+*.log
+*.lof
+*.lot
+*.apc
+*.toc
+*.out
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.synctex.gz
+*.pdfsync
+*.nav
+*.snm
+*.vrb
+*.xdv
+*.run.xml
+*.bcf
+*-concordance.tex
+
+# ================================================
+# File Temporary dan Backup
+# ================================================
+*~
+*.bak
+*.backup
+*.swp
+*.swo
+*.tmp
+\#*#
+.#*
+#*.pdf
+
+# ================================================
+# File Sistem dan IDE
+# ================================================
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# ================================================
+# Direktori dan File Khusus Package
+# ================================================
+# Untuk minted (pygments)
+/Users/birrulwalidain/skripsi-2/_minted-*/
+auto/
+#-data/
+-bintrash/
+#-raw/
+#-dev-app/
+#-media/
+#-output/
+node_modules/
+# Untuk TikZ externalize
+tikz-external/
+
+# ================================================
+# Output dari editor LaTeX tertentu
+# ================================================
+*.texpadtmp  # TeXShop
+*.tps        # TeXnicCenter
+
+# ================================================
+# File Version Control
+# ================================================
+.git/
+.svn/
+*.pdf
+*.db
+*.sqlite
+*.xlsx
+*.xls
+*.csv
+*.dat
+*.dta
+*.png 
+*.jpg
+*.jpeg
+*.adoc
+<<<<<<< HEAD
+.DS_Store
+=======
+>>>>>>> plasma

@@ -1,0 +1,17 @@
+Spektrum Sampel: S1
+Segment Size: 10.0 nm
+
+Puncak terpilih:
+Th 1 279.536800 nan
+Hf 1 279.798000 nan
+Cr 1 280.265000 nan
+W 1 288.160600 nan
+Fe 1 285.201460 nan
+V 1 309.285000 nan
+Th 2 383.234690 nan
+Ar 2 396.835890 B
+Th 2 396.150300 nan
+Tc 1 393.370500 nan
+Cm 1 394.415000 nan
+Cr 2 390.564390 nan
+Al 2 422.681300 C+
