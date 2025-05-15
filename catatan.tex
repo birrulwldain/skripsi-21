@@ -1,0 +1,150 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{enumitem}
+
+\geometry{margin=1in}
+
+\title{Glosarium untuk Kajian Teoretis: Spektroskopi Atom dan Prediksi Komposisi Atom dengan Transformer}
+\author{}
+\date{May 2025}
+
+\begin{document}
+
+\maketitle
+
+\section{Glosarium}
+% Menyajikan daftar glosarium untuk mendukung tulisan
+Berikut adalah glosarium yang berisi definisi istilah-istilah teknis dan ilmiah yang digunakan dalam bab *Kajian Teoretis* (tinjauan pustaka), mencakup spektroskopi atom, simulasi spektrum murni, LIBS, dan penggunaan transformer untuk prediksi komposisi atom. Istilah-istilah ini disusun secara alfabetis dengan penjelasan singkat dan konteks penggunaan dalam kajian.
+
+\begin{itemize}
+    \item \textbf{Absorpsi Diri}  
+        \begin{itemize}
+            \item \textit{Definisi}: Fenomena penyerapan cahaya oleh atom atau ion dalam plasma yang sama menghasilkan emisi, mengurangi intensitas garis spektral.
+            \item \textit{Konteks}: Relevan dalam LIBS untuk memodelkan efek Beer-Lambert pada plasma.
+        \end{itemize}
+
+    \item \textbf{Attention Mechanism}  
+        \begin{itemize}
+            \item \textit{Definisi}: Teknik dalam pembelajaran mesin yang memungkinkan model (seperti transformer) fokus pada bagian data yang relevan, seperti hubungan antar puncak spektrum.
+            \item \textit{Konteks}: Digunakan dalam arsitektur transformer untuk menangkap ketergantungan jarak jauh.
+        \end{itemize}
+
+    \item \textbf{Bobot Statistik (\(g_k\))}  
+        \begin{itemize}
+            \item \textit{Definisi}: Jumlah keadaan degenerasi pada tingkat energi tertentu dalam atom, memengaruhi distribusi Boltzmann.
+            \item \textit{Konteks}: Digunakan dalam simulasi spektrum untuk menghitung populasi tingkat energi.
+        \end{itemize}
+
+    \item \textbf{Distribusi Boltzmann}  
+        \begin{itemize}
+            \item \textit{Definisi}: Distribusi probabilitas populasi atom pada tingkat energi berdasarkan suhu dan energi eksitasi, diberikan oleh \(n_k = n g_k \exp(-E_k/kT)/U(T)\).
+            \item \textit{Konteks}: Dasar kuantitatif untuk analisis intensitas garis dalam spektroskopi atom dan LIBS.
+        \end{itemize}
+
+    \item \textbf{Fungsi Partisi (\(U(T)\))}  
+        \begin{itemize}
+            \item \textit{Definisi}: Jumlah total keadaan energi yang tersedia pada suhu tertentu, digunakan dalam persamaan Saha.
+            \item \textit{Konteks}: Penting untuk menghitung rasio ionisasi dalam plasma LIBS.
+        \end{itemize}
+
+    \item \textbf{Hukum Beer-Lambert}  
+        \begin{itemize}
+            \item \textit{Definisi}: Hubungan matematis \(I = I_0 e^{-\sigma N l}\) yang menggambarkan penyerapan cahaya oleh medium.
+            \item \textit{Konteks}: Digunakan untuk memodelkan absorpsi diri dalam analisis spektral LIBS.
+        \end{itemize}
+
+    \item \textbf{Hukum Debye}  
+        \begin{itemize}
+            \item \textit{Definisi}: Prinsip yang menghubungkan intensitas garis emisi dengan momen dipol transisi spontan (\(I_{ki} \propto A_{ki} \propto |\mu_{ki}|^2\)).
+            \item \textit{Konteks}: Dasar teoretis untuk menghitung intensitas emisi dalam spektroskopi atom.
+        \end{itemize}
+
+    \item \textbf{Laser-Induced Breakdown Spectroscopy (LIBS)}  
+        \begin{itemize}
+            \item \textit{Definisi}: Teknik spektroskopi emisi yang menggunakan laser untuk menghasilkan plasma dan menganalisis komposisi unsur dari spektrum emisi.
+            \item \textit{Konteks}: Metode eksperimental utama untuk validasi simulasi spektrum dalam kajian.
+        \end{itemize}
+
+    \item \textbf{Mekanisme Pelebaran Garis}  
+        \begin{itemize}
+            \item \textit{Definisi}: Efek yang menyebabkan lebar garis spektral, termasuk pelebaran Doppler, Stark, alami, dan tekanan.
+            \item \textit{Konteks}: Digunakan dalam simulasi spektrum untuk memodelkan profil garis Voigt.
+        \end{itemize}
+
+    \item \textbf{Multi-Head Attention}  
+        \begin{itemize}
+            \item \textit{Definisi}: Variasi mekanisme perhatian dalam transformer yang menggunakan beberapa kepala perhatian untuk menangkap hubungan berbeda dalam data.
+            \item \textit{Konteks}: Komponen kunci dalam arsitektur transformer untuk analisis spektral.
+        \end{itemize}
+
+    \item \textbf{Persamaan Saha}  
+        \begin{itemize}
+            \item \textit{Definisi}: Persamaan termodinamika yang menghitung rasio ionisasi berdasarkan suhu, energi ionisasi, dan densitas elektron.
+            \item \textit{Konteks}: Digunakan untuk menganalisis derajat ionisasi dalam plasma LIBS.
+        \end{itemize}
+
+    \item \textbf{Profil Garis Voigt}  
+        \begin{itemize}
+            \item \textit{Definisi}: Konvolusi profil Gaussian (pelebaran Doppler) dan Lorentzian (pelebaran Stark) untuk merepresentasikan bentuk garis spektral.
+            \item \textit{Konteks}: Digunakan dalam simulasi spektrum murni untuk akurasi model.
+        \end{itemize}
+
+    \item \textbf{Token [CLS]}  
+        \begin{itemize}
+            \item \textit{Definisi}: Token khusus dalam model transformer yang digunakan untuk agregasi informasi dari seluruh urutan input.
+            \item \textit{Konteks}: Digunakan dalam preprocessing data spektrum untuk prediksi konsentrasi elemen.
+        \end{itemize}
+
+    \item \textbf{Transformer}  
+        \begin{itemize}
+            \item \textit{Definisi}: Model pembelajaran mesin berbasis perhatian yang dirancang untuk memproses data berurutan, seperti teks atau spektrum.
+            \item \textit{Konteks}: Solusi utama untuk memprediksi komposisi atom dari spektrum simulasi.
+        \end{itemize}
+
+    \item \textbf{Vision Transformer (ViT)}  
+        \begin{itemize}
+            \item \textit{Definisi}: Adaptasi transformer untuk data visual atau spektral, menggunakan pembagian input ke dalam patch atau urutan.
+            \item \textit{Konteks}: Diterapkan untuk menganalisis spektrum atom dalam kajian ini.
+        \end{itemize}
+\end{itemize}
+
+\end{document}
+\end{xaiArtifact>
+
+### Penjelasan Glosarium
+
+1. **Isi Glosarium**  
+   - Total **15 istilah** dipilih berdasarkan relevansi dengan topik kajian, meliputi:
+     - **Spektroskopi Atom**: Absorpsi Diri, Hukum Debye, Beer-Lambert, Distribusi Boltzmann, Persamaan Saha, Mekanisme Pelebaran Garis, Profil Garis Voigt.
+     - **LIBS**: Laser-Induced Breakdown Spectroscopy.
+     - **Simulasi Spektrum**: Bobot Statistik, Fungsi Partisi.
+     - **Transformer**: Attention Mechanism, Multi-Head Attention, Token [CLS], Transformer, Vision Transformer.
+   - Setiap istilah dilengkapi dengan definisi singkat dan konteks penggunaan dalam kajian Anda.
+
+2. **Konsistensi Ilmiah**  
+   - **Definisi**: Ditulis secara formal dan berdasarkan sumber ilmiah (misalnya, NIST untuk spektroskopi, Vaswani et al. untuk transformer).
+   - **Konteks**: Menghubungkan istilah dengan subjudul tertentu (misalnya, Profil Garis Voigt untuk *Simulasi Spektrum Murni*), memastikan relevansi dengan struktur sebelumnya.
+   - **Alfabetis**: Disusun untuk kemudahan referensi, sesuai dengan standar glosarium akademik.
+
+3. **Format LaTeX**  
+   - Menggunakan daftar berjenjang (`itemize`) untuk kejelasan hierarkis antara istilah dan deskripsi.
+   - Dapat ditambahkan ke dokumen utama dengan perintah `\printglossary` jika Anda menggunakan paket seperti `glossaries`, atau disisipkan sebagai bagian terpisah setelah `\maketitle`.
+
+### Cara Menggunakan
+- **Integrasi ke Dokumen**: Tambahkan glosarium ini sebagai bagian terpisah dalam dokumen LaTeX Anda, misalnya setelah daftar isi atau sebelum referensi. Jika menggunakan paket `glossaries`, konversi istilah ini ke format `.glo` dengan perintah seperti:
+  ```latex
+  \usepackage{glossaries}
+  \makeglossaries
+  \newglossaryentry{absorpsi_diri}{name={Absorpsi Diri}, description={Fenomena penyerapan cahaya oleh atom atau ion dalam plasma yang sama menghasilkan emisi, mengurangi intensitas garis spektral. Relevan dalam LIBS untuk memodelkan efek Beer-Lambert pada plasma.}}
+  % Ulangi untuk setiap istilah
+  \printglossaries
+  ```
+  Kompilasi dengan `pdflatex`, `makeglossaries`, lalu `pdflatex` lagi.
+- **Penyesuaian**: Jika Anda ingin menambahkan istilah baru (misalnya, tentang metode pelatihan atau metrik evaluasi), atau mengubah definisi untuk audiens tertentu, beri tahu saya.
+- **Referensi**: Glosarium ini mengasumsikan dukungan dari file `nafta.bib` sebelumnya. Pastikan tersedia untuk kutipan jika diperlukan dalam definisi.
+
+Jika Anda memerlukan bantuan untuk mengintegrasikan glosarium ke dokumen utama, menambahkan istilah tambahan, atau menyesuaikan format, silakan beri tahu saya!
