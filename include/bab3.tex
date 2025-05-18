@@ -5,9 +5,14 @@
 % \fancyhf{} 
 % \fancyfoot[R]{\thepage}
 \chapter{METODE PENENILITIAN}
+
+\par Dalam pengembangan model Long Short-Term Memory (LSTM), persiapan data yang tepat adalah langkah krusial yang dapat mempengaruhi kinerja model secara signifikan. Bab ini membahas berbagai teknik untuk mempersiapkan data numerik dan kategorikal, serta bagaimana menangani urutan dengan panjang yang bervariasi.
+\par Gambar \ref{fig:lstm_architecture} menunjukkan arsitektur dasar dari LSTM. Dalam arsitektur ini, terdapat tiga komponen utama: input layer, hidden LSTM layer, dan output layer.
+
 %\thispagestyle{plain} % Halaman pertama bab menggunakan gaya plain
 \section{Waktu dan Lokasi Penelitian}
 Penelitian ini akan bertempat pada beberapa ruangan yang digunakan oleh mahasiswa Jurusan Informatika USK yang umumnya terletak pada lantai 3 blok A dan blok E Gedung Fakultas MIPA USK. Waktu yang dibutuhkan agar penelitian ini dapat di implementasikan adalah 4 bulan terhitung dari bulan Januari 2024 hingga Mei 2024.
+\section{Jadwal Pelaksanaan Penelitian}
 
 \section{Alat dan Bahan}
 Alat dan Bahan yang akan digunakan pada penelitian ini terdiri dari beberapa perangkat keras (\textit{hardware}) dan perangkat lunak (\textit{software}) yang dijabarkan sebagai berikut:
@@ -34,19 +39,27 @@ Alat dan Bahan yang akan digunakan pada penelitian ini terdiri dari beberapa per
     \item itertools (built-in)
 	\end{itemize}
 \end{enumerate}
-\newpage
-\section{Metode Penelitian}
-\par Dalam pengembangan model Long Short-Term Memory (LSTM), persiapan data yang tepat adalah langkah krusial yang dapat mempengaruhi kinerja model secara signifikan. Bab ini membahas berbagai teknik untuk mempersiapkan data numerik dan kategorikal, serta bagaimana menangani urutan dengan panjang yang bervariasi.
-\par Gambar \ref{fig:lstm_architecture} menunjukkan arsitektur dasar dari LSTM. Dalam arsitektur ini, terdapat tiga komponen utama: input layer, hidden LSTM layer, dan output layer.
 
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.2\textwidth]{images/lstm1.png} 
-    \caption{ LSTM Datinteger \parencite{brownlee2017}}
-    \label{fig:lstm_architecture}
-\end{figure}
-\section{Persiapan Data Numerik}
-\par Data numerik memerlukan normalisasi atau standardisasi sebelum digunakan dalam model LSTM. Normalisasi membantu dalam mengurangi skala data, sehingga mempercepat proses pelatihan dan meningkatkan konvergensi model. Metode umum yang digunakan termasuk Min-Max Scaling dan Z-score Normalization \parencite{brownlee2017}.
+\section{Prosedur Penelitian}
+
+%ISI 
+\par Diagram Alir penelitian
+\subsection{Simulasi Spektrum}
+
+\subsubsection{Desain Simulasi}
+\subsection{Perhitungan Tingkat Energi}
+[Isi Bab 3.2.1: Schrödinger, Hartree-Fock.]
+
+\subsubsection{Pemodelan Populasi Energi}
+[Isi Bab 3.2.2: Boltzmann, Saha.]
+
+\subsubsection{Pemodelan Profil Garis}
+Metode simulasi menggabungkan semua komponen untuk menghasilkan spektrum. Metode ini pertama-tama menginisialisasi panjang gelombang dan intensitas, kemudian mengumpulkan tingkat energi dan degenerasi dari data NIST. Setelah menghitung fungsi partisi, intensitas dihitung untuk setiap transisi dan digabungkan menggunakan profil Gaussian. Hasil akhirnya adalah panjang gelombang dan intensitas yang dinormalisasi.
+
+\subsubsection{Parameter Plasma}
+[Isi Bab 3.2.4: Suhu 10.000 K, densitas elektron.]
+\subsubsection{Data dan Sumber}
+[Isi Bab 3.4: NIST, literatur.]
 
 \subsection{Normalisasi}
 \par Normalisasi data dilakukan dengan rumus:
@@ -54,11 +67,30 @@ Alat dan Bahan yang akan digunakan pada penelitian ini terdiri dari beberapa per
     I' = \frac{I - I_{min}}{I_{max} - I_{min}}
 \end{equation}
 di mana $I'$ adalah data yang dinormalisasi, $I$ adalah data asli, $I_{min}$ dan $I_{max}$ adalah nilai minimum dan maksimum dari dataset.
+\subsubsection{Validasi Model Simulasi}
+[Isi Bab 3.5: Perbandingan dengan NIST.]
 
-\section{Persiapan Data Kategorikal}
+\subsubsection{pengumupulan data}
+
+
+\subsection{Perancangan Model Transformer}
+[Isi Bab 3.3: Arsitektur dan pelatihan.]
+
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.2\textwidth]{images/lstm1.png} 
+    \caption{ LSTM Datinteger \parencite{brownlee2017}}
+    \label{fig:lstm_architecture}
+\end{figure}
+\subsubsection{Persiapan Data Numerik}
+\par Data numerik memerlukan normalisasi atau standardisasi sebelum digunakan dalam model LSTM. Normalisasi membantu dalam mengurangi skala data, sehingga mempercepat proses pelatihan dan meningkatkan konvergensi model. Metode umum yang digunakan termasuk Min-Max Scaling dan Z-score Normalization \parencite{brownlee2017}.
+
+
+\subsubsection{Persiapan Data Kategorikal}
 \par Data kategorikal perlu diubah menjadi format numerik agar dapat digunakan dalam model LSTM. Dua metode umum untuk melakukan ini adalah One-Hot Encoding dan Label Encoding. One-Hot Encoding mengubah setiap kategori menjadi vektor biner, sedangkan Label Encoding memberikan setiap kategori nilai integer \parencite{brownlee2017}.
 
-\subsection{One-Hot Encoding}
+\subsubsection{One-Hot Encoding}
 \par One-Hot Encoding dapat dilakukan dengan menggunakan pustaka seperti scikit-learn. Misalnya, untuk mengubah kolom kategorikal menjadi format one-hot:
 \begin{lstlisting}[language=Python, caption=Contoh One-Hot Encoding (scikit-learn)]
 from sklearn.preprocessing import OneHotEncoder
@@ -66,46 +98,7 @@ encoder = OneHotEncoder()
 encoded_data = encoder.fit_transform(data).toarray()
 \end{lstlisting}
 
-\section{Menangani Urutan dengan Panjang Bervariasi}
-\par Dalam banyak kasus, urutan data yang digunakan dalam LSTM memiliki panjang yang bervariasi. Untuk menangani ini, kita dapat menggunakan padding untuk menambahkan nilai nol ke urutan yang lebih pendek, sehingga semua urutan memiliki panjang yang sama. Keras menyediakan fungsi \texttt{pad\_sequences()} untuk tujuan ini.
 
-\subsection{Padding}
-\par Padding dapat dilakukan sebagai berikut:
-\begin{lstlisting}[language=Python, caption=Contoh Padding Sequence (Keras)]
-from tensorflow.keras.preprocessing.sequence import pad_sequences
-padded_sequences = pad_sequences(
-    sequences, 
-    maxlen=max_length, 
-    padding='post', 
-    truncating='post'
-)
-\end{lstlisting}
-
-\section{Prediksi Urutan sebagai Pembelajaran Terawasi}
-\par Dalam konteks LSTM, prediksi urutan dapat dipandang sebagai masalah pembelajaran terawasi. Ini melibatkan transformasi data urutan menjadi format yang dapat digunakan untuk pelatihan model, di mana input dan output ditentukan berdasarkan langkah waktu tertentu \parencite{brownlee2017}.
-
-
-\par Persiapan data yang tepat adalah langkah penting dalam pengembangan model LSTM. Dengan menggunakan teknik yang tepat untuk normalisasi, encoding, dan padding, kita dapat meningkatkan kinerja model dan memastikan bahwa data siap untuk analisis lebih lanjut.
-
-\begin{equation}
-    \frac{n_i \cdot n_e}{n_a} = \left( \frac{2}{\Lambda^3} \right) \cdot \left( \frac{g_i}{g_a} \right) \cdot \exp \left( -\frac{E_{ion}}{kT} \right)
-    \label{eq:rate}
-\end{equation}
-
-
-----------------------------------------------------------%
-
-----------------------------------------------------------
-% Tanpa figure
-%    \lstinputlisting[
-%language=Python,
-% caption= Ini adalah sebuah teorema.
-%  Ini adalah sebuah teorema.
-%   Ini adalah sebuah teorema.
-%    Ini adalah sebuah teorema.
-%     Implementasi Algoritma Dijkstra,
-%      label=code:dijkstra
- %   ]{/Users/birrulwalidain/skripsi-2/project/src/train.py}
 
 
 
@@ -131,7 +124,7 @@ Ini adalah bukti.
 
  \begin{table}[H]
     \centering
-    \caption{Perbandingan  LIBS}
+    \caption{Perbandingahn  LIBS}
     \label{tab:performa_ml}
     \centering
     \begin{tabular}{lcccc}
