@@ -15,7 +15,8 @@
 \makeatother
 % Template pembuatan naskah tugas akhir.
 \documentclass[dvipsnames]{3skripsi}
-\usepackage[style=apa, backend=biber, date=year]{biblatex}
+\usepackage[style=apa, backend=biber, natbib=true]{biblatex}
+
 \addbibresource{daftar-pustaka.bib}
 \DeclareLanguageMapping{bahasa}{english-apa}
 \DeclareLabeldate{%
@@ -35,6 +36,8 @@
 \emergencystretch=\maxdimen
 \hyphenpenalty=10000
 \hbadness=10000
+\usepackage{algorithm}
+\usepackage{algpseudocode}
 
 % Karena file hype.indonesia.tex ada di folder language, tambah path pencarian file
 \makeatletter

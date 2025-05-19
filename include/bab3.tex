@@ -7,9 +7,7 @@
 \chapter{METODE PENENILITIAN}
 
 \par Dalam pengembangan model Long Short-Term Memory (LSTM), persiapan data yang tepat adalah langkah krusial yang dapat mempengaruhi kinerja model secara signifikan. Bab ini membahas berbagai teknik untuk mempersiapkan data numerik dan kategorikal, serta bagaimana menangani urutan dengan panjang yang bervariasi.
-\par Gambar \ref{fig:lstm_architecture} menunjukkan arsitektur dasar dari LSTM. Dalam arsitektur ini, terdapat tiga komponen utama: input layer, hidden LSTM layer, dan output layer.
 
-%\thispagestyle{plain} % Halaman pertama bab menggunakan gaya plain
 \section{Waktu dan Lokasi Penelitian}
 Penelitian ini akan bertempat pada beberapa ruangan yang digunakan oleh mahasiswa Jurusan Informatika USK yang umumnya terletak pada lantai 3 blok A dan blok E Gedung Fakultas MIPA USK. Waktu yang dibutuhkan agar penelitian ini dapat di implementasikan adalah 4 bulan terhitung dari bulan Januari 2024 hingga Mei 2024.
 \section{Jadwal Pelaksanaan Penelitian}
@@ -44,63 +42,85 @@ Alat dan Bahan yang akan digunakan pada penelitian ini terdiri dari beberapa per
 
 %ISI 
 \par Diagram Alir penelitian
-\subsection{Simulasi Spektrum}
+\begin{center}
+    \begin{figure}
+        \centering
+        \includegraphics[width=1\textwidth]{images/3-Diagram.drawio.pdf} 
+        \caption{Diagram Alir Penelitian}
+        \label{fig:3-diagram}
+    \end{figure}
+\end{center}
+Prosedur penelitian ini dirancang untuk mensimulasikan spektrum atom dalam plasma pada kondisi kesetimbangan termal, dengan tujuan menentukan suhu eksitasi berdasarkan intensitas garis spektral. Pendekatan ini mengintegrasikan perhitungan kuantum mekanis, statistik termodinamika, dan pemodelan machine learning untuk analisis data spektral. Langkah-langkah simulasi diuraikan sebagai berikut:
 
-\subsubsection{Desain Simulasi}
-\subsection{Perhitungan Tingkat Energi}
-[Isi Bab 3.2.1: Schrödinger, Hartree-Fock.]
+\begin{itemize}
+    \item \textbf{Desain Simulasi}
+        \begin{itemize}
+            \item \textbf{Perhitungan Tingkat Energi} \\
+                  Tingkat energi atom dihitung menggunakan pendekatan kuantum mekanis. Persamaan Schrödinger digunakan untuk atom hidrogen, memberikan solusi analitik untuk energi \( E_n = -\frac{13.6}{n^2} \, \text{eV} \), dengan \( n \) sebagai bilangan kuantum utama \citep{Griffiths2005}. Untuk atom yang lebih kompleks, metode Hartree-Fock diterapkan untuk memperkirakan energi elektron dalam medan efektif multi-elektron, dengan memperhitungkan interaksi antar-elektron \citep{Szabo1996}. Data tingkat energi divalidasi terhadap basis data NIST \citep{NIST2025}.
 
-\subsubsection{Pemodelan Populasi Energi}
-[Isi Bab 3.2.2: Boltzmann, Saha.]
+            \item \textbf{Pemodelan Populasi Energi} \\
+                  Populasi tingkat energi dimodelkan menggunakan distribusi Boltzmann, seperti pada Persamaan~\eqref{eq:boltzmann}:
+                  \begin{equation}
+                      N_i = \frac{N g_i e^{-\frac{E_i}{k_B T}}}{Z}, \label{eq:boltzmann}
+                  \end{equation}
+                  di mana \( N_i \) adalah populasi pada tingkat energi \( E_i \), \( g_i \) adalah degenerasi, \( k_B = 8.617 \times 10^{-5} \, \text{eV/K} \), \( T \) adalah suhu, dan \( Z = \sum_i g_i e^{-\frac{E_i}{k_B T}} \) adalah fungsi partisi. Untuk plasma yang tidak sepenuhnya dalam kesetimbangan termal, persamaan Saha digunakan untuk memperkirakan distribusi ionisasi berdasarkan densitas elektron dan suhu \citep{Draine2011}. Parameter seperti \( g_i \) dan \( E_i \) diambil dari data NIST.
 
-\subsubsection{Pemodelan Profil Garis}
-Metode simulasi menggabungkan semua komponen untuk menghasilkan spektrum. Metode ini pertama-tama menginisialisasi panjang gelombang dan intensitas, kemudian mengumpulkan tingkat energi dan degenerasi dari data NIST. Setelah menghitung fungsi partisi, intensitas dihitung untuk setiap transisi dan digabungkan menggunakan profil Gaussian. Hasil akhirnya adalah panjang gelombang dan intensitas yang dinormalisasi.
+            \item \textbf{Pemodelan Profil Garis} \\
+                  Spektrum dihasilkan dengan menginisialisasi rentang panjang gelombang (\( \lambda \)) dan menghitung intensitas untuk setiap transisi. Data tingkat energi dan degenerasi diambil dari basis data NIST \citep{NIST2025}. Intensitas garis spektral dihitung menggunakan:
+                  \begin{equation}
+                      I_{ij} = \frac{N g_i A_{ij} h \nu_{ij} e^{-\frac{E_i}{k_B T}}}{4\pi Z}, \label{eq:intensity_full}
+                  \end{equation}
+                  dengan \( h \nu_{ij} = \frac{h c}{\lambda_{ij}} \), \( h c \approx 1239.84 \, \text{eV·nm} \), dan \( A_{ij} \) sebagai koefisien Einstein untuk emisi spontan \citep{rybicki-1985}. Profil garis dimodelkan menggunakan distribusi Gaussian untuk memperhitungkan efek pelebaran Doppler dan tekanan, menghasilkan panjang gelombang dan intensitas yang dinormalisasi.
 
-\subsubsection{Parameter Plasma}
-[Isi Bab 3.2.4: Suhu 10.000 K, densitas elektron.]
-\subsubsection{Data dan Sumber}
-[Isi Bab 3.4: NIST, literatur.]
+            \item \textbf{Parameter Plasma} \\
+                  Simulasi menggunakan suhu plasma \( T = 10.000 \, \text{K} \) dan densitas elektron tipikal untuk plasma astrofisika (\( n_e \approx 10^{12} \, \text{cm}^{-3} \)) \citep{Draine2011}. Parameter ini dipilih untuk mencerminkan kondisi kesetimbangan termal lokal (LTE) yang relevan dengan analisis spektral.
 
-\subsection{Normalisasi}
-\par Normalisasi data dilakukan dengan rumus:
-\begin{equation}
-    I' = \frac{I - I_{min}}{I_{max} - I_{min}}
-\end{equation}
-di mana $I'$ adalah data yang dinormalisasi, $I$ adalah data asli, $I_{min}$ dan $I_{max}$ adalah nilai minimum dan maksimum dari dataset.
-\subsubsection{Validasi Model Simulasi}
-[Isi Bab 3.5: Perbandingan dengan NIST.]
+            \item \textbf{Data dan Sumber} \\
+                  Data utama berasal dari basis data NIST untuk tingkat energi, degenerasi, dan koefisien Einstein \citep{NIST2025}. Literatur tambahan, seperti \citet{rybicki-1985} dan \citet{Draine2011}, digunakan untuk validasi model dan parameter plasma.
 
-\subsubsection{pengumupulan data}
+            \item \textbf{Validasi Model Simulasi} \\
+                  Hasil simulasi divalidasi dengan membandingkan panjang gelombang dan intensitas garis spektral dengan data eksperimen dari NIST \citep{NIST2025}. Deviasi dianalisis untuk memastikan akurasi model dalam memprediksi suhu eksitasi.
 
+            \item \textbf{Pengumpulan Data} \\
+                  Data spektral dikumpulkan dari simulasi dan disimpan dalam format numerik untuk analisis lebih lanjut. Data ini mencakup panjang gelombang, intensitas, dan parameter transisi untuk setiap garis spektral.
+        \end{itemize}
 
-\subsection{Perancangan Model Transformer}
-[Isi Bab 3.3: Arsitektur dan pelatihan.]
+    \item \textbf{Normalisasi Data} \\
+          Untuk memastikan konsistensi dalam analisis, intensitas spektral dinormalisasi menggunakan rumus:
+          \begin{equation}
+              I' = \frac{I - I_{\min}}{I_{\max} - I_{\min}}, \label{eq:normalization}
+          \end{equation}
+          di mana \( I' \) adalah intensitas yang dinormalisasi, \( I \) adalah intensitas asli, serta \( I_{\min} \) dan \( I_{\max} \) adalah nilai minimum dan maksimum dari dataset. Normalisasi ini memfasilitasi perbandingan antar garis spektral dan persiapan data untuk pemodelan machine learning.
 
+    \item \textbf{Perancangan Model Transformer} \\
+          Model Transformer dirancang untuk menganalisis pola dalam data spektral, dengan arsitektur berdasarkan mekanisme perhatian (attention mechanism) \citep{Vaswani2017}. Pelatihan dilakukan menggunakan dataset spektral yang dinormalisasi, dengan optimasi parameter untuk memprediksi suhu plasma atau karakteristik spektral lainnya. Detail pelatihan mencakup penggunaan fungsi kerugian entropi silang dan optimizer Adam.
 
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.2\textwidth]{images/lstm1.png} 
-    \caption{ LSTM Datinteger \parencite{brownlee2017}}
-    \label{fig:lstm_architecture}
-\end{figure}
-\subsubsection{Persiapan Data Numerik}
-\par Data numerik memerlukan normalisasi atau standardisasi sebelum digunakan dalam model LSTM. Normalisasi membantu dalam mengurangi skala data, sehingga mempercepat proses pelatihan dan meningkatkan konvergensi model. Metode umum yang digunakan termasuk Min-Max Scaling dan Z-score Normalization \parencite{brownlee2017}.
+    \item \textbf{Persiapan Data untuk Model LSTM}
+        \begin{itemize}
+            \item \textbf{Arsitektur LSTM} \\
+                  Model Long Short-Term Memory (LSTM) digunakan untuk analisis sekuensial data spektral, memanfaatkan kemampuan memori jangka panjang \citep{brownlee2017}. Arsitektur ini divisualisasikan pada Gambar~\ref{fig:lstm_architecture}.
+                  \begin{figure}[h]
+                      \centering
+                      \includegraphics[width=0.2\textwidth]{images/lstm1.png}
+                      \caption{Arsitektur LSTM untuk analisis data spektral \parencite{brownlee2017}.}
+                      \label{fig:lstm_architecture}
+                  \end{figure}
 
+            \item \textbf{Persiapan Data Numerik} \\
+                  Data numerik, seperti intensitas dan panjang gelombang, dinormalisasi untuk mempercepat pelatihan dan meningkatkan konvergensi model LSTM. Metode yang digunakan adalah Min-Max Scaling, sesuai dengan Persamaan~\eqref{eq:normalization}, dan Z-score Normalization untuk distribusi data yang lebih simetris \parencite{brownlee2017}.
 
-\subsubsection{Persiapan Data Kategorikal}
-\par Data kategorikal perlu diubah menjadi format numerik agar dapat digunakan dalam model LSTM. Dua metode umum untuk melakukan ini adalah One-Hot Encoding dan Label Encoding. One-Hot Encoding mengubah setiap kategori menjadi vektor biner, sedangkan Label Encoding memberikan setiap kategori nilai integer \parencite{brownlee2017}.
+            \item \textbf{Persiapan Data Kategorikal} \\
+                  Data kategorikal, seperti jenis transisi atau spesies atom, diubah menjadi format numerik menggunakan One-Hot Encoding atau Label Encoding. One-Hot Encoding menghasilkan vektor biner untuk setiap kategori, sedangkan Label Encoding menetapkan nilai integer unik \parencite{brownlee2017}.
 
-\subsubsection{One-Hot Encoding}
-\par One-Hot Encoding dapat dilakukan dengan menggunakan pustaka seperti scikit-learn. Misalnya, untuk mengubah kolom kategorikal menjadi format one-hot:
-\begin{lstlisting}[language=Python, caption=Contoh One-Hot Encoding (scikit-learn)]
+            \item \textbf{One-Hot Encoding} \\
+                  One-Hot Encoding diimplementasikan menggunakan pustaka scikit-learn, seperti ditunjukkan pada Listing~\ref{lst:one_hot_encoding}:
+                  \begin{lstlisting}[language=Python, caption=Contoh One-Hot Encoding dengan scikit-learn, label=lst:one_hot_encoding]
 from sklearn.preprocessing import OneHotEncoder
 encoder = OneHotEncoder()
 encoded_data = encoder.fit_transform(data).toarray()
-\end{lstlisting}
-
-
-
-
+                  \end{lstlisting}
+        \end{itemize}
+\end{itemize}
 
 \begin{theorem}
 Ini adalah sebuah teorema.

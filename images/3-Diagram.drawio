@@ -1,0 +1,147 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.5 Safari/605.1.15" version="27.0.6">
+  <diagram name="Page-1" id="wsmX6nPoZLK8XKvf34c3">
+    <mxGraphModel dx="969" dy="625" grid="1" gridSize="5" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="800" pageHeight="560" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="WQNkgvo-gdw8YUgvqgpC-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontFamily=Times New Roman;spacing=0;spacingTop=0;shadow=0;" edge="1" parent="1" source="WQNkgvo-gdw8YUgvqgpC-1" target="WQNkgvo-gdw8YUgvqgpC-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="WQNkgvo-gdw8YUgvqgpC-1" value="Mulai" style="ellipse;whiteSpace=wrap;html=1;fontFamily=Times New Roman;spacing=0;spacingTop=0;shadow=0;rotation=0;" vertex="1" parent="1">
+          <mxGeometry x="84.5" y="61" width="91" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="WQNkgvo-gdw8YUgvqgpC-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontFamily=Times New Roman;spacing=0;spacingTop=0;shadow=0;" edge="1" parent="1" source="WQNkgvo-gdw8YUgvqgpC-2" target="WQNkgvo-gdw8YUgvqgpC-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="WQNkgvo-gdw8YUgvqgpC-2" value="Studi Literatur" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;spacing=0;spacingTop=0;shadow=0;rotation=0;imageWidth=25;imageHeight=25;" vertex="1" parent="1">
+          <mxGeometry x="60" y="140.5" width="140" height="59.5" as="geometry" />
+        </mxCell>
+        <mxCell id="WQNkgvo-gdw8YUgvqgpC-80" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="WQNkgvo-gdw8YUgvqgpC-6" target="WQNkgvo-gdw8YUgvqgpC-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="WQNkgvo-gdw8YUgvqgpC-6" value="Pembentukan persamaan Intensitas Spektral Rasio Ionisasi dan Profil Garis Spektral" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;spacing=0;spacingTop=0;shadow=0;rotation=0;imageWidth=25;imageHeight=25;" vertex="1" parent="1">
+          <mxGeometry x="60" y="240" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="WQNkgvo-gdw8YUgvqgpC-95" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="WQNkgvo-gdw8YUgvqgpC-8" target="WQNkgvo-gdw8YUgvqgpC-47">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="WQNkgvo-gdw8YUgvqgpC-8" value="Perancangan Model&amp;nbsp;&lt;div&gt;Simulasi Spektral&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;spacing=0;spacingTop=0;shadow=0;rotation=0;imageWidth=25;imageHeight=25;" vertex="1" parent="1">
+          <mxGeometry x="60" y="340" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="WQNkgvo-gdw8YUgvqgpC-99" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="WQNkgvo-gdw8YUgvqgpC-11" target="WQNkgvo-gdw8YUgvqgpC-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="WQNkgvo-gdw8YUgvqgpC-122" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="WQNkgvo-gdw8YUgvqgpC-28" target="WQNkgvo-gdw8YUgvqgpC-29">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="WQNkgvo-gdw8YUgvqgpC-28" value="Perancangangan Sistem Prediksi" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;spacing=0;spacingTop=0;shadow=0;rotation=0;imageWidth=25;imageHeight=25;" vertex="1" parent="1">
+          <mxGeometry x="420" y="440" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="WQNkgvo-gdw8YUgvqgpC-123" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="WQNkgvo-gdw8YUgvqgpC-29" target="WQNkgvo-gdw8YUgvqgpC-79">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="WQNkgvo-gdw8YUgvqgpC-29" value="Pengujian Sistem Prediksi" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;spacing=0;spacingTop=0;shadow=0;rotation=0;imageWidth=25;imageHeight=25;" vertex="1" parent="1">
+          <mxGeometry x="600" y="440" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="WQNkgvo-gdw8YUgvqgpC-112" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="WQNkgvo-gdw8YUgvqgpC-47" target="WQNkgvo-gdw8YUgvqgpC-76">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="WQNkgvo-gdw8YUgvqgpC-47" value="Pengambilan data Spektral Atom NIST" style="whiteSpace=wrap;html=1;fontFamily=Times New Roman;spacing=0;spacingTop=0;shadow=0;rotation=0;imageWidth=25;imageHeight=25;" vertex="1" parent="1">
+          <mxGeometry x="60" y="440.5" width="140" height="59.5" as="geometry" />
+        </mxCell>
+        <mxCell id="WQNkgvo-gdw8YUgvqgpC-116" value="Tidak memenuhi kriteria LTE" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;fontFamily=Times New Roman;horizontal=0;spacing=0;" edge="1" parent="1">
+          <mxGeometry x="0.1246" relative="1" as="geometry">
+            <mxPoint x="345.8449999999999" y="270" as="sourcePoint" />
+            <mxPoint x="380" y="470" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="400" y="270" />
+              <mxPoint x="400" y="470" />
+            </Array>
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="WQNkgvo-gdw8YUgvqgpC-117" value="Ya memenuhi kriteria LTE" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;fontFamily=Times New Roman;spacing=0;" edge="1" parent="1">
+          <mxGeometry x="-0.1751" relative="1" as="geometry">
+            <mxPoint x="310.03999999999996" y="234.0401729669411" as="sourcePoint" />
+            <mxPoint x="310" y="200" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="WQNkgvo-gdw8YUgvqgpC-48" value="Hasil Kalkulasi" style="rhombus;whiteSpace=wrap;html=1;fontFamily=Times New Roman;spacing=0;spacingTop=0;shadow=0;rotation=0;arcSize=20;strokeWidth=1;" vertex="1" parent="1">
+          <mxGeometry x="274.155" y="234" width="71.69" height="72" as="geometry" />
+        </mxCell>
+        <mxCell id="WQNkgvo-gdw8YUgvqgpC-113" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="WQNkgvo-gdw8YUgvqgpC-76" target="WQNkgvo-gdw8YUgvqgpC-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="WQNkgvo-gdw8YUgvqgpC-76" value="Penentuan Varian Suhu Plasma dan Densitas&amp;nbsp;&lt;div&gt;Elektron&lt;/div&gt;" style="whiteSpace=wrap;html=1;fontFamily=Times New Roman;spacing=0;spacingTop=0;shadow=0;rotation=0;imageWidth=25;imageHeight=25;" vertex="1" parent="1">
+          <mxGeometry x="240" y="440" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="WQNkgvo-gdw8YUgvqgpC-120" value="Akurasi &amp;gt; 80%" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Times New Roman;" edge="1" parent="1" source="WQNkgvo-gdw8YUgvqgpC-77" target="WQNkgvo-gdw8YUgvqgpC-28">
+          <mxGeometry x="-0.1759" relative="1" as="geometry">
+            <mxPoint y="2" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="WQNkgvo-gdw8YUgvqgpC-121" value="Akurasi &amp;lt; 80%" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;horizontal=0;fontFamily=Times New Roman;" edge="1" parent="1" source="WQNkgvo-gdw8YUgvqgpC-77" target="WQNkgvo-gdw8YUgvqgpC-11">
+          <mxGeometry x="-0.2767" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="580" y="370" />
+              <mxPoint x="580" y="170" />
+            </Array>
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="WQNkgvo-gdw8YUgvqgpC-77" value="Hasil&amp;nbsp;&lt;div&gt;Evaluasi&lt;/div&gt;" style="rhombus;whiteSpace=wrap;html=1;fontFamily=Times New Roman;spacing=0;spacingTop=0;shadow=0;rotation=0;arcSize=20;" vertex="1" parent="1">
+          <mxGeometry x="454.155" y="334" width="71.69" height="72" as="geometry" />
+        </mxCell>
+        <mxCell id="WQNkgvo-gdw8YUgvqgpC-125" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="WQNkgvo-gdw8YUgvqgpC-31" target="WQNkgvo-gdw8YUgvqgpC-78">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="WQNkgvo-gdw8YUgvqgpC-31" value="Penulisan Laporan" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;spacing=0;spacingTop=0;shadow=0;rotation=0;imageWidth=25;imageHeight=25;" vertex="1" parent="1">
+          <mxGeometry x="600" y="240" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="WQNkgvo-gdw8YUgvqgpC-78" value="Selesai" style="ellipse;whiteSpace=wrap;html=1;fontFamily=Times New Roman;spacing=0;spacingTop=0;shadow=0;rotation=0;" vertex="1" parent="1">
+          <mxGeometry x="624.5" y="144.25" width="91" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="WQNkgvo-gdw8YUgvqgpC-124" value="&lt;font face=&quot;Times New Roman&quot;&gt;Ya&lt;/font&gt;" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="WQNkgvo-gdw8YUgvqgpC-79" target="WQNkgvo-gdw8YUgvqgpC-31">
+          <mxGeometry x="-0.1759" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="WQNkgvo-gdw8YUgvqgpC-126" value="Tidak" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;fontFamily=Times New Roman;horizontal=0;" edge="1" parent="1" source="WQNkgvo-gdw8YUgvqgpC-79" target="WQNkgvo-gdw8YUgvqgpC-28">
+          <mxGeometry x="-0.4773" relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="760" y="370" />
+              <mxPoint x="760" y="520" />
+              <mxPoint x="490" y="520" />
+            </Array>
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="WQNkgvo-gdw8YUgvqgpC-79" value="Sistem berjalan" style="rhombus;whiteSpace=wrap;html=1;fontFamily=Times New Roman;spacing=0;spacingTop=0;shadow=0;rotation=0;arcSize=20;" vertex="1" parent="1">
+          <mxGeometry x="634.155" y="334" width="71.69" height="72" as="geometry" />
+        </mxCell>
+        <mxCell id="WQNkgvo-gdw8YUgvqgpC-118" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="WQNkgvo-gdw8YUgvqgpC-102" target="WQNkgvo-gdw8YUgvqgpC-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="WQNkgvo-gdw8YUgvqgpC-102" value="Simulasi Spektral dan Pembentukan Dataset" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;spacing=0;spacingTop=0;shadow=0;rotation=0;imageAspect=1;imageWidth=25;imageHeight=25;" vertex="1" parent="1">
+          <mxGeometry x="240" y="140" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="WQNkgvo-gdw8YUgvqgpC-119" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="WQNkgvo-gdw8YUgvqgpC-12" target="WQNkgvo-gdw8YUgvqgpC-77">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="WQNkgvo-gdw8YUgvqgpC-12" value="Pengujian Model&amp;nbsp;&lt;div&gt;&lt;i&gt;Transformer&lt;/i&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;spacing=0;spacingTop=0;shadow=0;rotation=0;imageWidth=25;imageHeight=25;" vertex="1" parent="1">
+          <mxGeometry x="420" y="240" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="WQNkgvo-gdw8YUgvqgpC-10" value="Kalkulasi Intensitas dan&amp;nbsp;&lt;div&gt;Rasio Ionisasi&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;spacing=0;spacingTop=0;shadow=0;rotation=0;imageAspect=1;imageWidth=25;imageHeight=25;" vertex="1" parent="1">
+          <mxGeometry x="240" y="340" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="WQNkgvo-gdw8YUgvqgpC-11" value="Perancangan Model&lt;div&gt;&lt;i&gt;Transformer&lt;/i&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;spacing=0;spacingTop=0;shadow=0;rotation=0;imageAspect=1;imageWidth=25;imageHeight=25;" vertex="1" parent="1">
+          <mxGeometry x="420" y="140" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="WQNkgvo-gdw8YUgvqgpC-115" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.506;entryY=0.95;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="WQNkgvo-gdw8YUgvqgpC-10" target="WQNkgvo-gdw8YUgvqgpC-48">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
