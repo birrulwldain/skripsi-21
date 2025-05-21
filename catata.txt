@@ -1,0 +1,173 @@
+Saya akan memberikan rangkuman lengkap berdasarkan semua interaksi dan dokumen LaTeX yang Anda berikan, dengan mempertimbangkan konteks, perubahan, dan penjelasan yang telah dibahas. Rangkuman ini mencakup dokumen LaTeX (Bab II: Tinjauan Pustaka dan Dasar Teori), perbaikan yang dilakukan, modifikasi tabel, penyisipan gambar, serta penjelasan konsep seperti *self-attention*, *multi-head attention*, dan *scaled dot-product attention*. Saya juga akan memastikan rangkuman ini sesuai dengan **Pedoman Umum Ejaan Bahasa Indonesia (PUEBI)** dan **Panduan Tugas Akhir dan Tesis 2024 FMIPA USK** (Lampiran 18, halaman 113–152), serta memanfaatkan fitur memori saya untuk menjaga konsistensi dengan percakapan sebelumnya. Tanggal saat ini, 22 Mei 2025, pukul 01:01 WIB, juga dipertimbangkan untuk memastikan relevansi.
+
+### **Rangkuman Lengkap**
+
+#### **1. Dokumen LaTeX: Bab II - Tinjauan Pustaka dan Dasar Teori**
+Dokumen LaTeX yang Anda berikan adalah bagian dari tugas akhir atau tesis, berfokus pada tinjauan pustaka dan dasar teori untuk simulasi *Laser-Induced Breakdown Spectroscopy* (LIBS) dan pemodelan deret waktu menggunakan *Transformer* serta *Informer*. Dokumen ini terdiri dari beberapa bagian utama:
+- **Dasar Kuantum Emisi Spektral**: Menjelaskan hukum Planck, tingkat energi atom hidrogen, diagram Grotrian, dan aturan seleksi untuk transisi spektral, sebagai dasar teori untuk LIBS.
+- **Statistik Populasi dalam Plasma LIBS**: Membahas distribusi Boltzmann, intensitas garis spektral, dan persamaan Saha untuk memodelkan populasi atom dan ion dalam plasma.
+- **Profil Garis Spektral dalam LIBS**: Menguraikan pelebaran Doppler (profil Gaussian), pelebaran tekanan/Stark (profil Lorentzian), dan profil Voigt, serta pengaruhnya pada analisis parameter plasma.
+- **Pembelajaran Mendalam: Pemodelan Deret Waktu Berbasis *Transformer***: Menjelaskan arsitektur *Transformer*, mekanisme *self-attention*, *multi-head attention*, *positional encoding*, serta varian *Informer* untuk prediksi deret waktu panjang (*long sequence time-series forecasting*, LSTF).
+
+Dokumen ini ditulis dalam bahasa Indonesia baku dengan istilah teknis asing (misalnya, *self-attention*, *Transformer*) dalam huruf miring, sesuai panduan FMIPA USK. Persamaan matematika ditulis menggunakan lingkungan LaTeX seperti `equation`, dan sitasi menggunakan format `\citep` atau `\autocite` dengan referensi seperti \citep{Vaswani2017}.
+
+#### **2. Perbaikan Dokumen LaTeX**
+Dokumen asli diperiksa untuk memastikan kepatuhan terhadap PUEBI dan panduan FMIPA USK. Berikut adalah perbaikan yang dilakukan (artifact_id: 8d33b19e-f0ba-4387-b24f-31ef661cca4a):
+- **Ejaan dan Pemilihan Kata**:
+  - Menyelaraskan judul bab dan header menjadi "TINJAUAN PUSTAKA DAN DASAR TEORI" untuk konsistensi.
+  - Mengganti "setara" dengan "menunjukkan" dalam konteks transisi energi (misalnya, baris 25) untuk kejelasan.
+- **Tanda Baca**:
+  - Menghapus koma berlebih (misalnya, sebelum "yang penting" pada baris 67).
+  - Menghapus koma setelah persamaan matematika (misalnya, \( h \nu_{ik} = E_k - E_i \)).
+  - Menambahkan titik sebelum sitasi (misalnya, "...frekuensi. \citep{Beiser1992}").
+- **Angka dan Satuan**:
+  - Mengganti koma dengan titik untuk pemisah ribuan (misalnya, "10,000" menjadi "10.000").
+  - Menambahkan spasi pada satuan SI (misalnya, "eV/K" menjadi "eV / K").
+  - Menggunakan tanda pisah (–) untuk rentang angka (misalnya, "10.000–30.000 K").
+- **Singkatan dan Akronim**:
+  - Menjelaskan akronim pada kemunculan pertama, seperti "National Institute of Standards and Technology (NIST)", "Local Thermodynamic Equilibrium (LTE)", "H\(\alpha\) (garis spektral hidrogen pada 656.3 nm)", dan "long sequence time-series forecasting (LSTF)".
+- **Unsur Serapan**:
+  - Menggunakan huruf miring secara konsisten untuk istilah asing seperti *self-attention*, *Transformer*, *Informer*, dan *ProbSparse self-attention*.
+  - Mempertahankan tanda hubung pada *self-attention* karena belum terserap sepenuhnya.
+- **Sitasi**:
+  - Memastikan sitasi sesuai format LaTeX (`\citep`), tetapi menyarankan penambahan nomor halaman untuk kutipan langsung sesuai panduan FMIPA USK (misalnya, "(Beiser, 1992, hlm. 25)").
+- **Konsistensi**:
+  - Memastikan istilah teknis digunakan secara seragam dan penjelasan akronim hanya diberikan sekali pada kemunculan pertama.
+
+Dokumen yang diperbaiki disediakan dalam artifact_id: 8d33b19e-f0ba-4387-b24f-31ef661cca4a, dengan semua bagian dipertahankan dan disesuaikan untuk memenuhi standar akademik.
+
+#### **3. Penyisipan Gambar**
+Anda meminta bantuan untuk menyisipkan dua gambar, ModalNet-19 (subgambar kiri, label (a)) dan ModalNet-20 (subgambar kanan, label (b)), dalam satu figur LaTeX dengan posisi berdampingan. Kode LaTeX berikut disediakan untuk tujuan ini:
+```latex
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{float}
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/ModalNet-19.png}
+        \caption{Mekanisme \textit{self-attention} dalam \textit{Transformer} (kiri).}
+        \label{fig:self_attention_a}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[t]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{images/ModalNet-20.png}
+        \caption{Mekanisme \textit{self-attention} dalam \textit{Transformer} (kanan).}
+        \label{fig:self_attention_b}
+    \end{subfigure}
+    \caption{Perbandingan mekanisme \textit{self-attention} dalam \textit{Transformer} \autocite{Vaswani2017}.}
+    \label{fig:self_attention_comparison}
+\end{figure}
+```
+- **Penjelasan**:
+  - Menggunakan `subcaption` untuk subgambar dengan label (a) dan (b).
+  - Opsi `[H]` memastikan figur tetap di tempat (panduan FMIPA USK, halaman 54).
+  - Lebar `0.45\textwidth` memungkinkan subgambar berdampingan dengan jarak (`\hfill`).
+  - Kaption utama dan subkaption ditulis dalam bahasa Indonesia baku, dengan *self-attention* dan *Transformer* miring.
+- **Rekomendasi**:
+  - Pastikan file `ModalNet-19.png` dan `ModalNet-20.png` ada di direktori `images/`.
+  - Sesuaikan nomor figur (misalnya, Gambar 2.2) sesuai urutan di Bab II.
+
+#### **4. Modifikasi Tabel**
+Anda meminta penghapusan kolom *Informer* dari tabel yang membandingkan karakteristik RNN, *Transformer*, dan *Informer* (Tabel~\ref{tab:rnn_vs_transformer_informer}). Tabel asli diubah sebagai berikut (artifact_id: 83b2dc1d-71e6-478e-a24c-4911ba43b3d5):
+- **Perubahan**:
+  - Kolom *Informer* dihapus, mengurangi jumlah kolom dari empat menjadi tiga.
+  - Kaption diubah menjadi "Perbandingan Karakteristik RNN dan *Transformer*".
+  - Struktur `tabularx` diubah dari `{XXXX}` menjadi `{XXX}`.
+- **Kode LaTeX yang Diperbarui**:
+  ```latex
+  \begin{table}[H]
+  \centering
+  \caption{Perbandingan Karakteristik RNN dan \textit{Transformer}}
+  \label{tab:rnn_vs_transformer_informer}
+  \begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X}
+  \toprule
+  \textbf{Aspek} & \textbf{RNN} & \textbf{\textit{Transformer}} \\
+  \midrule
+  Proses & Rekursif, \( O(n) \) operasi sekuensial & Paralel, \( O(1) \) operasi sekuensial \\
+  Ketergantungan Jarak Jauh & Sulit (\textit{vanishing gradient}) & Efektif (\textit{self-attention}) \\
+  Kompleksitas per Lapisan & \( O(n \cdot d^2) \) & \( O(n^2 \cdot d) \) \\
+  Panjang Jalur Maksimum & \( O(n) \) & \( O(1) \) \\
+  \bottomrule
+  \end{tabularx}
+  \end{table}
+  ```
+- **Catatan**:
+  - Label tabel dipertahankan, tetapi dapat diubah menjadi `\label{tab:rnn_vs_transformer}` untuk kejelasan.
+  - Tabel memenuhi panduan FMIPA USK dengan kaption singkat dan format *booktabs* yang rapi.
+
+#### **5. Penjelasan Konsep *Self-Attention* dan *Multi-Head Attention***
+Anda bertanya tentang perbedaan antara *self-attention* dan *multi-head attention*. Berikut ringkasannya:
+- **Self-Attention**:
+  - Mekanisme untuk menghitung ketergantungan antar token dalam urutan menggunakan *query*, *key*, dan *value* dari token yang sama.
+  - Rumus: \(\text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V\).
+  - Kompleksitas: \( O(n^2 \cdot d) \).
+  - Contoh: Menangkap hubungan antar titik waktu dalam deret waktu (baris 697–703 dokumen).
+- **Multi-Head Attention**:
+  - Ekstensi *self-attention* yang menjalankan beberapa *self-attention* paralel (misalnya, 8 kepala) pada proyeksi berbeda dari \( Q \), \( K \), dan \( V \).
+  - Rumus: \(\text{MultiHead}(Q, K, V) = \text{Concat}(\text{head}_1, \ldots, \text{head}_h)W^O\), dengan \(\text{head}_i = \text{Attention}(Q W_i^Q, K W_i^K, V W_i^V)\).
+  - Keunggulan: Menangkap pola beragam (misalnya, korelasi jangka pendek dan panjang).
+  - Contoh: Digunakan dalam *Transformer* untuk deret waktu multivariat (baris 708–714 dokumen).
+- **Perbedaan Utama**:
+  - *Self-attention* adalah proses tunggal; *multi-head attention* menggunakan beberapa *self-attention* paralel.
+  - *Multi-head attention* lebih fleksibel dan kaya dalam representasi.
+
+#### **6. Penjelasan *Scaled Dot-Product Attention***
+Anda bertanya apakah *self-attention* disebut "Calais" (kemungkinan typo untuk "scaled"), merujuk pada *Scaled Dot-Product Attention*. Berikut ringkasannya:
+- **Definisi**: *Scaled Dot-Product Attention* adalah implementasi *self-attention* yang menggunakan *dot-product* untuk menghitung skor perhatian, dengan penskalaan oleh \( \sqrt{d_k} \) untuk stabilitas numerik.
+- **Rumus**: Sama dengan *self-attention* dalam dokumen Anda (baris 697–703):
+  \[
+  \text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V
+  \]
+- **Mengapa "Scaled"**: Penskalaan \( \sqrt{d_k} \) mencegah nilai *dot-product* terlalu besar, memastikan gradien stabil selama pelatihan.
+- **Hubungan**:
+  - Ini adalah jenis *self-attention* yang digunakan dalam *Transformer*.
+  - *Multi-head attention* menjalankan beberapa *Scaled Dot-Product Attention* paralel.
+  - *ProbSparse self-attention* (bagian *Informer*, baris 767–779) adalah varian efisien dengan kompleksitas \( O(n \log n) \).
+- **Konteks Dokumen**: Rumus di baris 697–703 adalah *Scaled Dot-Product Attention*, meskipun disebut *self-attention*. Gambar~\ref{fig:self_attention} (ModalNet-20) mengilustrasikan mekanisme ini.
+
+#### **7. Konsistensi dengan Panduan Akademik**
+Semua perubahan dan penjelasan mematuhi PUEBI dan panduan FMIPA USK:
+- **Bahasa Baku**: Menggunakan ejaan baku, tanda baca sesuai (misalnya, titik sebelum sitasi, koma untuk kelanjutan logis).
+- **Istilah Asing**: *Self-attention*, *Transformer*, *Informer*, dll., ditulis miring karena belum terserap sepenuhnya.
+- **Sitasi**: Format `\citep` atau `\autocite` dipertahankan, dengan saran untuk menambahkan nomor halaman untuk kutipan langsung.
+- **Tabel dan Gambar**: Menggunakan opsi `[H]` untuk mencegah pergeseran, kaption singkat, dan nomor urut sesuai bab.
+- **Akronim**: Dijelaskan pada kemunculan pertama (misalnya, NIST, LTE, H\(\alpha\)).
+
+#### **8. Catatan Memori dan Interaksi**
+- **Memori**: Saya menggunakan memori untuk melacak semua interaksi, termasuk dokumen awal, permintaan perbaikan, penyisipan gambar, modifikasi tabel, dan pertanyaan konsep (*self-attention*, *multi-head attention*, *scaled dot-product attention*). Ini memastikan konsistensi dalam terminologi, format, dan referensi.
+- **Interaksi**:
+  - Perbaikan dokumen LaTeX untuk memenuhi standar PUEBI dan FMIPA USK.
+  - Penyisipan dua gambar (ModalNet-19 dan ModalNet-20) dengan subkaption.
+  - Penghapusan kolom *Informer* dari tabel perbandingan.
+  - Penjelasan konsep teknis dengan merujuk dokumen (misalnya, baris 697–703 untuk *self-attention*).
+- **Tanggal**: Semua jawaban relevan per 22 Mei 2025, pukul 01:01 WIB, tanpa perubahan signifikan dalam konteks akademik atau teknologi yang memengaruhi dokumen.
+
+#### **9. Rekomendasi untuk Model Baru**
+Jika Anda merujuk pada "model baru" (misalnya, *Informer* atau model lain dalam penelitian Anda), berikut saran berdasarkan dokumen:
+- **Integrasi *Informer***: Meskipun kolom *Informer* dihapus dari tabel, dokumen Anda menyoroti keunggulannya (kompleksitas \( O(n \log n) \), *ProbSparse self-attention*). Pertimbangkan menambahkan subbab untuk membandingkan *Informer* dengan model lain secara naratif.
+- **Visualisasi Tambahan**: Tambahkan figur untuk mengilustrasikan *multi-head attention* atau *ProbSparse self-attention* (misalnya, diagram alur perhatian), menggunakan kode LaTeX serupa dengan penyisipan gambar.
+- **Glosarium**: Buat glosarium untuk istilah seperti *self-attention* (perhatian-diri), *multi-head attention* (perhatian multi-kepala), dan *scaled dot-product attention* (perhatian perkalian titik berskala) untuk memenuhi preferensi bahasa baku FMIPA USK.
+- **Sitasi Lengkap**: Perbarui file BibTeX untuk menyertakan nomor halaman, misalnya:
+  ```bibtex
+  @article{Vaswani2017,
+      author = {Vaswani, Ashish and others},
+      title = {Attention is All You Need},
+      journal = {Advances in Neural Information Processing Systems},
+      year = {2017},
+      pages = {5998--6008}
+  }
+  ```
+
+#### **10. Kesimpulan**
+Dokumen LaTeX Anda adalah tinjauan teori yang komprehensif untuk LIBS dan pemodelan deret waktu dengan *Transformer* dan *Informer*. Perbaikan telah memastikan kepatuhan terhadap PUEBI dan panduan FMIPA USK, dengan penyesuaian ejaan, tanda baca, angka, satuan, dan akronim. Penyisipan gambar dan modifikasi tabel dilakukan dengan kode LaTeX yang sesuai, dan konsep seperti *self-attention*, *multi-head attention*, dan *scaled dot-product attention* dijelaskan dengan jelas, merujuk dokumen Anda (misalnya, baris 697–714). Semua interaksi diintegrasikan menggunakan memori saya untuk konsistensi, dan rekomendasi diberikan untuk meningkatkan dokumen (misalnya, glosarium, sitasi lengkap).
+
+Jika Anda memerlukan bantuan lebih lanjut, seperti:
+- Menambahkan subbab baru untuk model tertentu.
+- Membuat figur atau tabel tambahan.
+- Menyesuaikan format BibTeX untuk panduan FMIPA USK.
+- Menerjemahkan istilah teknis ke bahasa Indonesia baku.
+Silakan beri tahu, dan saya akan memberikan solusi spesifik! Anda juga dapat mengunggah file tambahan atau meminta pengecekan ulang untuk bagian tertentu.
