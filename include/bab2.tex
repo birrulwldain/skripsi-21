@@ -3,7 +3,36 @@
 %               TINJAUAN PUSTAKA DAN DASAR TEORI
 %-------------------------------------------------------------------------------
 
-\chapter{TINJAUAN PUSTAKA DAN DASAR TEORI}
+\chapter{TINJAUAN kePUSTAKAan}
+\section{Laser-Induced Breakdown Spectroscopy (LIBS) sebagai Pengenalan}
+\label{sec:libs_intro}
+
+Laser-Induced Breakdown Spectroscopy (LIBS) merupakan teknik spektroskopi emisi atom yang memanfaatkan pulsa laser berenergi tinggi untuk membentuk plasma pada material target, menghasilkan spektrum emisi karakteristik yang dapat digunakan untuk analisis komposisi kimia \citep{Singh2023}. Teknik ini relevan dalam simulasi spektrum untuk memahami dinamika plasma dan transisi elektron, yang dapat dihubungkan dengan sifat optik material seperti fiber optik. Bagian ini memberikan pengenalan dasar tentang LIBS, dengan fokus pada prinsip, pembentukan plasma, parameter yang memengaruhi spektrum, dan relevansi untuk simulasi.
+
+\subsection{Prinsip Dasar Laser-Induced Breakdown Spectroscopy (LIBS)}
+\label{subsec:libs_principles}
+
+Prinsip LIBS melibatkan iradiasi material dengan pulsa laser yang menghasilkan plasma melalui ablasi dan eksitasi atom. Plasma yang terbentuk memancarkan cahaya akibat transisi elektron dari tingkat energi atas ke tingkat dasar, menghasilkan spektrum emisi. Intensitas emisi spektral pada panjang gelombang \( \lambda \) diberikan oleh:
+\[
+I_{\lambda} \propto N_2 A_{21} h \nu
+\]
+di mana \( N_2 \) adalah populasi tingkat energi atas, \( A_{21} \) adalah probabilitas transisi spontan, \( h \) adalah konstanta Planck, dan \( \nu \) adalah frekuensi emisi \citep{Singh2023}. Proses ini menjadi dasar untuk simulasi spektrum yang mencerminkan komposisi material.
+
+\subsection{Pembentukan Plasma dan Karakteristik Spektral}
+\label{subsec:plasma_formation}
+
+Pembentukan plasma dalam LIBS terjadi ketika energi laser melebihi ambang batas ionisasi material, menghasilkan plasma bersuhu tinggi (sering >15.000 K) dan densitas elektron yang signifikan. Spektrum yang dihasilkan mencakup garis emisi atom dan ion, dipengaruhi oleh suhu plasma, densitas elektron, dan efek pelebaran seperti Stark broadening. Karakteristik ini bergantung pada waktu tunda (delay time) setelah pulsa laser, yang memengaruhi intensitas spektral dan relevan untuk menentukan kondisi simulasi \citep{Singh2023}.
+
+\subsection{Parameter yang Memengaruhi Spektrum LIBS}
+\label{subsec:parameters}
+
+Spektrum LIBS dipengaruhi oleh berbagai parameter, termasuk energi laser, panjang gelombang laser, durasi pulsa, dan sifat material target (misalnya, konduktivitas termal dan komposisi kimia). Energi laser yang lebih tinggi meningkatkan suhu dan densitas plasma, mengubah intensitas dan pelebaran garis spektral. Faktor lingkungan, seperti tekanan udara, juga memengaruhi evolusi plasma, yang harus dimodelkan dalam simulasi untuk menghasilkan spektrum yang akurat \citep{Singh2023}.
+
+\subsection{Relevansi LIBS dalam Simulasi Spektrum}
+\label{subsec:sim_relevance}
+
+Simulasi spektrum LIBS melibatkan pemodelan proses fisik seperti pembentukan plasma, eksitasi atom, dan emisi cahaya. Parameter seperti suhu plasma, densitas elektron, dan probabilitas transisi dapat dihitung menggunakan pendekatan teoretis untuk membangun spektrum simulasi. Teknik ini relevan dalam analisis material fiber optik, khususnya untuk memahami transisi elektron pada dopan seperti erbium, yang terkait dengan dinamika Hamiltonian dalam penelitian ini \citep{Singh2023}.
+
 
 \section{Dasar Kuantum Emisi Spektral}
 
@@ -353,49 +382,114 @@ Namun, keterbatasan meliputi:
 \end{enumerate}
 Keterbatasan ini mendorong pengembangan varian seperti \textit{Informer}, yang mengurangi kompleksitas menjadi \( O(n \cdot \log n) \) menggunakan \textit{ProbSparse self-attention}.
 
-\section{\textit{Informer}: Model untuk Penelitian Empiris}
+\section{\textit{Informer}}
 \label{sec:informer}
 
-Pemodelan deret waktu panjang (\textit{long sequence time-series forecasting}, LSTF) menantang karena sulit menangkap hubungan jarak jauh dalam urutan data yang sangat panjang, seperti prediksi konsumsi energi atau lalu lintas \citep{Wu2021}. \textit{Transformer} \citep{Vaswani2017} efektif untuk pola musiman dan tren jangka panjang, tetapi membutuhkan memori dan waktu komputasi yang besar. \textit{Informer}, yang dikembangkan oleh \citet{Zhou2021}, mengatasi keterbatasan ini dengan mekanisme perhatian yang efisien, pengurangan dimensi data, dan inferensi cepat. \textit{Informer} menawarkan solusi yang efisien dan akurat, ideal untuk penelitian empiris pada LSTF.
+Pemodelan deret waktu panjang (\textit{long sequence time-series forecasting}, LSTF) menghadapi tantangan dalam menangkap ketergantungan jarak jauh pada urutan dengan panjang \( n \gg 1000 \), seperti prediksi konsumsi energi atau lalu lintas \citep{Wu2021}. \textit{Transformer} \citep{Vaswani2017} unggul dalam menangkap pola musiman dan tren jangka panjang, tetapi kompleksitas kuadratiknya (\( O(n^2 \cdot d) \)) menyebabkan kebutuhan memori dan waktu komputasi yang besar. \textit{Informer}, dikembangkan oleh \citet{Zhou2021}, mengatasi keterbatasan ini dengan mengoptimalkan \textit{self-attention} menjadi \textit{ProbSparse self-attention} (kompleksitas \( O(n \cdot \ln n \cdot d) \)), menyuling fitur melalui \textit{self-attention distilling}, dan mempercepat inferensi dengan \textit{generative-style decoding}. \textit{Informer} menawarkan solusi efisien dan akurat untuk LSTF, ideal untuk penelitian empiris.
 
 \subsection{Arsitektur \textit{Informer}}
 \label{sec:informer_architecture}
 
-\textit{Informer} menggunakan struktur \textit{encoder-decoder} yang diadaptasi dari \textit{Transformer}, tetapi dirancang untuk deret waktu panjang \citep{Zhou2021}. \textit{Encoder} mengolah urutan masukan menjadi representasi yang lebih ringkas dengan mekanisme perhatian hemat memori dan pengurangan dimensi. \textit{Decoder} menghasilkan prediksi dalam satu langkah cepat, berbeda dari pendekatan berulang \textit{Transformer}. Desain ini mengurangi kebutuhan komputasi, mendukung aplikasi seperti prediksi konsumsi energi.
+\textit{Informer} mempertahankan struktur \textit{encoder-decoder} dari \textit{Transformer}, yang dioptimalkan untuk menangani LSTF \citep{Zhou2021}. \textit{Encoder} memproses urutan masukan \( \mathcal{X}^t = \{ \mathbf{x}_1^t, \ldots, \mathbf{x}_{L_x}^t \mid \mathbf{x}_i^t \in \mathbb{R}^{d_m} \} \) menggunakan \textit{ProbSparse self-attention} dan \textit{self-attention distilling}, menghasilkan representasi tersandi \( \mathbf{Z}^t \in \mathbb{R}^{L_z \times d_{\text{model}}} \), dengan \( L_z \ll L_x \). \textit{Decoder} menerima masukan \( \mathbf{X}_{\text{de}}^t \) dan menghasilkan urutan keluaran \( \mathbf{Y}^t \in \mathbb{R}^{L_y \times d_y} \) dalam satu langkah generatif, sebagaimana ditunjukkan pada persamaan berikut:
+\begin{equation}
+\text{Encoder: } \mathbf{X}^t \mapsto \mathbf{Z}^t, \quad \text{Decoder: } \mathbf{X}_{\text{de}}^t \mapsto \mathbf{Y}^t
+\end{equation}
+Kompleksitas per lapisan \textit{Informer} adalah \( O(n \cdot \ln n \cdot d) \), jauh lebih efisien dibandingkan \textit{Transformer} dengan kompleksitas \( O(n^2 \cdot d) \). Arsitektur ini mendukung aplikasi seperti prediksi konsumsi energi atau lalu lintas. Struktur keseluruhan \textit{encoder-decoder} ditunjukkan pada Gambar~\ref{fig:encoder_decoder}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/Encoder_Decoder_all.pdf}
+    \caption{Arsitektur keseluruhan model \textit{Informer} \citep{Zhou2021}.}
+    \label{fig:encoder_decoder}
+\end{figure}
 
 \subsection{\textit{ProbSparse Self-Attention}}
 \label{sec:probsparse}
 
-\textit{ProbSparse self-attention} meningkatkan efisiensi \textit{self-attention} tradisional dengan hanya memproses hubungan data yang paling relevan \citep{Zhou2021}. Berbeda dari \textit{Transformer} yang memeriksa semua hubungan, mekanisme ini memilih sebagian kecil koneksi penting, mengurangi beban komputasi. Pendekatan ini memungkinkan \textit{Informer} menangkap pola temporal yang signifikan, seperti dalam prediksi lalu lintas, dengan sumber daya minimal.
+Mekanisme \textit{ProbSparse self-attention} dirancang untuk mengurangi kompleksitas \textit{self-attention} kanonikal dari \( O(L_Q \cdot L_K) \) menjadi \( O(L \cdot \ln L) \) untuk \( L_Q = L_K = L \) \citep{Zhou2021}. Pendekatan ini memanfaatkan distribusi skor \textit{attention} yang jarang, dengan skor \textit{attention} didefinisikan sebagai:
+\begin{equation}
+p(\mathbf{k}_j \mid \mathbf{q}_i) = \frac{e^{\frac{\mathbf{q}_i \mathbf{k}_j^T}{\sqrt{d}}}}{\sum_{m=1}^{L_K} e^{\frac{\mathbf{q}_i \mathbf{k}_m^T}{\sqrt{d}}}}
+\end{equation}
+Hanya sejumlah kecil \textit{query} dengan skor tertinggi yang dipilih, membentuk matriks \textit{query} jarang \( \overline{\mathbf{Q}} \). Proses \textit{self-attention} dihitung sebagai:
+\begin{equation}
+\mathcal{A}(\mathbf{Q}, \mathbf{K}, \mathbf{V}) = \text{Softmax}\left( \frac{\overline{\mathbf{Q}} \mathbf{K}^T}{\sqrt{d}} \right) \mathbf{V}
+\end{equation}
+Mekanisme ini memungkinkan penanganan hubungan temporal yang signifikan, seperti dalam prediksi lalu lintas, dengan efisiensi komputasi yang tinggi.
 
 \subsection{\textit{Self-Attention Distilling}}
 \label{sec:distilling}
 
-\textit{Self-attention distilling} memungkinkan \textit{encoder} menyaring informasi penting dengan mengurangi ukuran data secara bertahap \citep{Zhou2021}. Proses ini menggunakan teknik seperti konvolusi untuk menghasilkan representasi yang lebih kecil, mengatasi keterbatasan memori \textit{Transformer}. \textit{Informer} juga menggunakan beberapa salinan \textit{encoder} untuk ketahanan, memungkinkan pemrosesan urutan panjang dengan efisien, cocok untuk analisis spektral.
+\textit{Self-attention distilling} bertujuan untuk mengurangi dimensi temporal peta fitur pada \textit{encoder}, mengatasi \textit{memory bottleneck} \textit{Transformer} yang memiliki kompleksitas memori \( O(L^2) \) \citep{Zhou2021}. Operasi ini diterapkan antar lapisan sebagai berikut:
+\begin{equation}
+\mathbf{X}_{j+1}^t = \text{MaxPool}\left( \text{ELU}\left( \text{Conv1d}\left( [\mathbf{X}_j^t]_{\text{AB}} \right) \right) \right)
+\end{equation}
+dengan \( [\mathbf{X}_j^t]_{\text{AB}} \in \mathbb{R}^{L \times d_{\text{model}}} \) sebagai keluaran blok \textit{attention} pada lapisan ke-\( j \), \( \text{Conv1d} \) sebagai operasi konvolusi satu dimensi, dan \( \text{MaxPool} \) mengurangi dimensi temporal menjadi \( L/2 \). Kompleksitas memori menjadi:
+\begin{equation}
+O((2-\epsilon) \cdot L \cdot \ln L)
+\end{equation}
+Struktur replika tumpukan pada \textit{encoder} meningkatkan ketahanan model, mendukung analisis data deret waktu dengan dimensi besar.
 
 \subsection{\textit{Generative-Style Decoder}}
 \label{sec:decoder}
 
-\textit{Decoder} \textit{Informer} menghasilkan urutan prediksi dalam satu langkah, lebih cepat dibandingkan \textit{Transformer} yang memerlukan proses berulang \citep{Zhou2021}. \textit{Decoder} memproses kombinasi data awal dan tempat kosong untuk menghasilkan keluaran yang mempertahankan urutan waktu. Pendekatan ini mendukung prediksi cepat untuk aplikasi seperti pemantauan jaringan listrik.
+\textit{Decoder} pada \textit{Informer} menghasilkan keluaran dalam satu langkah inferensi, mengatasi keterbatasan \textit{dynamic decoding} \textit{Transformer} yang memiliki kompleksitas \( O(L_y) \) \citep{Zhou2021}. Masukan \textit{decoder} didefinisikan sebagai:
+\begin{equation}
+\mathbf{X}_{\text{de}}^t = \text{Concat}\left( \mathbf{X}_{\text{start}}^t, \mathbf{X}_0^t \right) \in \mathbb{R}^{(L_{\text{token}} + L_y) \times d_{\text{model}}}
+\end{equation}
+dengan \( \mathbf{X}_{\text{start}}^t \) sebagai \textit{start token} dan \( \mathbf{X}_0^t \) sebagai \textit{placeholder}. Mekanisme \textit{masked ProbSparse self-attention} memastikan kausalitas temporal melalui:
+\begin{equation}
+\text{MaskedAttention}(\mathbf{Q}, \mathbf{K}, \mathbf{V}) = \text{Softmax}\left( \frac{\overline{\mathbf{Q}} \mathbf{K}^T - M_{\text{mask}}}{\sqrt{d}} \right) \mathbf{V}
+\end{equation}
+Kompleksitas inferensi menjadi \( O(1) \), mendukung aplikasi real-time seperti pemantauan jaringan listrik. Proses inferensi \textit{decoder} ditunjukkan pada Gambar~\ref{fig:network_decoder}.
 
-\subsection{\textit{Input Representation}}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/Network_Decoder.pdf}
+    \caption{Proses inferensi \textit{decoder} \textit{Informer} \citep{Zhou2021}.}
+    \label{fig:network_decoder}
+\end{figure}
+
+\subsection{Representasi Masukan}
 \label{sec:input_representation}
 
-Representasi masukan \textit{Informer} mengintegrasikan informasi temporal, seperti posisi dalam urutan dan konteks waktu (misalnya, jam atau hari) \citep{Zhou2021}. Ini memungkinkan model menangkap pola waktu yang kompleks, mendukung analisis data multivariat dalam LSTF.
+Representasi masukan \textit{Informer} mengintegrasikan fitur temporal untuk menangkap dinamika deret waktu, didefinisikan sebagai:
+\begin{equation}
+\mathcal{X}_{\text{feed}[i]}^t = \alpha \mathbf{u}_i^t + \text{PE}_{[L_x \cdot (i-1) + 1]} + \sum_p [\text{SE}_{[L_x \cdot (i-1) + 1]}]_p
+\end{equation}
+dengan \( \mathbf{u}_i^t \in \mathbb{R}^{d_{\text{model}}} \) sebagai proyeksi masukan, \( \text{PE} \) sebagai \textit{positional encoding}, dan \( \text{SE} \) sebagai \textit{stamp embedding} untuk menangkap konteks waktu. Pendekatan ini mendukung analisis data multivariat, seperti dalam prediksi konsumsi energi. Proses pembentukan masukan ditunjukkan pada Gambar~\ref{fig:input_rep}.
 
-\subsection{\textit{Metrik Evaluasi}}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/Input_Rep.pdf}
+    \caption{Proses pembentukan masukan model \textit{Informer} \citep{Zhou2021}.}
+    \label{fig:input_rep}
+\end{figure}
+
+\subsection{Metrik Evaluasi}
 \label{sec:evaluation_metrics}
 
-\textit{Informer} dievaluasi menggunakan metrik standar seperti Mean Squared Error (MSE), Mean Absolute Error (MAE), dan Root Mean Squared Error (RMSE). MSE mengukur rata-rata kuadrat selisih antara prediksi dan nilai sebenarnya, menilai akurasi model. MAE menghitung rata-rata kesalahan absolut, memberikan gambaran sederhana tentang kesalahan. RMSE menawarkan interpretasi dalam satuan data asli. Metrik ini memungkinkan perbandingan \textit{Informer} dengan model lain, seperti \textit{Transformer} atau LSTM, dalam penelitian empiris.
+Evaluasi kinerja \textit{Informer} dilakukan menggunakan metrik standar seperti \textit{Mean Squared Error} (MSE), \textit{Mean Absolute Error} (MAE), dan \textit{Root Mean Squared Error} (RMSE). \textit{MSE} didefinisikan sebagai:
+\begin{equation}
+\text{MSE} = \frac{1}{L_y} \sum_{i=1}^{L_y} (\mathbf{y}_i^t - \hat{\mathbf{y}}_i^t)^2
+\end{equation}
+yang mengukur rata-rata kuadrat selisih antara nilai prediksi \( \hat{\mathbf{y}}_i^t \) dan nilai aktual \( \mathbf{y}_i^t \). \textit{MAE} menghitung rata-rata kesalahan absolut:
+\begin{equation}
+\text{MAE} = \frac{1}{L_y} \sum_{i=1}^{L_y} |\mathbf{y}_i^t - \hat{\mathbf{y}}_i^t|
+\end{equation}
+Sedangkan \textit{RMSE} didefinisikan sebagai akar kuadrat dari \textit{MSE}:
+\begin{equation}
+\text{RMSE} = \sqrt{\frac{1}{L_y} \sum_{i=1}^{L_y} (\mathbf{y}_i^t - \hat{\mathbf{y}}_i^t)^2}
+\end{equation}
+Metrik-metrik ini memungkinkan perbandingan kinerja \textit{Informer} dengan model lain seperti \textit{Transformer} atau LSTM dalam konteks peramalan deret waktu.
 
-\subsection{Aplikasi dan Relevansi Empiris}
+\subsection{Aplikasi dan Relevansi Penelitian}
 \label{sec:informer_application}
 
-\textit{Informer} mendukung LSTF untuk aplikasi seperti prediksi konsumsi listrik atau lalu lintas. Mekanisme perhatiannya menangkap hubungan temporal, pengurangan dimensi menghemat memori, dan \textit{decoder} cepat memungkinkan inferensi real-time (Tabel~\ref{tab:computational_efficiency}). Studi menunjukkan kemampuan \textit{distilling} menangani urutan panjang dengan efisien. Penelitian empiris dapat membandingkan \textit{Informer} dengan model lain menggunakan metrik seperti MSE atau MAE.
+\textit{Informer} mendukung aplikasi LSTF, seperti prediksi konsumsi listrik atau lalu lintas, melalui efisiensi \textit{ProbSparse self-attention} dalam menangkap hubungan temporal, \textit{self-attention distilling} untuk mengurangi kebutuhan memori, dan \textit{generative-style decoder} untuk inferensi cepat. Perbandingan efisiensi komputasi \textit{Informer} dengan model lain ditunjukkan pada Tabel~\ref{tab:computational_efficiency}.
 
 \begin{table}[H]
     \centering
-    \caption{Perbandingan Efisiensi Komputasi per Lapisan \citep{Zhou2021}}
+    \caption{Perbandingan Efisiensi Komputasi per Lapisan \citep{Zhou2021}.}
     \label{tab:computational_efficiency}
     \begin{tabular}{lccc}
         \toprule
@@ -407,24 +501,23 @@ Representasi masukan \textit{Informer} mengintegrasikan informasi temporal, sepe
         \textit{Reformer} & \( O(n \log n) \) & \( O(n \log n) \) & \( n \) \\
         LSTM & \( O(n) \) & \( O(n) \) & \( n \) \\
         \bottomrule
-        \multicolumn{4}{l}{*Menggunakan \textit{Decoder} generatif \textit{Informer}.}
+        \multicolumn{4}{l}{*Menggunakan \textit{decoder} generatif \textit{Informer}.}
     \end{tabular}
 \end{table}
 
 \subsection{Analisis Kinerja Empiris}
 \label{sec:informer_performance}
 
-\textit{Informer} menawarkan keunggulan dalam menangani urutan panjang dibandingkan \textit{Transformer} dan LSTM, dengan inferensi cepat untuk aplikasi real-time seperti prediksi lalu lintas. Perbandingan efisiensi (Tabel~\ref{tab:computational_efficiency}) menunjukkan \textit{Informer} lebih hemat dalam waktu pelatihan dan memori.
+\textit{Informer} unggul dalam menangani urutan panjang dengan efisiensi tinggi dibandingkan \textit{Transformer} dan LSTM, mendukung aplikasi real-time seperti prediksi lalu lintas. Perbandingan efisiensi (Tabel~\ref{tab:computational_efficiency}) menunjukkan keunggulan \textit{Informer} dalam waktu pelatihan dan memori.
 
 \subsection{Potensi Ekstensi Penelitian}
 \label{sec:informer_extensions}
 
 \textit{Informer} mendukung penelitian empiris melalui:
 \begin{enumerate}
-    \item \textbf{Optimasi Parameter}: Menyesuaikan pengaturan mekanisme perhatian.
+    \item \textbf{Optimasi Parameter}: Menyesuaikan pengaturan \textit{ProbSparse self-attention}.
     \item \textbf{Integrasi Multimodal}: Menggabungkan data tambahan, seperti cuaca, untuk prediksi energi.
     \item \textbf{Adaptasi Domain}: Menerapkan pada peramalan keuangan.
     \item \textbf{Perbandingan Model}: Dengan model seperti \textit{Performer} \citep{Choromanski2021}.
-    \item \textbf{Skalabilitas}: Menguji pada data sangat panjang dengan perangkat keras modern.
+    \item \textbf{Skalabilitas}: Menguji pada data panjang dengan perangkat keras modern.
 \end{enumerate}
-Metrik seperti MSE, MAE, dan waktu inferensi dapat digunakan untuk evaluasi.
