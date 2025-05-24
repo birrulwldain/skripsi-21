@@ -1,172 +1,164 @@
 %-------------------------------------------------------------------------------
 %                            BAB III
-%               		METODOLOGI PENELITIAN
+%               		METODE PENELITIAN
 %-------------------------------------------------------------------------------
-% \fancyhf{} 
-% \fancyfoot[R]{\thepage}
-\chapter{METODE PENENILITIAN}
 
-\par Dalam pengembangan model Long Short-Term Memory (LSTM), persiapan data yang tepat adalah langkah krusial yang dapat mempengaruhi kinerja model secara signifikan. Bab ini membahas berbagai teknik untuk mempersiapkan data numerik dan kategorikal, serta bagaimana menangani urutan dengan panjang yang bervariasi.
+
+\chapter{METODE PENELITIAN}
+
+Dalam pengembangan model \textit{Long Short-Term Memory} (LSTM), persiapan data yang tepat sangat memengaruhi kinerja model. Bab ini membahas teknik persiapan data numerik dan kategorikal serta penanganan urutan dengan panjang bervariasi.
 
 \section{Waktu dan Lokasi Penelitian}
-Penelitian ini akan bertempat pada beberapa ruangan yang digunakan oleh mahasiswa Jurusan Informatika USK yang umumnya terletak pada lantai 3 blok A dan blok E Gedung Fakultas MIPA USK. Waktu yang dibutuhkan agar penelitian ini dapat di implementasikan adalah 4 bulan terhitung dari bulan Januari 2024 hingga Mei 2024.
+Penelitian ini dilaksanakan di Laboratorium Gelombang dan Optik, Departemen Fisika, Fakultas Matematika dan Ilmu Pengetahuan Alam, Universitas Syiah Kuala, dari September 2024 hingga Juni 2025.
+
 \section{Jadwal Pelaksanaan Penelitian}
+Penelitian ini direncanakan berlangsung selama 8 bulan, dari September 2024 hingga Juni 2025. Tabel~\ref{tab:jadwal_penelitian} menunjukkan jadwal pelaksanaan penelitian yang mencakup fase studi literatur, pengumpulan data, pengembangan model, validasi, dan penulisan laporan akhir.
+
+\begin{table}[H]
+  \centering
+  \caption{Jadwal Penelitian}
+  \label{tab:jadwal_penelitian}
+  \small % Mengatur ukuran font tabel agar lebih kecil tetapi tetap terbaca
+  \setlength{\tabcolsep}{3pt} % Mengurangi spasi antar kolom untuk fleksibilitas
+  \begin{tabular}{p{0.35\textwidth} *{9}{c}} % Kolom pertama 35% dari \textwidth
+    \toprule
+    \textbf{Fase Penelitian} & \textbf{Sep 2024} & \textbf{Okt 2024} & \textbf{Nov 2024} & \textbf{Des 2024} & \textbf{Jan 2025} & \textbf{Feb 2025} & \textbf{Mar 2025} & \textbf{Apr 2025} & \textbf{Mei 2025} \\
+    \midrule
+    Studi literatur dan perancangan awal & $\bullet$ & $\bullet$ & $\bullet$ & & & & & & \\
+    Pengumpulan dan pengolahan data spektral & & $\bullet$ & $\bullet$ & $\bullet$ & & & & & \\
+    Pengembangan dan pengujian model prediksi & & & & $\bullet$ & $\bullet$ & $\bullet$ & $\bullet$ & & \\
+    Validasi model dan analisis hasil & & & & & & & & $\bullet$ & $\bullet$ \\
+    Penulisan laporan akhir & & & & & & & & & $\bullet$ \\
+    \bottomrule
+  \end{tabular}
+  \vspace{0.2cm}
+  \footnotesize
+  \textit{Catatan:} Tanda $\bullet$ menunjukkan periode pelaksanaan masing-masing fase.
+\end{table}
 
 \section{Alat dan Bahan}
-Alat dan Bahan yang akan digunakan pada penelitian ini terdiri dari beberapa perangkat keras (\textit{hardware}) dan perangkat lunak (\textit{software}) yang dijabarkan sebagai berikut:
+Penelitian ini memanfaatkan berbagai alat dan bahan yang mencakup perangkat keras, perangkat lunak, serta sumber data untuk mendukung proses pengumpulan, pengolahan, analisis, dan visualisasi data spektral atomik. Berikut adalah rincian alat dan bahan yang digunakan:
 
+\subsection{Perangkat Keras}
 \begin{enumerate}
-\item Perangkat Keras
-	\begin{itemize}
-	\item Laptop Apple Macbook Air M1 2020 dengan RAM 8 \textit{Gigabyte}.
-    \end{itemize}
-\item Perangkat Lunak
-	\begin{itemize}
-	\item MacOS (18.1)
-	\item Jupyter 
-	\item Python 3.8.17
-    \item NumPy (1.24.0)
-    \item SQLite3 (3.39.4)
-    \item Pandas (1.5.3)
-    \item Joblib (1.2.0)
-    \item scikit-learn (1.2.0)
-    \item TensorFlow (2.11.0)
-    \item Keras (2.11.0)
-    \item Matplotlib (3.6.2)
-    \item TensorFlow Keras Layers (2.11.0)
-    \item itertools (built-in)
-	\end{itemize}
+  \item \textbf{Laptop \textit{Apple MacBook} Air M1 2020}: Dilengkapi dengan prosesor Apple M1, memori (RAM) sebesar \SI{8}{\giga\byte}, dan penyimpanan internal berbasis SSD. Perangkat ini digunakan untuk persiapan data, eksplorasi awal, pengembangan kode, serta penyusunan laporan penelitian.
+  \item \textbf{\textit{Google Colaboratory}}: Lingkungan komputasi berbasis awan yang menyediakan akses ke unit pemrosesan grafis (GPU) NVIDIA Tesla T4 dengan memori \SIrange{15}{20}{\giga\byte}. Platform ini digunakan untuk pelatihan model \textit{machine learning}, evaluasi performa model, serta komputasi intensif lainnya.
+\end{enumerate}
+
+\subsection{Perangkat Lunak}
+\begin{enumerate}
+  \item \textbf{Sistem Operasi}:
+  \begin{itemize}
+    \item \textit{macOS Ventura} 13.6: Digunakan pada perangkat lokal untuk pengembangan dan pengujian awal.
+    \item \textit{Ubuntu}: Digunakan dalam lingkungan virtual \textit{Google Colaboratory} untuk komputasi berbasis awan.
+  \end{itemize}
+  
+  \item \textbf{Bahasa Pemrograman dan Lingkungan Kerja}:
+  \begin{itemize}
+    \item Python 3.8.17: Bahasa pemrograman utama untuk pengembangan algoritma dan analisis data.
+    \item Jupyter Notebook: Digunakan baik secara lokal maupun pada \textit{Google Colaboratory} untuk pengembangan kode interaktif dan dokumentasi analisis.
+  \end{itemize}
+  
+  \item \textbf{Pustaka dan Modul Python}:
+  \begin{itemize}
+    \item NumPy (versi 1.24.0) dan Pandas (versi 1.5.3): Untuk manipulasi, eksplorasi, dan analisis data numerik serta tabular.
+    \item h5py: Untuk pengelolaan dataset dalam format HDF5, termasuk pembacaan dan penyimpanan data.
+    \item scikit-learn (versi 1.2.0): Untuk prapemrosesan data, evaluasi model \textit{machine learning}, dan visualisasi dimensi rendah menggunakan algoritma t-SNE (\texttt{sklearn.manifold.TSNE}).
+    \item Matplotlib (versi 3.6.2): Untuk pembuatan visualisasi grafik dan representasi hasil analisis.
+    \item Joblib (versi 1.2.0): Untuk serialisasi model dan optimalisasi pemrosesan paralel.
+    \item PyTorch (versi 1.13.1): Kerangka kerja pembelajaran mendalam untuk pengembangan, pelatihan, dan evaluasi model.
+    \item TensorBoard (versi untuk PyTorch): Untuk pemantauan metrik pelatihan dan validasi model secara \textit{real-time}.
+    \item itertools: Modul standar Python untuk operasi iterasi kompleks.
+  \end{itemize}
+\end{enumerate}
+
+\subsection{Sumber Data}
+\begin{enumerate}
+\item \textbf{\textit{NIST Atomic Spectra Database} (ASD)}: Basis data resmi dari \textit{National Institute of Standards and Technology }(NIST) yang digunakan sebagai sumber utama parameter spektral atomik. Parameter yang diambil meliputi energi ionisasi (\(E_\text{i}\)), energi keadaan (\(E_\text{k}\)), bobot statistik (\(g_\text{i}\), \(g_\text{k}\)), dan koefisien probabilitas transisi (\(A_\text{ki}\)). Data diakses melalui antarmuka daring resmi NIST.\footnote{\url{https://physics.nist.gov/PhysRefData/ASD/}}
 \end{enumerate}
 
 \section{Prosedur Penelitian}
 
-%ISI 
-\par Diagram Alir penelitian
-\begin{center}
-    \begin{figure}{H}
-        \centering
-        \includegraphics[width=1\textwidth]{images/3-Diagram.drawio.pdf} 
-        \caption{Diagram Alir Penelitian}
-        \label{fig:3-diagram}
-    \end{figure}
-\end{center}
-Prosedur penelitian ini dirancang untuk mensimulasikan spektrum atom dalam plasma pada kondisi kesetimbangan termal, dengan tujuan menentukan suhu eksitasi berdasarkan intensitas garis spektral. Pendekatan ini mengintegrasikan perhitungan kuantum mekanis, statistik termodinamika, dan pemodelan machine learning untuk analisis data spektral. Langkah-langkah simulasi diuraikan sebagai berikut:
+Prosedur penelitian ini dirancang untuk mensimulasikan spektrum emisi atom dalam plasma pada kondisi kesetimbangan termal lokal (\textit{Local Thermodynamic Equilibrium}, LTE), dengan tujuan menentukan suhu eksitasi berdasarkan intensitas garis spektral. Pendekatan ini mengintegrasikan perhitungan kuantum mekanis, statistik termodinamika, dan pemodelan \textit{machine learning} untuk analisis data spektral. Diagram alur penelitian (Gambar~\ref{fig:3-diagram}) menggambarkan langkah-langkah utama, yang diuraikan sebagai berikut:
 
-\begin{itemize}
-    \item \textbf{Desain Simulasi}
-        \begin{itemize}
-            \item \textbf{Perhitungan Tingkat Energi} \\
-                  Tingkat energi atom dihitung menggunakan pendekatan kuantum mekanis. Persamaan Schrödinger digunakan untuk atom hidrogen, memberikan solusi analitik untuk energi \( E_n = -\frac{13.6}{n^2} \, \text{eV} \), dengan \( n \) sebagai bilangan kuantum utama \citep{Griffiths2005}. Untuk atom yang lebih kompleks, metode Hartree-Fock diterapkan untuk memperkirakan energi elektron dalam medan efektif multi-elektron, dengan memperhitungkan interaksi antar-elektron \citep{Szabo1996}. Data tingkat energi divalidasi terhadap basis data NIST \citep{NIST2025}.
-
-            \item \textbf{Pemodelan Populasi Energi} \\
-                  Populasi tingkat energi dimodelkan menggunakan distribusi Boltzmann, seperti pada Persamaan~\eqref{eq:boltzmann}:
-                  \begin{equation}
-                      N_i = \frac{N g_i e^{-\frac{E_i}{k_B T}}}{Z}, \label{eq:boltzmann}
-                  \end{equation}
-                  di mana \( N_i \) adalah populasi pada tingkat energi \( E_i \), \( g_i \) adalah degenerasi, \( k_B = 8.617 \times 10^{-5} \, \text{eV/K} \), \( T \) adalah suhu, dan \( Z = \sum_i g_i e^{-\frac{E_i}{k_B T}} \) adalah fungsi partisi. Untuk plasma yang tidak sepenuhnya dalam kesetimbangan termal, persamaan Saha digunakan untuk memperkirakan distribusi ionisasi berdasarkan densitas elektron dan suhu \citep{Draine2011}. Parameter seperti \( g_i \) dan \( E_i \) diambil dari data NIST.
-
-            \item \textbf{Pemodelan Profil Garis} \\
-                  Spektrum dihasilkan dengan menginisialisasi rentang panjang gelombang (\( \lambda \)) dan menghitung intensitas untuk setiap transisi. Data tingkat energi dan degenerasi diambil dari basis data NIST \citep{NIST2025}. Intensitas garis spektral dihitung menggunakan:
-                  \begin{equation}
-                      I_{ij} = \frac{N g_i A_{ij} h \nu_{ij} e^{-\frac{E_i}{k_B T}}}{4\pi Z}, \label{eq:intensity_full}
-                  \end{equation}
-                  dengan \( h \nu_{ij} = \frac{h c}{\lambda_{ij}} \), \( h c \approx 1239.84 \, \text{eV·nm} \), dan \( A_{ij} \) sebagai koefisien Einstein untuk emisi spontan \citep{rybicki-1985}. Profil garis dimodelkan menggunakan distribusi Gaussian untuk memperhitungkan efek pelebaran Doppler dan tekanan, menghasilkan panjang gelombang dan intensitas yang dinormalisasi.
-
-            \item \textbf{Parameter Plasma} \\
-                  Simulasi menggunakan suhu plasma \( T = 10.000 \, \text{K} \) dan densitas elektron tipikal untuk plasma astrofisika (\( n_e \approx 10^{12} \, \text{cm}^{-3} \)) \citep{Draine2011}. Parameter ini dipilih untuk mencerminkan kondisi kesetimbangan termal lokal (LTE) yang relevan dengan analisis spektral.
-
-            \item \textbf{Data dan Sumber} \\
-                  Data utama berasal dari basis data NIST untuk tingkat energi, degenerasi, dan koefisien Einstein \citep{NIST2025}. Literatur tambahan, seperti \citet{rybicki-1985} dan \citet{Draine2011}, digunakan untuk validasi model dan parameter plasma.
-
-            \item \textbf{Validasi Model Simulasi} \\
-                  Hasil simulasi divalidasi dengan membandingkan panjang gelombang dan intensitas garis spektral dengan data eksperimen dari NIST \citep{NIST2025}. Deviasi dianalisis untuk memastikan akurasi model dalam memprediksi suhu eksitasi.
-
-            \item \textbf{Pengumpulan Data} \\
-                  Data spektral dikumpulkan dari simulasi dan disimpan dalam format numerik untuk analisis lebih lanjut. Data ini mencakup panjang gelombang, intensitas, dan parameter transisi untuk setiap garis spektral.
-        \end{itemize}
-
-    \item \textbf{Normalisasi Data} \\
-          Untuk memastikan konsistensi dalam analisis, intensitas spektral dinormalisasi menggunakan rumus:
-          \begin{equation}
-              I' = \frac{I - I_{\min}}{I_{\max} - I_{\min}}, \label{eq:normalization}
-          \end{equation}
-          di mana \( I' \) adalah intensitas yang dinormalisasi, \( I \) adalah intensitas asli, serta \( I_{\min} \) dan \( I_{\max} \) adalah nilai minimum dan maksimum dari dataset. Normalisasi ini memfasilitasi perbandingan antar garis spektral dan persiapan data untuk pemodelan machine learning.
-
-    \item \textbf{Perancangan Model Transformer} \\
-          Model Transformer dirancang untuk menganalisis pola dalam data spektral, dengan arsitektur berdasarkan mekanisme perhatian (attention mechanism) \citep{Vaswani2017}. Pelatihan dilakukan menggunakan dataset spektral yang dinormalisasi, dengan optimasi parameter untuk memprediksi suhu plasma atau karakteristik spektral lainnya. Detail pelatihan mencakup penggunaan fungsi kerugian entropi silang dan optimizer Adam.
-
-    \item \textbf{Persiapan Data untuk Model LSTM}
-        \begin{itemize}
-            \item \textbf{Arsitektur LSTM} \\
-                  Model Long Short-Term Memory (LSTM) digunakan untuk analisis sekuensial data spektral, memanfaatkan kemampuan memori jangka panjang \citep{brownlee2017}. Arsitektur ini divisualisasikan pada Gambar~\ref{fig:lstm_architecture}.
-                  \begin{figure}[h]
-                      \centering
-                      \includegraphics[width=0.2\textwidth]{images/lstm1.png}
-                      \caption{Arsitektur LSTM untuk analisis data spektral \parencite{brownlee2017}.}
-                      \label{fig:lstm_architecture}
-                  \end{figure}
-
-            \item \textbf{Persiapan Data Numerik} \\
-                  Data numerik, seperti intensitas dan panjang gelombang, dinormalisasi untuk mempercepat pelatihan dan meningkatkan konvergensi model LSTM. Metode yang digunakan adalah Min-Max Scaling, sesuai dengan Persamaan~\eqref{eq:normalization}, dan Z-score Normalization untuk distribusi data yang lebih simetris \parencite{brownlee2017}.
-
-            \item \textbf{Persiapan Data Kategorikal} \\
-                  Data kategorikal, seperti jenis transisi atau spesies atom, diubah menjadi format numerik menggunakan One-Hot Encoding atau Label Encoding. One-Hot Encoding menghasilkan vektor biner untuk setiap kategori, sedangkan Label Encoding menetapkan nilai integer unik \parencite{brownlee2017}.
-
-            \item \textbf{One-Hot Encoding} \\
-                  One-Hot Encoding diimplementasikan menggunakan pustaka scikit-learn, seperti ditunjukkan pada Listing~\ref{lst:one_hot_encoding}:
-                  \begin{lstlisting}[language=Python, caption=Contoh One-Hot Encoding dengan scikit-learn, label=lst:one_hot_encoding]
-from sklearn.preprocessing import OneHotEncoder
-encoder = OneHotEncoder()
-encoded_data = encoder.fit_transform(data).toarray()
-                  \end{lstlisting}
-        \end{itemize}
-\end{itemize}
-
-\begin{theorem}
-Ini adalah sebuah teorema.
-\end{theorem}
-
-\begin{definition}
-Ini adalah definisi.
-\end{definition}
-
-\begin{remark}
-Ini adalah catatan tanpa nomor.
-\end{remark} 
-
-\begin{proof}
-Ini adalah bukti.
-\end{proof}
- \begin{example}
-        f
- \end{example}
-
-
- \begin{table}[H]
+\begin{figure}[H]
     \centering
-    \caption{Perbandingahn  LIBS}
-    \label{tab:performa_ml}
-    \centering
-    \begin{tabular}{lcccc}
-      \toprule
-      Model & Akurasi (\%) & Presisi (\%) & Recall (\%) & RMSE \\
-      \midrule
-      Random Forest & 95.2 & 94.8 & 95.1 & 0.12 \\
-      SVM & 89.7 & 88.5 & 90.2 & 0.21 \\
-      Transformer & 97.1 & 96.9 & 97.0 & 0.08 \\
-      \midrule
-      CNN & 93.4 & 92.7 & 93.5 & 0.15 \\
-      \bottomrule
-    \end{tabular}
-    
-    \smallskip
-    \footnotesize
-    \textit{Keterangan:} Data diperoleh dari 100 sampel logam dengan 5 kelas komposisi.
-  \end{table}
+    \includegraphics[width=1\textwidth]{images/3-Diagram.drawio.pdf}
+    \caption{Diagram alur penelitian.}
+    \label{fig:3-diagram}
+\end{figure}
 
-% Baris ini digunakan untuk membantu dalam melakukan sitasi
-% Karena diapit dengan comment, maka baris ini akan diabaikan
-% oleh compiler LaTeX.
-%\begin{comment}
-%\bibliography{daftar-pustaka}
-%\end{comment}
+\begin{algorithm}
+\small
+\caption{Inisilasi Parameter Simulasi Spektral Atom}
+\begin{algorithmic}[1]
+  \REQUIRE
+    Transition dataset $\mathcal{D} = \{ (\lambda_{ij}, E_i, E_k, g_i, g_k, A_{ki}) \mid \lambda_{ij} \in [300, 800]~\text{nm}, E_i, E_k, g_i, g_k, A_{ki} \in \mathbb{R}^+ \}$ \cite{Kramida2023}, \\
+    Number of element-ion pairs $k = 4$, \\
+    Maximum number of spectral samples $N \in \mathbb{N}$, \\
+    Temperature step $\Delta T \in \mathbb{R}^+$, \\
+    Electron density step $\Delta n_e \in \mathbb{R}^+$, \\
+    Gaussian broadening parameter $\sigma \in \mathbb{R}^+$, \\
+    Wavelength resolution $\Delta \lambda \in \mathbb{R}^+$
+  \ENSURE
+    Candidate atom set $\mathcal{C}$, wavelength vector $\boldsymbol{\lambda} \in \mathbb{R}^n$, atom subset dictionary $\mathcal{A}$, spectra set $\mathcal{S}$
+  \STATE \textbf{Validate Inputs}: Ensure $N > 0$, $\Delta T > 0$, $\Delta n_e > 0$, $\sigma > 0$, $\Delta \lambda > 0$
+  \STATE \textbf{Initialize}: $\Delta T \gets 1000~\text{K}$, $\Delta n_e \gets 10^{0.5} \times 10^{12}~\text{cm}^{-3}$, $\sigma \gets 0.1~\text{nm}$, $\Delta \lambda \gets 0.5~\text{nm}$
+  \STATE \textbf{Define}: $\mathcal{C} \gets \{\text{H}, \text{He}, \text{O}, \text{N}, \text{Si}, \text{Al}, \text{Fe}, \text{Ca}, \text{Mg}, \text{Na}, \text{Ti}, \text{Mn}, \text{S}, \text{Cl}, \text{Cr}, \text{Ni}, \text{Cu}\}$
+  \STATE \textbf{Initialize}: $\boldsymbol{\lambda} \gets$ uniform grid from $300~\text{nm}$ to $800~\text{nm}$ with step $\Delta \lambda$
+  \STATE \textbf{Initialize}: $\mathcal{S} \gets \emptyset$, $\mathcal{A} \gets \emptyset$
+  \FORALL{$T \in [5000, 15000]~\text{K}$ \textbf{step} $\Delta T$}
+    \FORALL{$n_e \in [10^{12}, 10^{16}]~\text{cm}^{-3}$ \textbf{step} $\Delta n_e$}
+      \STATE Randomly select $\mathcal{A}_{T,n_e} \subseteq \mathcal{C}$ with $|\mathcal{A}_{T,n_e}| = k$ without replacement
+      \IF{no transitions exist in $\mathcal{D}$ for any species in $\mathcal{A}_{T,n_e}$}
+        \STATE Log warning: ``No transitions for $\mathcal{A}_{T,n_e}$ at $T$, $n_e$'' \COMMENT{Skip if no transitions}
+        \STATE continue
+      \ENDIF
+      \STATE Store $(T, n_e, \mathcal{A}_{T,n_e})$ in $\mathcal{A}$
+    \ENDFOR
+  \ENDFOR
+  \STATE \RETURN $\mathcal{C}$, $\boldsymbol{\lambda}$, $\mathcal{A}$, $\mathcal{S}$
+\end{algorithmic}
+\end{algorithm}
+
+
+\begin{algorithm}
+\small
+\caption{Ionization and Population Calculations}
+\begin{algorithmic}[1]
+  \REQUIRE
+    Transition dataset $\mathcal{D} = \{ (\lambda_{ij}, E_i, E_k, g_i, g_k, A_{ki}) \mid \lambda_{ij} \in [300, 800]~\text{nm}, E_i, E_k, g_i, g_k, A_{ki} \in \mathbb{R}^+ \}$, \\
+    Atom subset dictionary $\mathcal{A} = \{ (T, n_e, \mathcal{A}_{T,n_e}) \mid T \in [5000, 15000]~\text{K}, n_e \in [10^{12}, 10^{16}]~\text{cm}^{-3}, |\mathcal{A}_{T,n_e}| = 4 \}$, \\
+    Physical constants: $m_e = 9.109 \times 10^{-31}~\text{kg}$, $k_B = 8.617 \times 10^{-5}~\text{eV/K}$, $h = 4.1357 \times 10^{-15}~\text{eV·s}$
+  \ENSURE
+    Population ratio dictionary $\mathcal{R} = \{ (T, n_e, \mathbf{R}_{T,n_e}) \mid \mathbf{R}_{T,n_e} \in [0, 1]^2 \}$
+  \STATE \textbf{Initialize}: $\mathcal{R} \gets \emptyset$
+  \FORALL{$(T, n_e, \mathcal{A}_{T,n_e}) \in \mathcal{A}$}
+    \STATE $\mathbf{R}_{T,n_e} \gets \emptyset$
+    \FORALL{$S \in \mathcal{A}_{T,n_e}$}
+      \STATE Define $(S_{\text{neutral}}, S_{\text{ion}}) \gets (S \text{ I}, S \text{ II})$
+      \STATE Extract $\mathcal{T}_S \subseteq \mathcal{D}$ for species $S \text{ I}$ or $S \text{ II}$
+      \IF{$\mathcal{T}_S = \emptyset$}
+        \STATE Log warning: ``No transitions for species $S$ at $T$, $n_e$'' \COMMENT{Skip IF no transitions}
+        \STATE continue
+      \ENDIF
+      \STATE $Z_{\text{neutral}} \gets \sum_i g_i \exp\left(-\frac{E_i}{k_B T}\right)$
+      \IF{$Z_{\text{neutral}} \leq 0$}
+        \STATE Log warning: ``Invalid partition function for $S \text{ I}$ at $T$, $n_e$'' \COMMENT{Skip IF invalid}
+        \STATE continue
+      \ENDIF
+      \STATE $Z_{\text{ion}} \gets \sum_i g_i \exp\left(-\frac{E_i}{k_B T}\right)$
+      \IF{$Z_{\text{ion}} \leq 0$}
+        \STATE Log warning: ``Invalid partition function for $S \text{ II}$ at $T$, $n_e$'' \COMMENT{Skip IF invalid}
+        \STATE continue
+      \ENDIF
+      \STATE $\frac{N_{\text{ion}}}{N_{\text{neutral}}} \gets \frac{2 Z_{\text{ion}}}{n_e Z_{\text{neutral}}} \left( \frac{2\pi m_e k_B T}{h^2} \right)^{3/2} \exp\left(-\frac{E_{\text{ion}}}{k_B T}\right)$
+      \STATE $f_{\text{neutral}} \gets \frac{1}{1 + \frac{N_{\text{ion}}}{N_{\text{neutral}}}}$
+      \STATE $f_{\text{ion}} \gets \frac{\frac{N_{\text{ion}}}{N_{\text{neutral}}}}{1 + \frac{N_{\text{ion}}}{N_{\text{neutral}}}}$
+      \STATE Store $(f_{\text{neutral}}, f_{\text{ion}})$ in $\mathbf{R}_{T,n_e}[S \text{ I}, S \text{ II}]$
+    \ENDFOR
+    \STATE Store $(T, n_e, \mathbf{R}_{T,n_e})$ in $\mathcal{R}$
+  \ENDFOR
+  \STATE \RETURN $\mathcal{R}$
+\end{algorithmic}
+\end{algorithm}

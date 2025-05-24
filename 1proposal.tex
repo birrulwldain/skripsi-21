@@ -21,6 +21,13 @@
 \usepackage[style=apa, backend=biber, natbib=true]{biblatex}
 
 
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{amsmath} % Untuk persamaan
+\usepackage{algorithm} % Untuk lingkungan algoritma
+\usepackage{algorithmic} % Untuk perintah seperti \State, \For
+% \usepackage[numbers]{natbib} % Untuk kutipan
+% \usepackage{algpseudocode}
 
 
 \addbibresource{daftar-pustaka.bib}
@@ -65,7 +72,7 @@
 \makeatother
 
 
-\usepackage{algorithm2e}
+% \usepackage{algorithm2e}
 
 \usepackage{chemformula}
 \usepackage{glossaries}
@@ -144,6 +151,7 @@
 % Untuk caption dan subcaption
 \usepackage{caption}
 \usepackage{subcaption}
+\captionsetup[algorithm]{position=above}
 
 % Agar bisa menggunakan warna LaTeX
 \usepackage{color} % it's me!
@@ -196,7 +204,8 @@
     language=Java,
     morekeywords={String, interface, implements, class}
 }
-
+\usepackage{amssymb}
+\usepackage{pifont}
 \lstdefinestyle{Python}{
     language=Python,
     keywordstyle=\color{teal}

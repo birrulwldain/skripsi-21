@@ -3,66 +3,169 @@
 %               TINJAUAN PUSTAKA DAN DASAR TEORI
 %-------------------------------------------------------------------------------
 
-\chapter{TINJAUAN kePUSTAKAan}
-\section{Laser-Induced Breakdown Spectroscopy (LIBS) sebagai Pengenalan}
+\chapter{TINJAUAN KEPUSTAKAAN}
+
+\section{Laser-Induced Breakdown Spectroscopy (LIBS)}
 \label{sec:libs_intro}
 
-Laser-Induced Breakdown Spectroscopy (LIBS) merupakan teknik spektroskopi emisi atom yang memanfaatkan pulsa laser berenergi tinggi untuk membentuk plasma pada material target, menghasilkan spektrum emisi karakteristik yang dapat digunakan untuk analisis komposisi kimia \citep{Singh2023}. Teknik ini relevan dalam simulasi spektrum untuk memahami dinamika plasma dan transisi elektron, yang dapat dihubungkan dengan sifat optik material seperti fiber optik. Bagian ini memberikan pengenalan dasar tentang LIBS, dengan fokus pada prinsip, pembentukan plasma, parameter yang memengaruhi spektrum, dan relevansi untuk simulasi.
+\textit{Laser-Induced Breakdown Spectroscopy} (LIBS) adalah teknik analisis kimia yang menggunakan pulsa laser untuk menghasilkan plasma pada permukaan material, menghasilkan cahaya dengan panjang gelombang tertentu yang mencerminkan komposisi kimia material \citep{Cremers2013}. LIBS menawarkan analisis cepat, tidak merusak sampel, dan dapat digunakan untuk berbagai material, seperti logam, mineral, atau serat optik, sehingga cocok untuk penelitian di bidang fisika dan kimia \citep{Miziolek2006}. Bagian ini menjelaskan pengenalan LIBS, cara kerjanya, cara kerja laser, ilustrasi pemompaan laser, dan komponen alat yang digunakan, dengan diagram dan tabel untuk memudahkan pemahaman.
 
-\subsection{Prinsip Dasar Laser-Induced Breakdown Spectroscopy (LIBS)}
+\subsection{Prinsip LIBS}
 \label{subsec:libs_principles}
 
-Prinsip LIBS melibatkan iradiasi material dengan pulsa laser yang menghasilkan plasma melalui ablasi dan eksitasi atom. Plasma yang terbentuk memancarkan cahaya akibat transisi elektron dari tingkat energi atas ke tingkat dasar, menghasilkan spektrum emisi. Intensitas emisi spektral pada panjang gelombang \( \lambda \) diberikan oleh:
-\[
-I_{\lambda} \propto N_2 A_{21} h \nu
-\]
-di mana \( N_2 \) adalah populasi tingkat energi atas, \( A_{21} \) adalah probabilitas transisi spontan, \( h \) adalah konstanta Planck, dan \( \nu \) adalah frekuensi emisi \citep{Singh2023}. Proses ini menjadi dasar untuk simulasi spektrum yang mencerminkan komposisi material.
-
-\subsection{Pembentukan Plasma dan Karakteristik Spektral}
-\label{subsec:plasma_formation}
-
-Pembentukan plasma dalam LIBS terjadi ketika energi laser melebihi ambang batas ionisasi material, menghasilkan plasma bersuhu tinggi (sering >15.000 K) dan densitas elektron yang signifikan. Spektrum yang dihasilkan mencakup garis emisi atom dan ion, dipengaruhi oleh suhu plasma, densitas elektron, dan efek pelebaran seperti Stark broadening. Karakteristik ini bergantung pada waktu tunda (delay time) setelah pulsa laser, yang memengaruhi intensitas spektral dan relevan untuk menentukan kondisi simulasi \citep{Singh2023}.
-
-\subsection{Parameter yang Memengaruhi Spektrum LIBS}
-\label{subsec:parameters}
-
-Spektrum LIBS dipengaruhi oleh berbagai parameter, termasuk energi laser, panjang gelombang laser, durasi pulsa, dan sifat material target (misalnya, konduktivitas termal dan komposisi kimia). Energi laser yang lebih tinggi meningkatkan suhu dan densitas plasma, mengubah intensitas dan pelebaran garis spektral. Faktor lingkungan, seperti tekanan udara, juga memengaruhi evolusi plasma, yang harus dimodelkan dalam simulasi untuk menghasilkan spektrum yang akurat \citep{Singh2023}.
-
-\subsection{Relevansi LIBS dalam Simulasi Spektrum}
-\label{subsec:sim_relevance}
-
-Simulasi spektrum LIBS melibatkan pemodelan proses fisik seperti pembentukan plasma, eksitasi atom, dan emisi cahaya. Parameter seperti suhu plasma, densitas elektron, dan probabilitas transisi dapat dihitung menggunakan pendekatan teoretis untuk membangun spektrum simulasi. Teknik ini relevan dalam analisis material fiber optik, khususnya untuk memahami transisi elektron pada dopan seperti erbium, yang terkait dengan dinamika Hamiltonian dalam penelitian ini \citep{Singh2023}.
+LIBS bekerja dengan menembakkan pulsa laser berenergi tinggi ke permukaan material, menyebabkan material menguap dan membentuk plasma. Plasma ini mengandung atom dan ion yang tereksitasi, yang memancarkan cahaya saat elektron berpindah ke tingkat energi yang lebih rendah. Cahaya ini memiliki panjang gelombang spesifik yang menunjukkan jenis elemen dalam material, seperti besi, karbon, atau dopan erbium pada serat optik \citep{Singh2007}. Cahaya yang dipancarkan dianalisis untuk mengidentifikasi elemen dalam sampel.
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/libs-plasma.pdf}
+    \caption{Proses ablasi laser dalam LIBS \citep{harmon-2021}}
+    \label{fig:laser_ablation}
+\end{figure}
 
 
-\section{Dasar Kuantum Emisi Spektral}
+Proses kerja LIBS meliputi tahapan berikut:
+\begin{enumerate}
+    \item \textbf{Penyinaran dan Ablasi Laser}: Pulsa laser difokuskan ke permukaan material, menyebabkan material menguap melalui proses ablasi, menghasilkan uap material \citep{Cremers2013}.
+    \item \textbf{Pembentukan Plasma}: Energi laser menghasilkan plasma yang mengandung atom dan ion tereksitasi \citep{Miziolek2006}.
+    \item \textbf{Emisi Cahaya}: Atom dan ion dalam plasma memancarkan cahaya dengan panjang gelombang spesifik.
+    \item \textbf{Analisis Spektrum}: Cahaya dikumpulkan dan dianalisis menggunakan alat khusus untuk mengidentifikasi elemen berdasarkan panjang gelombangnya.
+\end{enumerate}
+Proses ablasi laser, sebagai tahap awal, divisualisasikan pada Gambar~\ref{fig:laser_ablation}, yang menunjukkan bagaimana laser menguapkan material untuk memulai pembentukan plasma.
 
-\subsection{Hukum Planck untuk Emisi Foton}
-Hukum Planck menghubungkan energi foton dengan frekuensinya melalui persamaan:
+
+
+\subsection{Komponen Alat LIBS}
+\label{subsec:libs_setup}
+
+\begin{figure}[H]
+    \begin{center}
+        \includegraphics[width=0.8\textwidth]{images/LIBS-SKEMA.pdf}
+        \caption{Diagram sistem LIBS \citep{Cremers2013}}
+        \label{fig:libs_setup}
+    \end{center}
+\end{figure}
+
+Sistem LIBS terdiri dari beberapa komponen utama yang bekerja bersama untuk menghasilkan dan menganalisis spektrum, seperti ditunjukkan pada Gambar~\ref{fig:libs_setup}:
+\begin{enumerate}
+    \item \textbf{Laser}: Sumber laser, seperti Nd:YAG dengan panjang gelombang 1064 nm, menghasilkan pulsa berenergi tinggi untuk menguapkan material. Pulsa ini biasanya berdurasi sangat singkat (nanodetik) \citep{Cremers2013}.
+    \item \textbf{Lensa Optik}: Lensa memfokuskan pulsa laser ke titik kecil pada sampel dan mengumpulkan cahaya yang dipancarkan dari plasma untuk diteruskan ke alat analisis \citep{Miziolek2006}.
+    \item \textbf{Spektrometer}: Alat ini memisahkan cahaya menjadi panjang gelombangnya, menghasilkan spektrum yang menunjukkan garis-garis emisi elemen. Spektrometer jenis Czerny-Turner sering digunakan karena resolusinya yang baik \citep{Singh2007}.
+    \item \textbf{Detektor}: Detektor seperti CCD (Charge-Coupled Device) atau ICCD (Intensified CCD) merekam intensitas cahaya. ICCD dapat mengatur waktu pengukuran untuk meningkatkan kualitas spektrum \citep{Cremers2013}.
+    \item \textbf{Komputer}: Mengendalikan laser, merekam data spektrum, dan membandingkannya dengan basis data, seperti NIST, untuk mengidentifikasi elemen dalam sampel \citep{Kramida2023}.
+\end{enumerate}
+Untuk memperjelas fungsi masing-masing komponen, Tabel~\ref{tab:libs_components} merangkum komponen utama sistem LIBS beserta peranannya dalam analisis spektral.
+
+\begin{table}[H]
+\centering
+\caption{Komponen Utama Sistem LIBS dan Fungsinya}
+\label{tab:libs_components}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X}
+\toprule
+\textbf{Komponen} & \textbf{Fungsi} \\
+\midrule
+Laser (misalnya, Nd:YAG) & Menghasilkan pulsa berenergi tinggi untuk menguapkan material dan membentuk plasma \citep{Cremers2013}. \\
+Lensa Optik & Memfokuskan laser ke sampel dan mengumpulkan cahaya yang dipancarkan dari plasma \citep{Miziolek2006}. \\
+Spektrometer (misalnya, Czerny-Turner) & Memisahkan cahaya menjadi panjang gelombang untuk menghasilkan spektrum emisi \citep{Singh2007}. \\
+Detektor (CCD atau ICCD) & Merekam intensitas cahaya untuk analisis spektrum; ICCD meningkatkan kualitas data dengan pengaturan waktu \citep{Cremers2013}. \\
+Komputer & Mengendalikan laser, merekam spektrum, dan mengidentifikasi elemen dengan basis data seperti NIST \citep{Kramida2023}. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+\subsection{Database NIST untuk Spektrum LIBS}
+\label{subsec:nist_database}
+
+\textit{National Institute of Standards and Technology} (NIST) menyediakan \textit{Atomic Spectra Database} (ASD) sebagai sumber data spektral untuk LIBS \citep{Kramida2023}. ASD mencakup lebih dari 180.000 garis spektral dan 90.000 tingkat energi untuk 99 elemen, dengan rentang panjang gelombang 0,4~\AA{} hingga 20.000~\si{\micro\meter}, mendukung identifikasi elemen dalam plasma LIBS. Antarmuka khusus LIBS pada ASD memungkinkan perhitungan spektrum dalam kondisi \textit{Local Thermodynamic Equilibrium} (LTE) berdasarkan suhu dan densitas elektron, menggunakan persamaan Saha dan Boltzmann untuk memodelkan intensitas garis emisi. Data ini divalidasi secara kritis, relevan untuk analisis material di berbagai aplikasi, seperti eksplorasi planet dan industri \citep{Kramida2022}. Tabel~\ref{tab:nist_features} merangkum fitur utama ASD untuk LIBS.
+
+\begin{table}[H]
+\centering
+\caption{Fitur Utama NIST ASD untuk LIBS}
+\label{tab:nist_features}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X}
+\toprule
+\textbf{Fitur} & \textbf{Deskripsi} \\
+\midrule
+Data Garis Spektral & $>180.000$ garis, 73.000 dengan probabilitas transisi \citep{Kramida2023}. \\
+Rentang Spektral & 0,4~\AA{} -- 20.000~\si{\micro\meter} \citep{Kramida2023}. \\
+Antarmuka LIBS & Pemodelan spektrum LTE berdasarkan suhu dan densitas elektron \citep{Kramida2023}. \\
+Cakupan Elemen & 99 elemen dengan transisi diamati \citep{Kramida2023}. \\
+Akses & \textit{Online} di \url{https://physics.nist.gov/asd} \citep{Kramida2023}. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+\section{Kuantum Emisi Spektral}
+\subsection{Prinsip Dasar}
+
+Spektroskopi memanfaatkan emisi atau penyerapan foton untuk menganalisis komposisi material, dengan aplikasi seperti \textit{Laser-Induced Breakdown Spectroscopy} (LIBS) yang mengukur panjang gelombang emisi untuk mengidentifikasi unsur dalam plasma \citep{CremersRadzemski2013}. Eksitasi atom oleh energi eksternal, seperti laser, menghasilkan emisi foton yang mencerminkan struktur energi atom. Hukum Planck menghubungkan energi foton dengan frekuensinya melalui
 \begin{equation}
-E = h\nu, \label{planck}
+E = h\nu, \label{eq:planck}
 \end{equation}
-dimana \( h = 4.1357 \times 10^{-15} \, \text{eV·s} \) adalah konstanta Planck dan \( \nu \) adalah frekuensi. Hukum ini menjadi dasar emisi foton dalam transisi elektronik atom, yang diukur melalui spektroskopi dalam simulasi \textit{Laser-Induced Breakdown Spectroscopy} (LIBS) untuk memverifikasi tingkat energi \citep{Beiser1992}.
+di mana \( h = 4.1357 \times 10^{-15} \, \text{eV·s} \) adalah konstanta Planck dan \( \nu \) adalah frekuensi. Dengan hubungan \( \nu = c/\lambda \), di mana \( c = 2.99792458 \times 10^8 \, \text{m/s} \), energi foton dapat dinyatakan sebagai \( E = hc/\lambda \), dengan \( hc \approx 1239.84 \, \text{eV·nm} \). Hukum ini mendasari kuantifikasi energi transisi dalam spektroskopi \citep{Beiser1992}.
 
-\subsection{Tingkat Energi Atom Hidrogen}
-Dalam atom hidrogen, energi elektron pada tingkat kuantum \( n \) diberikan oleh:
+Formula Rydberg menggambarkan panjang gelombang emisi dari transisi elektronik antar tingkat energi, dengan bentuk
 \begin{equation}
-E_n = -\frac{13.6 \, \text{eV}}{n^2} \quad (n \in \mathbb{Z}^+), \label{energy_hydrogen}
+\frac{1}{\lambda} = R_\infty \left( \frac{1}{n_f^2} - \frac{1}{n_i^2} \right), \quad R_\infty = 1.0973731568 \times 10^7 \, \text{m}^{-1}, \label{eq:rydberg}
 \end{equation}
-Untuk transisi emisi, di mana elektron berpindah dari tingkat awal \( n_i \) (energi lebih tinggi) ke tingkat akhir \( n_f \) (energi lebih rendah, \( n_f < n_i \)), selisih energi adalah:
+di mana \( n_f \) dan \( n_i \) adalah nomor kuantum utama (\( n_i > n_f \)). Formula ini berlaku untuk atom hidrogenoid, seperti hidrogen, He\(^+\), atau Li\(^{2+}\), dengan nilai \( R_\infty \) yang sedikit disesuaikan untuk atom non-hidrogen karena efek koreksi massa inti (\textit{reduced mass correction}). Transisi antar tingkat energi menghasilkan garis spektral spesifik yang diukur dalam spektroskopi untuk identifikasi unsur \citep{Griffiths2005}.
+
+Transisi elektronik dalam atom diatur oleh aturan seleksi, yang menentukan transisi yang diizinkan berdasarkan perubahan bilangan kuantum dan memengaruhi intensitas garis spektral dalam spektroskopi. Aturan seleksi utama meliputi \( \Delta l = \pm 1 \), \( \Delta m_l = 0, \pm 1 \), dan \( \Delta S = 0 \), yang memastikan konservasi momentum sudut orbital (\( l \)), komponen proyeksi momentum sudut (\( m_l \)), dan spin total (\( S \)). Aturan ini berasal dari sifat simetri fungsi gelombang atom dan interaksi elektromagnetik antara elektron dan foton, yang dijelaskan melalui elemen matriks dipol
 \begin{equation}
-\Delta E = E_{n_f} - E_{n_i} = -13.6 \left( \frac{1}{n_f^2} - \frac{1}{n_i^2} \right) \, \text{eV}, \label{deltaE}
+P \propto |\langle \psi_k | \vec{\mu} | \psi_i \rangle|^2, \label{eq:dipole}
 \end{equation}
-Dimana \( n_i \) dan \( n_f \) menunjukkan indeks tingkat energi awal (\( i \)) dan akhir (\( k \)) dalam konteks transisi umum. Energi ini menentukan panjang gelombang foton yang diukur dalam simulasi spektrum LIBS \citep{Griffiths2005}.
+dengan \( \psi_i \) dan \( \psi_k \) sebagai keadaan awal dan akhir, serta \( \hat{\mu} \) sebagai operator momen dipol. Transisi yang memenuhi aturan seleksi memiliki probabilitas tinggi, menghasilkan garis spektral yang kuat, sedangkan transisi yang melanggar aturan (transisi terlarang) memiliki probabilitas rendah dan menghasilkan garis spektral lemah, yang terkadang masih terdeteksi dalam kondisi tertentu, seperti pada atom berat. Untuk atom hidrogen, aturan seleksi memungkinkan transisi seri Balmer (misalnya, H\(\alpha\), H\(\beta\), H\(\gamma\)), yang menghasilkan garis spektral kuat dalam rentang tampak, penting untuk aplikasi seperti LIBS. 
+\par Kopling spin-orbit, yang timbul dari interaksi antara momentum sudut orbital dan spin elektron, menyebabkan pemisahan tingkat energi menjadi sub-level, dikenal sebagai struktur halus (\textit{fine structure}). Efek ini lebih signifikan pada atom dengan nomor atom tinggi, seperti natrium atau merkuri, karena pengaruh relativistik yang meningkatkan interaksi spin-orbit. Sebagai contoh, pada natrium, garis D (sekitar 589 nm) menunjukkan pemisahan struktur halus akibat kopling spin-orbit, yang terdeteksi sebagai dua garis spektral berdekatan dalam spektroskopi. Dalam LIBS, aturan seleksi membantu memprediksi garis spektral yang dominan, seperti H\(\alpha\) untuk hidrogen atau garis natrium untuk atom alkali, memungkinkan analisis kuantitatif komposisi plasma. Transisi terlarang, seperti pelanggaran \( \Delta S = 0 \), dapat terjadi pada atom berat karena kopling spin-orbit yang kuat, menghasilkan garis spektral lemah yang tetap relevan dalam analisis spektral presisi tinggi \citep{Griffiths2005, CremersRadzemski2013, Demtroder2010}.
 
-\subsection{Diagram Grotrian untuk Transisi Spektral}
-Diagram Grotrian memvisualisasikan tingkat energi dan transisi yang diizinkan, seperti deret Lyman (\( n_f = 1 \)) dan Balmer (\( n_f = 2 \)) pada hidrogen. Dalam simulasi LIBS, diagram ini membantu mengidentifikasi garis spektral hidrogen dan helium, memungkinkan analisis transisi elektronik yang relevan \citep{Mason2015}.
+\subsection{Transisi Elektronik Atom Hidrogen}
 
-\subsection{Aturan Seleksi untuk Spektra Atom Alkali}
-Transisi elektronik terjadi ketika elektron berpindah antar tingkat energi, dengan probabilitas ditentukan oleh elemen matriks dipol \( P \propto |\langle \psi_k | \hat{\mu} | \psi_i \rangle|^2 \), dimana \( \psi_i \) adalah keadaan awal dan \( \psi_k \) adalah keadaan akhir \citep{Demtroder2010}. Aturan seleksi meliputi \( \Delta l = \pm 1 \) dan \( \Delta m_l = 0, \pm 1 \), dengan aturan spin \( \Delta S = 0 \) mencegah transisi singlet-triplet kecuali ada kopling spin-orbit. Aturan ini diuji pada atom alkali dalam simulasi spektrum LIBS untuk memodelkan emisi spektral \citep{Griffiths2005}.
+Dalam atom hidrogen, energi elektron pada tingkat kuantum \( n \) diberikan oleh
+\begin{equation}
+E_n = -\frac{13.6}{n^2} \, \text{eV}, \quad n \in \mathbb{Z}^+, \label{eq:energy_hydrogen}
+\end{equation}
+dan selisih energi untuk transisi emisi dari \( n_i \) ke \( n_f \) (\( n_f < n_i \)) adalah
+\begin{equation}
+\Delta E = 13.6 \left( \frac{1}{n_f^2} - \frac{1}{n_i^2} \right) \, \text{eV}. \label{eq:deltaE}
+\end{equation}
+Seri Balmer (\( n_f = 2 \), \( n_i = 3, 4, 5 \)) menghasilkan garis spektral dalam rentang tampak, yang kritis untuk spektroskopi LIBS dalam mendeteksi hidrogen dalam plasma \citep{CremersRadzemski2013}. Menggunakan formula Rydberg (\ref{eq:rydberg}), panjang gelombang untuk seri Balmer dihitung sebagai berikut:
+\begin{itemize}
+    \item H\(\alpha\) (\( n_i = 3 \to n_f = 2 \)):
+    \[
+    \frac{1}{\lambda} = 1.0973731568 \times 10^7 \left( \frac{1}{2^2} - \frac{1}{3^2} \right), \quad \lambda \approx 656.28 \, \text{nm}.
+    \]
+    \item H\(\beta\) (\( n_i = 4 \to n_f = 2 \)):
+    \[
+    \frac{1}{\lambda} = 1.0973731568 \times 10^7 \left( \frac{1}{2^2} - \frac{1}{4^2} \right), \quad \lambda \approx 486.13 \, \text{nm}.
+    \]
+    \item H\(\gamma\) (\( n_i = 5 \to n_f = 2 \)):
+    \[
+    \frac{1}{\lambda} = 1.0973731568 \times 10^7 \left( \frac{1}{2^2} - \frac{1}{5^2} \right), \quad \lambda \approx 434.05 \, \text{nm}.
+    \]
+\end{itemize}
+Data ini divalidasi dengan basis data NIST \citep{Kramida2023}. Aturan seleksi (\( \Delta l = \pm 1 \), \( \Delta m_l = 0, \pm 1 \), \( \Delta S = 0 \)) memastikan transisi seri Balmer diizinkan, menghasilkan garis spektral yang kuat dalam rentang tampak, dengan garis H\(\alpha\) pada 656.28 nm sebagai indikator utama keberadaan hidrogen dalam LIBS \citep{CremersRadzemski2013}.
 
-\section{Statistik Populasi dalam Plasma LIBS}
+Diagram Grotrian memvisualisasikan tingkat energi dan transisi yang diizinkan, seperti seri Balmer, memungkinkan analisis transisi elektronik dalam plasma \citep{Mason2015}. Diagram ini ditunjukkan pada Gambar~\ref{fig:grotrian}, dengan tingkat energi dihitung menggunakan persamaan (\ref{eq:energy_hydrogen}) dan transisi emisi digambarkan sebagai panah ke bawah untuk H\(\alpha\), H\(\beta\), dan H\(\gamma\).
 
-\subsection{Distribusi Boltzmann untuk Suhu Eksitasi}
+\begin{figure}[h]
+    \begin{center}
+        \begin{tikzpicture}[scale=1.2]
+            % Sumbu energi (vertikal)
+            \draw[->, thick] (0,-4) -- (0,0.5) node[above] {Energi (eV)};
+            
+            % Tingkat energi
+            \draw[thick] (1,-3.4) -- (5,-3.4) node[right] {$n=2, E=-3.4$ eV};
+            \draw[thick] (1,-1.5111) -- (5,-1.5111) node[right] {$n=3, E=-1.5111$ eV};
+            \draw[thick] (1,-0.85) -- (5,-0.85) node[right] {$n=4, E=-0.85$ eV};
+            \draw[thick] (1,-0.544) -- (5,-0.544) node[right] {$n=5, E=-0.544$ eV};
+            \draw[thick, dashed] (1,0) -- (5,0) node[right] {$n=\infty, E=0$ eV};
+            
+            % Transisi emisi (panah ke bawah)
+            \draw[->, thick, red] (2,-1.5111) -- (2,-3.4) node[midway, left=0.1cm] {H\(\alpha\)};
+            \draw[->, thick, blue] (3,-0.85) -- (3,-3.4) node[midway, left=0.1cm] {H\(\beta\)};
+            \draw[->, thick, orange] (4,-0.544) -- (4,-3.4) node[midway, left=0.1cm] {H\(\gamma\)};
+        \end{tikzpicture}
+        \caption{Diagram Grotrian untuk atom hidrogen pada seri Balmer dengan \(\lambda_{\text{H}\alpha} = 656.28 \, \text{nm}\), \(\lambda_{\text{H}\beta} = 486.13 \, \text{nm}\), \(\lambda_{\text{H}\gamma} = 434.05 \, \text{nm}\). \label{fig:grotrian}}
+    \end{center}
+\end{figure}
+\section{Distrbusi Populasi dan Ionisasi dalam Plasma LIBS}
+
+\subsection{Distribusi Boltzmann}
 Dalam plasma LIBS, populasi atom pada tingkat energi tertentu bergantung pada suhu plasma. Dalam kesetimbangan termal lokal, distribusi Boltzmann menentukan probabilitas pada tingkat energi ke-\( i \), yaitu \( P_i \), sebagai:
 \begin{equation}
 P_i \propto g_i e^{-\frac{E_i}{k_B T}}, \label{eq:boltzmann_propto}
@@ -75,9 +178,9 @@ dan fungsi partisi \( Z \) didefinisikan sebagai:
 \begin{equation}
 Z = \sum_i g_i e^{-\frac{E_i}{k_B T}}, \label{eq:partition}
 \end{equation}
-Fungsi partisi memastikan normalisasi sehingga \( \sum_i N_i = N \). Persamaan ini bergantung pada suhu \( T \) dan sifat atom seperti energi \( E_i \) dan degenerasi \( g_i \) yang penting untuk simulasi spektrum LIBS menggunakan data dari \textit{National Institute of Standards and Technology} (NIST) \citep{Pathria2011,Rybicki1985}.
+Fungsi partisi memastikan normalisasi sehingga \( \sum_i N_i = N \). Persamaan ini bergantung pada suhu \( T \) dan sifat atom seperti energi \( E_i \) dan degenerasi \( g_i \) yang dapat diakses dari \textit{National Institute of Standards and Technology} (NIST) \citep{Pathria2011,Rybicki1985}.
 
-\subsection{Intensitas Garis Spektral dan Suhu Plasma}
+\subsection{Intensitas Garis Spektral}
 Intensitas garis spektral \( I_{ik} \) dihasilkan dari emisi spontan saat atom bertransisi dari tingkat energi atas \( E_k \) ke tingkat energi bawah \( E_i \) (\( E_i < E_k \)). Probabilitas emisi spontan per satuan waktu diberikan oleh \( A_{ki} \). Daya total yang dihasilkan adalah:
 \begin{equation}
 P_{k} = N_k A_{ki} h \nu_{ki}, \label{eq:power}
@@ -86,7 +189,7 @@ Intensitas garis spektral \( I_{ik} \) dihasilkan dari emisi spontan saat atom b
 \begin{equation}
 h \nu_{ik} = E_k - E_i,
 \end{equation}
-dimana \( \nu_{ik} = \frac{E_k - E_i}{h} \) adalah frekuensi foton, dan \( \lambda_{ik} = \frac{c}{\nu_{ik}} = \frac{h c}{E_k - E_i} \) adalah panjang gelombang terkait, dengan \( h \nu_{ik} = \frac{h c}{\lambda_{ik}} \) dan \( h c \approx 1239.84 \, \text{eV·nm} \). Probabilitas emisi spontan per satuan waktu ditentukan oleh koefisien Einstein \( A_{ik} \) \citep{rybicki-1985}. Daya total yang dihasilkan dari transisi ini adalah:
+dimana \( \nu_{ik} = \frac{E_k - E_i}{h} \) adalah frekuensi foton, dan \( \lambda_{ik} = \frac{c}{\nu_{ik}} = \frac{h c}{E_k - E_i} \) adalah panjang gelombang terkait, dengan \( h \nu_{ik} = \frac{h c}{\lambda_{ik}} \) dan \( h c \approx 1239.84 \, \text{eV·nm} \). Probabilitas emisi spontan per satuan waktu ditentukan oleh koefisien Einstein \( A_{ik} \) \citep{Rybicki1985}. Daya total yang dihasilkan dari transisi ini adalah:
 \begin{equation}
 P_k = N_k A_{ik} h \nu_{ik}, \label{eq:power}
 \end{equation}
@@ -105,11 +208,11 @@ Dimana \( h \nu_{ik} \) dan \( 4\pi \) dapat diabaikan untuk perhitungan intensi
 I_{ik} \propto \frac{N g_k A_{ik} e^{-\frac{E_k}{k_B T}}}{Z}. \label{eq:intensity_relative}
 \end{equation}
 
-dimana \( Z \) dihitung untuk setiap tingkat energi transisi. Persamaan ini digunakan untuk menghitung intensitas relatif pada setiap panjang gelombang \( \lambda_{ik} \), yang penting untuk memodelkan spektrum \citep{rybicki-1985,draine-2011,Mason2015}.
+dimana \( Z \) dihitung untuk setiap tingkat energi transisi. Persamaan ini digunakan untuk menghitung intensitas relatif pada setiap panjang gelombang \( \lambda_{ik} \), yang penting untuk memodelkan spektrum \citep{Rybicki1985,Draine2011,Mason2015}.
 
 \subsection{Persamaan Saha untuk Populasi Ion}
 
-Persamaan Saha digunakan untuk menghitung rasio ionisasi \( \frac{n_{i+1} n_e}{n_i} \) berdasarkan suhu plasma \( T \), densitas elektron \( n_e \), dan energi ionisasi atom, yang mendukung pemodelan populasi ion untuk spektrum atom dalam simulasi \textit{Laser-Induced Breakdown Spectroscopy} (LIBS). Persamaan ini menggambarkan keseimbangan ionisasi:
+Persamaan Saha digunakan untuk menghitung rasio ionisasi \( \frac{n_{i+1} n_e}{n_i} \) berdasarkan suhu plasma \( T \), densitas elektron \( n_e \), dan energi ionisasi atom. Persamaan ini menggambarkan keseimbangan ionisasi:
 \[
 A_i \leftrightarrow A_i^+ + e^-.
 \]
@@ -187,7 +290,7 @@ Dengan \( Z_{i,\text{int}} = g_i \) dan \( Z_{i+1,\text{int}} = g_{i+1} \), pers
 \frac{n_{i+1}}{n_i} = \frac{\frac{N_{i+1}}{V}} {\frac{N_{i}}{V}}= \frac{N_{i+1}} {N_{i}} = \frac{2Z_{i+1,\text{int}}}{N_eZ_{i,\text{int}}} \left( \frac{2\pi m_e k_B T}{h^2} \right)^{3/2} e^{-\frac{E_{xi}}{k_B T}}. \label{eq:saha_final_int}
 \end{equation}
 
-Persamaan ini digunakan dalam simulasi LIBS untuk menghitung rasio ionisasi dengan memasukkan suhu plasma \( T \), densitas elektron \( n_e \), dan energi ionisasi \( E_{xi} \). Konstanta-konstanta memiliki asal-usul fisik: faktor 2 dari degenerasi spin elektron, \( Z_{i+1,\text{int}}/Z_{i,\text{int}} \) dari rasio degenerasi keadaan dasar, \( \left( \frac{2\pi m_e k_B T}{h^2} \right)^{3/2} \) dari densitas keadaan translasional elektron, dan \( e^{-\frac{E_{xi}}{k_B T}} \) dari probabilitas ionisasi. Persamaan Saha berlaku untuk plasma non-degenerasi dalam LIBS, tetapi memerlukan modifikasi untuk plasma padat, seperti dalam kondisi ekstrem \citep{Chandrasekhar1939}.
+Persamaan ini kemudian digunakan untuk menghitung rasio ionisasi dengan memasukkan suhu plasma \( T \), densitas elektron \( n_e \), dan energi ionisasi \( E_{xi} \). Konstanta-konstanta memiliki asal-usul fisik: faktor 2 dari degenerasi spin elektron, \( Z_{i+1,\text{int}}/Z_{i,\text{int}} \) dari rasio degenerasi keadaan dasar, \( \left( \frac{2\pi m_e k_B T}{h^2} \right)^{3/2} \) dari densitas keadaan translasional elektron, dan \( e^{-\frac{E_{xi}}{k_B T}} \) dari probabilitas ionisasi. Persamaan Saha berlaku untuk plasma non-degenerasi dalam LIBS, tetapi memerlukan modifikasi untuk plasma padat, seperti dalam kondisi ekstrem \citep{Chandrasekhar1939}.
 
 Untuk memastikan plasma berada dalam kondisi \textit{Local Thermodynamic Equilibrium} (selanjutnya disebut LTE), kriteria McWhirter menetapkan batas minimum densitas elektron untuk LTE sebagai \citep{McWhirter1965}:
 \begin{equation}
@@ -197,7 +300,7 @@ dimana \( T \) adalah suhu dalam eV dan \( \Delta E \) adalah perbedaan energi a
 
 \section{Profil Garis Spektral dalam LIBS}
 
-Dalam \textit{Laser-Induced Breakdown Spectroscopy} (LIBS), profil garis spektral merupakan alat penting untuk menentukan parameter plasma, seperti suhu (\( T \)), densitas elektron (\( n_e \)), dan komposisi elemen. Profil garis dihasilkan dari transisi elektronik atom atau ion dalam plasma, yang dipengaruhi oleh mekanisme pelebaran seperti efek Doppler, tekanan (termasuk pelebaran Stark), dan efek instrumental. Mekanisme ini menghasilkan profil Gaussian, Lorentzian, atau kombinasi keduanya (Voigt), yang memengaruhi intensitas garis, resolusi spektral, dan akurasi pengukuran parameter plasma \citep{Demtroder2010,Griem1997}. Bagian berikut menjelaskan profil garis ini, hubungan fisiknya dengan kondisi plasma, dan aplikasinya dalam simulasi LIBS.
+Dalam \textit{Laser-Induced Breakdown Spectroscopy} (LIBS), profil garis spektral merupakan alat penting untuk menentukan parameter plasma, seperti suhu (\( T \)), densitas elektron (\( n_e \)), dan komposisi elemen. Profil garis dihasilkan dari transisi elektronik atom atau ion dalam plasma, yang dipengaruhi oleh mekanisme pelebaran seperti efek Doppler, tekanan (termasuk pelebaran Stark), dan efek instrumental. Mekanisme ini menghasilkan profil Gaussian, Lorentzian, atau kombinasi keduanya (Voigt), yang memengaruhi intensitas garis, resolusi spektral, dan akurasi pengukuran parameter plasma \citep{Demtroder2010,Griem1997}. Bagian berikut menjelaskan profil garis ini, hubungan fisiknya dengan kondisi plasma.
 
 \subsection{Pelebaran Doppler dan Profil Gaussian}
 Efek Doppler, yang disebabkan oleh gerakan termal atom atau ion dalam plasma LIBS, menghasilkan pelebaran garis spektral dengan profil Gaussian:
@@ -226,12 +329,12 @@ Profil Voigt adalah konvolusi dari profil Gaussian (efek Doppler dan instrumenta
 \begin{equation}
 V(\lambda; \Gamma, \sigma) = \int_{-\infty}^{\infty} G(\lambda - \lambda') L(\lambda') \, d\lambda', \label{eq:voigt}
 \end{equation}
-dimana \( \sigma \) dan \( \Gamma \) masing-masing adalah lebar Gaussian dan Lorentzian. Profil Voigt menggabungkan efek Doppler, yang dominan di pusat garis, dengan efek tekanan/Stark, yang dominan di sayap garis, menjadikannya model akurat untuk garis spektral dalam plasma LIBS \citep{Griem1997}. Dalam simulasi LIBS, profil Voigt digunakan untuk memodelkan bentuk garis spektral, memungkinkan ekstraksi parameter plasma seperti suhu (\( T \)) dari komponen Gaussian dan densitas elektron (\( n_e \)) dari komponen Lorentzian. Selain itu, profil Voigt kritis untuk menghitung intensitas garis yang digunakan dalam analisis distribusi Boltzmann untuk menentukan populasi tingkat energi \citep{Miziolek2006,Aragon2008}.
+dimana \( \sigma \) dan \( \Gamma \) masing-masing adalah lebar Gaussian dan Lorentzian. Profil Voigt menggabungkan efek Doppler, yang dominan di pusat garis, dengan efek tekanan/Stark, yang dominan di sayap garis, menjadikannya model akurat untuk garis spektral dalam plasma LIBS \citep{Griem1997}. Dalam  LIBS, profil Voigt digunakan untuk memodelkan bentuk garis spektral, memungkinkan ekstraksi parameter plasma seperti suhu (\( T \)) dari komponen Gaussian dan densitas elektron (\( n_e \)) dari komponen Lorentzian. Selain itu, profil Voigt kritis untuk menghitung intensitas garis yang digunakan dalam analisis distribusi Boltzmann untuk menentukan populasi tingkat energi \citep{Miziolek2006,Aragon2008}.
 
 \subsection{Efek Fisik Profil Garis pada Analisis Spektral}
 Mekanisme pelebaran garis memengaruhi analisis spektral dalam LIBS melalui hubungan kuantitatif dengan parameter plasma. Tabel~\ref{tab:broadening_effects} merangkum mekanisme pelebaran, profil garis terkait, parameter fisik yang memengaruhinya, dan dampaknya pada pengukuran spektral.
 
-\begin{table}[H]
+\begin{table}[h]
 \centering
 \caption{Mekanisme Pelebaran Garis Spektral dalam LIBS}
 \label{tab:broadening_effects}
@@ -256,7 +359,7 @@ Efek fisik dari pelebaran garis dalam LIBS meliputi:
   \item \textbf{Resolusi Spektral}: Pelebaran instrumental dan Doppler dapat mengaburkan garis spektral yang berdekatan, mengurangi kemampuan untuk membedakan transisi \citep{Aragon2008}.
 \end{itemize}
 
-Dalam simulasi LIBS, profil Voigt dihitung menggunakan algoritma numerik, seperti aproksimasi Humlíček, untuk memodelkan garis spektral dengan akurasi tinggi sambil meminimalkan biaya komputasi \citep{Griem1997}. Pendekatan ini memungkinkan analisis kuantitatif parameter plasma dan komposisi elemen dengan memisahkan kontribusi Gaussian dan Lorentzian melalui dek convolusi \citep{Aragon2008}.
+Kemudian profil Voigt dihitung menggunakan algoritma numerik, seperti aproksimasi Humlíček, untuk memodelkan garis spektral dengan akurasi tinggi sambil meminimalkan biaya komputasi \citep{Griem1997}. Pendekatan ini memungkinkan analisis kuantitatif parameter plasma dan komposisi elemen dengan memisahkan kontribusi Gaussian dan Lorentzian melalui dek convolusi \citep{Aragon2008}.
 
 \section{Pembelajaran Mendalam: Pemodelan Deret Waktu Berbasis \textit{Transformer}}
 \label{sec:transformer_informer}
@@ -481,43 +584,3 @@ Sedangkan \textit{RMSE} didefinisikan sebagai akar kuadrat dari \textit{MSE}:
 \text{RMSE} = \sqrt{\frac{1}{L_y} \sum_{i=1}^{L_y} (\mathbf{y}_i^t - \hat{\mathbf{y}}_i^t)^2}
 \end{equation}
 Metrik-metrik ini memungkinkan perbandingan kinerja \textit{Informer} dengan model lain seperti \textit{Transformer} atau LSTM dalam konteks peramalan deret waktu.
-
-\subsection{Aplikasi dan Relevansi Penelitian}
-\label{sec:informer_application}
-
-\textit{Informer} mendukung aplikasi LSTF, seperti prediksi konsumsi listrik atau lalu lintas, melalui efisiensi \textit{ProbSparse self-attention} dalam menangkap hubungan temporal, \textit{self-attention distilling} untuk mengurangi kebutuhan memori, dan \textit{generative-style decoder} untuk inferensi cepat. Perbandingan efisiensi komputasi \textit{Informer} dengan model lain ditunjukkan pada Tabel~\ref{tab:computational_efficiency}.
-
-\begin{table}[H]
-    \centering
-    \caption{Perbandingan Efisiensi Komputasi per Lapisan \citep{Zhou2021}.}
-    \label{tab:computational_efficiency}
-    \begin{tabular}{lccc}
-        \toprule
-        \textbf{Model} & \textbf{Waktu Pelatihan} & \textbf{Memori} & \textbf{Langkah Inferensi} \\
-        \midrule
-        \textit{Informer} & \( O(n \log n) \) & \( O(n \log n) \) & 1 \\
-        \textit{Transformer} & \( O(n^2) \) & \( O(n^2) \) & \( n \) \\
-        \textit{LogTrans} & \( O(n \log n) \) & \( O(n^2) \) & 1* \\
-        \textit{Reformer} & \( O(n \log n) \) & \( O(n \log n) \) & \( n \) \\
-        LSTM & \( O(n) \) & \( O(n) \) & \( n \) \\
-        \bottomrule
-        \multicolumn{4}{l}{*Menggunakan \textit{decoder} generatif \textit{Informer}.}
-    \end{tabular}
-\end{table}
-
-\subsection{Analisis Kinerja Empiris}
-\label{sec:informer_performance}
-
-\textit{Informer} unggul dalam menangani urutan panjang dengan efisiensi tinggi dibandingkan \textit{Transformer} dan LSTM, mendukung aplikasi real-time seperti prediksi lalu lintas. Perbandingan efisiensi (Tabel~\ref{tab:computational_efficiency}) menunjukkan keunggulan \textit{Informer} dalam waktu pelatihan dan memori.
-
-\subsection{Potensi Ekstensi Penelitian}
-\label{sec:informer_extensions}
-
-\textit{Informer} mendukung penelitian empiris melalui:
-\begin{enumerate}
-    \item \textbf{Optimasi Parameter}: Menyesuaikan pengaturan \textit{ProbSparse self-attention}.
-    \item \textbf{Integrasi Multimodal}: Menggabungkan data tambahan, seperti cuaca, untuk prediksi energi.
-    \item \textbf{Adaptasi Domain}: Menerapkan pada peramalan keuangan.
-    \item \textbf{Perbandingan Model}: Dengan model seperti \textit{Performer} \citep{Choromanski2021}.
-    \item \textbf{Skalabilitas}: Menguji pada data panjang dengan perangkat keras modern.
-\end{enumerate}

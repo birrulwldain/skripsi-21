@@ -1,14 +1,13 @@
-% \fancyhf{} 
-% \fancyfoot[R]{\thepage}
-% !TEX root = ../seminar-hasil.tex
-\chapter{PENDAHULUAN}
-%\thispagestyle{plain} % Halaman pertama bab menggunakan gaya plain
 
+
+
+
+
+\chapter{PENDAHULUAN}
 
 
 
 \section{Latar Belakang}
-% Menambahkan lorem ipsum
 
 
 \par  Spektroskopi secara sederhana merupakan  interaksi antara materi dan radiasi elektromagnetik yang dapat memberi informasi bagaimana materi menyerap, memancarkan, atau menghamburkan cahaya. Kemudian interaksi ini  digunakan untuk mengidentifikasi dan mengukur komposisi, struktur, dan sifat materi tersebut \parencite{hollas2013}.  
@@ -26,13 +25,11 @@ Sejak penemuan garis spektral oleh Fraunhofer dan Kirchhoff, spektroskopi telah 
 
 
 \section{Rumusan Masalah}
-Distribusi Boltzmann menjelaskan distribusi energi atom dalam sistem pada suhu konstan, sementara persamaan Saha menggambarkan kesetimbangan ionisasi dalam plasma atau gas.
-
-Algoritma Transformer, yang diperkenalkan oleh \cite{vaswani-2017}, unggul dalam memproses data sekuens melalui mekanisme \textit{self-attention} dengan kompleksitas \( O(n \log n) \) pada varian \textit{sparse} \parencite{gao2024}. Namun, kompleksitas spektrum LIBS menyulitkan pemodelan komputasi yang efisien. Oleh karena itu, rumusan masalah penelitian ini adalah:
+\par Distribusi Boltzmann menjelaskan distribusi energi atom dalam sistem pada suhu konstan, sementara persamaan Saha menggambarkan kesetimbangan ionisasi dalam plasma atau gas. Algoritma Transformer, yang diperkenalkan oleh \cite{vaswani-2017}, unggul dalam memproses data sekuens melalui mekanisme \textit{self-attention} dengan kompleksitas \( O(n \log n) \) pada varian \textit{sparse} \parencite{gao2024}. Namun, kompleksitas spektrum LIBS menyulitkan pemodelan komputasi yang efisien. Oleh karena itu, rumusan masalah penelitian ini adalah:
 \begin{enumerate}
-    \item Sejauh mana model Transformer dengan mekanisme \textit{sparse self-attention} dapat meningkatkan akurasi prediksi spektrum multi-elemen dibandingkan metode tradisional dalam simulasi LIBS, diukur dengan \textit{mean squared error} (MSE)?
+    \item Sejauh mana model Informer dengan mekanisme \textit{ProbSparse self-attention} dapat meningkatkan akurasi prediksi spektrum multi-elemen  dalam simulasi LIBS, diukur dengan \textit{mean squared error} (MSE)?
     \item Bagaimana efisiensi komputasi model Transformer dalam mempelajari spektrum atom yang disimulasikan pada berbagai suhu plasma dan densitas elektron, diukur dengan waktu komputasi?
-    \item Apakah jumlah dan variasi spektrum sintetis memengaruhi kemampuan generalisasi model Transformer untuk prediksi multi-elemen?
+    \item Apakah jumlah dan variasi spektrum sintetis memengaruhi kemampuan generalisasi model Informer untuk prediksi multi-elemen?
 \end{enumerate}
 
 
@@ -40,15 +37,12 @@ Algoritma Transformer, yang diperkenalkan oleh \cite{vaswani-2017}, unggul dalam
 Berdasarkan rumusan masalah, tujuan penelitian ini adalah:
 \begin{enumerate}
 
-    \item Mengembangkan model Transformer dengan mekanisme \textit{sparse self-attention} untuk memprediksi spektrum multi-elemen berdasarkan simulasi spektrum atom pada berbagai suhu plasma dan densitas elektron.
+    \item Mengembangkan model Transformer dengan mekanisme \textit{ProbSparse self-attention} untuk memprediksi spektrum multi-elemen berdasarkan simulasi spektrum atom pada berbagai suhu plasma dan densitas elektron.
     \item Mengukur akurasi prediksi model Transformer menggunakan \textit{mean squared error} (MSE).
     \item Mengevaluasi pengaruh jumlah dan variasi spektrum sintetis terhadap kemampuan generalisasi model Transformer dalam prediksi spektrum multi-elemen.
 \end{enumerate}
 \section{Batasan Penelitian}
-Penelitian ini berfokus pada simulasi spektrum atom untuk elemen terpilih pada berbagai suhu plasma dan densitas elektron, menggunakan distribusi Boltzmann dan persamaan Saha. Penelitian tidak mencakup pengukuran spektrum LIBS eksperimental atau analisis efek matriks dan fluktuasi plasma, untuk menjaga fokus pada evaluasi model Transformer.
+Penelitian ini berfokus pada simulasi spektrum atom untuk elemen terpilih pada varian suhu plasma dan densitas elektron, menggunakan distribusi Boltzmann dan persamaan Saha. Penelitian tidak mencakup pengukuran spektrum LIBS eksperimental atau analisis efek matriks dan fluktuasi plasma, untuk menjaga fokus pada evaluasi model Transformer.
 
 \section{Manfaat Penelitian}
 Penelitian ini diharapkan memberikan pendekatan baru dalam analisis LIBS melalui prediksi spektrum multi-elemen menggunakan algoritma Transformer. Model yang dikembangkan dapat meningkatkan akurasi deteksi elemen mayor dan minor.
-% Baris ini digunakan untuk membantu dalam melakukan sitasi
-% Karena diapit dengan comment, maka baris ini akan diabaikan
-% oleh compiler LaTeX.
