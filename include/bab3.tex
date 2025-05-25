@@ -14,26 +14,29 @@ Penelitian ini dilaksanakan di Laboratorium Gelombang dan Optik, Departemen Fisi
 \section{Jadwal Pelaksanaan Penelitian}
 Penelitian ini direncanakan berlangsung selama 8 bulan, dari September 2024 hingga Juni 2025. Tabel~\ref{tab:jadwal_penelitian} menunjukkan jadwal pelaksanaan penelitian yang mencakup fase studi literatur, pengumpulan data, pengembangan model, validasi, dan penulisan laporan akhir.
 
-\begin{table}[H]
+\begin{table}[H] % Pastikan Anda memuat paket 'float' jika menggunakan [H]
   \centering
-  \caption{Jadwal Penelitian}
-  \label{tab:jadwal_penelitian}
-  \small % Mengatur ukuran font tabel agar lebih kecil tetapi tetap terbaca
-  \setlength{\tabcolsep}{3pt} % Mengurangi spasi antar kolom untuk fleksibilitas
-  \begin{tabular}{p{0.35\textwidth} *{9}{c}} % Kolom pertama 35% dari \textwidth
+  \caption{Jadwal Penelitian (mulai Desember 2024)}
+  \label{tab:jadwal_penelitian_des24_berwarna} % Label bisa diubah jika perlu
+  \small
+  \setlength{\tabcolsep}{3pt}
+  % Kolom pertama 20% dari \textwidth, diikuti 6 kolom rata kiri untuk bulan
+  % Tipe kolom 'l' (rata kiri) atau 'c' (rata tengah) cocok untuk sel berwarna
+  \begin{tabular}{p{0.2\textwidth} *{6}{l}}
     \toprule
-    \textbf{Fase Penelitian} & \textbf{Sep 2024} & \textbf{Okt 2024} & \textbf{Nov 2024} & \textbf{Des 2024} & \textbf{Jan 2025} & \textbf{Feb 2025} & \textbf{Mar 2025} & \textbf{Apr 2025} & \textbf{Mei 2025} \\
+    \textbf{Fase Penelitian} & \textbf{Des 2024} & \textbf{Jan 2025} & \textbf{Feb 2025} & \textbf{Mar 2025} & \textbf{Apr 2025} & \textbf{Mei 2025} \\
     \midrule
-    Studi literatur dan perancangan awal & $\bullet$ & $\bullet$ & $\bullet$ & & & & & & \\
-    Pengumpulan dan pengolahan data spektral & & $\bullet$ & $\bullet$ & $\bullet$ & & & & & \\
-    Pengembangan dan pengujian model prediksi & & & & $\bullet$ & $\bullet$ & $\bullet$ & $\bullet$ & & \\
-    Validasi model dan analisis hasil & & & & & & & & $\bullet$ & $\bullet$ \\
-    Penulisan laporan akhir & & & & & & & & & $\bullet$ \\
+    Studi literatur dan perancangan awal & & & & & & \\
+    Pengumpulan dan pengolahan data spektral & \cellcolor{gray!25} & & & & & \\
+    Pengembangan dan pengujian model prediksi & \cellcolor{gray!25} & \cellcolor{gray!25} & \cellcolor{gray!25} & \cellcolor{gray!25} & & \\
+    Validasi model dan analisis hasil & & & & & \cellcolor{gray!25} & \cellcolor{gray!25} \\
+    Penulisan laporan akhir & & & & & & \cellcolor{gray!25} \\
     \bottomrule
   \end{tabular}
   \vspace{0.2cm}
   \footnotesize
-  \textit{Catatan:} Tanda $\bullet$ menunjukkan periode pelaksanaan masing-masing fase.
+  % Catatan diubah untuk menjelaskan penggunaan sel berwarna
+  \textit{Catatan:} Sel yang diarsir/berwarna (misalnya, \colorbox{gray!25}{\phantom{X}}\hspace{0.1em}) menunjukkan periode pelaksanaan masing-masing fase.
 \end{table}
 
 \section{Alat dan Bahan}
@@ -90,75 +93,151 @@ Prosedur penelitian ini dirancang untuk mensimulasikan spektrum emisi atom dalam
 
 \begin{algorithm}
 \small
-\caption{Inisilasi Parameter Simulasi Spektral Atom}
+\caption{Initialization of Atomic Spectral Simulation Parameters}
 \begin{algorithmic}[1]
   \REQUIRE
-    Transition dataset $\mathcal{D} = \{ (\lambda_{ij}, E_i, E_k, g_i, g_k, A_{ki}) \mid \lambda_{ij} \in [300, 800]~\text{nm}, E_i, E_k, g_i, g_k, A_{ki} \in \mathbb{R}^+ \}$ \cite{Kramida2023}, \\
-    Number of element-ion pairs $k = 4$, \\
-    Maximum number of spectral samples $N \in \mathbb{N}$, \\
-    Temperature step $\Delta T \in \mathbb{R}^+$, \\
-    Electron density step $\Delta n_e \in \mathbb{R}^+$, \\
-    Gaussian broadening parameter $\sigma \in \mathbb{R}^+$, \\
-    Wavelength resolution $\Delta \lambda \in \mathbb{R}^+$
+    Transition dataset $\mathcal{D} = \{ (\lambda_{ij}, E_i, E_k, g_i, g_k, A_{ki}) \mid \lambda_{ij} \in [300, 800], E_i, E_k, g_i, g_k, A_{ki} > 0 \}$ \cite{Kramida2023}; \\
+    Number of element-ion pairs $k = 4$; \\
+    Maximum spectral samples $N \in \mathbb{N}$; \\
+    Temperature step $\Delta T > 0$; \\
+    Electron density step $\Delta n_e > 0$; \\
+    Gaussian broadening parameter $\sigma > 0$
   \ENSURE
-    Candidate atom set $\mathcal{C}$, wavelength vector $\boldsymbol{\lambda} \in \mathbb{R}^n$, atom subset dictionary $\mathcal{A}$, spectra set $\mathcal{S}$
-  \STATE \textbf{Validate Inputs}: Ensure $N > 0$, $\Delta T > 0$, $\Delta n_e > 0$, $\sigma > 0$, $\Delta \lambda > 0$
-  \STATE \textbf{Initialize}: $\Delta T \gets 1000~\text{K}$, $\Delta n_e \gets 10^{0.5} \times 10^{12}~\text{cm}^{-3}$, $\sigma \gets 0.1~\text{nm}$, $\Delta \lambda \gets 0.5~\text{nm}$
-  \STATE \textbf{Define}: $\mathcal{C} \gets \{\text{H}, \text{He}, \text{O}, \text{N}, \text{Si}, \text{Al}, \text{Fe}, \text{Ca}, \text{Mg}, \text{Na}, \text{Ti}, \text{Mn}, \text{S}, \text{Cl}, \text{Cr}, \text{Ni}, \text{Cu}\}$
-  \STATE \textbf{Initialize}: $\boldsymbol{\lambda} \gets$ uniform grid from $300~\text{nm}$ to $800~\text{nm}$ with step $\Delta \lambda$
-  \STATE \textbf{Initialize}: $\mathcal{S} \gets \emptyset$, $\mathcal{A} \gets \emptyset$
-  \FORALL{$T \in [5000, 15000]~\text{K}$ \textbf{step} $\Delta T$}
-    \FORALL{$n_e \in [10^{12}, 10^{16}]~\text{cm}^{-3}$ \textbf{step} $\Delta n_e$}
+    Candidate atom set $\mathcal{C}$, atom subset dictionary $\mathcal{A}$, spectra set $\mathcal{S}$
+  \STATE Validate inputs: Ensure $N > 0$, $\Delta T > 0$, $\Delta n_e > 0$, $\sigma > 0$
+  \STATE Initialize: $\Delta T \gets 1000$, $\Delta n_e \gets 10^{0.5} \times 10^{12}$, $\sigma \gets 0.1$
+  \STATE Define: $\mathcal{C} \gets \{\text{H}, \text{He}, \text{O}, \text{N}, \text{Si}, \text{Al}, \text{Fe}, \text{Ca}, \text{Mg}, \text{Na}, \text{Ti}, \text{Mn}, \text{S}, \text{Cl}, \text{Cr}, \text{Ni}, \text{Cu}\}$
+  \STATE Initialize: $\mathcal{S} \gets \emptyset$, $\mathcal{A} \gets \emptyset$
+  \FORALL{$T \in [5000, 15000]$ \textbf{step} $\Delta T$}
+    \FORALL{$n_e \in [10^{12}, 10^{16}]$ \textbf{step} $\Delta n_e$}
       \STATE Randomly select $\mathcal{A}_{T,n_e} \subseteq \mathcal{C}$ with $|\mathcal{A}_{T,n_e}| = k$ without replacement
       \IF{no transitions exist in $\mathcal{D}$ for any species in $\mathcal{A}_{T,n_e}$}
-        \STATE Log warning: ``No transitions for $\mathcal{A}_{T,n_e}$ at $T$, $n_e$'' \COMMENT{Skip if no transitions}
+        \STATE Log warning: ``No transitions for $\mathcal{A}_{T,n_e}$ at $T$, $n_e$'' \COMMENT{Skip}
         \STATE continue
       \ENDIF
       \STATE Store $(T, n_e, \mathcal{A}_{T,n_e})$ in $\mathcal{A}$
     \ENDFOR
   \ENDFOR
-  \STATE \RETURN $\mathcal{C}$, $\boldsymbol{\lambda}$, $\mathcal{A}$, $\mathcal{S}$
+  \STATE \RETURN $\mathcal{C}$, $\mathcal{A}$, $\mathcal{S}$
 \end{algorithmic}
 \end{algorithm}
-
 
 \begin{algorithm}
 \small
 \caption{Ionization and Population Calculations}
 \begin{algorithmic}[1]
-  \REQUIRE
-    Transition dataset $\mathcal{D} = \{ (\lambda_{ij}, E_i, E_k, g_i, g_k, A_{ki}) \mid \lambda_{ij} \in [300, 800]~\text{nm}, E_i, E_k, g_i, g_k, A_{ki} \in \mathbb{R}^+ \}$, \\
-    Atom subset dictionary $\mathcal{A} = \{ (T, n_e, \mathcal{A}_{T,n_e}) \mid T \in [5000, 15000]~\text{K}, n_e \in [10^{12}, 10^{16}]~\text{cm}^{-3}, |\mathcal{A}_{T,n_e}| = 4 \}$, \\
-    Physical constants: $m_e = 9.109 \times 10^{-31}~\text{kg}$, $k_B = 8.617 \times 10^{-5}~\text{eV/K}$, $h = 4.1357 \times 10^{-15}~\text{eV·s}$
-  \ENSURE
-    Population ratio dictionary $\mathcal{R} = \{ (T, n_e, \mathbf{R}_{T,n_e}) \mid \mathbf{R}_{T,n_e} \in [0, 1]^2 \}$
-  \STATE \textbf{Initialize}: $\mathcal{R} \gets \emptyset$
+  \REQUIRE Transition dataset $\mathcal{D} = \{ (\lambda_{ij}, E_i, E_k, g_i, g_k, A_{ki}) \mid \lambda_{ij} \in [300, 800], E_i, E_k, g_i, g_k, A_{ki} > 0 \}$; Candidate atom set $\mathcal{C}$; Atom subset dictionary $\mathcal{A} = \{ (T, n_e, \mathcal{A}_{T,n_e}) \}$; Physical constants $m_e = 9.109 \times 10^{-31}$, $k_B = 8.617 \times 10^{-5}$, $h = 4.1357 \times 10^{-15}$
+  \ENSURE Population ratio dictionary $\mathcal{R} = \{ (T, n_e, \mathbf{R}_{T,n_e}) \mid \mathbf{R}_{T,n_e} \in [0, 1]^2 \}$
+  \STATE Initialize $\mathcal{R} \gets \emptyset$ \COMMENT{Ratio dictionary}
   \FORALL{$(T, n_e, \mathcal{A}_{T,n_e}) \in \mathcal{A}$}
-    \STATE $\mathbf{R}_{T,n_e} \gets \emptyset$
+    \STATE $\mathbf{R}_{T,n_e} \gets \emptyset$ \COMMENT{Temporary ratio}
     \FORALL{$S \in \mathcal{A}_{T,n_e}$}
-      \STATE Define $(S_{\text{neutral}}, S_{\text{ion}}) \gets (S \text{ I}, S \text{ II})$
-      \STATE Extract $\mathcal{T}_S \subseteq \mathcal{D}$ for species $S \text{ I}$ or $S \text{ II}$
+      \STATE Define $(S_{\text{neutral}}, S_{\text{ion}}) \gets (S_{\text{neutral}}, S_{\text{ion}})$ \COMMENT{Species pair}
+      \STATE Extract $\mathcal{T}_S \subseteq \mathcal{D}$ for $S_{\text{neutral}}$ or $S_{\text{ion}}$ \COMMENT{Transitions}
       \IF{$\mathcal{T}_S = \emptyset$}
-        \STATE Log warning: ``No transitions for species $S$ at $T$, $n_e$'' \COMMENT{Skip IF no transitions}
+        \STATE Log warning: ``No transitions for $S$'' \COMMENT{Skip}
         \STATE continue
       \ENDIF
-      \STATE $Z_{\text{neutral}} \gets \sum_i g_i \exp\left(-\frac{E_i}{k_B T}\right)$
+      \STATE $Z_{\text{neutral}} \gets \sum_i g_i \exp\left(-\frac{E_i}{k_B T}\right)$ \COMMENT{Neutral partition}
       \IF{$Z_{\text{neutral}} \leq 0$}
-        \STATE Log warning: ``Invalid partition function for $S \text{ I}$ at $T$, $n_e$'' \COMMENT{Skip IF invalid}
+        \STATE Log warning: ``Invalid partition function for $S_{\text{neutral}}$'' \COMMENT{Skip}
         \STATE continue
       \ENDIF
-      \STATE $Z_{\text{ion}} \gets \sum_i g_i \exp\left(-\frac{E_i}{k_B T}\right)$
+      \STATE $Z_{\text{ion}} \gets \sum_i g_i \exp\left(-\frac{E_i}{k_B T}\right)$ \COMMENT{Ion partition}
       \IF{$Z_{\text{ion}} \leq 0$}
-        \STATE Log warning: ``Invalid partition function for $S \text{ II}$ at $T$, $n_e$'' \COMMENT{Skip IF invalid}
+        \STATE Log warning: ``Invalid partition function for $S_{\text{ion}}$'' \COMMENT{Skip}
         \STATE continue
       \ENDIF
-      \STATE $\frac{N_{\text{ion}}}{N_{\text{neutral}}} \gets \frac{2 Z_{\text{ion}}}{n_e Z_{\text{neutral}}} \left( \frac{2\pi m_e k_B T}{h^2} \right)^{3/2} \exp\left(-\frac{E_{\text{ion}}}{k_B T}\right)$
-      \STATE $f_{\text{neutral}} \gets \frac{1}{1 + \frac{N_{\text{ion}}}{N_{\text{neutral}}}}$
-      \STATE $f_{\text{ion}} \gets \frac{\frac{N_{\text{ion}}}{N_{\text{neutral}}}}{1 + \frac{N_{\text{ion}}}{N_{\text{neutral}}}}$
-      \STATE Store $(f_{\text{neutral}}, f_{\text{ion}})$ in $\mathbf{R}_{T,n_e}[S \text{ I}, S \text{ II}]$
+      \STATE $\frac{N_{\text{ion}}}{N_{\text{neutral}}} \gets \frac{2 Z_{\text{ion}}}{n_e Z_{\text{neutral}}} \left( \frac{2\pi m_e k_B T}{h^2} \right)^{3/2} \exp\left(-\frac{E_{\text{ion}}}{k_B T}\right)$ \COMMENT{Ionization ratio}
+      \STATE $f_{\text{neutral}} \gets \frac{1}{1 + \frac{N_{\text{ion}}}{N_{\text{neutral}}}}$ \COMMENT{Neutral fraction}
+      \STATE $f_{\text{ion}} \gets \frac{\frac{N_{\text{ion}}}{N_{\text{neutral}}}}{1 + \frac{N_{\text{ion}}}{N_{\text{neutral}}}}$ \COMMENT{Ion fraction}
+      \STATE Store $(f_{\text{neutral}}, f_{\text{ion}})$ in $\mathbf{R}_{T,n_e}[S_{\text{neutral}}, S_{\text{ion}}]$ \COMMENT{Store ratio}
     \ENDFOR
-    \STATE Store $(T, n_e, \mathbf{R}_{T,n_e})$ in $\mathcal{R}$
+    \STATE Store $(T, n_e, \mathbf{R}_{T,n_e})$ in $\mathcal{R}$ \COMMENT{Add to dictionary}
   \ENDFOR
-  \STATE \RETURN $\mathcal{R}$
+  \STATE \RETURN $\mathcal{R}$ \COMMENT{Result}
+\end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}
+\small
+\caption{Modified Spectral Intensity Calculation}
+\begin{algorithmic}[1]
+  \REQUIRE 
+    Transition dataset $\mathcal{D} = \{ (\lambda_{ij}, E_i, E_k, g_i, g_k, A_{ki}, m_a, w) \mid \lambda_{ij} \in [300, 800], E_i, E_k, g_i, g_k, A_{ki}, m_a, w > 0 \}$; \\
+    Atom subset dictionary $\mathcal{A} = \{ (T, n_e, \mathcal{A}_{T,n_e}) \}$; \\
+    Population ratio dictionary $\mathcal{R} = \{ (T, n_e, \mathbf{R}_{T,n_e}) \mid \mathbf{R}_{T,n_e} \in [0, 1]^2 \}$; \\
+    Physical constants $c = 2.998 \times 10^8$, $k_B = 8.617 \times 10^{-5}$
+  \ENSURE 
+    Temporary intensity dictionary $\mathcal{I} = \{ (T, n_e, \mathbf{I}_{\text{temp}}) \mid \mathbf{I}_{\text{temp}} = \{ (\lambda_{ij}, I_{\text{rel}}, \alpha_G, \alpha_L) \} \}$
+  \STATE Initialize $\mathcal{I} \gets \emptyset$ \COMMENT{Temporary intensity dictionary}
+  \FORALL{$(T, n_e, \mathcal{A}_{T,n_e}) \in \mathcal{A}$}
+    \STATE Extract $\mathbf{R}_{T,n_e}$ from $\mathcal{R}$ \COMMENT{Population ratio}
+    \STATE $\mathbf{I}_{\text{temp}} \gets \emptyset$ \COMMENT{Temporary intensity list}
+    \FORALL{$S \in \mathcal{A}_{T,n_e}$}
+      \STATE Extract $\mathcal{T}_S \subseteq \mathcal{D}$ for $S_{\text{neutral}}$ or $S_{\text{ion}}$ \COMMENT{Transitions}
+      \IF{$\mathcal{T}_S = \emptyset$}
+        \STATE Log warning: ``No transitions for $S$'' \COMMENT{Skip}
+        \STATE continue
+      \ENDIF
+      \FORALL{$(\lambda_{ij}, E_i, E_k, g_i, g_k, A_{ki}, m_a, w) \in \mathcal{T}_S$}
+        \STATE $\Delta E \gets E_k - E_i$ \COMMENT{Energy}
+        \STATE $n_{e,\text{min}} \gets 1.6 \times 10^{12} T^{1/2} (\Delta E)^{3/2}$ \COMMENT{Minimum density}
+        \IF{$n_e \geq n_{e,\text{min}}$}
+          \IF{$S$ is $S_{\text{neutral}}$}
+            \STATE $Z \gets Z_{\text{neutral}}$ (Algorithm 2) \COMMENT{Neutral partition}
+            \STATE $f \gets f_{\text{neutral}}$ from $\mathbf{R}_{T,n_e}$ \COMMENT{Neutral fraction}
+          \ELSE
+            \STATE $Z \gets Z_{\text{ion}}$ (Algorithm 2) \COMMENT{Ion partition}
+            \STATE $f \gets f_{\text{ion}}$ from $\mathbf{R}_{T,n_e}$ \COMMENT{Ion fraction}
+          \ENDIF
+          \STATE $I_{\text{rel}} \gets \frac{g_k A_{ki} \exp\left(-\frac{E_k}{k_B T}\right)}{Z} \cdot f$ \COMMENT{Relative intensity}
+          \STATE $\alpha_G \gets \frac{\lambda_{ij}}{c} \sqrt{\frac{2 k_B T \ln 2}{m_a}}$ \COMMENT{Gaussian HWHM (Doppler)}
+          \STATE $\alpha_L \gets w \cdot \frac{n_e}{10^{16} \sqrt{T}}$ \COMMENT{Lorentzian HWHM}
+          \STATE Append $(\lambda_{ij}, I_{\text{rel}}, \alpha_G, \alpha_L)$ to $\mathbf{I}_{\text{temp}}$ \COMMENT{Accumulate}
+        \ELSE
+          \STATE Log warning: ``LTE condition not satisfied'' \COMMENT{Skip}
+        \ENDIF
+      \ENDFOR
+    \ENDFOR
+    \STATE Store $(T, n_e, \mathbf{I}_{\text{temp}})$ in $\mathcal{I}$ \COMMENT{Add to dictionary}
+  \ENDFOR
+  \STATE \RETURN $\mathcal{I}$ \COMMENT{Result}
+\end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}
+\small
+\caption{Line Profile Generation}
+\begin{algorithmic}[1]
+  \REQUIRE 
+    Temporary intensity dictionary $\mathcal{I} = \{ (T, n_e, \mathbf{I}_{\text{temp}}) \mid \mathbf{I}_{\text{temp}} = \{ (\lambda_{ij}, I_{\text{rel}}, \alpha_G, \alpha_L) \} \}$; \\
+    Population ratio dictionary $\mathcal{R} = \{ (T, n_e, \mathbf{R}_{T,n_e}) \mid \mathbf{R}_{T,n_e} \in [0, 1]^2 \}$; \\
+    Maximum spectral samples $N \in \mathbb{N}$; \\
+    Spectra set $\mathcal{S}$
+  \ENSURE 
+    $\mathcal{S}$ with $(T, n_e, \mathbf{I}_{T,n_e}, \mathbf{R}_{T,n_e})$
+  \STATE Initialize $c \gets 0$ \COMMENT{Counter}
+  \FORALL{$(T, n_e, \mathbf{I}_{\text{temp}}) \in \mathcal{I}$}
+    \STATE Extract $\mathbf{R}_{T,n_e}$ from $\mathcal{R}$ \COMMENT{Population ratio}
+    \STATE $\mathbf{I}_{T,n_e} \gets \emptyset$ \COMMENT{Final intensity list}
+    \FORALL{$(\lambda_{ij}, I_{\text{rel}}, \alpha_G, \alpha_L) \in \mathbf{I}_{\text{temp}}$}
+      \STATE $I(\lambda) \gets I_{\text{rel}} \cdot V(\lambda - \lambda_{ij}, \alpha_G, \alpha_L)$ \COMMENT{Voigt profile}
+      \STATE Append $(\lambda_{ij}, I(\lambda))$ to $\mathbf{I}_{T,n_e}$ \COMMENT{Accumulate}
+    \ENDFOR
+    \IF{$\max(\{I \mid (\lambda_{ij}, I) \in \mathbf{I}_{T,n_e}\}) > 0$}
+      \STATE Normalize $\mathbf{I}_{T,n_e}$: divide each $I$ by $\max(\{I \mid (\lambda_{ij}, I) \in \mathbf{I}_{T,n_e}\})$ \COMMENT{Normalization}
+    \ENDIF
+    \STATE Store $(T, n_e, \mathbf{I}_{T,n_e}, \mathbf{R}_{T,n_e})$ in $\mathcal{S}$ \COMMENT{Add spectrum}
+    \STATE $c \gets c + 1$ \COMMENT{Increment}
+    \IF{$c \mod 1000 = 0$} %\COMMENT{Check storage modulo}
+      \STATE Save $\mathcal{S}$ \COMMENT{Save}
+      \STATE Clear $\mathcal{S}$ \COMMENT{Clear}
+    \ENDIF
+    \IF{$c \geq N$}
+      \STATE break \COMMENT{Terminate}
+    \ENDIF
+  \ENDFOR
+  \STATE \RETURN $\mathcal{S}$ \COMMENT{Result}
 \end{algorithmic}
 \end{algorithm}
