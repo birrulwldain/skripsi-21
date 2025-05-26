@@ -1,150 +1,276 @@
-\documentclass[a4paper,12pt]{article}
-\usepackage{geometry}
-\usepackage{hyperref}
+\documentclass[a4paper,12pt]{book}
+\usepackage{tocloft}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{graphicx}
 \usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage{lmodern}
-\usepackage{enumitem}
-
-\geometry{margin=1in}
-
-\title{Glosarium untuk Kajian Teoretis: Spektroskopi Atom dan Prediksi Komposisi Atom dengan Transformer}
-\author{}
-\date{May 2025}
+\usepackage[indonesian]{babel}
 
 \begin{document}
 
-\maketitle
+\chapter{Pendahuluan}
+\addcontentsline{toc}{chapter}{Pendahuluan}
 
-\section{Glosarium}
-% Menyajikan daftar glosarium untuk mendukung tulisan
-Berikut adalah glosarium yang berisi definisi istilah-istilah teknis dan ilmiah yang digunakan dalam bab *Kajian Teoretis* (tinjauan pustaka), mencakup spektroskopi atom, simulasi spektrum murni, LIBS, dan penggunaan transformer untuk prediksi komposisi atom. Istilah-istilah ini disusun secara alfabetis dengan penjelasan singkat dan konteks penggunaan dalam kajian.
+\section{Fisikawan, Keuangan, dan Ekonomi}
+\label{sec:1.1}
+
+\begin{quote}
+Kirimkan biji-bijian Anda melintasi lautan, dan pada waktunya Anda akan mendapatkan imbal hasil. Bagilah barang dagangan Anda di antara tujuh usaha, mungkin delapan, karena Anda tidak tahu bencana apa yang mungkin terjadi di bumi. \\
+\textit{Ecclesiastes 11:1-2}
+\end{quote}
+
+Apakah fisika adalah apa yang dilakukan fisikawan? Mungkin, tetapi dari semua ilmu, fisika juga bisa dikatakan sebagai satu-satunya ilmu yang berusaha menjelajahi wilayah alam semesta di mana hukum-hukum dasarnya belum diketahui.
+
+Orang-orang sering terkejut mengetahui bahwa fisikawan menerapkan ilmunya pada keuangan dan ekonomi. Seorang lulusan sekolah yang sedang mempertimbangkan untuk mempelajari fisika pernah berkata kepada salah satu dari kami beberapa tahun lalu bahwa 'ayahnya lega mengetahui bahwa mata pelajaran yang ingin saya pelajari memiliki aplikasi praktis.' Banyak kolega fisikawan yang saat ini meneliti masalah di bidang ekonomi, keuangan, dan sosiologi masih kadang-kadang berkomentar bahwa bidang-bidang ini tidak termasuk dalam ranah fisika. Sejarah mengajarkan sebaliknya. Sementara Aristoteles, Copernicus, Newton, Huygens, Pascal, dan Halley semuanya dikenal karena studi mereka tentang fenomena alam, mereka juga dikenang karena kontribusi penting yang membawa pemahaman lebih besar dan kemajuan dalam ekonomi dan keuangan, seperti yang akan kita lihat di bawah ini.
+
+\begin{figure}[h]
+\centering
+\caption{Tulisan Aristoteles (384-322 SM) penting tidak hanya untuk pengembangan ilmu alam tetapi juga untuk teori pertukaran barang dan penciptaan kekayaan. (CiStockphoto.com/sneska).}
+\label{fig:aristoteles}
+\end{figure}
+
+Aristoteles (384-322 SM, Gambar  {fig:aristoteles}) dikenal karena banyak hal. Ia meletakkan dasar-dasar logika. Ia juga meletakkan dasar-dasar fisika dengan menyarankan bahwa alam terdiri dari hal-hal yang berubah dan bahwa mempelajari perubahan ini bermanfaat. Bahkan, risalahnya disebut $\varphi \nu \sigma \iota \kappa \alpha$ [physica] dari mana kata fisika berasal! Pemikirannya tentang ekonomi muncul dari gagasan tentang politik dan masyarakat, dan gagasan ini bertahan hingga abad kedua puluh \cite{schumpeter1954}.
+
+Aristoteles berpendapat bahwa di sebagian besar masyarakat, barang dan jasa pada awalnya ditukar melalui barter. Masalah muncul ketika seseorang menginginkan apa yang dimiliki orang lain, tetapi tidak memiliki sesuatu yang diinginkan oleh orang tersebut sebagai imbalannya. Pengenalan uang, awalnya dalam bentuk logam seperti emas dan perak, dengan nilai intrinsik, membantu mengatasi situasi ini. Pertukaran sekarang bukan antara dua produk yang berbeda, tetapi antara satu produk dan sesuatu yang bernilai setara. Gagasan tentang logam mulia sebagai penyimpan nilai telah tertanam kuat dalam pikiran orang Spanyol saat mereka menjarah Amerika Selatan dan mengirimkan emas kembali ke Spanyol. Bahkan pada tahun 2012, nilai emas mendapat manfaat dari krisis keuangan global!
+
+\begin{figure}[h]
+\centering
+\caption{Nicolaus Copernicus (1473-1543) terkenal karena pengembangan teori heliosentris, menempatkan matahari sebagai pusat sistem planet kita. Ia juga memberikan kontribusi penting untuk teori uang. (CiStockphoto.com/lahsas).}
+\label{fig:copernicus}
+\end{figure}
+
+Nicolaus Copernicus (1473-1543, Gambar  {fig:copernicus}) secara universal diakui sebagai pendiri astronomi modern. \textit{De Revolutionibus Orbium Coelestium Libri VI} (Enam Buku tentang Revolusi Benda-Benda Langit), diterbitkan pada tahun 1543, adalah salah satu buku besar dalam ilmu pengetahuan, seperti \textit{Principia} karya Newton dan \textit{Origin of Species} karya Darwin.
+
+Namun, Copernicus juga meraih reputasi besar karena karyanya di bidang ekonomi sebagai penasihat bagi Parlemen Negara Prusia dan Raja Polandia. Copernicus sangat menyadari kesulitan ekonomi dan sosial yang disebabkan oleh inflasi akibat perang. Pada tahun 1522, ia menyiapkan draf pertama laporan tentang masalah ekonomi yang timbul dari penurunan nilai mata uang. Akibatnya, ia menetapkan beberapa aturan dasar untuk penerbitan dan pemeliharaan mata uang yang sehat. Laporan akhirnya digunakan oleh Raja Sigismund I dari Polandia selama negosiasi untuk uni moneter antara Prusia dan Polandia pada tahun 1528.
+
+\begin{figure}[h]
+\centering
+\caption{Sir Isaac Newton (1642-1727) adalah salah satu tokoh paling berpengaruh dalam fisika. Sebagai Master of the Mint, ia menulis beberapa laporan tentang nilai emas dan perak dalam berbagai koin Eropa. (CiStockphoto.com/Tony Bagget).}
+\label{fig:newton}
+\end{figure}
+
+Penilaian menarik tentang kontribusi Sir Isaac Newton (1642-1727, Gambar  {fig:newton}) terhadap isu mata uang dan keuangan dapat ditemukan dalam makalah oleh Shirras dan Craig \cite{shirras1945}. Selama tiga puluh satu tahun, Newton adalah Warden dan kemudian Master of the Royal Mint di London. Menulis pada tahun 1896, W.A. Shaw mencatat 'Sebagai matematikawan dan filsuf, tetap merupakan hal yang patut dikagumi untuk melihat keterampilan yang tidak mencolok, kejelasan, dan kerendahan hati dengan mana Newton menempatkan dirinya setara dengan pedagang koin yang paling tajam pada masanya' \cite{shaw1896}.
+
+% \begin{figure}[h]
+% \centering
+% \caption{Christiaan Huygens (1629-1695) mendirikan optik gelombang. Ia juga menulis tentang teori probabilitas dan statistik kematian. (CiStockphoto.com/ZU_09).}
+% \label{fig:huygens}
+% \end{figure}
+
+Christiaan Huygens (1629-1695, Gambar  {fig:huygens}) dikenal luas karena karya pentingnya dalam optik. Kurang dikenal adalah karyanya tentang permainan peluang. Menggunakan buku John Graunt (London), \textit{Natural and Political Observations Made upon the Bills of Mortality} yang diterbitkan pada tahun 1662, Huygens menyusun kurva kematian. Diskusi rinci tentang isu harapan hidup ditemukan dalam pertukaran surat dengan adiknya, Lodewijk. Karya Christiaan Huygens dapat dilihat sebagai fondasi untuk penerapan teori probabilitas pada asuransi dan anuitas \cite{dahlke1989}.
+
+Pada tahun 1662, Huygens juga menerbitkan tentang mekanika 'Newton's cradle' \cite{hutzler2004}, yang digambarkan di sampul depan buku ini, dan membahasnya dalam hal konservasi momentum dan energi kinetik. Namun, baru tiga ratus tahun kemudian, Mandelbrot menunjukkan bahwa proses tumbukan bola atau molekul dapat berfungsi sebagai metafora untuk pertukaran uang antara individu yang berinteraksi, atau agen. Kami akan kembali ke topik ini secara rinci saat membahas pemodelan distribusi kekayaan di Bagian  {sec:21.3}.
+
+\begin{figure}[h]
+\centering
+\caption{Blaise Pascal (1623-1662) memberikan kontribusi penting untuk pemahaman tentang hidrodinamika. Bersama Pierre de Fermat, ia juga mendirikan teori probabilitas. (CiStockphoto.com/GoergiosArt).}
+\label{fig:pascal}
+\end{figure}
+
+Blaise Pascal (1623-1662, Gambar  {fig:pascal}) adalah matematikawan, fisikawan, dan filsuf agama Prancis yang memberikan banyak kontribusi pada ilmu pengetahuan, matematika, dan sastra. Karya awalnya berkaitan dengan konstruksi kalkulator mekanis, dan ia juga tertarik pada fluida, menjelaskan konsep tekanan dan vakum. Namun, kontribusi paling pentingnya pada ilmu pengetahuan muncul dari kolaborasinya dengan Pierre de Fermat yang dimulai pada tahun 1654. Bersama-sama, mereka meletakkan dasar-dasar teori probabilitas (mungkin termotivasi oleh korespondensi pada tahun 1654 dengan penulis dan penjudi Chevalier de Méré, mengenai hasil lemparan dadu), yang kini banyak digunakan tidak hanya dalam teori kuantum tetapi juga dalam ekonomi dan ilmu sosial.
+
+Pada tahun 1654, Pascal hampir tewas ketika kuda yang menarik keretanya melarikan diri. Yakin bahwa Tuhan yang menyelamatkannya, ia menjadi seorang Kristen yang berkomitmen dan berhenti berjudi. Setelah peristiwa yang mengubah hidup ini, ia mengusulkan taruhan terkenalnya yang kadang-kadang digunakan untuk menggambarkan teori permainan: Bagaimana seseorang bisa kalah jika memilih menjadi Kristen? Jika, ketika ia meninggal, ternyata tidak ada Tuhan dan imannya sia-sia, ia tidak kehilangan apa-apa—bahkan, ia lebih bahagia dalam hidup daripada teman-temannya yang tidak percaya. Namun, jika ada Tuhan, surga, dan neraka, maka ia telah mendapatkan surga, dan teman-temannya yang skeptis akan kehilangan segalanya di neraka! \cite{morris1982}. Pada abad ketujuh belas, sulit, jika bukan tidak mungkin, untuk menentang taruhan ini, dan bahkan hingga kini, banyak yang percaya pada Tuhan akan setuju dengan pandangan Pascal. Seperti yang pernah dikatakan oleh mantan Perdana Menteri Inggris, Margaret Thatcher, "dengan Kekristenan, seseorang ditawari pilihan". Pascal mengkodifikasi pilihan ini dalam hal peluang dan probabilitas.
+
+\begin{figure}[h]
+\centering
+\caption{Edmond Halley (1656-1742) adalah fisikawan dan astronom, kini paling dikenal karena identifikasi komet 'Halley'. Ia juga mempelajari harapan hidup untuk penetapan harga anuitas hidup. (CiStockphoto.com/picture).}
+\label{fig:halley}
+\end{figure}
+
+Edmond Halley (1656-1742, Gambar  {fig:halley}) terkenal karena karyanya dalam astronomi dan penemuan komet yang kini menyandang namanya. Ia kurang dikenal dalam komunitas fisika karena karyanya di bidang kematian dan harapan hidup. Pada tahun 1693, Halley menerbitkan artikel tentang anuitas hidup berdasarkan analisis usia kematian warga di Breslau, sebuah kota yang saat itu berada di Jerman tetapi kini berganti nama menjadi Wroclaw dan terletak di Polandia. Pada masa Halley, kota ini merupakan komunitas yang relatif tertutup dengan sedikit atau tanpa imigrasi dan emigrasi, dan data yang terkait akurat dan lengkap. Artikel Halley \cite{halley1693} kemudian memungkinkan pemerintah Inggris untuk menjual anuitas hidup dengan cara yang pada saat itu baru. Harga anuitas dapat didasarkan pada usia pembeli, bukan sekadar konstan! Tidak mengherankan, karya Halley terbukti menjadi pendorong utama untuk pengembangan ilmu aktuaria kemudian.
+
+\section{Sistem Kompleks}
+\label{sec:1.2}
+
+Pasar keuangan adalah contoh dari sistem kompleks \cite{nicolis2007,erdi2008}; sebuah sistem yang muncul sebagai hasil dari aktivitas dinamis banyak orang yang secara bersamaan terlibat dalam transaksi keuangan, menyebabkan harga aset bergerak naik dan turun dengan cara yang tampak acak. Menangani sistem yang memiliki banyak derajat kebebasan, seperti yang tercakup dalam aktivitas orang-orang di pasar, adalah tugas yang tidak sepele.
+
+Salah satu contoh sistem kompleks yang paling sederhana, yang ditemukan di dunia fisik, adalah fluida. Fluida terdiri dari banyak molekul individu yang berinteraksi melalui gaya mekanika kuantum dan elektromagnetik. Mereka sering menghasilkan perilaku kompleks, yang bisa sangat terorganisir seperti tornado, atau tampak kacau seperti aliran yang sangat turbulen. Apa yang sebenarnya terlihat sering tergantung pada ukuran pengamat. Petani di AS sering melihat fenomena yang sangat terstruktur seperti yang ditunjukkan pada Gambar  {fig:tornado}. Namun, seekor lalat yang terperangkap dalam hembusan tornado tersebut pasti akan terkejut mengetahui bahwa ia sedang berpartisipasi dalam aliran yang begitu terdefinisi dengan baik.
+
+\begin{figure}[h]
+\centering
+\caption{Tornado adalah contoh fenomena yang sangat terorganisir pada skala besar (seperti yang terlihat oleh pengamat luar), tetapi acak pada skala lokal (seperti yang dialami oleh seseorang di tengahnya). (CiStockphoto.com/deepspacedave).}
+\label{fig:tornado}
+\end{figure}
+
+Gelembung sabun yang membentuk busa \cite{weaire1999, weaire2009}, material granular seperti pasir, atau bahkan tumpukan batu adalah contoh lain dari sistem kompleks. Struktur mikro ditentukan oleh bentuk, posisi, dan orientasi setiap partikel atau gelembung, dan 'set koordinat' lengkap ini pada akhirnya menentukan apakah seluruh sistem stabil. Namun, busa atau tumpukan pasir atau batu ini lebih dari sekadar kumpulan butir. Interaksi antara butir-butir yang berbeda menghasilkan sifat-sifat yang muncul yang dapat dilihat saat tumpukan butir runtuh, misalnya karena gaya gravitasi, atau busa mulai mengalir di bawah tekanan geser. Longsoran dan penataan ulang yang terjadi saat perubahan ini berlangsung kini diketahui mengikuti hukum statistik yang terdefinisi dengan baik.
+
+Iklim bumi yang terdiri dari atmosfer, biosfer, lautan, yang tunduk pada proses intra- dan ekstraterrestrial, seperti radiasi matahari, gravitasi, dan pembentukan gas rumah kaca, membentuk sistem kompleks lainnya. Bahkan dengan komputer modern, kita tidak dapat memprediksi cuaca selain dalam pengertian probabilitas. Namun, sistem kacau ini juga mengandung keteraturan. Seperti musim dingin mengikuti musim panas dan malam mengikuti siang dalam pola yang dapat diprediksi, ini juga tercermin dalam variasi musiman dan harian rata-rata suhu.
+
+Biologi adalah sumber banyak sistem kompleks. Tubuh manusia terdiri dari berbagai organ yang berinteraksi dengan banyak fungsi, bergantung pada sumber eksternal seperti makanan, udara, dan air untuk beroperasi dalam keadaan yang teratur dan hidup. Pada tingkat seluler, replikasi DNA dan pembentukan protein dikendalikan oleh banyak proses biokimia simultan dalam sistem seluler.
+
+Otak juga merupakan sistem kompleks yang terdiri dari sekitar $10^{12}$ sel saraf. Interaksi kolektif dari elemen-elemen ini memungkinkan kita untuk melihat, mendengar, berbicara, dan melakukan berbagai tugas mental. Karakteristik ini dapat dianggap sebagai fitur yang muncul. Seiring pengembangan kecerdasan buatan dan proses pembelajaran, dan mungkin menggantikan logika standar aljabar, bahkan komputer dan jaringan informasi dapat dianggap sebagai sistem kompleks.
+
+Akhirnya, salah satu sistem paling kompleks dalam dunia modern kita yang terhubung adalah masyarakat itu sendiri—masyarakat global manusia yang membentuk ekonomi dengan manajer, karyawan, konsumen, barang modal seperti mesin, pabrik, sistem transportasi, sumber daya alam, dan sistem keuangan.
+
+Kita mulai melihat, oleh karena itu, bahwa sistem kompleks ditandai dengan kemungkinan pembentukan organisasi atau struktur pada berbagai skala. Namun, menentukan skala yang tepat untuk memulai analisis tidaklah mudah. Misalnya, dalam biologi, kita dapat mendefinisikan hierarki tingkat yang berkisar dari tingkat atom hingga tingkat sel dan hingga keadaan manusia. Kita mungkin berpikir bahwa kita harus memulai dengan mekanika kuantum dan berakhir dengan deskripsi perilaku manusia. Ini akan membutuhkan lebih banyak informasi daripada yang kita miliki saat ini, tetapi bahkan jika kita memiliki akses ke semua informasi ini, itu akan berada di luar kemampuan siapa pun untuk menanganinya \cite{andersen1972}.
+
+Poin kunci yang perlu diingat adalah bahwa deskripsi makroskopis dari sebuah sistem hanya menggunakan beberapa variabel untuk mengkarakterisasi dan mendeskripsikan sistem pada skala panjang atau waktu tertentu. Gerakan mikroskopis biasanya tidak menjadi perhatian. Misalnya, sebuah fluida dapat digambarkan oleh densitas lokal dan medan kecepatan. Namun, di balik ini adalah gerakan banyak molekul yang membentuk sistem. Demikian pula dalam melihat pasar keuangan, seseorang dapat memilih variasi harga aset untuk mengkarakterisasi sistem makroskopis. Namun, di balik harga yang berfluktuasi ini adalah ekonomi global, yang didorong oleh tindakan banyak individu atau bisnis yang terlibat dalam perdagangan, bersama dengan peristiwa eksternal seperti perang atau bencana alam, seperti gempa bumi, letusan gunung berapi, dll.
+
+Masalah esensial ketika menangani sistem kompleks terdiri dari menemukan hubungan yang sesuai yang memungkinkan prediksi evolusi masa depan sistem. Sayangnya, semua derajat kebebasan mikroskopis biasanya saling terkait, dan setiap upaya untuk memprediksi sifat-sifat makroskopis dari sifat-sifat mikroskopis biasanya merupakan tugas yang tanpa harapan.
+
+Secara ringkas, meskipun tidak ada definisi ketat yang disepakati untuk sistem kompleks, mungkin cara terbaik untuk mendeskripsikannya adalah dengan mengatakan bahwa kompleksitas adalah perilaku koleksi banyak unit yang berinteraksi yang berevolusi seiring waktu. Interaksi, yang seringkali non-linear, bertanggung jawab atas fenomena kolektif yang koheren dan sifat-sifat yang muncul. Ini hanya dapat dijelaskan pada skala yang jauh lebih tinggi daripada unit individu, yang mungkin tidak dapat langsung disimpulkan darinya. Dalam pengertian ini, keseluruhan lebih dari sekadar jumlah komponennya.
+
+Seperti yang jelas dari penjelasan di atas, makna 'kompleks' dalam konteks kita sangat berbeda dari penggunaan bahasa umum ketika mendeskripsikan sesuatu sebagai 'rumit'. Perbedaan lebih lanjut harus dibuat dengan apa yang disebut kompleksitas algoritmik atau kompleksitas Kolmogorov. Ini merujuk pada jumlah bit minimum yang diperlukan untuk menghitung urutan karakter atau angka tertentu (menggunakan beberapa bahasa pemrograman universal). Meskipun mungkin untuk membuat hubungan dengan sistem kompleks seperti yang dijelaskan di atas, melalui konsep matematis dari peta kacau, kompleksitas algoritmik tidak memiliki perilaku dinamis dan muncul yang menjadi ciri kompleksitas di alam \cite{nicolis2007}.
+
+\section{Determinisme dan Ketidakpastian}
+\label{sec:1.3}
+
+Evolusi waktu dari sistem fisik seperti cairan, padatan, atau bahkan gas sederhana secara prinsip dapat dihitung menggunakan mekanika Newton. Teori ini melibatkan persamaan deterministik, dan akibatnya, lintasan lengkap semua partikel atau elemen dalam sistem, secara prinsip dapat dihitung jika nilai awalnya diketahui.
+
+Dinamika sistem fisik klasik dengan $N$ partikel dapat dirumuskan dalam hal hukum gerak Newton,
+
+\begin{equation}
+\mathbf{p}_j = m_j \frac{d \mathbf{x}_j}{dt}; \quad \frac{d \mathbf{p}_j}{dt} = \mathbf{f}_j\left(\mathbf{x}_1, \ldots, \mathbf{x}_N, \frac{d \mathbf{x}_1}{dt}, \ldots, \frac{d \mathbf{x}_N}{dt}\right) \text{ untuk } j=1 \text{ hingga } N,
+\label{eq:newton}
+\end{equation}
+
+di mana $\mathbf{x}_j$ adalah vektor posisi partikel $j$ dengan massa $m_j$, $d \mathbf{x}_j / dt$ adalah kecepatannya, $\mathbf{p}_j$ adalah momentumnya, dan $\mathbf{f}_j$ adalah gaya yang diberikan padanya oleh semua partikel lain. Set $2N$ persamaan ini kemudian secara prinsip dapat diselesaikan, dan posisi serta momentum untuk $N$ partikel dapat dihitung sebagai fungsi waktu $t$, dengan kondisi awal $\mathbf{p}_j(t=t_0)$ dan $\mathbf{x}_j(t=t_0)$.
+
+Komponen posisi dan momentum membentuk vektor berdimensi $6N$, $\mathbf{\Gamma} = (\ldots q_i \ldots, \ldots, p_i \ldots)$, yang mendefinisikan keadaan mikroskopis tertentu dari sistem. Jadi, seluruh sistem $N$-partikel dapat direpresentasikan oleh sebuah titik dalam ruang fase berdimensi $6N$, yang dibentang oleh sumbu yang sesuai dengan $6N$ derajat kebebasan.
+
+Masalah esensial mekanika statistik adalah menemukan hubungan antara dunia mikroskopis yang dijelaskan oleh $\mathbf{\Gamma}$ dan dunia makroskopis. Untuk fungsi gaya sederhana, seperti yang linear dalam posisi (dan tidak bergantung pada kecepatan), solusi dari persamaan \eqref{eq:newton} dimungkinkan. Jika gaya non-linear dalam koordinat atau bergantung pada waktu—dan gaya seperti itu mungkin umum dalam sistem sosial—maka seseorang sering harus menggunakan simulasi komputer untuk mendapatkan solusi.
+
+Pendekatan deterministik untuk mendapatkan solusi ini telah ditantang dalam dua cara yang berbeda.
 
 \begin{itemize}
-    \item \textbf{Absorpsi Diri}  
-        \begin{itemize}
-            \item \textit{Definisi}: Fenomena penyerapan cahaya oleh atom atau ion dalam plasma yang sama menghasilkan emisi, mengurangi intensitas garis spektral.
-            \item \textit{Konteks}: Relevan dalam LIBS untuk memodelkan efek Beer-Lambert pada plasma.
-        \end{itemize}
-
-    \item \textbf{Attention Mechanism}  
-        \begin{itemize}
-            \item \textit{Definisi}: Teknik dalam pembelajaran mesin yang memungkinkan model (seperti transformer) fokus pada bagian data yang relevan, seperti hubungan antar puncak spektrum.
-            \item \textit{Konteks}: Digunakan dalam arsitektur transformer untuk menangkap ketergantungan jarak jauh.
-        \end{itemize}
-
-    \item \textbf{Bobot Statistik (\(g_k\))}  
-        \begin{itemize}
-            \item \textit{Definisi}: Jumlah keadaan degenerasi pada tingkat energi tertentu dalam atom, memengaruhi distribusi Boltzmann.
-            \item \textit{Konteks}: Digunakan dalam simulasi spektrum untuk menghitung populasi tingkat energi.
-        \end{itemize}
-
-    \item \textbf{Distribusi Boltzmann}  
-        \begin{itemize}
-            \item \textit{Definisi}: Distribusi probabilitas populasi atom pada tingkat energi berdasarkan suhu dan energi eksitasi, diberikan oleh \(n_k = n g_k \exp(-E_k/kT)/U(T)\).
-            \item \textit{Konteks}: Dasar kuantitatif untuk analisis intensitas garis dalam spektroskopi atom dan LIBS.
-        \end{itemize}
-
-    \item \textbf{Fungsi Partisi (\(U(T)\))}  
-        \begin{itemize}
-            \item \textit{Definisi}: Jumlah total keadaan energi yang tersedia pada suhu tertentu, digunakan dalam persamaan Saha.
-            \item \textit{Konteks}: Penting untuk menghitung rasio ionisasi dalam plasma LIBS.
-        \end{itemize}
-
-    \item \textbf{Hukum Beer-Lambert}  
-        \begin{itemize}
-            \item \textit{Definisi}: Hubungan matematis \(I = I_0 e^{-\sigma N l}\) yang menggambarkan penyerapan cahaya oleh medium.
-            \item \textit{Konteks}: Digunakan untuk memodelkan absorpsi diri dalam analisis spektral LIBS.
-        \end{itemize}
-
-    \item \textbf{Hukum Debye}  
-        \begin{itemize}
-            \item \textit{Definisi}: Prinsip yang menghubungkan intensitas garis emisi dengan momen dipol transisi spontan (\(I_{ki} \propto A_{ki} \propto |\mu_{ki}|^2\)).
-            \item \textit{Konteks}: Dasar teoretis untuk menghitung intensitas emisi dalam spektroskopi atom.
-        \end{itemize}
-
-    \item \textbf{Laser-Induced Breakdown Spectroscopy (LIBS)}  
-        \begin{itemize}
-            \item \textit{Definisi}: Teknik spektroskopi emisi yang menggunakan laser untuk menghasilkan plasma dan menganalisis komposisi unsur dari spektrum emisi.
-            \item \textit{Konteks}: Metode eksperimental utama untuk validasi simulasi spektrum dalam kajian.
-        \end{itemize}
-
-    \item \textbf{Mekanisme Pelebaran Garis}  
-        \begin{itemize}
-            \item \textit{Definisi}: Efek yang menyebabkan lebar garis spektral, termasuk pelebaran Doppler, Stark, alami, dan tekanan.
-            \item \textit{Konteks}: Digunakan dalam simulasi spektrum untuk memodelkan profil garis Voigt.
-        \end{itemize}
-
-    \item \textbf{Multi-Head Attention}  
-        \begin{itemize}
-            \item \textit{Definisi}: Variasi mekanisme perhatian dalam transformer yang menggunakan beberapa kepala perhatian untuk menangkap hubungan berbeda dalam data.
-            \item \textit{Konteks}: Komponen kunci dalam arsitektur transformer untuk analisis spektral.
-        \end{itemize}
-
-    \item \textbf{Persamaan Saha}  
-        \begin{itemize}
-            \item \textit{Definisi}: Persamaan termodinamika yang menghitung rasio ionisasi berdasarkan suhu, energi ionisasi, dan densitas elektron.
-            \item \textit{Konteks}: Digunakan untuk menganalisis derajat ionisasi dalam plasma LIBS.
-        \end{itemize}
-
-    \item \textbf{Profil Garis Voigt}  
-        \begin{itemize}
-            \item \textit{Definisi}: Konvolusi profil Gaussian (pelebaran Doppler) dan Lorentzian (pelebaran Stark) untuk merepresentasikan bentuk garis spektral.
-            \item \textit{Konteks}: Digunakan dalam simulasi spektrum murni untuk akurasi model.
-        \end{itemize}
-
-    \item \textbf{Token [CLS]}  
-        \begin{itemize}
-            \item \textit{Definisi}: Token khusus dalam model transformer yang digunakan untuk agregasi informasi dari seluruh urutan input.
-            \item \textit{Konteks}: Digunakan dalam preprocessing data spektrum untuk prediksi konsentrasi elemen.
-        \end{itemize}
-
-    \item \textbf{Transformer}  
-        \begin{itemize}
-            \item \textit{Definisi}: Model pembelajaran mesin berbasis perhatian yang dirancang untuk memproses data berurutan, seperti teks atau spektrum.
-            \item \textit{Konteks}: Solusi utama untuk memprediksi komposisi atom dari spektrum simulasi.
-        \end{itemize}
-
-    \item \textbf{Vision Transformer (ViT)}  
-        \begin{itemize}
-            \item \textit{Definisi}: Adaptasi transformer untuk data visual atau spektral, menggunakan pembagian input ke dalam patch atau urutan.
-            \item \textit{Konteks}: Diterapkan untuk menganalisis spektrum atom dalam kajian ini.
-        \end{itemize}
+\item Mekanika kuantum memberitahu kita bahwa kita tidak dapat mengetahui secara bersamaan posisi dan momentum partikel secara tepat. Namun, kita masih dapat berargumen bahwa karakter deterministik dipertahankan sebagai sifat dari fungsi gelombang yang mendeskripsikan sistem.
+\item Kita juga sekarang tahu bahwa tanpa pengetahuan yang benar-benar tepat tentang kondisi awal—sesuatu yang secara umum tidak mungkin—prediksi posisi dan momentum dalam waktu lama tidak mungkin dilakukan dan perilaku bisa menjadi kacau.
 \end{itemize}
 
+Kekacauan tidak diamati dalam sistem sederhana di mana persamaan dinamik yang mengatur bersifat linear. Untuk sistem seperti itu, prinsip superposisi berlaku, dan jumlah dari dua solusi persamaan pengatur juga merupakan solusi. Kerusakan linearitas dan juga prinsip superposisi diperlukan agar perilaku sistem non-linear menjadi kacau. Namun, non-linearitas itu sendiri tidak cukup: sebuah bandul sederhana diatur oleh persamaan dinamik non-linear, dan solusi berdasarkan fungsi eliptik tidak memiliki keacakan atau ketidakteraturan. Soliton adalah contoh lain dari gerakan kolektif reguler yang ditemukan dalam sistem dengan kopling non-linear. Ini distabilkan karena keseimbangan antara efek non-linearitas dan dispersi. Tetapi seiring bertambahnya jumlah derajat kebebasan, potensi untuk kekacauan deterministik meningkat. Ketidakpastian dalam sistem seperti itu kemudian muncul dari sensitivitas terhadap kondisi awal yang hanya dapat diukur secara perkiraan.
+
+Salah satu sifat penting dari persamaan Newton \eqref{eq:newton} adalah bahwa mereka invarian terhadap pembalikan waktu. Balikkan momentum atau kecepatan dalam sistem mekanis, dan sistem akan menelusuri kembali jalurnya, dan tidak ada cara untuk menentukan rute yang benar atau disukai. Dalam mekanika klasik, tidak ada panah waktu. Namun, salah satu hasil kunci dari ilmu termodinamika adalah bahwa, pada tingkat makroskopis, panah waktu seperti itu memang ada.
+
+\section{Termodinamika dan Mekanika Statistik}
+\label{sec:1.4}
+
+Salah satu pencapaian ilmiah terbesar yang muncul dari aktivitas teknik revolusi industri adalah termodinamika. Teori ini memberi kita pemahaman tentang hubungan antara energi, kerja, dan panas dan termasuk di antara teori yang paling terkenal tentang dunia makroskopis.
+
+Sistem termodinamik, yaitu setiap sistem makroskopis, dapat dikarakterisasi hanya dengan beberapa parameter yang dapat diukur seperti, dalam kasus fluida, tekanan, volume, dan suhu. Keadaan termodinamik ditentukan oleh sekumpulan nilai tertentu dari semua parameter ini yang diperlukan untuk mendeskripsikan sistem. Jika keadaan termodinamik tidak berubah seiring waktu, sistem dikatakan berada dalam kesetimbangan termodinamik. Setelah sistem mencapai keadaan itu, ia akan tetap di sana, dan semua sifat makroskopis tidak akan berubah lagi. Ini menyiratkan bahwa, dalam hukum termodinamika, ada 'panah' waktu.
+
+Mekanika statistik berkembang dari pertanyaan: bagaimana kita bisa menjelaskan atau menafsirkan hukum termodinamika dalam hal mekanika klasik? Ini tampak hampir tidak mungkin karena dua aspek yang sangat berbeda dari peran waktu dalam termodinamika dan mekanika klasik. Masalah ini adalah yang dihadapi Ludwig Boltzmann (Gambar  {fig:boltzmann}) selama sebagian besar hidupnya sebelum akhirnya ia bunuh diri pada tahun 1906 \cite{cercignani1998}.
+
+\begin{figure}[h]
+\centering
+\caption{Makam Ludwig Boltzmann di Wina. Tulisan di atas patungnya berbunyi $S = k \log W$, persamaan terkenalnya yang menghubungkan entropi $S$ dengan jumlah $W$ kemungkinan mikrostate yang sesuai dengan keadaan makroskopis (termodinamik) tertentu. Konstanta $k$ (ditulis sebagai $k_B$ dalam buku ini) disebut konstanta Boltzmann. (Foto diambil oleh salah satu penulis (PR)).}
+\label{fig:boltzmann}
+\end{figure}
+
+Jika kita mempertimbangkan sistem $N$-partikel yang mengkonservasi energi dalam ruang fase berdimensi $6N$, titik yang didefinisikan oleh vektor $\mathbf{\Gamma}$ akan berkelana di permukaan hiper berdimensi $6N-1$ di mana energi total $E$ konstan. Jalur ini tidak akan pernah bersilangan dengan dirinya sendiri, karena jika itu terjadi, itu berarti sistem pada titik persimpangan tidak akan tahu ke mana harus pergi. Karena persamaan Newton, persamaan \eqref{eq:newton}, bersifat unik, mereka selalu menunjukkan bagaimana sistem berlanjut. Menurut teorema Poincaré, jika Anda memulai dari titik tertentu dan menggambar wilayah kecil di sekitar titik itu, maka setelah waktu yang cukup lama, jalur tersebut akhirnya akan kembali ke wilayah ruang fase tersebut \cite{uhlenbeck1963}.
+
+Hipotesis ergodik menyatakan bahwa dalam jangka waktu yang lama, waktu yang dihabiskan oleh sistem di wilayah tertentu dari ruang fase sebanding dengan volume wilayah tersebut. Ini menyiratkan bahwa semua wilayah ruang fase yang dapat diakses memiliki probabilitas yang sama dalam jangka waktu yang lama. Jadi, dari sudut pandang mekanis, gerakan sistem dalam ruang fase bersifat kuasi-periodik. Tidak ada rasa bahwa sistem 'menuju kesetimbangan'. Sistem tidak pernah tahu apakah ia berada dalam kesetimbangan atau tidak! Ini tampak berbeda dengan konsep kesetimbangan termodinamik di mana sistem tidak dapat keluar setelah mencapainya; seseorang mungkin cenderung mengatakan bahwa kedua sudut pandang ini secara logis tidak mungkin.
+
+Paradoks ini diselesaikan oleh Boltzmann, dan kemudian oleh Gibbs, dengan menunjukkan bahwa mekanika bersifat mikroskopis dan termodinamika bersifat makroskopis. Kesetimbangan termodinamik adalah gagasan makroskopis dan didefinisikan dengan memperkenalkan sejumlah kecil, $M$, variabel makroskopis seperti densitas, suhu, energi bebas, dan entropi yang cenderung menjadi seragam di seluruh sistem yang dipertimbangkan. $M$ jelas jauh lebih kecil daripada $N$, jumlah entitas, seperti atom, yang membentuk sistem.
+
+Untuk menyiapkan mekanika statistik kita, kita memperkenalkan fungsi densitas probabilitas $p(\mathbf{\Gamma}, t) = p(\ldots q_i \ldots, \ldots, p_i \ldots; t)$, sehingga probabilitas bahwa sistem berada dalam elemen volume kecil dari ruang fase diberikan oleh ukuran probabilitas $dP = p(\mathbf{\Gamma}; t) d\mathbf{\Gamma} \equiv p(\ldots q_i \ldots, \ldots p_i \ldots) dq_1 \ldots dq_{3N} dp_1 \ldots dp_{3N}$. Di sini, $q_i$ dan $p_i$ masing-masing adalah komponen posisi dan momentum dari $N$ partikel. Ini adalah probabilitas a priori yang merangkum keyakinan kita tentang sistem, seperti yang akan kita bahas lebih lanjut di akhir bagian ini. Distribusi harus dinormalisasi, yaitu, $\int p(\mathbf{\Gamma}, t) d\mathbf{\Gamma} = 1$, di mana integral diambil di seluruh ruang fase.
+
+%Misalkan kita sekarang menetapkan nilai-nilai yang terkait dengan variabel makroskopis. Ini akan sesuai dengan wilayah yang berbeda dari ruang gamma yang mendasarinya. Dengan cara ini, kita melihat bahwa sekumpulan variabel makroskopis sesuai dengan wilayah tertentu atau mungkin beberapa wilayah dalam ruang fase yang terkait dengan variabel mikroskopis. Mekanika statistik kesetimbangan kemudian mengasumsikan bahwa ada satu wilayah yang sangat besar. Wilayah ini kemudian diidentifikasi sebagai wilayah kesetimbangan, seperti yang ditunjukkan pada sketsa di Gambar  {fig:phase_space}.
+
+\begin{figure}[h]
+\centering
+\caption{Ilustrasi skematis ruang fase yang menunjukkan bagaimana wilayah kesetimbangan dapat berdampingan dengan wilayah non-kesetimbangan lainnya.}
+\label{fig:phase_space}
+\end{figure}
+
+Konsep ini dapat diilustrasikan dengan contoh berikut. Bayangkan sebuah balon dengan volume $V = 1 \, \text{m}^3$ yang berisi molekul gas. Biasanya, semua molekul dalam balon didistribusikan secara lebih atau kurang merata di seluruh balon. Dari deskripsi di atas, kita dapat membayangkan bahwa ada probabilitas bahwa semua molekul mungkin berada dalam satu elemen kecil dari ruang di dalam balon, katakanlah $\Delta V = 1 \, \text{cm}^3$. Menurut hipotesis Poincaré, ini tentu saja mungkin. Jika keadaan seperti itu sangat mungkin terjadi, maka jelas bahwa dengan semua molekul berada di setengah bagian balon, balon akan runtuh. Namun, probabilitas terjadinya ini sangat kecil. Biasanya, probabilitas sebuah molekul untuk terbatas dalam wilayah volume tertentu $\Delta V$ adalah sekitar $\Delta V / V \sim 10^{-6} \, \text{m}^3 / 1 \, \text{m}^3 = 10^{-6}$. Jadi, probabilitas menemukan semua $10^{23}$ molekul secara bersamaan di wilayah ini adalah $\sim (10^{-6})^{23}$, yang sangat kecil.
+
+Dengan gambaran ini, kita dapat melihat bahwa ketika sistem berada dalam keadaan kesetimbangan, ia hampir selalu akan tetap di sana. Namun, sesuai dengan teorema Poincaré, fluktuasi kadang-kadang terjadi yang mencerminkan evolusi sistem melalui wilayah lain dari ruang fase.
+
+Entropi $S$ dari keadaan makroskopis termodinamik didefinisikan sebagai
+
+\begin{equation}
+S = -k_B \int p(\mathbf{\Gamma}, t) \ln p(\mathbf{\Gamma}, t) d\mathbf{\Gamma},
+\label{eq:entropy}
+\end{equation}
+
+dengan kondisi normalisasi $\int p(\mathbf{\Gamma}, t) d\mathbf{\Gamma} = 1$, dan konstanta Boltzmann $k_B = 1.381 \times 10^{23} \, \text{JK}^{-1}$. Dalam kasus mikrostate yang dapat dihitung, diskrit, bukan elemen volume $d\mathbf{\Gamma}$ dalam ruang fase, entropi $S$ dapat dinyatakan sebagai
+
+\begin{equation}
+S = -k_B \sum p_r \ln p_r,
+\label{eq:entropy_discrete}
+\end{equation}
+
+di mana $p_r$ adalah probabilitas mikrostate $p_r$. Kondisi normalisasi adalah $\sum p_r = 1$, di mana jumlah diambil atas semua mikrostate yang dapat diakses. Untuk sistem terisolasi dalam kesetimbangan, ini mengarah ke
+
+\begin{equation}
+S = k_B \ln \Omega,
+\label{eq:entropy_omega}
+\end{equation}
+
+di mana $\Omega$ adalah jumlah mikrostate yang konsisten dengan keadaan makroskopis, seperti yang didefinisikan oleh nilai energi, jumlah partikel, dan volume sistem (lihat juga diskusi di Bagian  {sec:19.1}). Persamaan \eqref{eq:entropy_omega} ditampilkan pada batu nisan Boltzmann (lihat Gambar  {fig:boltzmann}) dan muncul dari pemberian probabilitas a priori yang sama $p_r = 1/\Omega$ untuk semua mikrostate yang kompatibel dengan batasan di atas. Ini mencerminkan bahwa tidak ada alasan a priori bahwa satu mikrostate harus lebih disukai daripada yang lain untuk sistem terisolasi dalam kesetimbangan termal.
+
+Kita sekarang melihat bahwa kunci untuk memperluas pendekatan fisika statistik ini ke sistem lain di bidang seperti ekonomi, sosiologi, dan biologi adalah kemampuan untuk menentukan probabilitas untuk realisasi keadaan mikroskopis tertentu. Ini dapat dilakukan baik berdasarkan persiapan sistem kompleks atau karena estimasi empiris yang sesuai. Gagasan intuitif tentang probabilitas tersebut jelas dalam permainan dengan dadu atau lemparan koin, dengan asumsi bahwa mereka adil dan tidak bias. Probabilitas dapat didefinisikan secara empiris oleh frekuensi relatif dari realisasi tertentu ketika permainan diulang berkali-kali. Pendekatan 'frequentist' terhadap teori probabilitas ini tidak terlalu berguna untuk karakterisasi sistem kompleks seperti yang terjadi dalam keuangan, biologi, dan sosiologi. Di sini, kita tidak dapat menentukan frekuensi dengan eksperimen berulang dalam pengertian ilmiah, juga kita tidak memiliki banyak informasi tentang kemungkinan hasil. Cara maju adalah menafsirkan probabilitas sebagai tingkat keyakinan bahwa suatu peristiwa akan terjadi. Keyakinan a priori seperti itu bersifat subjektif dan mungkin bergantung pada pengalaman pengamat.
+
+Gagasan ini awalnya diperkenalkan oleh Thomas Bayes pada abad kedelapan belas dalam pendekatan yang menggabungkan penilaian a priori dan informasi ilmiah secara alami dan berlaku untuk proses apa pun, baik yang dapat diulang dalam kondisi konstan atau tidak. Kami akan membahas ini secara rinci di Bagian  {sec:3.3}.
+
+Generalisasi metode fisika statistik ke sistem sosial, ekonomi, dan lainnya memerlukan perlakuan ini dalam pengertian Bayes. Artinya, sistem pada tingkat mikroskopis dapat dikarakterisasi oleh distribusi densitas probabilitas, $p(\mathbf{\Gamma}, t = t_0)$, dan evolusi distribusi ini seiring waktu dapat direpresentasikan oleh pemetaan $p(\mathbf{\Gamma}, t_0)$ ke distribusi $p(\mathbf{\Gamma}, t)$ pada waktu yang lebih kemudian $t > t_0$. Dengan kata lain, total probabilitas dan karenanya tingkat keyakinan kita sebagaimana diwujudkan dalam pilihan probabilitas a priori awal yang ditangkap dalam distribusi awal $p(\mathbf{\Gamma}, t_0)$ tetap terjaga.
+
+Biasanya, untuk sistem dengan banyak partikel, fungsi distribusi probabilitas lengkap, $p(\mathbf{\Gamma}; t)$, yang menangkap detail semua derajat kebebasan, tidak diperlukan. Fungsi yang direduksi cukup untuk mendapatkan semua sifat yang diminati. Misalnya, misalkan vektor keadaan mikroskopis $\mathbf{\Gamma}$ mencakup beberapa variabel relevan, $\mathbf{x}$, dan variabel lain yang tidak relevan atau berlebihan, $\mathbf{y}$. Densitas probabilitas, $p(\mathbf{\Gamma}; t)$, kemudian dapat ditulis sebagai $p(\mathbf{x}, \mathbf{y}; t)$, dan distribusi yang diperlukan yang hanya melibatkan variabel relevan $\mathbf{x}$ diperoleh dengan mengintegrasikan variabel yang tidak relevan, $\mathbf{y}$. Jadi, $p_r(\mathbf{x}; t) = \int d\mathbf{y} \, p(\mathbf{x}, \mathbf{y}; t)$. Jika fungsi distribusi probabilitas awal dinormalisasi, fungsi densitas yang direduksi juga dinormalisasi, yaitu, $\int p_r(\mathbf{x}; t) d\mathbf{x} = 1$.
+
+Rata-rata dari fungsi arbitrer dari $\mathbf{x}$ diperoleh dengan menjumlahkan nilai-nilai fungsi relevan $f(\mathbf{x})$, yang ditimbang menggunakan fungsi densitas probabilitas. Jadi,
+
+\begin{equation}
+\langle f(t) \rangle = \iint d\mathbf{x} \, d\mathbf{y} \, f(\mathbf{x}) \, p(\mathbf{x}, \mathbf{y}; t) = \int d\mathbf{x} \, f(\mathbf{x}) \, p_r(\mathbf{x}; t).
+\label{eq:average}
+\end{equation}
+
+Dalam ekspresi ini, derajat kebebasan yang tidak relevan disembunyikan dalam fungsi yang direduksi $p_r(\mathbf{x}; t)$.
+
+Untuk kesederhanaan, kita akan menggunakan notasi $p$ daripada $p_r$ untuk fungsi distribusi probabilitas yang direduksi ini di sisa buku ini. Diskusi rinci tentang sifat-sifat distribusi probabilitas akan menjadi subjek dari Bab  {chap:3}.
+
+\section{Ekonomi, Ekonofisika, dan Sistem Sosial}
+\label{sec:1.5}
+
+Ekonomi secara tradisional berkaitan dengan pengambilan keputusan dan pilihan. Ini terutama berfokus pada aspek-aspek pilihan di mana sumber daya tidak selalu tersedia dalam jumlah berlimpah dan di mana individu, komunitas, atau bisnis diharuskan memanfaatkan sumber daya yang terbatas dengan cara yang optimal. Ekonomi juga berkaitan dengan perilaku orang-orang saat mereka memutuskan apa yang harus dilakukan di bawah batasan tersebut. Dalam mempertimbangkan semua isu ini, hasilnya umumnya dianggap muncul sebagai akibat dari mekanisme intrinsik (endogen), seperti tindakan aktor atau agen sistem saat mereka berinvestasi, membeli, atau menjual aset, atau mekanisme eksternal (eksogen) yang mencakup guncangan seperti revaluasi mata uang, pecahnya perang, atau bencana alam, dan sebagainya. Subjek ini dibagi menjadi dua bagian: mikroekonomi dan makroekonomi. Topik pertama mempertimbangkan sifat dan perilaku dinamis elemen individu seperti konsumen, pemilik bisnis, dewan manajemen, yang berinteraksi untuk membentuk, misalnya, harga; yang kedua mempertimbangkan perilaku agregat elemen-elemen tersebut untuk mendeskripsikan kuantitas seperti produk domestik bruto (PDB) dan tingkat ketenagakerjaan.
+
+Ekonomi sebagai disiplin mulai terbentuk pada abad kedelapan belas, saat paradigma ilmiah yang dominan adalah mekanika klasik, seperti yang dikembangkan oleh Newton dan Descartes. Ilmuwan Prancis François Quesnay, dokter Louis XV, mengusulkan gagasan ekonomi sebagai organisme sosial yang didorong oleh kekuatan mekanis—model roda, pegas, dan roda gigi. Sebuah jam adalah sistem mekanis berurutan yang telah diprogram sebelumnya. Tidak ada ruang untuk pengaturan diri. Jadi, dalam model ekonomi Quesnay, kemajuan atau kekuatan pendorong dalam pertanian dianggap sebagai beban dan pegas. Produksi adalah hasil dari gerakan semua mekanisme yang terhubung ini; kemakmuran adalah hasil dari sirkulasi yang teratur atau seperti jam.
+
+Determinisme kausal ini, tanpa pengaturan diri atau kebebasan individu, disamakan dengan sistem politik absolutisme, dengan individu hanya sebagai elemen fungsional dalam mesin ekonomi politik. Namun, Adam Smith mencatat bahwa Newton menganggap bahwa benda-benda material, seperti yang dicontohkan oleh bintang-bintang di langit, membentuk sistem yang bergerak dalam keadaan kesetimbangan dinamis, ditentukan oleh kekuatan gravitasi yang tidak terlihat. Konsep fisik yang sesuai dari individu yang bergerak bebas dalam kesetimbangan dinamis lebih selaras dengan gagasan liberal tentang ekonomi dan masyarakat bebas dengan pembagian kekuatan politik. Namun demikian, deskripsi ini pada dasarnya tetap mekanis, deterministik. Masa depan entah bagaimana sudah ditentukan oleh tindakan di masa lalu. Jadi, misalnya, semua harga dan kontrak entah bagaimana diselesaikan tidak hanya sekarang, tetapi juga di masa depan, oleh tangan yang tidak terlihat.
+
+Ekonom seperti Ricardo, Jevons, Walras, Pareto, dan Keynes mengembangkan gagasan-gagasan ini lebih lanjut selama abad kesembilan belas dan kedua puluh. Teori kesetimbangan umum, yang juga umum dikenal sebagai ekonomi neo-klasik yang bergantung pada korespondensi dengan mekanika klasik, menjadi paradigma intelektual yang dominan dalam ekonomi menjelang akhir abad kedua puluh. Namun, meskipun ekonomi neo-klasik telah berharga dalam membantu memahami beberapa aspek dunia sosial dan ekonomi, ia tidak pernah menghilangkan pendekatan teoretis lainnya.
+
+Ada aspek-aspek sistem ekonomi yang tidak dapat dijelaskan. Misalnya, Pareto mencatat pada akhir abad kesembilan belas bahwa distribusi kekayaan dalam masyarakat tampak diatur oleh distribusi yang menunjukkan fitur-fitur yang invarian terhadap waktu dan ruang. Teori ekonomi tidak dapat memprediksi ini. (Kami akan melaporkan kemajuan sebelumnya dalam memahami distribusi kekayaan menggunakan pendekatan yang dipinjam dari fisika di Bab  {chap:21}.) Juga sangat jelas bahwa teori kesetimbangan umum ini tidak berhasil dalam menjelaskan perilaku turbulen baru-baru ini dan masa lalu di bidang ekonomi dan keuangan. Baik teori Keynesian maupun monetaris tidak mampu memprediksi perilaku ekonomi nyata dalam beberapa tahun terakhir. Teori-teori ini juga tidak dapat menunjukkan keberhasilan signifikan yang muncul dari penggunaannya oleh pemerintah dalam merumuskan kebijakan.
+
+Pada titik ini, seorang fisikawan akan menyimpulkan bahwa teori-teori tersebut paling tidak tidak lengkap atau paling buruk salah, dan setidaknya inovasi diperlukan. Pada pergantian abad kedua puluh, gagasan Newton digunakan untuk mendeskripsikan dunia menggunakan mekanika klasik. Pengamatan astronomi yang cermat menunjukkan bahwa pandangan Newton hanya merupakan pendekatan dari teori baru Einstein. Pengukuran ekstensif dunia fisik pada skala atom mengungkapkan keterbatasan gagasan Newton dan mengarah pada pengembangan mekanika kuantum. Yang lebih menarik dalam konteks buku ini adalah inovasi yang menyelesaikan kesulitan dalam memahami panas dan hubungannya dengan kerja dan energi, seperti yang diperkenalkan di bagian sebelumnya. Dalam hal ini, komunitas fisika dan teknik dipaksa untuk mengakui bahwa sistem fisik makroskopis tidak dapat dijelaskan hanya dalam hal variabel mekanis; fungsi keadaan baru, yang disebut entropi, diperlukan.
+
+Teori ekonomi neo-klasik memperlakukan sistem ekonomi sebagai semacam mekanisme mekanis \cite{backhouse2002, cleaver2011}. Namun, mungkinkah sistem ekonomi lebih mirip dengan sistem termodinamik dan bahwa semacam 'entropi ekonomi' diperlukan? Dalam Bab  {chap:14} hingga  {chap:19}, kami akan mengembangkan apa yang kami sebut ekonomi fisik, sebagai analogi dari termodinamika. Entropi ekonomi yang kami perkenalkan harus dilihat sebagai pengganti yang beralasan untuk apa yang disebut fungsi produksi atau utilitas dalam ekonomi neo-klasik.
+
+Entropi memperkenalkan fluktuasi ke dalam sistem melalui transisi antara berbagai mikrostate, dan kami akan mempelajari sifat fluktuasi ini di bagian pertama buku ini di mana kami memeriksa harga aset.
+
+Jika fluktuasi diasumsikan bersifat Gaussian dan sistem secara efektif berada dalam keadaan kesetimbangan termodinamik, ternyata fluktuasi harga selama waktu bervariasi dengan akar kuadrat waktu, sedangkan dalam waktu yang sama, perubahan harga rata-rata sebanding secara linear dengan waktu. Jadi, seseorang mungkin mengharapkan efek fluktuasi kehilangan pentingnya terhadap tren harga rata-rata untuk waktu yang cukup lama, ketika teori neo-klasik mungkin berlaku. Seperti yang akan kita lihat di Bagian  {sec:6.1}, harga aset dalam waktu yang cukup lama memang sesuai dengan model ini.
+
+Untuk waktu yang lebih pendek, gambaran ini tidak valid; fluktuasi tidak bersifat Gaussian, dan sistem tidak dalam kesetimbangan. Namun demikian, kita akan melihat bahwa kita dapat membuat kemajuan melalui metodologi yang diambil dari fisika, termasuk pengembangan ekspresi untuk entropi untuk sistem di luar kesetimbangan, lihat Bab  {chap:20}.
+
+Pengenalan semua hal di atas dengan sendirinya bukanlah jawaban atas pertanyaan bagaimana fisika dapat berkontribusi pada ekonomi. Fisika bergantung pada keberhasilannya baik pada metodologi maupun pendekatan empirisnya. Dan dalam konteks ekonomi, kita mungkin membayangkan fisikawan berada di ruang mesin yang membantu menggerakkan kapal, sedangkan ekonom adalah kapten di anjungan. Definisi kuantitas yang relevan yang sesuai, misalnya, dengan derajat kebebasan, adalah tugas untuk penyelidikan ekonomi; kontribusi fisik terdiri dari mengembangkan persamaan yang menghasilkan hubungan antara variabel ekonomi makroskopis berdasarkan hukum umum. Ekonofisika tidak bertujuan untuk menggantikan ekonomi, melainkan membantu ekonom menemukan pemahaman yang lebih mendalam tentang sistem kompleks dengan banyak derajat kebebasan.
+
+Dan dengan munculnya komputer modern dan implementasinya di pasar keuangan, gigabyte informasi yang berkaitan dengan perilaku dinamis mereka kini tersedia, mencakup skala waktu dari level sepuluh milidetik \cite{preis2010} hingga ratusan tahun. Sebelas orde magnitudo lebih banyak daripada yang tersedia untuk banyak sistem lain, kecuali mungkin kosmologi. Tidak mengherankan bahwa Gene Stanley menciptakan nama ekonofisika dan menempatkan studi pasar keuangan dalam arus utama fisika.
+
+Dalam semangat yang sama sekarang, bahwa data substansial tersedia untuk fenomena sosial dari situs web, seperti Twitter, Facebook, dan komunikasi internet lainnya \cite{caldarelli2007, hardiman2009}, kita kemungkinan akan melihat wawasan baru muncul ke dalam jaringan sosial yang memberikan renaissance baru pada topik sosiopisika yang dimulai sejak lama oleh Comte (lihat juga Bab  {chap:13} dan  {chap:22}). Namun, kita sekarang memulai perjalanan kita dengan pengenalan sifat-sifat data keuangan (Bab  {chap:2}) dan melanjutkan dengan pengembangan beberapa alat matematika (Bab  {chap:3} hingga  {chap:5}), sebelum memeriksa sifat dinamika harga aset keuangan (Bab  {chap:6} hingga  {chap:12}).
+
+\begin{thebibliography}{9}
+\bibitem{schumpeter1954} Schumpeter, J.A., 1954. \textit{History of Economic Analysis}.
+\bibitem{taylor1955} Taylor, O.H., 1955. \textit{A History of Economic Thought}.
+\bibitem{shirras1945} Shirras, G.F., Craig, J., 1945. \textit{Sir Isaac Newton and the Currency}.
+\bibitem{shaw1896} Shaw, W.A., 1896. \textit{The History of Currency}.
+\bibitem{dahlke1989} Dahlke, R., et al., 1989. \textit{Probability and Insurance}.
+\bibitem{hutzler2004} Hutzler, S., et al., 2004. \textit{Newton’s Cradle Dynamics}.
+\bibitem{morris1982} Morris, T., 1982. \textit{Pascal’s Wager}.
+\bibitem{halley1693} Halley, E., 1693. \textit{An Estimate of the Degrees of the Mortality of Mankind}.
+\bibitem{ball2004} Ball, P., 2004. \textit{Critical Mass}.
+\bibitem{comte1856} Comte, A., 1856. \textit{Cours de Philosophie Positive}.
+\bibitem{berstein1996} Bernstein, P.L., 1996. \textit{Against the Gods: The Remarkable Story of Risk}.
+\bibitem{nicolis2007} Nicolis, G., Nicolis, C., 2007. \textit{Foundations of Complex Systems}.
+\bibitem{erdi2008} Érdi, P., 2008. \textit{Complexity Explained}.
+\bibitem{weaire1999} Weaire, D., Hutzler, S., 1999. \textit{The Physics of Foams}.
+\bibitem{weaire2009} Weaire, D., Hutzler, S., 2009. \textit{Foams and Complex Systems}.
+\bibitem{andersen1972} Andersen, P.W., 1972. \textit{More is Different}.
+\bibitem{cercignani1998} Cercignani, C., 1998. \textit{Ludwig Boltzmann: The Man Who Trusted Atoms}.
+\bibitem{uhlenbeck1963} Uhlenbeck, G.E., Ford, G.W., 1963. \textit{Lectures in Statistical Mechanics}.
+\bibitem{backhouse2002} Backhouse, R.E., 2002. \textit{The Ordinary Business of Life}.
+\bibitem{cleaver2011} Cleaver, T., 2011. \textit{Economics: The Basics}.
+\bibitem{preis2010} Preis, T., Stanley, H.E., 2010. \textit{Switching Processes in Financial Markets}.
+\bibitem{caldarelli2007} Caldarelli, G., 2007. \textit{Scale-Free Networks}.
+\bibitem{hardiman2009} Hardiman, S.J., et al., 2009. \textit{Social Networks and Information Diffusion}.
+\end{thebibliography}
+
 \end{document}
-\end{xaiArtifact>
-
-### Penjelasan Glosarium
-
-1. **Isi Glosarium**  
-   - Total **15 istilah** dipilih berdasarkan relevansi dengan topik kajian, meliputi:
-     - **Spektroskopi Atom**: Absorpsi Diri, Hukum Debye, Beer-Lambert, Distribusi Boltzmann, Persamaan Saha, Mekanisme Pelebaran Garis, Profil Garis Voigt.
-     - **LIBS**: Laser-Induced Breakdown Spectroscopy.
-     - **Simulasi Spektrum**: Bobot Statistik, Fungsi Partisi.
-     - **Transformer**: Attention Mechanism, Multi-Head Attention, Token [CLS], Transformer, Vision Transformer.
-   - Setiap istilah dilengkapi dengan definisi singkat dan konteks penggunaan dalam kajian Anda.
-
-2. **Konsistensi Ilmiah**  
-   - **Definisi**: Ditulis secara formal dan berdasarkan sumber ilmiah (misalnya, NIST untuk spektroskopi, Vaswani et al. untuk transformer).
-   - **Konteks**: Menghubungkan istilah dengan subjudul tertentu (misalnya, Profil Garis Voigt untuk *Simulasi Spektrum Murni*), memastikan relevansi dengan struktur sebelumnya.
-   - **Alfabetis**: Disusun untuk kemudahan referensi, sesuai dengan standar glosarium akademik.
-
-3. **Format LaTeX**  
-   - Menggunakan daftar berjenjang (`itemize`) untuk kejelasan hierarkis antara istilah dan deskripsi.
-   - Dapat ditambahkan ke dokumen utama dengan perintah `\printglossary` jika Anda menggunakan paket seperti `glossaries`, atau disisipkan sebagai bagian terpisah setelah `\maketitle`.
-
-### Cara Menggunakan
-- **Integrasi ke Dokumen**: Tambahkan glosarium ini sebagai bagian terpisah dalam dokumen LaTeX Anda, misalnya setelah daftar isi atau sebelum referensi. Jika menggunakan paket `glossaries`, konversi istilah ini ke format `.glo` dengan perintah seperti:
-  ```latex
-  \usepackage{glossaries}
-  \makeglossaries
-  \newglossaryentry{absorpsi_diri}{name={Absorpsi Diri}, description={Fenomena penyerapan cahaya oleh atom atau ion dalam plasma yang sama menghasilkan emisi, mengurangi intensitas garis spektral. Relevan dalam LIBS untuk memodelkan efek Beer-Lambert pada plasma.}}
-  % Ulangi untuk setiap istilah
-  \printglossaries
-  ```
-  Kompilasi dengan `pdflatex`, `makeglossaries`, lalu `pdflatex` lagi.
-- **Penyesuaian**: Jika Anda ingin menambahkan istilah baru (misalnya, tentang metode pelatihan atau metrik evaluasi), atau mengubah definisi untuk audiens tertentu, beri tahu saya.
-- **Referensi**: Glosarium ini mengasumsikan dukungan dari file `nafta.bib` sebelumnya. Pastikan tersedia untuk kutipan jika diperlukan dalam definisi.
-
-Jika Anda memerlukan bantuan untuk mengintegrasikan glosarium ke dokumen utama, menambahkan istilah tambahan, atau menyesuaikan format, silakan beri tahu saya!

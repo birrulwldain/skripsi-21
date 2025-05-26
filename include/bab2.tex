@@ -112,7 +112,6 @@ P \propto |\langle \psi_k | \vec{\mu} | \psi_i \rangle|^2, \label{eq:dipole}
 \end{equation}
 dengan \( \psi_i \) dan \( \psi_k \) sebagai keadaan awal dan akhir, serta \( \hat{\mu} \) sebagai operator momen dipol. Transisi yang memenuhi aturan seleksi memiliki probabilitas tinggi, menghasilkan garis spektral yang kuat, sedangkan transisi yang melanggar aturan (transisi terlarang) memiliki probabilitas rendah dan menghasilkan garis spektral lemah, yang terkadang masih terdeteksi dalam kondisi tertentu, seperti pada atom berat. Untuk atom hidrogen, aturan seleksi memungkinkan transisi seri Balmer (misalnya, H\(\alpha\), H\(\beta\), H\(\gamma\)), yang menghasilkan garis spektral kuat dalam rentang tampak, penting untuk aplikasi seperti LIBS. 
 \par Kopling spin-orbit, yang timbul dari interaksi antara momentum sudut orbital dan spin elektron, menyebabkan pemisahan tingkat energi menjadi sub-level, dikenal sebagai struktur halus (\textit{fine structure}). Efek ini lebih signifikan pada atom dengan nomor atom tinggi, seperti natrium atau merkuri, karena pengaruh relativistik yang meningkatkan interaksi spin-orbit. Sebagai contoh, pada natrium, garis D (sekitar 589 nm) menunjukkan pemisahan struktur halus akibat kopling spin-orbit, yang terdeteksi sebagai dua garis spektral berdekatan dalam spektroskopi. Dalam LIBS, aturan seleksi membantu memprediksi garis spektral yang dominan, seperti H\(\alpha\) untuk hidrogen atau garis natrium untuk atom alkali, memungkinkan analisis kuantitatif komposisi plasma. Transisi terlarang, seperti pelanggaran \( \Delta S = 0 \), dapat terjadi pada atom berat karena kopling spin-orbit yang kuat, menghasilkan garis spektral lemah yang tetap relevan dalam analisis spektral presisi tinggi \citep{Griffiths2005, CremersRadzemski2013, Demtroder2010}.
-
 \subsection{Transisi Elektronik Atom Hidrogen}
 
 Dalam atom hidrogen, energi elektron pada tingkat kuantum \( n \) diberikan oleh
@@ -389,7 +388,7 @@ y = x + \text{Sublayer}(x), \quad \text{LayerNorm}(y) = \gamma \cdot \frac{y - \
 \end{equation}
 di mana \( x \in \mathbb{R}^{n \times 512} \) adalah input sub-lapisan (dimensi \( d_{\text{model}} = 512 \)), \(\text{Sublayer}(x)\) adalah output sub-lapisan, \( \mu \) dan \( \sigma^2 \) adalah rata-rata dan varians fitur per token, dan \( \epsilon = 10^{-5} \) mencegah pembagian nol. Parameter \( \gamma \) dan \( \beta \) memungkinkan penskalaan fleksibel. Operasi ini memastikan stabilitas pelatihan dengan mengurangi perubahan distribusi fitur, yang sangat penting untuk deret waktu multivariat seperti prediksi konsumsi energi, di mana pola temporal bervariasi. \textit{Decoder} menambahkan sub-lapisan \textit{multi-head attention} atas output \textit{encoder} dan \textit{masking} untuk sifat auto-regresif, memungkinkan peramalan deret waktu secara iteratif.
 
-\begin{figure}[H]
+\begin{figure}[h]
     \centering
     \includegraphics[width=0.6\textwidth]{images/ModalNet-21.png}
     \caption{Arsitektur \textit{Transformer} \autocite{Vaswani2017}}
@@ -399,7 +398,18 @@ di mana \( x \in \mathbb{R}^{n \times 512} \) adalah input sub-lapisan (dimensi 
 \subsection{Mekanisme \textit{Attention}}
 \label{sec:attention}
 
-\begin{figure}[H]
+
+
+Mekanisme \textit{self-attention} adalah inti dari \textit{Transformer}, memungkinkan model menghitung ketergantungan antar token dalam urutan secara paralel \citep{Vaswani2017}. Menggunakan \textit{scaled dot-product attention}, setiap token direpresentasikan sebagai matriks \textit{query} (\( Q \)), \textit{key} (\( K \)), dan \textit{value} (\( V \)) dengan dimensi \( \mathbb{R}^{n \times d_k} \), di mana \( n \) adalah panjang urutan dan \( d_k = 64 \) (untuk \( h=8 \)). Skor perhatian dihitung sebagai:
+\begin{equation}
+\text{Score}_{ij} = \frac{(Q_i \cdot K_j)}{\sqrt{d_k}}
+\end{equation}
+Skor ini diskalakan oleh \( \sqrt{d_k} \) untuk mencegah nilai besar yang mengganggu \textit{softmax}, lalu dikonversi menjadi bobot perhatian:
+\begin{equation}
+\text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V
+\end{equation}
+Operasi ini memiliki kompleksitas \( O(n^2 \cdot d_k) \), tetapi memungkinkan model menangkap hubungan temporal jarak jauh, seperti pola musiman dalam prediksi cuaca atau tren jangka panjang dalam konsumsi energi, tanpa ketergantungan pada pemrosesan sekuensial seperti RNN.
+\begin{figure}[h]
     \centering
     \begin{subfigure}[t]{0.3\textwidth}
         \centering
@@ -417,17 +427,6 @@ di mana \( x \in \mathbb{R}^{n \times 512} \) adalah input sub-lapisan (dimensi 
     \caption{Ilustrasi mekanisme \textit{self-attention} dan \textit{scaled dot-product attention} dalam \textit{Transformer} \autocite{Vaswani2017}}
     \label{fig:self_attention_comparison}
 \end{figure}
-
-Mekanisme \textit{self-attention} adalah inti dari \textit{Transformer}, memungkinkan model menghitung ketergantungan antar token dalam urutan secara paralel \citep{Vaswani2017}. Menggunakan \textit{scaled dot-product attention}, setiap token direpresentasikan sebagai matriks \textit{query} (\( Q \)), \textit{key} (\( K \)), dan \textit{value} (\( V \)) dengan dimensi \( \mathbb{R}^{n \times d_k} \), di mana \( n \) adalah panjang urutan dan \( d_k = 64 \) (untuk \( h=8 \)). Skor perhatian dihitung sebagai:
-\begin{equation}
-\text{Score}_{ij} = \frac{(Q_i \cdot K_j)}{\sqrt{d_k}}
-\end{equation}
-Skor ini diskalakan oleh \( \sqrt{d_k} \) untuk mencegah nilai besar yang mengganggu \textit{softmax}, lalu dikonversi menjadi bobot perhatian:
-\begin{equation}
-\text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V
-\end{equation}
-Operasi ini memiliki kompleksitas \( O(n^2 \cdot d_k) \), tetapi memungkinkan model menangkap hubungan temporal jarak jauh, seperti pola musiman dalam prediksi cuaca atau tren jangka panjang dalam konsumsi energi, tanpa ketergantungan pada pemrosesan sekuensial seperti RNN.
-
 \subsection{\textit{Multi-Head Attention}}
 \label{sec:multi_head_attention}
 
