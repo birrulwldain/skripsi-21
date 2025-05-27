@@ -106,7 +106,7 @@ Penelitian ini mengadopsi prosedur sistematis yang mencakup studi literatur, per
       Rasio antara atom terionisasi dan netral dalam plasma ditentukan melalui persamaan Saha, yang mempertimbangkan parameter termodinamika dan fungsi partisi, dan juga densitas elektron yang kemudian disebut pada persamaan \eqref{eq:saha_final_int}.
 
       \item \textbf{Profil Garis Spektral Voigt} \\
-      Profil Voigt menggabungkan kontribusi pelebaran Doppler (berdistribusi Gaussian) dan pelebaran tekanan (berdistribusi Lorentzian) untuk memodelkan garis spektral secara akurat, dengan lebar \textit{FWHM} Gaussian pada \eqref{eq:sigma_doppler}, lebar \textit{FWHM} Lorentzian pada \eqref{eq:stark_broadening}, dan profil Voigt secara keseluruhan pada \eqref{eq:voigt}.
+      Profil Voigt menggabungkan kontribusi pelebaran Doppler (berdistribusi Gaussian) dan pelebaran tekanan (berdistribusi Lorentzian) untuk memodelkan garis spektral secara akurat, dengan lebar HWHM Gaussian pada \eqref{eq:sigma_doppler}, lebar HWHM Lorentzian pada \eqref{eq:stark_broadening}, dan profil Voigt secara keseluruhan pada \eqref{eq:voigt}.
     \end{enumerate}
 
     Data transisi atom yang digunakan dalam simulasi divalidasi dengan merujuk pada basis data NIST \citep{Kramida2023}, yang menyediakan informasi spektral atom dan ion yang andal.
@@ -121,7 +121,7 @@ Penelitian ini mengadopsi prosedur sistematis yang mencakup studi literatur, per
     \begin{equation}
     I(\lambda) = I_{\text{rel}} \cdot V(\lambda - \lambda_{ij}, \alpha_G, \alpha_L)
     \end{equation}
-    di mana \(I_{\text{rel}}\) adalah intensitas relatif, \(A_{ki}\) adalah probabilitas transisi, \(Z\) adalah fungsi partisi, \(f\) adalah faktor koreksi, dan \(V\) adalah fungsi profil Voigt dengan parameter \textit{half-width at half-maximum} (HWHM) Gaussian \(\alpha_G\) dan Lorentzian \(\alpha_L\).
+    di mana \(I_{\text{rel}}\) adalah intensitas relatif, \(A_{ki}\) adalah probabilitas transisi, \(Z\) adalah fungsi partisi, \(f\) adalah faktor koreksi, dan \(V\) adalah fungsi profil Voigt dengan parameter HWHM Gaussian \(\alpha_G\) dan Lorentzian \(\alpha_L\).
     \begin{table}[h]
       \centering
       \small

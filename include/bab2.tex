@@ -91,10 +91,10 @@ Akses & \textit{Online} di \url{https://physics.nist.gov/asd} \citep{Kramida2023
 \bottomrule
 \end{tabularx}
 \end{table}
-\section{Kuantum Emisi Spektral}
+\section{Emisi Spektral}
 \subsection{Prinsip Dasar}
 
-Spektroskopi memanfaatkan emisi atau penyerapan foton untuk menganalisis komposisi material, dengan aplikasi seperti \textit{Laser-Induced Breakdown Spectroscopy} (LIBS) yang mengukur panjang gelombang emisi untuk mengidentifikasi unsur dalam plasma \citep{CremersRadzemski2013}. Eksitasi atom oleh energi eksternal, seperti laser, menghasilkan emisi foton yang mencerminkan struktur energi atom. Hukum Planck menghubungkan energi foton dengan frekuensinya melalui
+Spektroskopi memanfaatkan emisi atau penyerapan foton untuk menganalisis komposisi material, dengan aplikasi seperti LIBS yang mengukur panjang gelombang emisi untuk mengidentifikasi unsur dalam plasma \citep{CremersRadzemski2013}. Eksitasi atom oleh energi eksternal, seperti laser, menghasilkan emisi foton yang mencerminkan struktur energi atom. Hukum Planck menghubungkan energi foton dengan frekuensinya melalui
 \begin{equation}
 E = h\nu, \label{eq:planck}
 \end{equation}
@@ -177,7 +177,7 @@ dan fungsi partisi \( Z \) didefinisikan sebagai:
 \begin{equation}
 Z = \sum_i g_i e^{-\frac{E_i}{k_B T}}, \label{eq:partition}
 \end{equation}
-Fungsi partisi memastikan normalisasi sehingga \( \sum_i N_i = N \). Persamaan ini bergantung pada suhu \( T \) dan sifat atom seperti energi \( E_i \) dan degenerasi \( g_i \) yang dapat diakses dari \textit{National Institute of Standards and Technology} (NIST) \citep{Pathria2011,Rybicki1985}.
+Fungsi partisi memastikan normalisasi sehingga \( \sum_i N_i = N \). Persamaan ini bergantung pada suhu \( T \) dan sifat atom seperti energi \( E_i \) dan degenerasi \( g_i \) yang dapat diakses dari NIST \citep{Pathria2011,Rybicki1985}.
 
 \subsection{Intensitas Garis Spektral}
 Intensitas garis spektral \( I_{ik} \) dihasilkan dari emisi spontan saat atom bertransisi dari tingkat energi atas \( E_k \) ke tingkat energi bawah \( E_i \) (\( E_i < E_k \)). Probabilitas emisi spontan per satuan waktu diberikan oleh \( A_{ki} \). Daya total yang dihasilkan adalah:
@@ -299,14 +299,14 @@ dimana \( T \) adalah suhu dalam eV dan \( \Delta E \) adalah perbedaan energi a
 
 \section{Profil Garis Spektral dalam LIBS}
 
-Dalam \textit{Laser-Induced Breakdown Spectroscopy} (LIBS), profil garis spektral merupakan alat penting untuk menentukan parameter plasma, seperti suhu (\( T \)), densitas elektron (\( n_e \)), dan komposisi elemen. Profil garis dihasilkan dari transisi elektronik atom atau ion dalam plasma, yang dipengaruhi oleh mekanisme pelebaran seperti efek Doppler, tekanan (termasuk pelebaran Stark), dan efek instrumental. Mekanisme ini menghasilkan profil Gaussian, Lorentzian, atau kombinasi keduanya (Voigt), yang memengaruhi intensitas garis, resolusi spektral, dan akurasi pengukuran parameter plasma \citep{Demtroder2010,Griem1997}. Bagian berikut menjelaskan profil garis ini, hubungan fisiknya dengan kondisi plasma.
+Dalam LIBS, profil garis spektral merupakan alat penting untuk menentukan parameter plasma, seperti suhu (\( T \)), densitas elektron (\( n_e \)), dan komposisi elemen. Profil garis dihasilkan dari transisi elektronik atom atau ion dalam plasma, yang dipengaruhi oleh mekanisme pelebaran seperti efek Doppler, tekanan (termasuk pelebaran Stark), dan efek instrumental. Mekanisme ini menghasilkan profil Gaussian, Lorentzian, atau kombinasi keduanya (Voigt), yang memengaruhi intensitas garis, resolusi spektral, dan akurasi pengukuran parameter plasma \citep{Demtroder2010,Griem1997}. Bagian berikut menjelaskan profil garis ini, hubungan fisiknya dengan kondisi plasma.
 
 \subsection{Pelebaran Doppler dan Profil Gaussian}
 Efek Doppler, yang disebabkan oleh gerakan termal atom atau ion dalam plasma LIBS, menghasilkan pelebaran garis spektral dengan profil Gaussian:
 \begin{equation}
 G(\lambda) = \frac{1}{\sqrt{2\pi \sigma^2}} \exp\left(-\frac{(\lambda - \lambda_0)^2}{2\sigma^2}\right), \label{eq:gaussian}
 \end{equation}
-dimana \( \lambda_0 \) adalah panjang gelombang pusat transisi, dan \( \sigma \) adalah lebar setengah maksimum (HWHM) yang diberikan oleh:
+dimana \( \lambda_0 \) adalah panjang gelombang pusat transisi, dan \( \sigma \) adalah \textit{Half Width Half Maximum} (HWHM) yang diberikan oleh:
 \begin{equation}
 \sigma = \frac{\lambda_0}{c} \sqrt{\frac{k_B T}{m}}, \label{eq:sigma_doppler}
 \end{equation}
@@ -317,20 +317,20 @@ Pelebaran tekanan, yang diakibatkan oleh tumbukan antara atom/ion pemancar denga
 \begin{equation}
 L(\lambda) = \frac{\Gamma / 2\pi}{(\lambda - \lambda_0)^2 + (\Gamma / 2)^2}, \label{eq:lorentzian}
 \end{equation}
-dimana \( \Gamma \) adalah lebar penuh setengah maksimum (FWHM) yang bergantung pada densitas plasma. Dalam LIBS, pelebaran Stark, akibat interaksi dengan elektron dan ion, sering kali mendominasi \( \Gamma \). Lebar Stark dapat diaproksimasi sebagai:
+dimana \( \Gamma \) adalah HWHM yang bergantung pada densitas plasma. Dalam LIBS, pelebaran Stark, akibat interaksi dengan elektron dan ion, sering kali mendominasi \( \Gamma \). Lebar Stark dapat diaproksimasi sebagai:
 \begin{equation}
 \Gamma \approx 2w \left( \frac{n_e}{10^{16}} \right), \label{eq:stark_broadening}
 \end{equation}
 dimana \( w \) adalah parameter pelebaran Stark (dalam nm) untuk transisi spesifik, dan \( n_e \) adalah densitas elektron (dalam \( \text{cm}^{-3} \)) \citep{Griem1997,Konjevic1999}. Untuk transisi hidrogen seperti H\(\alpha\) (garis spektral hidrogen pada 656.3 nm), \( w \approx 0.1 \, \text{nm} \) pada \( T \approx 10.000 \, \text{K} \) dan \( n_e \approx 10^{16} \, \text{cm}^{-3} \). Pelebaran tekanan signifikan pada densitas elektron tinggi (\( n_e > 10^{15} \, \text{cm}^{-3} \)), memengaruhi intensitas sayap garis dan akurasi pengukuran distribusi Boltzmann \citep{Aragon2008}.
 
-\subsection{Profil Voigt untuk Analisis Spektrum}
+\subsection{Profil Voigt}
 Profil Voigt adalah konvolusi dari profil Gaussian (efek Doppler dan instrumental) dan Lorentzian (efek tekanan/Stark):
 \begin{equation}
 V(\lambda; \Gamma, \sigma) = \int_{-\infty}^{\infty} G(\lambda - \lambda') L(\lambda') \, d\lambda', \label{eq:voigt}
 \end{equation}
 dimana \( \sigma \) dan \( \Gamma \) masing-masing adalah lebar Gaussian dan Lorentzian. Profil Voigt menggabungkan efek Doppler, yang dominan di pusat garis, dengan efek tekanan/Stark, yang dominan di sayap garis, menjadikannya model akurat untuk garis spektral dalam plasma LIBS \citep{Griem1997}. Dalam  LIBS, profil Voigt digunakan untuk memodelkan bentuk garis spektral, memungkinkan ekstraksi parameter plasma seperti suhu (\( T \)) dari komponen Gaussian dan densitas elektron (\( n_e \)) dari komponen Lorentzian. Selain itu, profil Voigt kritis untuk menghitung intensitas garis yang digunakan dalam analisis distribusi Boltzmann untuk menentukan populasi tingkat energi \citep{Miziolek2006,Aragon2008}.
 
-\subsection{Efek Fisik Profil Garis pada Analisis Spektral}
+\subsection{Parameter Fisis Profil Garis pada Analisis Spektral}
 Mekanisme pelebaran garis memengaruhi analisis spektral dalam LIBS melalui hubungan kuantitatif dengan parameter plasma. Tabel~\ref{tab:broadening_effects} merangkum mekanisme pelebaran, profil garis terkait, parameter fisik yang memengaruhinya, dan dampaknya pada pengukuran spektral.
 
 \begin{table}[h]
@@ -350,7 +350,7 @@ Voigt (Konvolusi) & Voigt & \( T \), \( n_e \), resolusi & Model akurat untuk \(
 \end{tabularx}
 \end{table}
 
-Efek fisik dari pelebaran garis dalam LIBS meliputi:
+Parameter Fisis pelebaran garis dalam LIBS meliputi:
 \begin{itemize}
   \item \textbf{Suhu Plasma}: Lebar Doppler (\( \sigma \)) sebanding dengan \( \sqrt{T/m} \), memungkinkan pengukuran suhu plasma melalui pemasangan profil Gaussian. Untuk atom hidrogen pada \( T = 10.000 \, \text{K} \), \( \sigma \approx 0.01 \, \text{nm} \) untuk H\(\alpha\) \citep{Demtroder2010}.
   \item \textbf{Densitas Elektron}: Lebar Stark (\( \Gamma \)) berkorelasi dengan \( n_e \), memungkinkan diagnosis densitas elektron melalui pemasangan profil Lorentzian atau Voigt \citep{Griem1997,Konjevic1999}.
@@ -482,7 +482,7 @@ Namun, keterbatasan meliputi:
     \item \textbf{Kebutuhan Memori}: Penumpukan \( N=6 \) lapisan meningkatkan kebutuhan memori, terutama untuk \( n \) besar.
     \item \textbf{Decoding Lambat}: \textit{Dynamic decoding} auto-regresif memperlambat inferensi \citep{Zhou2021}.
 \end{enumerate}
-Keterbatasan ini mendorong pengembangan varian seperti \textit{Informer}, yang mengurangi kompleksitas menjadi \( O(n \cdot \log n) \) menggunakan \textit{ProbSparse self-attention}.
+Keterbatasan ini mendorong pengembangan varian seperti \textit{Informer}, yang mengurangi kompleksitas menjadi x menggunakan \textit{ProbSparse self-attention}.
 
 \section{\textit{Informer}}
 \label{sec:informer}
@@ -551,7 +551,7 @@ Kompleksitas inferensi menjadi \( O(1) \), mendukung aplikasi real-time seperti 
     \label{fig:network_decoder}
 \end{figure}
 
-\subsection{Representasi Masukan}
+\subsection{\textit{Input Representation}}
 \label{sec:input_representation}
 
 Representasi masukan \textit{Informer} mengintegrasikan fitur temporal untuk menangkap dinamika deret waktu, didefinisikan sebagai:
