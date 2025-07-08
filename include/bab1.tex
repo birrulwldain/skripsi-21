@@ -1,48 +1,42 @@
-
-
-
-
-
 \chapter{PENDAHULUAN}
-
-
 
 \section{Latar Belakang}
 
+Spektroskopi Emisi Atomik Plasma Hasil Laser (\textit{Laser-Induced Breakdown Spectroscopy} - LIBS) merupakan teknik analisis komposisi unsur yang telah mapan, dikenal karena kemampuannya yang cepat, bersifat non-destruktif, dan memerlukan preparasi sampel yang minimal \parencite{Thorne1999, Cremers2013}. Metode ini bekerja dengan memfokuskan pulsa laser berenergi tinggi ke permukaan sampel untuk mengablasi sejumlah kecil material dan menghasilkan plasma. Plasma yang mendingin memancarkan cahaya pada panjang gelombang diskrit yang sesuai dengan transisi tingkat energi elektronik dari atom dan ion yang ada. Spektrum emisi yang dihasilkan berfungsi sebagai ``sidik jari'' spektral, yang memungkinkan identifikasi dan kuantifikasi kualitatif maupun kuantitatif unsur-unsur dalam sampel \parencite{Harmon2021}.
 
-\par  Spektroskopi secara sederhana merupakan  interaksi antara materi dan radiasi elektromagnetik yang dapat memberi informasi bagaimana materi menyerap, memancarkan, atau menghamburkan cahaya. Kemudian interaksi ini  digunakan untuk mengidentifikasi dan mengukur komposisi, struktur, dan sifat materi tersebut \parencite{Hollas2013}.  
-Sejak temuan garis spektral oleh Fraunhofer dan Kirchhoff, spektroskopi telah menjadi dasar analisis kimia modern, termasuk dalam \textit{Laser-Induced Breakdown Spectroscopy} (LIBS) \parencite{Thorne1999}. LIBS menggunakan laser berenergi tinggi untuk menciptakan plasma pada permukaan sampel, menghasilkan spektrum emisi yang kaya informasi. Teknik ini menawarkan analisis cepat dan serbaguna untuk aplikasi seperti identifikasi material dan analisis lingkungan \parencite{Thorne1999}.
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.8\textwidth]{images/1-latar.jpg}
-    \caption{Spekrum mentah (a) pra-pemrosesan (b) spektrum Hidrogen sebelum diberi \textit{noise} (c) dan sesudah diberi \textit{noise} (d) \citep{Gasior2023}}
-    \label{fig:kenapa}
-\end{figure}
+Meskipun memiliki keunggulan praktis yang signifikan, akurasi dan penerapan LIBS dihadapkan pada beberapa tantangan fundamental. Spektrum LIBS memiliki kompleksitas yang sangat tinggi, sering kali mengandung ribuan garis emisi dari berbagai unsur yang dapat tumpang-tindih dan menimbulkan interferensi spektral yang parah. Sinyal LIBS menunjukkan variabilitas yang signifikan akibat fluktuasi stokastik dalam kondisi plasma (misalnya, suhu dan densitas elektron) dari satu tembakan laser ke tembakan berikutnya. Kemudian efek matriks, di mana sifat fisik dan kimia keseluruhan sampel (matriks) memengaruhi emisi dari unsur target, sehingga menyulitkan analisis kuantitatif yang akurat \parencite{Gaudiuso2023}. Akibatnya, metode LIBS konvensional sangat bergantung pada proses kalibrasi yang ekstensif, yang memerlukan penggunaan sampel standar bersertifikat (\textit{Certified Reference Materials} - CRMs). Proses ini tidak hanya memakan waktu tetapi juga sangat mahal dan sering kali tidak praktis, terutama untuk matriks sampel yang kompleks atau langka \parencite{Porizka2018}.
 
-\par LIBS adalah teknik analisis yang melibatkan penggunaan laser berenergi tinggi yang kemudian difokuskan ke permukaan sampel untuk menciptakan plasma. LIBS menunjukkan potensinya sebagai teknik analisis yang cepat dan serbaguna untuk berbagai aplikasi, termasuk analisis material. Namun, kompleksitas spektrum LIBS, yang dipengaruhi oleh efek matriks dan fluktuasi plasma, menyulitkan analisis kualitatif dan kuantitatif seperti gambar \ref{fig:kenapa} \parencite{Gasior2023}. Metode tradisional, seperti perhitungan numerik berdasarkan persamaan Saha, memerlukan komputasi intensif dan kurang efektif dalam menangani spektrum multi-elemen dengan noise tinggi. Pendekatan pembelajaran mesin, seperti jaringan saraf tiruan (JST) dan pembelajaran mendalam, menunjukkan potensi untuk mengatasi tantangan ini, tetapi memerlukan dataset besar yang mahal untuk dilatih \parencite{Gasior2023}. Simulasi spektrum sintetis dengan profil \textit{Voight}, berdasarkan distribusi Boltzmann dan persamaan Saha, dapat menghasilkan dataset sintetis untuk melatih model secara efisien \parencite{Pan2024}. Distribusi Boltzmann memungkinkan perhitungan distribusi energi atom pada suhu tertentu, sementara persamaan Saha menghubungkan fraksi ionisasi dengan suhu dan densitas elektron, membentuk dasar simulasi spektrum LIBS \parencite{Thorne1999}.
+Dalam beberapa tahun terakhir, metode berbasis \textit{Deep Learning} (DL) telah muncul sebagai pendekatan yang menjanjikan untuk mengatasi kompleksitas data spektral LIBS. Sebagai contoh, penelitian oleh \textcite{Yang2025} menunjukkan bahwa arsitektur \textit{Transformer} dapat secara efektif memodelkan hubungan kompleks dalam spektrum LIBS untuk kuantifikasi Lantanum (La), Cerium (Ce), dan Neodymium (Nd) dalam bijih tanah jarang. Namun, pendekatan-pendekatan ini umumnya masih bergantung pada dataset eksperimental yang besar untuk melatih model, yang tidak sepenuhnya menghilangkan beban pengumpulan data dan ketergantungan pada sampel standar.
 
-\par Algoritma Transformer, yang diperkenalkan oleh \cite{Vaswani2017}, unggul dalam memproses data sekuens secara paralel melalui mekanisme \textit{self-attention}. Transformer juga telah berhasil diterapkan dalam dekonvolusi spektrum inframerah dengan \textit{sparse self-attention} oleh \cite{Gao2024}, namun aplikasinya untuk simulasi spektrum LIBS berbasis model fisika masih terbatas. \textit{Informer} diperkenalkan oleh \cite{Zhou2021} dengan menggunakan \textit{ProbSparse Self-Attention} menawarkan komputasi yang efisien terhadap deret waktu yang panjang. Spektrum LIBS memilikin resolusi yang tinggi sehingga membutuhkan model dengan kemampuan menangani deret waktu yang sangat panjang, sehingga pada penelitian ini diusulkan penggunaan Informer untuk mempelajari spektrum emisi sintetis yang disimulasikan, dengan memanfaatkan distribusi Boltzmann dan persamaan Saha, guna meningkatkan akurasi prediksi spektrum multi-elemen.
+Untuk mengatasi limitasi tersebut, penelitian ini mengusulkan sebuah pendekatan inovatif yang bertujuan untuk menciptakan metode analisis LIBS yang sepenuhnya \textbf{bebas kalibrasi} (\textit{calibration-free}). Inovasi inti terletak pada pelatihan eksklusif model \textit{Deep Learning} pada set data spektrum emisi sintetis yang besar dan beragam. Dengan cara ini, model belajar untuk mengenali ``sidik jari'' spektral fundamental dari setiap elemen, terlepas dari variasi yang disebabkan oleh efek matriks dan fluktuasi plasma, sehingga menghilangkan kebutuhan akan kalibrasi eksperimental.
+
+Pendekatan kami memanfaatkan dua komponen utama: simulasi spektrum berbasis fisika dan arsitektur \textit{Deep Learning} yang efisien. Spektrum sintetis dihasilkan berdasarkan prinsip-prinsip pertama fisika plasma. Dengan asumsi kondisi kesetimbangan termodinamika lokal (\textit{Local Thermodynamic Equilibrium} - LTE), populasi tingkat ionisasi dihitung menggunakan \textbf{Persamaan Saha}, dan distribusi populasi tingkat energi dihitung menggunakan \textbf{Distribusi Boltzmann} \parencite{Chandrasekhar1939, Panne2024}. Data transisi atom, termasuk panjang gelombang, probabilitas transisi, dan tingkat energi, diperoleh dari basis data spektrum atomik yang dikelola oleh \textit{National Institute of Standards and Technology} (NIST ASD). Profil garis emisi dimodelkan menggunakan fungsi pelebaran (misalnya, Gaussian atau Voigt) untuk mereplikasi spektrum eksperimental secara realistis \parencite{Miziolek2006}.
+
+Sebagai arsitektur model, kami mengadopsi model \textbf{Informer}, sebuah varian \textit{Transformer} yang sangat efisien dan dirancang untuk memproses sekuens data yang panjang \parencite{Zhou2021}. Pemilihan ini didasarkan pada kemampuannya untuk menangani data spektral LIBS beresolusi tinggi secara efisien. \textit{Informer} memperkenalkan mekanisme \textit{ProbSparse Self-Attention}, yang mengurangi kompleksitas komputasi dari $O(L^2)$ menjadi $O(L \log L)$, di mana $L$ adalah panjang sekuens. Fitur tambahan seperti \textit{self-attention distilling} secara progresif mengurangi panjang sekuens di lapisan yang lebih dalam, menghemat memori dan komputasi, sementara \textit{decoder} bergaya generatif memungkinkan prediksi output dalam satu langkah maju, mempercepat proses inferensi secara signifikan \parencite{Zhou2021}.
+
+Dengan melatih arsitektur \textit{Informer} pada set data sintetis yang komprehensif, penelitian ini bertujuan untuk mengembangkan sistem analisis LIBS yang tidak hanya akurat dan tangguh (\textit{robust}) terhadap variabilitas sinyal, tetapi juga sepenuhnya independen dari kalibrasi eksperimental. Pendekatan ini berpotensi merevolusi aplikasi LIBS di berbagai bidang—mulai dari geologi dan metalurgi hingga pemantauan lingkungan—dengan menyediakan solusi analisis unsur yang cepat, hemat biaya, dan dapat diskalakan secara luas.
+
 
 
 \section{Rumusan Masalah}
-\par Distribusi Boltzmann menentukan probabilitas populasi atom, sementara persamaan Saha menggambarkan kesetimbangan ionisasi dalam plasma. Algoritma Transformer unggul dalam memproses data sekuens melalui mekanisme \textit{self-attention} dengan kompleksitas \( O(n ^2) \)  yang diperkenalkan oleh \cite{Vaswani2017}. Namun, kompleksitas spektrum LIBS menyulitkan pemodelan komputasi yang efisien.  Sehingga dengan demikian, penggunaan \textit{Informer} diusulkan dengan mekanisme \textit{ProbSparse Self-Attention} dengan kompleksitas \( O(n \cdot \log n) \) \parencite{Gao2024}. Oleh karena itu, rumusan masalah penelitian ini adalah:
+\par Ketergantungan pada kalibrasi eksperimental menjadi penghalang utama dalam penerapan LIBS. Sebuah metode yang memanfaatkan spektrum sintetis dan model \textit{Deep Learning} yang efisien seperti \textit{Informer} dengan mekanisme \textit{ProbSparse Self-Attention} diajukan untuk mengatasi masalah ini. Oleh karena itu, rumusan masalah penelitian ini adalah:
 \begin{enumerate}
-    \item Sejauh mana model Informer dengan mekanisme \textit{ProbSparse self-attention} dapat meningkatkan akurasi prediksi spektrum multi-elemen  dalam simulasi LIBS, diukur dengan \textit{mean squared error} (MSE)?
-    \item Bagaimana efisiensi komputasi model \textit{Informer} dalam mempelajari spektrum atom yang disimulasikan pada berbagai suhu plasma dan densitas elektron, diukur dengan waktu komputasi?
-    \item Apakah jumlah dan variasi spektrum sintetis memengaruhi kemampuan generalisasi model \textit{Informer} untuk prediksi multi-elemen?
+    \item Bagaimana sebuah metode yang menggunakan model \textit{Informer} dan dilatih sepenuhnya pada spektrum sintetis dapat mencapai akurasi prediksi multi-elemen yang tinggi tanpa melalui proses kalibrasi eksperimental?
+    \item Seberapa efisien model \textit{Informer} dalam memproses spektrum LIBS resolusi tinggi, diukur dari segi waktu komputasi, untuk memastikan kepraktisan metode yang diusulkan?
+    \item Bagaimana pengaruh jumlah dan variasi data spektrum sintetis terhadap kemampuan generalisasi dan ketahanan (\textit{robustness}) metode yang diusulkan dalam menghadapi spektrum uji dengan kondisi yang beragam?
 \end{enumerate}
-
 
 \section{Tujuan Penelitian}
 Berdasarkan rumusan masalah, tujuan penelitian ini adalah:
 \begin{enumerate}
-
-    \item Mengembangkan model Informer dengan mekanisme \textit{ProbSparse self-attention} untuk memprediksi spektrum multi-elemen berdasarkan simulasi spektrum atom pada berbagai suhu plasma dan densitas elektron.
-    \item Mengukur akurasi prediksi model Informer menggunakan \textit{mean squared error} (MSE).
-    \item Mengevaluasi pengaruh jumlah dan variasi spektrum sintetis terhadap kemampuan generalisasi model Informer dalam prediksi spektrum multi-elemen.
+    \item Mengembangkan sebuah metode analisis LIBS yang mengintegrasikan model \textit{Informer} dengan mekanisme \textit{ProbSparse Self-Attention}, yang dilatih secara eksklusif menggunakan spektrum emisi sintetis yang disimulasikan dari parameter fisis fundamental.
+    \item Memvalidasi akurasi metode yang dikembangkan untuk prediksi multi-elemen pada data spektrum uji untuk membuktikan kemampuannya beroperasi secara akurat tanpa kalibrasi eksperimental.
+    \item Mengevaluasi efisiensi komputasi dan menganalisis pengaruh variasi data latih sintetis terhadap kemampuan generalisasi metode untuk memastikan ketahanannya.
 \end{enumerate}
+
 \section{Batasan Penelitian}
-Penelitian ini berfokus pada simulasi spektrum atom untuk elemen terpilih pada varian suhu plasma dan densitas elektron, menggunakan distribusi Boltzmann dan persamaan Saha. Penelitian tidak mencakup pengukuran spektrum LIBS eksperimental atau analisis efek matriks dan fluktuasi plasma, untuk menjaga fokus pada evaluasi model Informer.
+Penelitian ini berfokus pada simulasi spektrum atom untuk elemen terpilih pada varian suhu plasma dan densitas elektron, menggunakan distribusi Boltzmann dan persamaan Saha. Penelitian tidak mencakup pengukuran spektrum LIBS eksperimental atau analisis efek matriks dan fluktuasi plasma, untuk menjaga fokus pada pengembangan dan evaluasi metode berbasis model \textit{Informer} yang dilatih secara sintetis.
 
 \section{Manfaat Penelitian}
-Penelitian ini diharapkan memberikan pendekatan baru dalam analisis LIBS melalui prediksi spektrum multi-elemen menggunakan \textit{Deep Learning} (DL) Informer. Model yang dikembangkan dapat meningkatkan akurasi deteksi elemen mayor dan minor.
+Penelitian ini diharapkan dapat menghasilkan sebuah metode analisis LIBS baru yang inovatif. Manfaat utamanya adalah menghilangkan ketergantungan pada proses kalibrasi yang mahal dan memakan waktu, sehingga menyediakan metode analisis material yang lebih praktis, efisien, dan dapat diakses secara luas. Model yang dikembangkan berpotensi meningkatkan akurasi dan kecepatan deteksi elemen, baik mayor maupun minor.
+
