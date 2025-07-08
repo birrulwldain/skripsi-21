@@ -67,8 +67,8 @@
 \usepackage{etoolbox} % http://ctan.org/pkg/etoolbox
 \makeatletter
 % \patchcmd{<cmd>}{<search>}{<replace>}{<succes>}{<failure>}
-\patchcmd{\@chapter}{\addtocontents{lof}{\protect\addvspace{10\p@}}}{}{}{} % LoF
-\patchcmd{\@chapter}{\addtocontents{lot}{\protect\addvspace{10\p@}}}{}{}{} % LoT
+\patchcmd{\@chapter}{\addtocontents{lof}{\protect\addvspace{10\p@}}}{}{}{}
+\patchcmd{\@chapter}{\addtocontents{lot}{\protect\addvspace{10\p@}}}{}{}{}
 \makeatother
 
 
@@ -232,7 +232,7 @@
     labelfont=md,          % Label tidak bold
     textfont=md,           % Teks caption tidak bold
     singlelinecheck=true,  % Centang caption 1 baris
-    justification=raggedright, % Rata kiri untuk multi-baris
+    justification=raggedright, % Rata kiri penuh
     labelsep=space,
     format=hang,              % Format "hang" untuk indentasi
     indention=0pt             % Hapus indentasi pada baris kedua+

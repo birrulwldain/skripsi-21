@@ -1,65 +1,59 @@
 \spernyataan % Note: \preface JANGAN DIHAPUS!
-
+\makeatletter
 \noindent
-Yang bertanda tangan di bawah ini,
+Saya yang bertanda tangan di bawah ini,
 \vspace{-0.1cm}
 \begin{table}[H]
 {\renewcommand{\arraystretch}{0.7}
-\begin{tabular}{M{0.6cm}lll}
-	&1. 	& Nama   		&: Birrul Walidain \\
-	&	& NPM       			&: 2008102010010   \\
-	&	& Program Studi  		&: S1-Fisika \\
-	&	& Status 				&: Mahasiswa \\  
-	&2. 	& Nama  		&: Prof. Dr. Eng. Nasrullah, S.Si., M.T. \\
-	&	& NIP       			&: 197607031995121001   \\
-	&	& Jurusan/Prodi   		&: Fisika \\
-	&	& Status 				&: Pembimbing I \\  
-	&3. 	& Nama  		&: Dr. Khairun Saddami, S.T. \\
-	&	& NIP       			&: 199103182022031008   \\
-	&	& Departemen/Prodi   		&: Teknik Komputer \\
-	&	& Status 				&: Pembimbing II   
+\begin{tabular}{M{0.6cm}ll}
+	& Nama   		&: \@fullname \\
+	& NPM       	&: \@idnum \\
+	& Judul 		&: \@judul \\
+	& Fakultas		&: MIPA \\
+	& Departemen 	&: \@dept \\
+	& Program Studi &: \@prodi \\
+
 \end{tabular}
 }
 \end{table}
 \onehalfspacing
 \vspace{-0.4cm}
 \noindent
-Dengan ini menyatakan hasil penelitian Tugas Akhir yang berjudul \textbf{“IDENTIFIKASI MULTI ELEMEN PADA SPEKTRUM EMISI LIBS KOMPLEKS DARI 
-TANAH VULKANIK SEULAWAH AGAM MENGGUNAKAN ALGORITMA 
-\textit{LONG SHORT-TERM MEMORY} (LSTM)”} tidak dipublikasikan secara \textit{full-text} di sistem ETD (\textit{Electronic Theses and Dissertations}) Universitas Syiah Kuala hingga batas waktu 5 tahun dari tanggal kelulusan.
+menyetujui: \\ 
+( ) untuk mengunggah softcopy Tugas Akhir/Tesis saya diatas secara \textbf{penuh} atau \textit{\textbf{full-text}} di Repository Perpustakaan USK dan diakses atau terbaca lewat mesin pencari internet secara publik \\
+( ) untuk mengunggah \textit{softcopy} Tugas Akhir/Tesis kami diatas secara \textbf{parsial} atau \textbf{hanya bagian Tertentu} (misalnya \textbf{Cover, Lembar Pengesahan, Abstrak, Daftar Isi, Pendahuluan dan Kesimpulan}) ke Repository Perpustakaan Unsyiah dan diakses atau terbaca lewat mesin pencari internet secara publik \\
+( ) untuk \textbf{tidak membolehkan} sama sekali bagian Tugas Akhir/Tesis diakses online sampai dengan batas waktu 5 tahun dari tanggal kelulusan dengan alasan:.....
+\vspace{0.4cm}
+\noindent
+dan setuju memberikan atau mengunggah softcopy Tugas Akhir/Tesis kepada Perpustakaan USK secara penuh dalam bentuk PDF untuk disimpan secara private ke dalam Repository yang tidak bisa dijangkau oleh mesin pencari (mis. Google).
 
 \vspace{0.4cm}
 \noindent
-Demikian surat pernyataan ini dibuat dengan sebenarnya untuk dapat dipergunakan seperlunya.
+Demikian pernyataan ini dibuat untuk dipergunakan sebagaimana mestinya
 
 \vspace{0.4cm}
 {\renewcommand{\arraystretch}{0.8}
+\begin{tabular}{p{7.5cm}l}
+	&Banda Aceh, 15 Juli 2025 \\
+	[-0.1cm]
+	&Yang menyatakan \\
+	[1.5cm]
+	&\underline{\@fullname}\\
+	&NPM. \@idnum 
+\end{tabular}
+
 \centering
 \begin{tabular}{lll}
-	&Darussalam, 14 Mei 2025		& \\
-	&Yang membuat pernyataan,			& \\
-	&&\\
-	Pembimbing I,							&Pembimbing II,							&Mahasiswa,\\
+	Mengetahui, && \\
+	[-0.1cm]
+	Pembimbing &&Koordinator\\
+	&&Program Studi \\
 	[1.5cm]
-	\underline{Prof. Dr. Eng. Nasrullah, M.T.}	&\underline{Dr. Khairun Saddami, S.T.} &\underline{Birrul Walidain}\\
-	NIP. 197607031995121001				&NIP. 199103182022031008				&NPM. 2008102010010\\
-	&&\\
-
+	\underline{\@firstsupervisor}&&\underline{\@kaprodi}\\
+	NIP. \@firstnip&&NIP. \@kaprodinip
 \end{tabular}
 }
 
-{\renewcommand{\arraystretch}{0.8}
-\begin{center}\
-	Mengetahui: \\
-	\hspace{0.3cm}
-	\begin{tabular}{lll}
-		Koordinator Program Studi Fisika&\hspace{2.7cm}	&Koordinator TA,\\
-		Universitas Syiah Kuala, &&\\
-		[1.5cm]
-		\underline{Dr. Saumi Syahreza, S.Si., M.Si.}	&&\underline{Zulfalina, S.Si., M.Si.}\\
-		NIP. 198008312009122003						&&NIP. 197507072002122001 				
-	\end{tabular}
-\end{center}
 
-}
 
+\makeatother

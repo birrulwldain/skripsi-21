@@ -1,0 +1,4127 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{apa/apasortcite//global/global/global}
+    \entry{Aragon2008}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=8edd1b63f02f9e229b09ae399006413e}{%
+           family={Aragón},
+           familyi={A\bibinitperiod},
+           given={Carlos},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=1bc03c3ba7a762d8872067701df8c06f}{%
+           family={Aguilera},
+           familyi={A\bibinitperiod},
+           given={José\bibnamedelima Antonio},
+           giveni={J\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {AIP Publishing}%
+      }
+      \strng{namehash}{ed6596101c3c946847ff27380dd9828a}
+      \strng{fullhash}{ed6596101c3c946847ff27380dd9828a}
+      \strng{fullhashraw}{ed6596101c3c946847ff27380dd9828a}
+      \strng{bibnamehash}{ed6596101c3c946847ff27380dd9828a}
+      \strng{authorbibnamehash}{ed6596101c3c946847ff27380dd9828a}
+      \strng{authornamehash}{ed6596101c3c946847ff27380dd9828a}
+      \strng{authorfullhash}{ed6596101c3c946847ff27380dd9828a}
+      \strng{authorfullhashraw}{ed6596101c3c946847ff27380dd9828a}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Applied Physics}
+      \field{number}{1}
+      \field{title}{Characterization of laser induced plasmas by optical emission spectroscopy: A review of experiments and methods}
+      \field{volume}{103}
+      \field{year}{2008}
+      \field{pages}{013310}
+      \range{pages}{1}
+      \verb{doi}
+      \verb https://doi.org/10.1063/1.2832689
+      \endverb
+    \endentry
+    \entry{Beiser1992}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=f625abada2398458a812fbae454cc984}{%
+           family={Beiser},
+           familyi={B\bibinitperiod},
+           given={Arthur},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {McGraw-Hill}%
+      }
+      \strng{namehash}{f625abada2398458a812fbae454cc984}
+      \strng{fullhash}{f625abada2398458a812fbae454cc984}
+      \strng{fullhashraw}{f625abada2398458a812fbae454cc984}
+      \strng{bibnamehash}{f625abada2398458a812fbae454cc984}
+      \strng{authorbibnamehash}{f625abada2398458a812fbae454cc984}
+      \strng{authornamehash}{f625abada2398458a812fbae454cc984}
+      \strng{authorfullhash}{f625abada2398458a812fbae454cc984}
+      \strng{authorfullhashraw}{f625abada2398458a812fbae454cc984}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{4}
+      \field{title}{Concepts of modern physics}
+      \field{year}{1992}
+    \endentry
+    \entry{Bengio1994}{article}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=40a8e4774982146adc2688546f54efb2}{%
+           family={Bengio},
+           familyi={B\bibinitperiod},
+           given={Yoshua},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c866c0bcd8215f257f24444a7f53932f}{%
+           family={Simard},
+           familyi={S\bibinitperiod},
+           given={Patrice},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f247df2d5de3a9ccb24aa9ee9fdaf277}{%
+           family={Frasconi},
+           familyi={F\bibinitperiod},
+           given={Paolo},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{058f6aa7282521dda725a309bd2d3fea}
+      \strng{fullhash}{e394d4a496ef63d7c69ef669365d2b97}
+      \strng{fullhashraw}{e394d4a496ef63d7c69ef669365d2b97}
+      \strng{bibnamehash}{e394d4a496ef63d7c69ef669365d2b97}
+      \strng{authorbibnamehash}{e394d4a496ef63d7c69ef669365d2b97}
+      \strng{authornamehash}{058f6aa7282521dda725a309bd2d3fea}
+      \strng{authorfullhash}{e394d4a496ef63d7c69ef669365d2b97}
+      \strng{authorfullhashraw}{e394d4a496ef63d7c69ef669365d2b97}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Transactions on Neural Networks}
+      \field{number}{2}
+      \field{title}{Learning long-term dependencies with gradient descent is difficult}
+      \field{volume}{5}
+      \field{year}{1994}
+      \field{pages}{157\bibrangedash 166}
+      \range{pages}{10}
+      \verb{doi}
+      \verb https://doi.org/10.1109/72.279181
+      \endverb
+    \endentry
+    \entry{Chandrasekhar1939}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=2cdd974df31a73795c3a486550391e0c}{%
+           family={Chandrasekhar},
+           familyi={C\bibinitperiod},
+           given={Subrahmanyan},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Chicago}%
+      }
+      \list{publisher}{1}{%
+        {University of Chicago Press}%
+      }
+      \strng{namehash}{2cdd974df31a73795c3a486550391e0c}
+      \strng{fullhash}{2cdd974df31a73795c3a486550391e0c}
+      \strng{fullhashraw}{2cdd974df31a73795c3a486550391e0c}
+      \strng{bibnamehash}{2cdd974df31a73795c3a486550391e0c}
+      \strng{authorbibnamehash}{2cdd974df31a73795c3a486550391e0c}
+      \strng{authornamehash}{2cdd974df31a73795c3a486550391e0c}
+      \strng{authorfullhash}{2cdd974df31a73795c3a486550391e0c}
+      \strng{authorfullhashraw}{2cdd974df31a73795c3a486550391e0c}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Reprinted by Dover Publications, 1958}
+      \field{title}{An introduction to the study of stellar structure}
+      \field{year}{1939}
+    \endentry
+    \entry{CremersRadzemski2013}{book}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=fb42252fd751d4b66aaad9e2f9188cb7}{%
+           family={Cremers},
+           familyi={C\bibinitperiod},
+           given={David\bibnamedelima A.},
+           giveni={D\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=3433254ad6811fba6052a640ba3d6041}{%
+           family={Radzemski},
+           familyi={R\bibinitperiod},
+           given={Leon\bibnamedelima J.},
+           giveni={L\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Wiley}%
+      }
+      \strng{namehash}{9201e78e96ed67ccdc249bbee3b9a767}
+      \strng{fullhash}{9201e78e96ed67ccdc249bbee3b9a767}
+      \strng{fullhashraw}{9201e78e96ed67ccdc249bbee3b9a767}
+      \strng{bibnamehash}{9201e78e96ed67ccdc249bbee3b9a767}
+      \strng{authorbibnamehash}{9201e78e96ed67ccdc249bbee3b9a767}
+      \strng{authornamehash}{9201e78e96ed67ccdc249bbee3b9a767}
+      \strng{authorfullhash}{9201e78e96ed67ccdc249bbee3b9a767}
+      \strng{authorfullhashraw}{9201e78e96ed67ccdc249bbee3b9a767}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{2nd}
+      \field{title}{Handbook of Laser-Induced Breakdown Spectroscopy}
+      \field{year}{2013}
+    \endentry
+    \entry{Cremers2013}{book}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=fb42252fd751d4b66aaad9e2f9188cb7}{%
+           family={Cremers},
+           familyi={C\bibinitperiod},
+           given={David\bibnamedelima A.},
+           giveni={D\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=1f033543c04c5bf57c705ea0021b58b0}{%
+           family={Radziemski},
+           familyi={R\bibinitperiod},
+           given={Leon\bibnamedelima J.},
+           giveni={L\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Chichester}%
+      }
+      \list{publisher}{1}{%
+        {John Wiley \& Sons}%
+      }
+      \strng{namehash}{26e33c35e2a35e983f841fb7fe8fcaac}
+      \strng{fullhash}{26e33c35e2a35e983f841fb7fe8fcaac}
+      \strng{fullhashraw}{26e33c35e2a35e983f841fb7fe8fcaac}
+      \strng{bibnamehash}{26e33c35e2a35e983f841fb7fe8fcaac}
+      \strng{authorbibnamehash}{26e33c35e2a35e983f841fb7fe8fcaac}
+      \strng{authornamehash}{26e33c35e2a35e983f841fb7fe8fcaac}
+      \strng{authorfullhash}{26e33c35e2a35e983f841fb7fe8fcaac}
+      \strng{authorfullhashraw}{26e33c35e2a35e983f841fb7fe8fcaac}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Handbook of Laser-Induced Breakdown Spectroscopy}
+      \field{year}{2013}
+      \verb{doi}
+      \verb 10.1002/9781118583427
+      \endverb
+    \endentry
+    \entry{Demtroder2010}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=59654c899d48eff28a4d8063e886fb5f}{%
+           family={Demtröder},
+           familyi={D\bibinitperiod},
+           given={Wolfgang},
+           giveni={W\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Berlin, Heidelberg}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{59654c899d48eff28a4d8063e886fb5f}
+      \strng{fullhash}{59654c899d48eff28a4d8063e886fb5f}
+      \strng{fullhashraw}{59654c899d48eff28a4d8063e886fb5f}
+      \strng{bibnamehash}{59654c899d48eff28a4d8063e886fb5f}
+      \strng{authorbibnamehash}{59654c899d48eff28a4d8063e886fb5f}
+      \strng{authornamehash}{59654c899d48eff28a4d8063e886fb5f}
+      \strng{authorfullhash}{59654c899d48eff28a4d8063e886fb5f}
+      \strng{authorfullhashraw}{59654c899d48eff28a4d8063e886fb5f}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{3}
+      \field{isbn}{978-3-642-10299-8}
+      \field{title}{Laser spectroscopy: Basic concepts and instrumentation}
+      \field{year}{2010}
+    \endentry
+    \entry{Draine2011}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=664de6fef69f2153fcd0b6fbbe4d45de}{%
+           family={Draine},
+           familyi={D\bibinitperiod},
+           given={Bruce\bibnamedelima T.},
+           giveni={B\bibinitperiod\bibinitdelim T\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Princeton University Press}%
+      }
+      \strng{namehash}{664de6fef69f2153fcd0b6fbbe4d45de}
+      \strng{fullhash}{664de6fef69f2153fcd0b6fbbe4d45de}
+      \strng{fullhashraw}{664de6fef69f2153fcd0b6fbbe4d45de}
+      \strng{bibnamehash}{664de6fef69f2153fcd0b6fbbe4d45de}
+      \strng{authorbibnamehash}{664de6fef69f2153fcd0b6fbbe4d45de}
+      \strng{authornamehash}{664de6fef69f2153fcd0b6fbbe4d45de}
+      \strng{authorfullhash}{664de6fef69f2153fcd0b6fbbe4d45de}
+      \strng{authorfullhashraw}{664de6fef69f2153fcd0b6fbbe4d45de}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Physics of the interstellar and intergalactic medium}
+      \field{year}{2011}
+      \verb{doi}
+      \verb https://doi.org/10.1515/9781400839087
+      \endverb
+    \endentry
+    \entry{Gaudiuso2023}{article}{}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=9772e2833dc9d2dc8b3a2302c35749cf}{%
+           family={Gaudiuso},
+           familyi={G\bibinitperiod},
+           given={Rosalba},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ad58e21e6e3f9d204c5f011697855574}{%
+           family={Dell'Aglio},
+           familyi={D\bibinitperiod},
+           given={Marcella},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a5d17d1a8c25fee0e1716da645d6ead6}{%
+           family={De\bibnamedelima Giacomo},
+           familyi={D\bibinitperiod\bibinitdelim G\bibinitperiod},
+           given={Alessandro},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=53f348e22792744ddc97e16df66ae79d}{%
+           family={Al-Wahab},
+           familyi={A\bibinithyphendelim W\bibinitperiod},
+           given={Zainab},
+           giveni={Z\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{ee89eb737d0437623e2fd720b814de67}
+      \strng{fullhash}{470c014829b9b86624d6bcce9f43f418}
+      \strng{fullhashraw}{470c014829b9b86624d6bcce9f43f418}
+      \strng{bibnamehash}{470c014829b9b86624d6bcce9f43f418}
+      \strng{authorbibnamehash}{470c014829b9b86624d6bcce9f43f418}
+      \strng{authornamehash}{ee89eb737d0437623e2fd720b814de67}
+      \strng{authorfullhash}{470c014829b9b86624d6bcce9f43f418}
+      \strng{authorfullhashraw}{470c014829b9b86624d6bcce9f43f418}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Spectrochimica Acta Part B: Atomic Spectroscopy}
+      \field{title}{Matrix effects in Laser-Induced Breakdown Spectroscopy: A review of the state of the art and a survey on the new frontiers}
+      \field{volume}{205}
+      \field{year}{2023}
+      \field{pages}{106695}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1016/j.sab.2023.106695
+      \endverb
+    \endentry
+    \entry{Griem1997}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=9dafc37417a4e73583cfa933b77fd730}{%
+           family={Griem},
+           familyi={G\bibinitperiod},
+           given={Hans\bibnamedelima R.},
+           giveni={H\bibinitperiod\bibinitdelim R\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Cambridge}%
+      }
+      \list{publisher}{1}{%
+        {Cambridge University Press}%
+      }
+      \strng{namehash}{9dafc37417a4e73583cfa933b77fd730}
+      \strng{fullhash}{9dafc37417a4e73583cfa933b77fd730}
+      \strng{fullhashraw}{9dafc37417a4e73583cfa933b77fd730}
+      \strng{bibnamehash}{9dafc37417a4e73583cfa933b77fd730}
+      \strng{authorbibnamehash}{9dafc37417a4e73583cfa933b77fd730}
+      \strng{authornamehash}{9dafc37417a4e73583cfa933b77fd730}
+      \strng{authorfullhash}{9dafc37417a4e73583cfa933b77fd730}
+      \strng{authorfullhashraw}{9dafc37417a4e73583cfa933b77fd730}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-0-521-61941-7}
+      \field{title}{Principles of plasma spectroscopy}
+      \field{year}{1997}
+    \endentry
+    \entry{Griffiths2005}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=a00328547222c4a2a201442ee59dccfd}{%
+           family={Griffiths},
+           familyi={G\bibinitperiod},
+           given={David\bibnamedelima J.},
+           giveni={D\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Pearson}%
+      }
+      \strng{namehash}{a00328547222c4a2a201442ee59dccfd}
+      \strng{fullhash}{a00328547222c4a2a201442ee59dccfd}
+      \strng{fullhashraw}{a00328547222c4a2a201442ee59dccfd}
+      \strng{bibnamehash}{a00328547222c4a2a201442ee59dccfd}
+      \strng{authorbibnamehash}{a00328547222c4a2a201442ee59dccfd}
+      \strng{authornamehash}{a00328547222c4a2a201442ee59dccfd}
+      \strng{authorfullhash}{a00328547222c4a2a201442ee59dccfd}
+      \strng{authorfullhashraw}{a00328547222c4a2a201442ee59dccfd}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{2}
+      \field{title}{Introduction to quantum mechanics}
+      \field{year}{2005}
+    \endentry
+    \entry{harmon-2021}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=79a613afc803696d774bc1c66a10f02b}{%
+           family={Harmon},
+           familyi={H\bibinitperiod},
+           given={Russell\bibnamedelima S.},
+           giveni={R\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=1aa4cd8b0aabd657ffe363926827c443}{%
+           family={Senesi},
+           familyi={S\bibinitperiod},
+           given={Giorgio\bibnamedelima S.},
+           giveni={G\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{69f6d3d7b02678a83142e3d1c1a99ac6}
+      \strng{fullhash}{69f6d3d7b02678a83142e3d1c1a99ac6}
+      \strng{fullhashraw}{69f6d3d7b02678a83142e3d1c1a99ac6}
+      \strng{bibnamehash}{69f6d3d7b02678a83142e3d1c1a99ac6}
+      \strng{authorbibnamehash}{69f6d3d7b02678a83142e3d1c1a99ac6}
+      \strng{authornamehash}{69f6d3d7b02678a83142e3d1c1a99ac6}
+      \strng{authorfullhash}{69f6d3d7b02678a83142e3d1c1a99ac6}
+      \strng{authorfullhashraw}{69f6d3d7b02678a83142e3d1c1a99ac6}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Applied Geochemistry}
+      \field{month}{3}
+      \field{title}{{Laser-Induced Breakdown Spectroscopy – A geochemical tool for the 21st century}}
+      \field{volume}{128}
+      \field{year}{2021}
+      \field{pages}{104929}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1016/j.apgeochem.2021.104929
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1016/j.apgeochem.2021.104929
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1016/j.apgeochem.2021.104929
+      \endverb
+    \endentry
+    \entry{Harmon2021}{article}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=79a613afc803696d774bc1c66a10f02b}{%
+           family={Harmon},
+           familyi={H\bibinitperiod},
+           given={Russell\bibnamedelima S.},
+           giveni={R\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b5d5d80c4772eace56f6f031769ed83e}{%
+           family={McMillan},
+           familyi={M\bibinitperiod},
+           given={Nancy\bibnamedelima J.},
+           giveni={N\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=96ff54e53213f317c3cf230fd6fc61d1}{%
+           family={O'Sullivan},
+           familyi={O\bibinitperiod},
+           given={Seán\bibnamedelima P.},
+           giveni={S\bibinitperiod\bibinitdelim P\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{3622a9d068f9c6477c588b0ccf294df5}
+      \strng{fullhash}{8f972e56b21232dd172f40be03c43fb6}
+      \strng{fullhashraw}{8f972e56b21232dd172f40be03c43fb6}
+      \strng{bibnamehash}{8f972e56b21232dd172f40be03c43fb6}
+      \strng{authorbibnamehash}{8f972e56b21232dd172f40be03c43fb6}
+      \strng{authornamehash}{3622a9d068f9c6477c588b0ccf294df5}
+      \strng{authorfullhash}{8f972e56b21232dd172f40be03c43fb6}
+      \strng{authorfullhashraw}{8f972e56b21232dd172f40be03c43fb6}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Spectrochimica Acta Part B: Atomic Spectroscopy}
+      \field{title}{Laser induced breakdown spectroscopy – Quo Vadimus?}
+      \field{volume}{182}
+      \field{year}{2021}
+      \field{pages}{106242}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1016/j.sab.2021.106242
+      \endverb
+    \endentry
+    \entry{Hochreiter1997}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=41b31e29fb2bdbf9f5c9c1b0d5b3e815}{%
+           family={Hochreiter},
+           familyi={H\bibinitperiod},
+           given={Sepp},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=288bdbcfe1b91ad7484d7a24f74f99ed}{%
+           family={Schmidhuber},
+           familyi={S\bibinitperiod},
+           given={Jürgen},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {MIT Press}%
+      }
+      \strng{namehash}{4c2e1e2e1ac91e1df9d4f7b85ebe39b4}
+      \strng{fullhash}{4c2e1e2e1ac91e1df9d4f7b85ebe39b4}
+      \strng{fullhashraw}{4c2e1e2e1ac91e1df9d4f7b85ebe39b4}
+      \strng{bibnamehash}{4c2e1e2e1ac91e1df9d4f7b85ebe39b4}
+      \strng{authorbibnamehash}{4c2e1e2e1ac91e1df9d4f7b85ebe39b4}
+      \strng{authornamehash}{4c2e1e2e1ac91e1df9d4f7b85ebe39b4}
+      \strng{authorfullhash}{4c2e1e2e1ac91e1df9d4f7b85ebe39b4}
+      \strng{authorfullhashraw}{4c2e1e2e1ac91e1df9d4f7b85ebe39b4}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Neural Computation}
+      \field{number}{8}
+      \field{title}{Long short-term memory}
+      \field{volume}{9}
+      \field{year}{1997}
+      \field{pages}{1735\bibrangedash 1780}
+      \range{pages}{46}
+      \verb{doi}
+      \verb https://doi.org/10.1162/neco.1997.9.8.1735
+      \endverb
+    \endentry
+    \entry{Konjevic1999}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=f235dd5b1d7bfcc9086300cec5805a30}{%
+           family={Konjević},
+           familyi={K\bibinitperiod},
+           given={Nikola},
+           giveni={N\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{f235dd5b1d7bfcc9086300cec5805a30}
+      \strng{fullhash}{f235dd5b1d7bfcc9086300cec5805a30}
+      \strng{fullhashraw}{f235dd5b1d7bfcc9086300cec5805a30}
+      \strng{bibnamehash}{f235dd5b1d7bfcc9086300cec5805a30}
+      \strng{authorbibnamehash}{f235dd5b1d7bfcc9086300cec5805a30}
+      \strng{authornamehash}{f235dd5b1d7bfcc9086300cec5805a30}
+      \strng{authorfullhash}{f235dd5b1d7bfcc9086300cec5805a30}
+      \strng{authorfullhashraw}{f235dd5b1d7bfcc9086300cec5805a30}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Spectrochimica Acta Part B: Atomic Spectroscopy}
+      \field{number}{14}
+      \field{title}{Plasma broadening and shifting of non-hydrogenic spectral lines: Present status and applications}
+      \field{volume}{54}
+      \field{year}{1999}
+      \field{pages}{2007\bibrangedash 2039}
+      \range{pages}{33}
+      \verb{doi}
+      \verb https://doi.org/10.1016/S0584-8547(99)00136-6
+      \endverb
+    \endentry
+    \entry{Kramida2022}{misc}{}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=dfe6b45caf6bde92c8043a6d6155a2e3}{%
+           family={Kramida},
+           familyi={K\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=18cf30cb026dddafd3a36f3f9f6c7946}{%
+           family={Ralchenko},
+           familyi={R\bibinitperiod},
+           given={Yu.},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a229e39103281c7289b6a24baab8c78a}{%
+           family={Reader},
+           familyi={R\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=bbe2795302024968bb526e4b1db0cabf}{%
+           family={{NIST ASD Team}},
+           familyi={N\bibinitperiod}}}%
+      }
+      \strng{namehash}{03d98f4ffd77c1bcf6f50c0e459f4219}
+      \strng{fullhash}{2c1e2a169dd22dc32f3176e57016f51e}
+      \strng{fullhashraw}{2c1e2a169dd22dc32f3176e57016f51e}
+      \strng{bibnamehash}{2c1e2a169dd22dc32f3176e57016f51e}
+      \strng{authorbibnamehash}{2c1e2a169dd22dc32f3176e57016f51e}
+      \strng{authornamehash}{03d98f4ffd77c1bcf6f50c0e459f4219}
+      \strng{authorfullhash}{2c1e2a169dd22dc32f3176e57016f51e}
+      \strng{authorfullhashraw}{2c1e2a169dd22dc32f3176e57016f51e}
+      \field{extraname}{1}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://dx.doi.org/10.18434/T4W30F}}
+      \field{note}{National Institute of Standards and Technology, Gaithersburg, MD, accessed: 2025-05-23}
+      \field{title}{{NIST Atomic Spectra Database (ver. 5.9)}}
+      \field{year}{2022}
+    \endentry
+    \entry{Kramida2023}{article}{}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=dfe6b45caf6bde92c8043a6d6155a2e3}{%
+           family={Kramida},
+           familyi={K\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=18cf30cb026dddafd3a36f3f9f6c7946}{%
+           family={Ralchenko},
+           familyi={R\bibinitperiod},
+           given={Yu.},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a229e39103281c7289b6a24baab8c78a}{%
+           family={Reader},
+           familyi={R\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=bbe2795302024968bb526e4b1db0cabf}{%
+           family={{NIST ASD Team}},
+           familyi={N\bibinitperiod}}}%
+      }
+      \strng{namehash}{03d98f4ffd77c1bcf6f50c0e459f4219}
+      \strng{fullhash}{2c1e2a169dd22dc32f3176e57016f51e}
+      \strng{fullhashraw}{2c1e2a169dd22dc32f3176e57016f51e}
+      \strng{bibnamehash}{2c1e2a169dd22dc32f3176e57016f51e}
+      \strng{authorbibnamehash}{2c1e2a169dd22dc32f3176e57016f51e}
+      \strng{authornamehash}{03d98f4ffd77c1bcf6f50c0e459f4219}
+      \strng{authorfullhash}{2c1e2a169dd22dc32f3176e57016f51e}
+      \strng{authorfullhashraw}{2c1e2a169dd22dc32f3176e57016f51e}
+      \field{extraname}{2}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{National Institute of Standards and Technology}
+      \field{title}{NIST Atomic Spectra Database (version 5.10)}
+      \field{year}{2023}
+      \verb{urlraw}
+      \verb https://physics.nist.gov/asd
+      \endverb
+      \verb{url}
+      \verb https://physics.nist.gov/asd
+      \endverb
+    \endentry
+    \entry{Mason2015}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=f5e7ac653b5dcf643751def178c6a3bb}{%
+           family={Mason},
+           familyi={M\bibinitperiod},
+           given={John},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {American Association of Physics Teachers}%
+      }
+      \strng{namehash}{f5e7ac653b5dcf643751def178c6a3bb}
+      \strng{fullhash}{f5e7ac653b5dcf643751def178c6a3bb}
+      \strng{fullhashraw}{f5e7ac653b5dcf643751def178c6a3bb}
+      \strng{bibnamehash}{f5e7ac653b5dcf643751def178c6a3bb}
+      \strng{authorbibnamehash}{f5e7ac653b5dcf643751def178c6a3bb}
+      \strng{authornamehash}{f5e7ac653b5dcf643751def178c6a3bb}
+      \strng{authorfullhash}{f5e7ac653b5dcf643751def178c6a3bb}
+      \strng{authorfullhashraw}{f5e7ac653b5dcf643751def178c6a3bb}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{American Journal of Physics}
+      \field{number}{5}
+      \field{title}{The Einstein coefficient and the partition function}
+      \field{volume}{83}
+      \field{year}{2015}
+      \field{pages}{405\bibrangedash 409}
+      \range{pages}{5}
+      \verb{doi}
+      \verb https://doi.org/10.1119/1.4913497
+      \endverb
+    \endentry
+    \entry{McWhirter1965}{inbook}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=2e196974d3ef08800ffb63b2584d6ae5}{%
+           family={McWhirter},
+           familyi={M\bibinitperiod},
+           given={R.\bibnamedelimi W.\bibnamedelimi P.},
+           giveni={R\bibinitperiod\bibinitdelim W\bibinitperiod\bibinitdelim P\bibinitperiod},
+           givenun=0}}%
+      }
+      \name{editor}{2}{}{%
+        {{hash=862496dac4f14f9420e09efafc6ac271}{%
+           family={Huddlestone},
+           familyi={H\bibinitperiod},
+           given={Richard\bibnamedelima H.},
+           giveni={R\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+        {{hash=9f34afad86bcb82fbac6bba03964e47b}{%
+           family={Leonard},
+           familyi={L\bibinitperiod},
+           given={Stanley\bibnamedelima L.},
+           giveni={S\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Academic Press}%
+      }
+      \strng{namehash}{2e196974d3ef08800ffb63b2584d6ae5}
+      \strng{fullhash}{2e196974d3ef08800ffb63b2584d6ae5}
+      \strng{fullhashraw}{2e196974d3ef08800ffb63b2584d6ae5}
+      \strng{bibnamehash}{2e196974d3ef08800ffb63b2584d6ae5}
+      \strng{authorbibnamehash}{2e196974d3ef08800ffb63b2584d6ae5}
+      \strng{authornamehash}{2e196974d3ef08800ffb63b2584d6ae5}
+      \strng{authorfullhash}{2e196974d3ef08800ffb63b2584d6ae5}
+      \strng{authorfullhashraw}{2e196974d3ef08800ffb63b2584d6ae5}
+      \strng{editorbibnamehash}{50b1f907dc39b40d7df33637912ce3f5}
+      \strng{editornamehash}{50b1f907dc39b40d7df33637912ce3f5}
+      \strng{editorfullhash}{50b1f907dc39b40d7df33637912ce3f5}
+      \strng{editorfullhashraw}{50b1f907dc39b40d7df33637912ce3f5}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Plasma Diagnostic Techniques}
+      \field{title}{Spectral intensities}
+      \field{year}{1965}
+      \field{pages}{201\bibrangedash 264}
+      \range{pages}{64}
+    \endentry
+    \entry{Miziolek2006}{book}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=fe630ed32110a7e62dfbd3a3e2cd8ede}{%
+           family={Miziolek},
+           familyi={M\bibinitperiod},
+           given={Andrzej\bibnamedelima W.},
+           giveni={A\bibinitperiod\bibinitdelim W\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=eead7808e0de4d2d0d75498317e6673a}{%
+           family={Palleschi},
+           familyi={P\bibinitperiod},
+           given={Vincenzo},
+           giveni={V\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2310609e023929cd13de43af8f0a8491}{%
+           family={Schechter},
+           familyi={S\bibinitperiod},
+           given={Israel},
+           giveni={I\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Cambridge}%
+      }
+      \list{publisher}{1}{%
+        {Cambridge University Press}%
+      }
+      \strng{namehash}{ffee3eb54900671f9827bb668b372a8d}
+      \strng{fullhash}{de1a24dc42d983492d2103316311dbe7}
+      \strng{fullhashraw}{de1a24dc42d983492d2103316311dbe7}
+      \strng{bibnamehash}{de1a24dc42d983492d2103316311dbe7}
+      \strng{authorbibnamehash}{de1a24dc42d983492d2103316311dbe7}
+      \strng{authornamehash}{ffee3eb54900671f9827bb668b372a8d}
+      \strng{authorfullhash}{de1a24dc42d983492d2103316311dbe7}
+      \strng{authorfullhashraw}{de1a24dc42d983492d2103316311dbe7}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-0-521-85274-6}
+      \field{title}{Laser-induced breakdown spectroscopy (LIBS): Fundamentals and applications}
+      \field{year}{2006}
+    \endentry
+    \entry{Panne2024}{inbook}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=78e5bbe9e66ac4071a80c5eeacc33e3c}{%
+           family={Panne},
+           familyi={P\bibinitperiod},
+           given={Ulrich},
+           giveni={U\bibinitperiod},
+           givenun=0}}%
+      }
+      \name{editor}{1}{}{%
+        {{hash=7f936ba7a00efb9cbc751c65eb2fd482}{%
+           family={Meyers},
+           familyi={M\bibinitperiod},
+           given={Robert\bibnamedelima A.},
+           giveni={R\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Wiley}%
+      }
+      \strng{namehash}{78e5bbe9e66ac4071a80c5eeacc33e3c}
+      \strng{fullhash}{78e5bbe9e66ac4071a80c5eeacc33e3c}
+      \strng{fullhashraw}{78e5bbe9e66ac4071a80c5eeacc33e3c}
+      \strng{bibnamehash}{78e5bbe9e66ac4071a80c5eeacc33e3c}
+      \strng{authorbibnamehash}{78e5bbe9e66ac4071a80c5eeacc33e3c}
+      \strng{authornamehash}{78e5bbe9e66ac4071a80c5eeacc33e3c}
+      \strng{authorfullhash}{78e5bbe9e66ac4071a80c5eeacc33e3c}
+      \strng{authorfullhashraw}{78e5bbe9e66ac4071a80c5eeacc33e3c}
+      \strng{editorbibnamehash}{7f936ba7a00efb9cbc751c65eb2fd482}
+      \strng{editornamehash}{7f936ba7a00efb9cbc751c65eb2fd482}
+      \strng{editorfullhash}{7f936ba7a00efb9cbc751c65eb2fd482}
+      \strng{editorfullhashraw}{7f936ba7a00efb9cbc751c65eb2fd482}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Encyclopedia of Analytical Chemistry}
+      \field{note}{(Hipotetis) Illustrative citation for a book chapter.}
+      \field{title}{Plasma Modeling for Spectrochemistry}
+      \field{year}{2024}
+      \verb{doi}
+      \verb 10.1002/9780470027318.a9021.pub3
+      \endverb
+    \endentry
+    \entry{Pathria2011}{book}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=d22b867978b9c363b85cd67f2a1f9f18}{%
+           family={Pathria},
+           familyi={P\bibinitperiod},
+           given={Raj\bibnamedelima K.},
+           giveni={R\bibinitperiod\bibinitdelim K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=473d4b220f7d73dc96f11cdb76c71143}{%
+           family={Beale},
+           familyi={B\bibinitperiod},
+           given={Paul\bibnamedelima D.},
+           giveni={P\bibinitperiod\bibinitdelim D\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{3db7097cbca4e5613826cabefc773b6e}
+      \strng{fullhash}{3db7097cbca4e5613826cabefc773b6e}
+      \strng{fullhashraw}{3db7097cbca4e5613826cabefc773b6e}
+      \strng{bibnamehash}{3db7097cbca4e5613826cabefc773b6e}
+      \strng{authorbibnamehash}{3db7097cbca4e5613826cabefc773b6e}
+      \strng{authornamehash}{3db7097cbca4e5613826cabefc773b6e}
+      \strng{authorfullhash}{3db7097cbca4e5613826cabefc773b6e}
+      \strng{authorfullhashraw}{3db7097cbca4e5613826cabefc773b6e}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Statistical mechanics}
+      \field{year}{2011}
+    \endentry
+    \entry{Porizka2018}{article}{}{}
+      \name{author}{6}{}{%
+        {{un=0,uniquepart=base,hash=0de202a2342772d57e8a7f7f498831e4}{%
+           family={Pořízka},
+           familyi={P\bibinitperiod},
+           given={Pavel},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=352dcdddc3046aa0073f10b818625524}{%
+           family={Klus},
+           familyi={K\bibinitperiod},
+           given={Jakub},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f97b937981a34fe90c948eec237d8dbe}{%
+           family={Képeš},
+           familyi={K\bibinitperiod},
+           given={Erik},
+           giveni={E\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=e7d21c7da675909b8c8df99447051944}{%
+           family={Prochazka},
+           familyi={P\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=e84d4800eb652af7704a928643b92845}{%
+           family={Hahn},
+           familyi={H\bibinitperiod},
+           given={David\bibnamedelima W.},
+           giveni={D\bibinitperiod\bibinitdelim W\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=36e9a5608e99a3d1916b05599755d8e9}{%
+           family={Kaiser},
+           familyi={K\bibinitperiod},
+           given={Jozef},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{e894c4d2b41346b7dd06e2a4c426d584}
+      \strng{fullhash}{d0c45df44c3296374c6bd35544944569}
+      \strng{fullhashraw}{d0c45df44c3296374c6bd35544944569}
+      \strng{bibnamehash}{d0c45df44c3296374c6bd35544944569}
+      \strng{authorbibnamehash}{d0c45df44c3296374c6bd35544944569}
+      \strng{authornamehash}{e894c4d2b41346b7dd06e2a4c426d584}
+      \strng{authorfullhash}{d0c45df44c3296374c6bd35544944569}
+      \strng{authorfullhashraw}{d0c45df44c3296374c6bd35544944569}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Applied Spectroscopy}
+      \field{number}{8}
+      \field{title}{Laser-Induced Breakdown Spectroscopy: A Review of Recent Advances in Instrumentation, Data Analysis, and Applications}
+      \field{volume}{72}
+      \field{year}{2018}
+      \field{pages}{1145\bibrangedash 1165}
+      \range{pages}{21}
+      \verb{doi}
+      \verb 10.1177/0003702818783307
+      \endverb
+    \endentry
+    \entry{Rybicki1985}{book}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=a8b83f4134b8420d321b4347ac783e11}{%
+           family={Rybicki},
+           familyi={R\bibinitperiod},
+           given={George\bibnamedelima B.},
+           giveni={G\bibinitperiod\bibinitdelim B\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=6f630e08309226fb2a0dbdf8e0a6fdf7}{%
+           family={Lightman},
+           familyi={L\bibinitperiod},
+           given={Alan\bibnamedelima P.},
+           giveni={A\bibinitperiod\bibinitdelim P\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Wiley}%
+      }
+      \strng{namehash}{5adc88be60a94c7021deb49fbe035855}
+      \strng{fullhash}{5adc88be60a94c7021deb49fbe035855}
+      \strng{fullhashraw}{5adc88be60a94c7021deb49fbe035855}
+      \strng{bibnamehash}{5adc88be60a94c7021deb49fbe035855}
+      \strng{authorbibnamehash}{5adc88be60a94c7021deb49fbe035855}
+      \strng{authornamehash}{5adc88be60a94c7021deb49fbe035855}
+      \strng{authorfullhash}{5adc88be60a94c7021deb49fbe035855}
+      \strng{authorfullhashraw}{5adc88be60a94c7021deb49fbe035855}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Radiative processes in astrophysics}
+      \field{year}{1985}
+      \verb{doi}
+      \verb https://doi.org/10.1002/9783527618170
+      \endverb
+    \endentry
+    \entry{Singh2007}{book}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=3d5b6f010cd0a2b8a93f610ad1d5b0ac}{%
+           family={Singh},
+           familyi={S\bibinitperiod},
+           given={Jagdish\bibnamedelima P.},
+           giveni={J\bibinitperiod\bibinitdelim P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=31bae3f2dba7814a6bf1d97ddce5a704}{%
+           family={Thakur},
+           familyi={T\bibinitperiod},
+           given={Surya\bibnamedelima N.},
+           giveni={S\bibinitperiod\bibinitdelim N\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{f978a6ac8cdadc8c921526fa17e6db1c}
+      \strng{fullhash}{f978a6ac8cdadc8c921526fa17e6db1c}
+      \strng{fullhashraw}{f978a6ac8cdadc8c921526fa17e6db1c}
+      \strng{bibnamehash}{f978a6ac8cdadc8c921526fa17e6db1c}
+      \strng{authorbibnamehash}{f978a6ac8cdadc8c921526fa17e6db1c}
+      \strng{authornamehash}{f978a6ac8cdadc8c921526fa17e6db1c}
+      \strng{authorfullhash}{f978a6ac8cdadc8c921526fa17e6db1c}
+      \strng{authorfullhashraw}{f978a6ac8cdadc8c921526fa17e6db1c}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Laser-Induced Breakdown Spectroscopy}
+      \field{year}{2007}
+    \endentry
+    \entry{Thorne1999}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=c5efa33bf693eddd2d5f2f07d6733854}{%
+           family={Thorne},
+           familyi={T\bibinitperiod},
+           given={Anne\bibnamedelima P.},
+           giveni={A\bibinitperiod\bibinitdelim P\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Berlin, Heidelberg}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{c5efa33bf693eddd2d5f2f07d6733854}
+      \strng{fullhash}{c5efa33bf693eddd2d5f2f07d6733854}
+      \strng{fullhashraw}{c5efa33bf693eddd2d5f2f07d6733854}
+      \strng{bibnamehash}{c5efa33bf693eddd2d5f2f07d6733854}
+      \strng{authorbibnamehash}{c5efa33bf693eddd2d5f2f07d6733854}
+      \strng{authornamehash}{c5efa33bf693eddd2d5f2f07d6733854}
+      \strng{authorfullhash}{c5efa33bf693eddd2d5f2f07d6733854}
+      \strng{authorfullhashraw}{c5efa33bf693eddd2d5f2f07d6733854}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Spectrophysics}
+      \field{year}{1999}
+      \verb{doi}
+      \verb 10.1007/978-3-642-58581-4
+      \endverb
+    \endentry
+    \entry{Vaswani2017}{article}{}{}
+      \name{author}{8}{}{%
+        {{un=0,uniquepart=base,hash=7f28e84700536646dd6620a0db07ad09}{%
+           family={Vaswani},
+           familyi={V\bibinitperiod},
+           given={Ashish},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=62efade83d70f0323fe248755e6c90c5}{%
+           family={Shazeer},
+           familyi={S\bibinitperiod},
+           given={Noam},
+           giveni={N\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=06649ebab1ea5cac0250746a19764975}{%
+           family={Parmar},
+           familyi={P\bibinitperiod},
+           given={Niki},
+           giveni={N\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=1c25d3552a1c98a125f5ee8ede082841}{%
+           family={Uszoreit},
+           familyi={U\bibinitperiod},
+           given={Jakob},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2fd2982e30ebcec93ec1cf76e0d797fd}{%
+           family={Jones},
+           familyi={J\bibinitperiod},
+           given={Llion},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=27b07e4eacbf4ef7a1438e3badb7dd8d}{%
+           family={Gomez},
+           familyi={G\bibinitperiod},
+           given={Aidan\bibnamedelima N.},
+           giveni={A\bibinitperiod\bibinitdelim N\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=540fcd72e1fa4bbed46604f4e6cff817}{%
+           family={Kaiser},
+           familyi={K\bibinitperiod},
+           given={Łukasz},
+           giveni={Ł\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=95595a0fefb86187cbc36e551017d332}{%
+           family={Polosukhin},
+           familyi={P\bibinitperiod},
+           given={Illia},
+           giveni={I\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Curran Associates, Inc.}%
+      }
+      \strng{namehash}{ee273ab30cfb889666f8c4d806eb9ce7}
+      \strng{fullhash}{49213f0ce29a4450782375dde33f3b78}
+      \strng{fullhashraw}{49213f0ce29a4450782375dde33f3b78}
+      \strng{bibnamehash}{49213f0ce29a4450782375dde33f3b78}
+      \strng{authorbibnamehash}{49213f0ce29a4450782375dde33f3b78}
+      \strng{authornamehash}{ee273ab30cfb889666f8c4d806eb9ce7}
+      \strng{authorfullhash}{49213f0ce29a4450782375dde33f3b78}
+      \strng{authorfullhashraw}{49213f0ce29a4450782375dde33f3b78}
+      \field{sortinit}{V}
+      \field{sortinithash}{afb52128e5b4dc4b843768c0113d673b}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Advances in Neural Information Processing Systems}
+      \field{title}{Attention is all you need}
+      \field{volume}{30}
+      \field{year}{2017}
+      \field{pages}{5998\bibrangedash 6008}
+      \range{pages}{11}
+      \verb{doi}
+      \verb https://doi.org/10.48550/arXiv.1706.03762
+      \endverb
+    \endentry
+    \entry{Wu2021}{article}{}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=98dce96f41870f1bbabf03de06a05caa}{%
+           family={Wu},
+           familyi={W\bibinitperiod},
+           given={Haixu},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=bf3bab790de4dc8bc6cfc53a67ae1d4b}{%
+           family={Xu},
+           familyi={X\bibinitperiod},
+           given={Jiehui},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=5677a530ed74bcd73cbf45f8088a8418}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Jianmin},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=867778fd4a7456937f929a855edfaf77}{%
+           family={Long},
+           familyi={L\bibinitperiod},
+           given={Mingsheng},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Curran Associates, Inc.}%
+      }
+      \strng{namehash}{338d0f3691411e7dad093368d83de073}
+      \strng{fullhash}{09e3b37b89f35f1f152f3e8d8754e163}
+      \strng{fullhashraw}{09e3b37b89f35f1f152f3e8d8754e163}
+      \strng{bibnamehash}{09e3b37b89f35f1f152f3e8d8754e163}
+      \strng{authorbibnamehash}{09e3b37b89f35f1f152f3e8d8754e163}
+      \strng{authornamehash}{338d0f3691411e7dad093368d83de073}
+      \strng{authorfullhash}{09e3b37b89f35f1f152f3e8d8754e163}
+      \strng{authorfullhashraw}{09e3b37b89f35f1f152f3e8d8754e163}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Advances in Neural Information Processing Systems}
+      \field{title}{Autoformer: Decomposition Transformers with Auto-Correlation for Long-Term Series Forecasting}
+      \field{volume}{34}
+      \field{year}{2021}
+      \field{pages}{22419\bibrangedash 22430}
+      \range{pages}{12}
+      \verb{urlraw}
+      \verb https://proceedings.neurips.cc/paper/2021/file/bcc0d400288793e8bdcd7c19a8ac0c2b-Paper.pdf
+      \endverb
+      \verb{url}
+      \verb https://proceedings.neurips.cc/paper/2021/file/bcc0d400288793e8bdcd7c19a8ac0c2b-Paper.pdf
+      \endverb
+    \endentry
+    \entry{Yang2025}{article}{}{}
+      \name{author}{7}{}{%
+        {{un=0,uniquepart=base,hash=e6a2657cef820bbb49683457d72554e7}{%
+           family={Yang},
+           familyi={Y\bibinitperiod},
+           given={Jiaxing},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b6e41563944551a37706c549acea98c2}{%
+           family={Shijie},
+           familyi={S\bibinitperiod},
+           given={Li},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=56bda333ab85070cdf1934ac222e12aa}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Zhao},
+           giveni={Z\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2e1c6bacd57962d9acf4bf7eefa38241}{%
+           family={Qian},
+           familyi={Q\bibinitperiod},
+           given={Dongbin},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a0043ad353838be4f658781084d332a1}{%
+           family={Sun},
+           familyi={S\bibinitperiod},
+           given={Shaohua},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=1e292ffa5ab2f18f01d1d941e2735808}{%
+           family={Liu},
+           familyi={L\bibinitperiod},
+           given={Xiaoliang},
+           giveni={X\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=5d9743020842d3a49953a092c484ade4}{%
+           family={Liu},
+           familyi={L\bibinitperiod},
+           given={Zuoye},
+           giveni={Z\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{0880603b74d5cdb9c5be61c3db17cf5f}
+      \strng{fullhash}{e7d176afdb2fb1fbb7eb67ad4eb35e20}
+      \strng{fullhashraw}{e7d176afdb2fb1fbb7eb67ad4eb35e20}
+      \strng{bibnamehash}{e7d176afdb2fb1fbb7eb67ad4eb35e20}
+      \strng{authorbibnamehash}{e7d176afdb2fb1fbb7eb67ad4eb35e20}
+      \strng{authornamehash}{0880603b74d5cdb9c5be61c3db17cf5f}
+      \strng{authorfullhash}{e7d176afdb2fb1fbb7eb67ad4eb35e20}
+      \strng{authorfullhashraw}{e7d176afdb2fb1fbb7eb67ad4eb35e20}
+      \field{sortinit}{Y}
+      \field{sortinithash}{fd67ad5a9ef0f7456bdd9aab10fe1495}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Talanta}
+      \field{month}{03}
+      \field{title}{Transformer-based deep learning models for quantification of La, Ce, and Nd in rare earth ores using laser-induced breakdown spectroscopy}
+      \field{volume}{292}
+      \field{year}{2025}
+      \field{pages}{127937}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1016/j.talanta.2025.127937
+      \endverb
+    \endentry
+    \entry{Zhou2021}{article}{}{}
+      \name{author}{7}{}{%
+        {{un=0,uniquepart=base,hash=c7def614c5b94aa5499428a9644f024d}{%
+           family={Zhou},
+           familyi={Z\bibinitperiod},
+           given={Haoyi},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=452a67ad1218340845acd7e598d57f19}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Shanghang},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=146dd5c72b5270e6c98219a385645574}{%
+           family={Peng},
+           familyi={P\bibinitperiod},
+           given={Jieqi},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=53eda2415f95a1d1f76572f661905aab}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Shuai},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=221d23a1cc1702c31044af688c0b7c39}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Jianxin},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=aa0c7ab0b9dad5902ab8fc501f57cd77}{%
+           family={Xiong},
+           familyi={X\bibinitperiod},
+           given={Hui},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d4d97ecef44bb5d1d6dab7f91276d649}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Wancai},
+           giveni={W\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{fd1f7c12e5bef04a5e71b623a18fadec}
+      \strng{fullhash}{116045fd64aa9173a259ff5ef8541d4b}
+      \strng{fullhashraw}{116045fd64aa9173a259ff5ef8541d4b}
+      \strng{bibnamehash}{116045fd64aa9173a259ff5ef8541d4b}
+      \strng{authorbibnamehash}{116045fd64aa9173a259ff5ef8541d4b}
+      \strng{authornamehash}{fd1f7c12e5bef04a5e71b623a18fadec}
+      \strng{authorfullhash}{116045fd64aa9173a259ff5ef8541d4b}
+      \strng{authorfullhashraw}{116045fd64aa9173a259ff5ef8541d4b}
+      \field{sortinit}{Z}
+      \field{sortinithash}{96892c0b0a36bb8557c40c49813d48b3}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Proceedings of the AAAI Conference on Artificial Intelligence}
+      \field{number}{12}
+      \field{title}{Informer: Beyond Efficient Transformer for Long Sequence Time-Series Forecasting}
+      \field{volume}{35}
+      \field{year}{2021}
+      \field{pages}{11106\bibrangedash 11115}
+      \range{pages}{10}
+      \verb{urlraw}
+      \verb https://ojs.aaai.org/index.php/AAAI/article/view/17325
+      \endverb
+      \verb{url}
+      \verb https://ojs.aaai.org/index.php/AAAI/article/view/17325
+      \endverb
+    \endentry
+  \enddatalist
+  \datalist[entry]{apa/global//global/global/global}
+    \entry{Aragon2008}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=8edd1b63f02f9e229b09ae399006413e}{%
+           family={Aragón},
+           familyi={A\bibinitperiod},
+           given={Carlos},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=1bc03c3ba7a762d8872067701df8c06f}{%
+           family={Aguilera},
+           familyi={A\bibinitperiod},
+           given={José\bibnamedelima Antonio},
+           giveni={J\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {AIP Publishing}%
+      }
+      \strng{namehash}{ed6596101c3c946847ff27380dd9828a}
+      \strng{fullhash}{ed6596101c3c946847ff27380dd9828a}
+      \strng{fullhashraw}{ed6596101c3c946847ff27380dd9828a}
+      \strng{bibnamehash}{ed6596101c3c946847ff27380dd9828a}
+      \strng{authorbibnamehash}{ed6596101c3c946847ff27380dd9828a}
+      \strng{authornamehash}{ed6596101c3c946847ff27380dd9828a}
+      \strng{authorfullhash}{ed6596101c3c946847ff27380dd9828a}
+      \strng{authorfullhashraw}{ed6596101c3c946847ff27380dd9828a}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Applied Physics}
+      \field{number}{1}
+      \field{title}{Characterization of laser induced plasmas by optical emission spectroscopy: A review of experiments and methods}
+      \field{volume}{103}
+      \field{year}{2008}
+      \field{pages}{013310}
+      \range{pages}{1}
+      \verb{doi}
+      \verb https://doi.org/10.1063/1.2832689
+      \endverb
+    \endentry
+    \entry{Beiser1992}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=f625abada2398458a812fbae454cc984}{%
+           family={Beiser},
+           familyi={B\bibinitperiod},
+           given={Arthur},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {McGraw-Hill}%
+      }
+      \strng{namehash}{f625abada2398458a812fbae454cc984}
+      \strng{fullhash}{f625abada2398458a812fbae454cc984}
+      \strng{fullhashraw}{f625abada2398458a812fbae454cc984}
+      \strng{bibnamehash}{f625abada2398458a812fbae454cc984}
+      \strng{authorbibnamehash}{f625abada2398458a812fbae454cc984}
+      \strng{authornamehash}{f625abada2398458a812fbae454cc984}
+      \strng{authorfullhash}{f625abada2398458a812fbae454cc984}
+      \strng{authorfullhashraw}{f625abada2398458a812fbae454cc984}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{4}
+      \field{title}{Concepts of modern physics}
+      \field{year}{1992}
+    \endentry
+    \entry{Bengio1994}{article}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=40a8e4774982146adc2688546f54efb2}{%
+           family={Bengio},
+           familyi={B\bibinitperiod},
+           given={Yoshua},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c866c0bcd8215f257f24444a7f53932f}{%
+           family={Simard},
+           familyi={S\bibinitperiod},
+           given={Patrice},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f247df2d5de3a9ccb24aa9ee9fdaf277}{%
+           family={Frasconi},
+           familyi={F\bibinitperiod},
+           given={Paolo},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{058f6aa7282521dda725a309bd2d3fea}
+      \strng{fullhash}{e394d4a496ef63d7c69ef669365d2b97}
+      \strng{fullhashraw}{e394d4a496ef63d7c69ef669365d2b97}
+      \strng{bibnamehash}{e394d4a496ef63d7c69ef669365d2b97}
+      \strng{authorbibnamehash}{e394d4a496ef63d7c69ef669365d2b97}
+      \strng{authornamehash}{058f6aa7282521dda725a309bd2d3fea}
+      \strng{authorfullhash}{e394d4a496ef63d7c69ef669365d2b97}
+      \strng{authorfullhashraw}{e394d4a496ef63d7c69ef669365d2b97}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Transactions on Neural Networks}
+      \field{number}{2}
+      \field{title}{Learning long-term dependencies with gradient descent is difficult}
+      \field{volume}{5}
+      \field{year}{1994}
+      \field{pages}{157\bibrangedash 166}
+      \range{pages}{10}
+      \verb{doi}
+      \verb https://doi.org/10.1109/72.279181
+      \endverb
+    \endentry
+    \entry{Chandrasekhar1939}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=2cdd974df31a73795c3a486550391e0c}{%
+           family={Chandrasekhar},
+           familyi={C\bibinitperiod},
+           given={Subrahmanyan},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Chicago}%
+      }
+      \list{publisher}{1}{%
+        {University of Chicago Press}%
+      }
+      \strng{namehash}{2cdd974df31a73795c3a486550391e0c}
+      \strng{fullhash}{2cdd974df31a73795c3a486550391e0c}
+      \strng{fullhashraw}{2cdd974df31a73795c3a486550391e0c}
+      \strng{bibnamehash}{2cdd974df31a73795c3a486550391e0c}
+      \strng{authorbibnamehash}{2cdd974df31a73795c3a486550391e0c}
+      \strng{authornamehash}{2cdd974df31a73795c3a486550391e0c}
+      \strng{authorfullhash}{2cdd974df31a73795c3a486550391e0c}
+      \strng{authorfullhashraw}{2cdd974df31a73795c3a486550391e0c}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Reprinted by Dover Publications, 1958}
+      \field{title}{An introduction to the study of stellar structure}
+      \field{year}{1939}
+    \endentry
+    \entry{CremersRadzemski2013}{book}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=fb42252fd751d4b66aaad9e2f9188cb7}{%
+           family={Cremers},
+           familyi={C\bibinitperiod},
+           given={David\bibnamedelima A.},
+           giveni={D\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=3433254ad6811fba6052a640ba3d6041}{%
+           family={Radzemski},
+           familyi={R\bibinitperiod},
+           given={Leon\bibnamedelima J.},
+           giveni={L\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Wiley}%
+      }
+      \strng{namehash}{9201e78e96ed67ccdc249bbee3b9a767}
+      \strng{fullhash}{9201e78e96ed67ccdc249bbee3b9a767}
+      \strng{fullhashraw}{9201e78e96ed67ccdc249bbee3b9a767}
+      \strng{bibnamehash}{9201e78e96ed67ccdc249bbee3b9a767}
+      \strng{authorbibnamehash}{9201e78e96ed67ccdc249bbee3b9a767}
+      \strng{authornamehash}{9201e78e96ed67ccdc249bbee3b9a767}
+      \strng{authorfullhash}{9201e78e96ed67ccdc249bbee3b9a767}
+      \strng{authorfullhashraw}{9201e78e96ed67ccdc249bbee3b9a767}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{2nd}
+      \field{title}{Handbook of Laser-Induced Breakdown Spectroscopy}
+      \field{year}{2013}
+    \endentry
+    \entry{Cremers2013}{book}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=fb42252fd751d4b66aaad9e2f9188cb7}{%
+           family={Cremers},
+           familyi={C\bibinitperiod},
+           given={David\bibnamedelima A.},
+           giveni={D\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=1f033543c04c5bf57c705ea0021b58b0}{%
+           family={Radziemski},
+           familyi={R\bibinitperiod},
+           given={Leon\bibnamedelima J.},
+           giveni={L\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Chichester}%
+      }
+      \list{publisher}{1}{%
+        {John Wiley \& Sons}%
+      }
+      \strng{namehash}{26e33c35e2a35e983f841fb7fe8fcaac}
+      \strng{fullhash}{26e33c35e2a35e983f841fb7fe8fcaac}
+      \strng{fullhashraw}{26e33c35e2a35e983f841fb7fe8fcaac}
+      \strng{bibnamehash}{26e33c35e2a35e983f841fb7fe8fcaac}
+      \strng{authorbibnamehash}{26e33c35e2a35e983f841fb7fe8fcaac}
+      \strng{authornamehash}{26e33c35e2a35e983f841fb7fe8fcaac}
+      \strng{authorfullhash}{26e33c35e2a35e983f841fb7fe8fcaac}
+      \strng{authorfullhashraw}{26e33c35e2a35e983f841fb7fe8fcaac}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Handbook of Laser-Induced Breakdown Spectroscopy}
+      \field{year}{2013}
+      \verb{doi}
+      \verb 10.1002/9781118583427
+      \endverb
+    \endentry
+    \entry{Demtroder2010}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=59654c899d48eff28a4d8063e886fb5f}{%
+           family={Demtröder},
+           familyi={D\bibinitperiod},
+           given={Wolfgang},
+           giveni={W\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Berlin, Heidelberg}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{59654c899d48eff28a4d8063e886fb5f}
+      \strng{fullhash}{59654c899d48eff28a4d8063e886fb5f}
+      \strng{fullhashraw}{59654c899d48eff28a4d8063e886fb5f}
+      \strng{bibnamehash}{59654c899d48eff28a4d8063e886fb5f}
+      \strng{authorbibnamehash}{59654c899d48eff28a4d8063e886fb5f}
+      \strng{authornamehash}{59654c899d48eff28a4d8063e886fb5f}
+      \strng{authorfullhash}{59654c899d48eff28a4d8063e886fb5f}
+      \strng{authorfullhashraw}{59654c899d48eff28a4d8063e886fb5f}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{3}
+      \field{isbn}{978-3-642-10299-8}
+      \field{title}{Laser spectroscopy: Basic concepts and instrumentation}
+      \field{year}{2010}
+    \endentry
+    \entry{Draine2011}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=664de6fef69f2153fcd0b6fbbe4d45de}{%
+           family={Draine},
+           familyi={D\bibinitperiod},
+           given={Bruce\bibnamedelima T.},
+           giveni={B\bibinitperiod\bibinitdelim T\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Princeton University Press}%
+      }
+      \strng{namehash}{664de6fef69f2153fcd0b6fbbe4d45de}
+      \strng{fullhash}{664de6fef69f2153fcd0b6fbbe4d45de}
+      \strng{fullhashraw}{664de6fef69f2153fcd0b6fbbe4d45de}
+      \strng{bibnamehash}{664de6fef69f2153fcd0b6fbbe4d45de}
+      \strng{authorbibnamehash}{664de6fef69f2153fcd0b6fbbe4d45de}
+      \strng{authornamehash}{664de6fef69f2153fcd0b6fbbe4d45de}
+      \strng{authorfullhash}{664de6fef69f2153fcd0b6fbbe4d45de}
+      \strng{authorfullhashraw}{664de6fef69f2153fcd0b6fbbe4d45de}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Physics of the interstellar and intergalactic medium}
+      \field{year}{2011}
+      \verb{doi}
+      \verb https://doi.org/10.1515/9781400839087
+      \endverb
+    \endentry
+    \entry{Gaudiuso2023}{article}{}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=9772e2833dc9d2dc8b3a2302c35749cf}{%
+           family={Gaudiuso},
+           familyi={G\bibinitperiod},
+           given={Rosalba},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ad58e21e6e3f9d204c5f011697855574}{%
+           family={Dell'Aglio},
+           familyi={D\bibinitperiod},
+           given={Marcella},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a5d17d1a8c25fee0e1716da645d6ead6}{%
+           family={De\bibnamedelima Giacomo},
+           familyi={D\bibinitperiod\bibinitdelim G\bibinitperiod},
+           given={Alessandro},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=53f348e22792744ddc97e16df66ae79d}{%
+           family={Al-Wahab},
+           familyi={A\bibinithyphendelim W\bibinitperiod},
+           given={Zainab},
+           giveni={Z\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{ee89eb737d0437623e2fd720b814de67}
+      \strng{fullhash}{470c014829b9b86624d6bcce9f43f418}
+      \strng{fullhashraw}{470c014829b9b86624d6bcce9f43f418}
+      \strng{bibnamehash}{470c014829b9b86624d6bcce9f43f418}
+      \strng{authorbibnamehash}{470c014829b9b86624d6bcce9f43f418}
+      \strng{authornamehash}{ee89eb737d0437623e2fd720b814de67}
+      \strng{authorfullhash}{470c014829b9b86624d6bcce9f43f418}
+      \strng{authorfullhashraw}{470c014829b9b86624d6bcce9f43f418}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Spectrochimica Acta Part B: Atomic Spectroscopy}
+      \field{title}{Matrix effects in Laser-Induced Breakdown Spectroscopy: A review of the state of the art and a survey on the new frontiers}
+      \field{volume}{205}
+      \field{year}{2023}
+      \field{pages}{106695}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1016/j.sab.2023.106695
+      \endverb
+    \endentry
+    \entry{Griem1997}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=9dafc37417a4e73583cfa933b77fd730}{%
+           family={Griem},
+           familyi={G\bibinitperiod},
+           given={Hans\bibnamedelima R.},
+           giveni={H\bibinitperiod\bibinitdelim R\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Cambridge}%
+      }
+      \list{publisher}{1}{%
+        {Cambridge University Press}%
+      }
+      \strng{namehash}{9dafc37417a4e73583cfa933b77fd730}
+      \strng{fullhash}{9dafc37417a4e73583cfa933b77fd730}
+      \strng{fullhashraw}{9dafc37417a4e73583cfa933b77fd730}
+      \strng{bibnamehash}{9dafc37417a4e73583cfa933b77fd730}
+      \strng{authorbibnamehash}{9dafc37417a4e73583cfa933b77fd730}
+      \strng{authornamehash}{9dafc37417a4e73583cfa933b77fd730}
+      \strng{authorfullhash}{9dafc37417a4e73583cfa933b77fd730}
+      \strng{authorfullhashraw}{9dafc37417a4e73583cfa933b77fd730}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-0-521-61941-7}
+      \field{title}{Principles of plasma spectroscopy}
+      \field{year}{1997}
+    \endentry
+    \entry{Griffiths2005}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=a00328547222c4a2a201442ee59dccfd}{%
+           family={Griffiths},
+           familyi={G\bibinitperiod},
+           given={David\bibnamedelima J.},
+           giveni={D\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Pearson}%
+      }
+      \strng{namehash}{a00328547222c4a2a201442ee59dccfd}
+      \strng{fullhash}{a00328547222c4a2a201442ee59dccfd}
+      \strng{fullhashraw}{a00328547222c4a2a201442ee59dccfd}
+      \strng{bibnamehash}{a00328547222c4a2a201442ee59dccfd}
+      \strng{authorbibnamehash}{a00328547222c4a2a201442ee59dccfd}
+      \strng{authornamehash}{a00328547222c4a2a201442ee59dccfd}
+      \strng{authorfullhash}{a00328547222c4a2a201442ee59dccfd}
+      \strng{authorfullhashraw}{a00328547222c4a2a201442ee59dccfd}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{2}
+      \field{title}{Introduction to quantum mechanics}
+      \field{year}{2005}
+    \endentry
+    \entry{Harmon2021}{article}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=79a613afc803696d774bc1c66a10f02b}{%
+           family={Harmon},
+           familyi={H\bibinitperiod},
+           given={Russell\bibnamedelima S.},
+           giveni={R\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b5d5d80c4772eace56f6f031769ed83e}{%
+           family={McMillan},
+           familyi={M\bibinitperiod},
+           given={Nancy\bibnamedelima J.},
+           giveni={N\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=96ff54e53213f317c3cf230fd6fc61d1}{%
+           family={O'Sullivan},
+           familyi={O\bibinitperiod},
+           given={Seán\bibnamedelima P.},
+           giveni={S\bibinitperiod\bibinitdelim P\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{3622a9d068f9c6477c588b0ccf294df5}
+      \strng{fullhash}{8f972e56b21232dd172f40be03c43fb6}
+      \strng{fullhashraw}{8f972e56b21232dd172f40be03c43fb6}
+      \strng{bibnamehash}{8f972e56b21232dd172f40be03c43fb6}
+      \strng{authorbibnamehash}{8f972e56b21232dd172f40be03c43fb6}
+      \strng{authornamehash}{3622a9d068f9c6477c588b0ccf294df5}
+      \strng{authorfullhash}{8f972e56b21232dd172f40be03c43fb6}
+      \strng{authorfullhashraw}{8f972e56b21232dd172f40be03c43fb6}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Spectrochimica Acta Part B: Atomic Spectroscopy}
+      \field{title}{Laser induced breakdown spectroscopy – Quo Vadimus?}
+      \field{volume}{182}
+      \field{year}{2021}
+      \field{pages}{106242}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1016/j.sab.2021.106242
+      \endverb
+    \endentry
+    \entry{harmon-2021}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=79a613afc803696d774bc1c66a10f02b}{%
+           family={Harmon},
+           familyi={H\bibinitperiod},
+           given={Russell\bibnamedelima S.},
+           giveni={R\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=1aa4cd8b0aabd657ffe363926827c443}{%
+           family={Senesi},
+           familyi={S\bibinitperiod},
+           given={Giorgio\bibnamedelima S.},
+           giveni={G\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{69f6d3d7b02678a83142e3d1c1a99ac6}
+      \strng{fullhash}{69f6d3d7b02678a83142e3d1c1a99ac6}
+      \strng{fullhashraw}{69f6d3d7b02678a83142e3d1c1a99ac6}
+      \strng{bibnamehash}{69f6d3d7b02678a83142e3d1c1a99ac6}
+      \strng{authorbibnamehash}{69f6d3d7b02678a83142e3d1c1a99ac6}
+      \strng{authornamehash}{69f6d3d7b02678a83142e3d1c1a99ac6}
+      \strng{authorfullhash}{69f6d3d7b02678a83142e3d1c1a99ac6}
+      \strng{authorfullhashraw}{69f6d3d7b02678a83142e3d1c1a99ac6}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Applied Geochemistry}
+      \field{month}{3}
+      \field{title}{{Laser-Induced Breakdown Spectroscopy – A geochemical tool for the 21st century}}
+      \field{volume}{128}
+      \field{year}{2021}
+      \field{pages}{104929}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1016/j.apgeochem.2021.104929
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1016/j.apgeochem.2021.104929
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1016/j.apgeochem.2021.104929
+      \endverb
+    \endentry
+    \entry{Hochreiter1997}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=41b31e29fb2bdbf9f5c9c1b0d5b3e815}{%
+           family={Hochreiter},
+           familyi={H\bibinitperiod},
+           given={Sepp},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=288bdbcfe1b91ad7484d7a24f74f99ed}{%
+           family={Schmidhuber},
+           familyi={S\bibinitperiod},
+           given={Jürgen},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {MIT Press}%
+      }
+      \strng{namehash}{4c2e1e2e1ac91e1df9d4f7b85ebe39b4}
+      \strng{fullhash}{4c2e1e2e1ac91e1df9d4f7b85ebe39b4}
+      \strng{fullhashraw}{4c2e1e2e1ac91e1df9d4f7b85ebe39b4}
+      \strng{bibnamehash}{4c2e1e2e1ac91e1df9d4f7b85ebe39b4}
+      \strng{authorbibnamehash}{4c2e1e2e1ac91e1df9d4f7b85ebe39b4}
+      \strng{authornamehash}{4c2e1e2e1ac91e1df9d4f7b85ebe39b4}
+      \strng{authorfullhash}{4c2e1e2e1ac91e1df9d4f7b85ebe39b4}
+      \strng{authorfullhashraw}{4c2e1e2e1ac91e1df9d4f7b85ebe39b4}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Neural Computation}
+      \field{number}{8}
+      \field{title}{Long short-term memory}
+      \field{volume}{9}
+      \field{year}{1997}
+      \field{pages}{1735\bibrangedash 1780}
+      \range{pages}{46}
+      \verb{doi}
+      \verb https://doi.org/10.1162/neco.1997.9.8.1735
+      \endverb
+    \endentry
+    \entry{Konjevic1999}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=f235dd5b1d7bfcc9086300cec5805a30}{%
+           family={Konjević},
+           familyi={K\bibinitperiod},
+           given={Nikola},
+           giveni={N\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{f235dd5b1d7bfcc9086300cec5805a30}
+      \strng{fullhash}{f235dd5b1d7bfcc9086300cec5805a30}
+      \strng{fullhashraw}{f235dd5b1d7bfcc9086300cec5805a30}
+      \strng{bibnamehash}{f235dd5b1d7bfcc9086300cec5805a30}
+      \strng{authorbibnamehash}{f235dd5b1d7bfcc9086300cec5805a30}
+      \strng{authornamehash}{f235dd5b1d7bfcc9086300cec5805a30}
+      \strng{authorfullhash}{f235dd5b1d7bfcc9086300cec5805a30}
+      \strng{authorfullhashraw}{f235dd5b1d7bfcc9086300cec5805a30}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Spectrochimica Acta Part B: Atomic Spectroscopy}
+      \field{number}{14}
+      \field{title}{Plasma broadening and shifting of non-hydrogenic spectral lines: Present status and applications}
+      \field{volume}{54}
+      \field{year}{1999}
+      \field{pages}{2007\bibrangedash 2039}
+      \range{pages}{33}
+      \verb{doi}
+      \verb https://doi.org/10.1016/S0584-8547(99)00136-6
+      \endverb
+    \endentry
+    \entry{Kramida2022}{misc}{}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=dfe6b45caf6bde92c8043a6d6155a2e3}{%
+           family={Kramida},
+           familyi={K\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=18cf30cb026dddafd3a36f3f9f6c7946}{%
+           family={Ralchenko},
+           familyi={R\bibinitperiod},
+           given={Yu.},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a229e39103281c7289b6a24baab8c78a}{%
+           family={Reader},
+           familyi={R\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=bbe2795302024968bb526e4b1db0cabf}{%
+           family={{NIST ASD Team}},
+           familyi={N\bibinitperiod}}}%
+      }
+      \strng{namehash}{03d98f4ffd77c1bcf6f50c0e459f4219}
+      \strng{fullhash}{2c1e2a169dd22dc32f3176e57016f51e}
+      \strng{fullhashraw}{2c1e2a169dd22dc32f3176e57016f51e}
+      \strng{bibnamehash}{2c1e2a169dd22dc32f3176e57016f51e}
+      \strng{authorbibnamehash}{2c1e2a169dd22dc32f3176e57016f51e}
+      \strng{authornamehash}{03d98f4ffd77c1bcf6f50c0e459f4219}
+      \strng{authorfullhash}{2c1e2a169dd22dc32f3176e57016f51e}
+      \strng{authorfullhashraw}{2c1e2a169dd22dc32f3176e57016f51e}
+      \field{extraname}{1}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://dx.doi.org/10.18434/T4W30F}}
+      \field{note}{National Institute of Standards and Technology, Gaithersburg, MD, accessed: 2025-05-23}
+      \field{title}{{NIST Atomic Spectra Database (ver. 5.9)}}
+      \field{year}{2022}
+    \endentry
+    \entry{Kramida2023}{article}{}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=dfe6b45caf6bde92c8043a6d6155a2e3}{%
+           family={Kramida},
+           familyi={K\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=18cf30cb026dddafd3a36f3f9f6c7946}{%
+           family={Ralchenko},
+           familyi={R\bibinitperiod},
+           given={Yu.},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a229e39103281c7289b6a24baab8c78a}{%
+           family={Reader},
+           familyi={R\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=bbe2795302024968bb526e4b1db0cabf}{%
+           family={{NIST ASD Team}},
+           familyi={N\bibinitperiod}}}%
+      }
+      \strng{namehash}{03d98f4ffd77c1bcf6f50c0e459f4219}
+      \strng{fullhash}{2c1e2a169dd22dc32f3176e57016f51e}
+      \strng{fullhashraw}{2c1e2a169dd22dc32f3176e57016f51e}
+      \strng{bibnamehash}{2c1e2a169dd22dc32f3176e57016f51e}
+      \strng{authorbibnamehash}{2c1e2a169dd22dc32f3176e57016f51e}
+      \strng{authornamehash}{03d98f4ffd77c1bcf6f50c0e459f4219}
+      \strng{authorfullhash}{2c1e2a169dd22dc32f3176e57016f51e}
+      \strng{authorfullhashraw}{2c1e2a169dd22dc32f3176e57016f51e}
+      \field{extraname}{2}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{National Institute of Standards and Technology}
+      \field{title}{NIST Atomic Spectra Database (version 5.10)}
+      \field{year}{2023}
+      \verb{urlraw}
+      \verb https://physics.nist.gov/asd
+      \endverb
+      \verb{url}
+      \verb https://physics.nist.gov/asd
+      \endverb
+    \endentry
+    \entry{Mason2015}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=f5e7ac653b5dcf643751def178c6a3bb}{%
+           family={Mason},
+           familyi={M\bibinitperiod},
+           given={John},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {American Association of Physics Teachers}%
+      }
+      \strng{namehash}{f5e7ac653b5dcf643751def178c6a3bb}
+      \strng{fullhash}{f5e7ac653b5dcf643751def178c6a3bb}
+      \strng{fullhashraw}{f5e7ac653b5dcf643751def178c6a3bb}
+      \strng{bibnamehash}{f5e7ac653b5dcf643751def178c6a3bb}
+      \strng{authorbibnamehash}{f5e7ac653b5dcf643751def178c6a3bb}
+      \strng{authornamehash}{f5e7ac653b5dcf643751def178c6a3bb}
+      \strng{authorfullhash}{f5e7ac653b5dcf643751def178c6a3bb}
+      \strng{authorfullhashraw}{f5e7ac653b5dcf643751def178c6a3bb}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{American Journal of Physics}
+      \field{number}{5}
+      \field{title}{The Einstein coefficient and the partition function}
+      \field{volume}{83}
+      \field{year}{2015}
+      \field{pages}{405\bibrangedash 409}
+      \range{pages}{5}
+      \verb{doi}
+      \verb https://doi.org/10.1119/1.4913497
+      \endverb
+    \endentry
+    \entry{McWhirter1965}{inbook}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=2e196974d3ef08800ffb63b2584d6ae5}{%
+           family={McWhirter},
+           familyi={M\bibinitperiod},
+           given={R.\bibnamedelimi W.\bibnamedelimi P.},
+           giveni={R\bibinitperiod\bibinitdelim W\bibinitperiod\bibinitdelim P\bibinitperiod},
+           givenun=0}}%
+      }
+      \name{editor}{2}{}{%
+        {{hash=862496dac4f14f9420e09efafc6ac271}{%
+           family={Huddlestone},
+           familyi={H\bibinitperiod},
+           given={Richard\bibnamedelima H.},
+           giveni={R\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+        {{hash=9f34afad86bcb82fbac6bba03964e47b}{%
+           family={Leonard},
+           familyi={L\bibinitperiod},
+           given={Stanley\bibnamedelima L.},
+           giveni={S\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Academic Press}%
+      }
+      \strng{namehash}{2e196974d3ef08800ffb63b2584d6ae5}
+      \strng{fullhash}{2e196974d3ef08800ffb63b2584d6ae5}
+      \strng{fullhashraw}{2e196974d3ef08800ffb63b2584d6ae5}
+      \strng{bibnamehash}{2e196974d3ef08800ffb63b2584d6ae5}
+      \strng{authorbibnamehash}{2e196974d3ef08800ffb63b2584d6ae5}
+      \strng{authornamehash}{2e196974d3ef08800ffb63b2584d6ae5}
+      \strng{authorfullhash}{2e196974d3ef08800ffb63b2584d6ae5}
+      \strng{authorfullhashraw}{2e196974d3ef08800ffb63b2584d6ae5}
+      \strng{editorbibnamehash}{50b1f907dc39b40d7df33637912ce3f5}
+      \strng{editornamehash}{50b1f907dc39b40d7df33637912ce3f5}
+      \strng{editorfullhash}{50b1f907dc39b40d7df33637912ce3f5}
+      \strng{editorfullhashraw}{50b1f907dc39b40d7df33637912ce3f5}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Plasma Diagnostic Techniques}
+      \field{title}{Spectral intensities}
+      \field{year}{1965}
+      \field{pages}{201\bibrangedash 264}
+      \range{pages}{64}
+    \endentry
+    \entry{Miziolek2006}{book}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=fe630ed32110a7e62dfbd3a3e2cd8ede}{%
+           family={Miziolek},
+           familyi={M\bibinitperiod},
+           given={Andrzej\bibnamedelima W.},
+           giveni={A\bibinitperiod\bibinitdelim W\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=eead7808e0de4d2d0d75498317e6673a}{%
+           family={Palleschi},
+           familyi={P\bibinitperiod},
+           given={Vincenzo},
+           giveni={V\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2310609e023929cd13de43af8f0a8491}{%
+           family={Schechter},
+           familyi={S\bibinitperiod},
+           given={Israel},
+           giveni={I\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Cambridge}%
+      }
+      \list{publisher}{1}{%
+        {Cambridge University Press}%
+      }
+      \strng{namehash}{ffee3eb54900671f9827bb668b372a8d}
+      \strng{fullhash}{de1a24dc42d983492d2103316311dbe7}
+      \strng{fullhashraw}{de1a24dc42d983492d2103316311dbe7}
+      \strng{bibnamehash}{de1a24dc42d983492d2103316311dbe7}
+      \strng{authorbibnamehash}{de1a24dc42d983492d2103316311dbe7}
+      \strng{authornamehash}{ffee3eb54900671f9827bb668b372a8d}
+      \strng{authorfullhash}{de1a24dc42d983492d2103316311dbe7}
+      \strng{authorfullhashraw}{de1a24dc42d983492d2103316311dbe7}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-0-521-85274-6}
+      \field{title}{Laser-induced breakdown spectroscopy (LIBS): Fundamentals and applications}
+      \field{year}{2006}
+    \endentry
+    \entry{Panne2024}{inbook}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=78e5bbe9e66ac4071a80c5eeacc33e3c}{%
+           family={Panne},
+           familyi={P\bibinitperiod},
+           given={Ulrich},
+           giveni={U\bibinitperiod},
+           givenun=0}}%
+      }
+      \name{editor}{1}{}{%
+        {{hash=7f936ba7a00efb9cbc751c65eb2fd482}{%
+           family={Meyers},
+           familyi={M\bibinitperiod},
+           given={Robert\bibnamedelima A.},
+           giveni={R\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Wiley}%
+      }
+      \strng{namehash}{78e5bbe9e66ac4071a80c5eeacc33e3c}
+      \strng{fullhash}{78e5bbe9e66ac4071a80c5eeacc33e3c}
+      \strng{fullhashraw}{78e5bbe9e66ac4071a80c5eeacc33e3c}
+      \strng{bibnamehash}{78e5bbe9e66ac4071a80c5eeacc33e3c}
+      \strng{authorbibnamehash}{78e5bbe9e66ac4071a80c5eeacc33e3c}
+      \strng{authornamehash}{78e5bbe9e66ac4071a80c5eeacc33e3c}
+      \strng{authorfullhash}{78e5bbe9e66ac4071a80c5eeacc33e3c}
+      \strng{authorfullhashraw}{78e5bbe9e66ac4071a80c5eeacc33e3c}
+      \strng{editorbibnamehash}{7f936ba7a00efb9cbc751c65eb2fd482}
+      \strng{editornamehash}{7f936ba7a00efb9cbc751c65eb2fd482}
+      \strng{editorfullhash}{7f936ba7a00efb9cbc751c65eb2fd482}
+      \strng{editorfullhashraw}{7f936ba7a00efb9cbc751c65eb2fd482}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Encyclopedia of Analytical Chemistry}
+      \field{note}{(Hipotetis) Illustrative citation for a book chapter.}
+      \field{title}{Plasma Modeling for Spectrochemistry}
+      \field{year}{2024}
+      \verb{doi}
+      \verb 10.1002/9780470027318.a9021.pub3
+      \endverb
+    \endentry
+    \entry{Pathria2011}{book}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=d22b867978b9c363b85cd67f2a1f9f18}{%
+           family={Pathria},
+           familyi={P\bibinitperiod},
+           given={Raj\bibnamedelima K.},
+           giveni={R\bibinitperiod\bibinitdelim K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=473d4b220f7d73dc96f11cdb76c71143}{%
+           family={Beale},
+           familyi={B\bibinitperiod},
+           given={Paul\bibnamedelima D.},
+           giveni={P\bibinitperiod\bibinitdelim D\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{3db7097cbca4e5613826cabefc773b6e}
+      \strng{fullhash}{3db7097cbca4e5613826cabefc773b6e}
+      \strng{fullhashraw}{3db7097cbca4e5613826cabefc773b6e}
+      \strng{bibnamehash}{3db7097cbca4e5613826cabefc773b6e}
+      \strng{authorbibnamehash}{3db7097cbca4e5613826cabefc773b6e}
+      \strng{authornamehash}{3db7097cbca4e5613826cabefc773b6e}
+      \strng{authorfullhash}{3db7097cbca4e5613826cabefc773b6e}
+      \strng{authorfullhashraw}{3db7097cbca4e5613826cabefc773b6e}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Statistical mechanics}
+      \field{year}{2011}
+    \endentry
+    \entry{Porizka2018}{article}{}{}
+      \name{author}{6}{}{%
+        {{un=0,uniquepart=base,hash=0de202a2342772d57e8a7f7f498831e4}{%
+           family={Pořízka},
+           familyi={P\bibinitperiod},
+           given={Pavel},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=352dcdddc3046aa0073f10b818625524}{%
+           family={Klus},
+           familyi={K\bibinitperiod},
+           given={Jakub},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f97b937981a34fe90c948eec237d8dbe}{%
+           family={Képeš},
+           familyi={K\bibinitperiod},
+           given={Erik},
+           giveni={E\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=e7d21c7da675909b8c8df99447051944}{%
+           family={Prochazka},
+           familyi={P\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=e84d4800eb652af7704a928643b92845}{%
+           family={Hahn},
+           familyi={H\bibinitperiod},
+           given={David\bibnamedelima W.},
+           giveni={D\bibinitperiod\bibinitdelim W\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=36e9a5608e99a3d1916b05599755d8e9}{%
+           family={Kaiser},
+           familyi={K\bibinitperiod},
+           given={Jozef},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{e894c4d2b41346b7dd06e2a4c426d584}
+      \strng{fullhash}{d0c45df44c3296374c6bd35544944569}
+      \strng{fullhashraw}{d0c45df44c3296374c6bd35544944569}
+      \strng{bibnamehash}{d0c45df44c3296374c6bd35544944569}
+      \strng{authorbibnamehash}{d0c45df44c3296374c6bd35544944569}
+      \strng{authornamehash}{e894c4d2b41346b7dd06e2a4c426d584}
+      \strng{authorfullhash}{d0c45df44c3296374c6bd35544944569}
+      \strng{authorfullhashraw}{d0c45df44c3296374c6bd35544944569}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Applied Spectroscopy}
+      \field{number}{8}
+      \field{title}{Laser-Induced Breakdown Spectroscopy: A Review of Recent Advances in Instrumentation, Data Analysis, and Applications}
+      \field{volume}{72}
+      \field{year}{2018}
+      \field{pages}{1145\bibrangedash 1165}
+      \range{pages}{21}
+      \verb{doi}
+      \verb 10.1177/0003702818783307
+      \endverb
+    \endentry
+    \entry{Rybicki1985}{book}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=a8b83f4134b8420d321b4347ac783e11}{%
+           family={Rybicki},
+           familyi={R\bibinitperiod},
+           given={George\bibnamedelima B.},
+           giveni={G\bibinitperiod\bibinitdelim B\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=6f630e08309226fb2a0dbdf8e0a6fdf7}{%
+           family={Lightman},
+           familyi={L\bibinitperiod},
+           given={Alan\bibnamedelima P.},
+           giveni={A\bibinitperiod\bibinitdelim P\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Wiley}%
+      }
+      \strng{namehash}{5adc88be60a94c7021deb49fbe035855}
+      \strng{fullhash}{5adc88be60a94c7021deb49fbe035855}
+      \strng{fullhashraw}{5adc88be60a94c7021deb49fbe035855}
+      \strng{bibnamehash}{5adc88be60a94c7021deb49fbe035855}
+      \strng{authorbibnamehash}{5adc88be60a94c7021deb49fbe035855}
+      \strng{authornamehash}{5adc88be60a94c7021deb49fbe035855}
+      \strng{authorfullhash}{5adc88be60a94c7021deb49fbe035855}
+      \strng{authorfullhashraw}{5adc88be60a94c7021deb49fbe035855}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Radiative processes in astrophysics}
+      \field{year}{1985}
+      \verb{doi}
+      \verb https://doi.org/10.1002/9783527618170
+      \endverb
+    \endentry
+    \entry{Singh2007}{book}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=3d5b6f010cd0a2b8a93f610ad1d5b0ac}{%
+           family={Singh},
+           familyi={S\bibinitperiod},
+           given={Jagdish\bibnamedelima P.},
+           giveni={J\bibinitperiod\bibinitdelim P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=31bae3f2dba7814a6bf1d97ddce5a704}{%
+           family={Thakur},
+           familyi={T\bibinitperiod},
+           given={Surya\bibnamedelima N.},
+           giveni={S\bibinitperiod\bibinitdelim N\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{f978a6ac8cdadc8c921526fa17e6db1c}
+      \strng{fullhash}{f978a6ac8cdadc8c921526fa17e6db1c}
+      \strng{fullhashraw}{f978a6ac8cdadc8c921526fa17e6db1c}
+      \strng{bibnamehash}{f978a6ac8cdadc8c921526fa17e6db1c}
+      \strng{authorbibnamehash}{f978a6ac8cdadc8c921526fa17e6db1c}
+      \strng{authornamehash}{f978a6ac8cdadc8c921526fa17e6db1c}
+      \strng{authorfullhash}{f978a6ac8cdadc8c921526fa17e6db1c}
+      \strng{authorfullhashraw}{f978a6ac8cdadc8c921526fa17e6db1c}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Laser-Induced Breakdown Spectroscopy}
+      \field{year}{2007}
+    \endentry
+    \entry{Thorne1999}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=c5efa33bf693eddd2d5f2f07d6733854}{%
+           family={Thorne},
+           familyi={T\bibinitperiod},
+           given={Anne\bibnamedelima P.},
+           giveni={A\bibinitperiod\bibinitdelim P\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Berlin, Heidelberg}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{c5efa33bf693eddd2d5f2f07d6733854}
+      \strng{fullhash}{c5efa33bf693eddd2d5f2f07d6733854}
+      \strng{fullhashraw}{c5efa33bf693eddd2d5f2f07d6733854}
+      \strng{bibnamehash}{c5efa33bf693eddd2d5f2f07d6733854}
+      \strng{authorbibnamehash}{c5efa33bf693eddd2d5f2f07d6733854}
+      \strng{authornamehash}{c5efa33bf693eddd2d5f2f07d6733854}
+      \strng{authorfullhash}{c5efa33bf693eddd2d5f2f07d6733854}
+      \strng{authorfullhashraw}{c5efa33bf693eddd2d5f2f07d6733854}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Spectrophysics}
+      \field{year}{1999}
+      \verb{doi}
+      \verb 10.1007/978-3-642-58581-4
+      \endverb
+    \endentry
+    \entry{Vaswani2017}{article}{}{}
+      \name{author}{8}{}{%
+        {{un=0,uniquepart=base,hash=7f28e84700536646dd6620a0db07ad09}{%
+           family={Vaswani},
+           familyi={V\bibinitperiod},
+           given={Ashish},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=62efade83d70f0323fe248755e6c90c5}{%
+           family={Shazeer},
+           familyi={S\bibinitperiod},
+           given={Noam},
+           giveni={N\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=06649ebab1ea5cac0250746a19764975}{%
+           family={Parmar},
+           familyi={P\bibinitperiod},
+           given={Niki},
+           giveni={N\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=1c25d3552a1c98a125f5ee8ede082841}{%
+           family={Uszoreit},
+           familyi={U\bibinitperiod},
+           given={Jakob},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2fd2982e30ebcec93ec1cf76e0d797fd}{%
+           family={Jones},
+           familyi={J\bibinitperiod},
+           given={Llion},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=27b07e4eacbf4ef7a1438e3badb7dd8d}{%
+           family={Gomez},
+           familyi={G\bibinitperiod},
+           given={Aidan\bibnamedelima N.},
+           giveni={A\bibinitperiod\bibinitdelim N\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=540fcd72e1fa4bbed46604f4e6cff817}{%
+           family={Kaiser},
+           familyi={K\bibinitperiod},
+           given={Łukasz},
+           giveni={Ł\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=95595a0fefb86187cbc36e551017d332}{%
+           family={Polosukhin},
+           familyi={P\bibinitperiod},
+           given={Illia},
+           giveni={I\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Curran Associates, Inc.}%
+      }
+      \strng{namehash}{ee273ab30cfb889666f8c4d806eb9ce7}
+      \strng{fullhash}{49213f0ce29a4450782375dde33f3b78}
+      \strng{fullhashraw}{49213f0ce29a4450782375dde33f3b78}
+      \strng{bibnamehash}{49213f0ce29a4450782375dde33f3b78}
+      \strng{authorbibnamehash}{49213f0ce29a4450782375dde33f3b78}
+      \strng{authornamehash}{ee273ab30cfb889666f8c4d806eb9ce7}
+      \strng{authorfullhash}{49213f0ce29a4450782375dde33f3b78}
+      \strng{authorfullhashraw}{49213f0ce29a4450782375dde33f3b78}
+      \field{sortinit}{V}
+      \field{sortinithash}{afb52128e5b4dc4b843768c0113d673b}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Advances in Neural Information Processing Systems}
+      \field{title}{Attention is all you need}
+      \field{volume}{30}
+      \field{year}{2017}
+      \field{pages}{5998\bibrangedash 6008}
+      \range{pages}{11}
+      \verb{doi}
+      \verb https://doi.org/10.48550/arXiv.1706.03762
+      \endverb
+    \endentry
+    \entry{Wu2021}{article}{}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=98dce96f41870f1bbabf03de06a05caa}{%
+           family={Wu},
+           familyi={W\bibinitperiod},
+           given={Haixu},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=bf3bab790de4dc8bc6cfc53a67ae1d4b}{%
+           family={Xu},
+           familyi={X\bibinitperiod},
+           given={Jiehui},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=5677a530ed74bcd73cbf45f8088a8418}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Jianmin},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=867778fd4a7456937f929a855edfaf77}{%
+           family={Long},
+           familyi={L\bibinitperiod},
+           given={Mingsheng},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Curran Associates, Inc.}%
+      }
+      \strng{namehash}{338d0f3691411e7dad093368d83de073}
+      \strng{fullhash}{09e3b37b89f35f1f152f3e8d8754e163}
+      \strng{fullhashraw}{09e3b37b89f35f1f152f3e8d8754e163}
+      \strng{bibnamehash}{09e3b37b89f35f1f152f3e8d8754e163}
+      \strng{authorbibnamehash}{09e3b37b89f35f1f152f3e8d8754e163}
+      \strng{authornamehash}{338d0f3691411e7dad093368d83de073}
+      \strng{authorfullhash}{09e3b37b89f35f1f152f3e8d8754e163}
+      \strng{authorfullhashraw}{09e3b37b89f35f1f152f3e8d8754e163}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Advances in Neural Information Processing Systems}
+      \field{title}{Autoformer: Decomposition Transformers with Auto-Correlation for Long-Term Series Forecasting}
+      \field{volume}{34}
+      \field{year}{2021}
+      \field{pages}{22419\bibrangedash 22430}
+      \range{pages}{12}
+      \verb{urlraw}
+      \verb https://proceedings.neurips.cc/paper/2021/file/bcc0d400288793e8bdcd7c19a8ac0c2b-Paper.pdf
+      \endverb
+      \verb{url}
+      \verb https://proceedings.neurips.cc/paper/2021/file/bcc0d400288793e8bdcd7c19a8ac0c2b-Paper.pdf
+      \endverb
+    \endentry
+    \entry{Yang2025}{article}{}{}
+      \name{author}{7}{}{%
+        {{un=0,uniquepart=base,hash=e6a2657cef820bbb49683457d72554e7}{%
+           family={Yang},
+           familyi={Y\bibinitperiod},
+           given={Jiaxing},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b6e41563944551a37706c549acea98c2}{%
+           family={Shijie},
+           familyi={S\bibinitperiod},
+           given={Li},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=56bda333ab85070cdf1934ac222e12aa}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Zhao},
+           giveni={Z\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2e1c6bacd57962d9acf4bf7eefa38241}{%
+           family={Qian},
+           familyi={Q\bibinitperiod},
+           given={Dongbin},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a0043ad353838be4f658781084d332a1}{%
+           family={Sun},
+           familyi={S\bibinitperiod},
+           given={Shaohua},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=1e292ffa5ab2f18f01d1d941e2735808}{%
+           family={Liu},
+           familyi={L\bibinitperiod},
+           given={Xiaoliang},
+           giveni={X\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=5d9743020842d3a49953a092c484ade4}{%
+           family={Liu},
+           familyi={L\bibinitperiod},
+           given={Zuoye},
+           giveni={Z\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{0880603b74d5cdb9c5be61c3db17cf5f}
+      \strng{fullhash}{e7d176afdb2fb1fbb7eb67ad4eb35e20}
+      \strng{fullhashraw}{e7d176afdb2fb1fbb7eb67ad4eb35e20}
+      \strng{bibnamehash}{e7d176afdb2fb1fbb7eb67ad4eb35e20}
+      \strng{authorbibnamehash}{e7d176afdb2fb1fbb7eb67ad4eb35e20}
+      \strng{authornamehash}{0880603b74d5cdb9c5be61c3db17cf5f}
+      \strng{authorfullhash}{e7d176afdb2fb1fbb7eb67ad4eb35e20}
+      \strng{authorfullhashraw}{e7d176afdb2fb1fbb7eb67ad4eb35e20}
+      \field{sortinit}{Y}
+      \field{sortinithash}{fd67ad5a9ef0f7456bdd9aab10fe1495}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Talanta}
+      \field{month}{03}
+      \field{title}{Transformer-based deep learning models for quantification of La, Ce, and Nd in rare earth ores using laser-induced breakdown spectroscopy}
+      \field{volume}{292}
+      \field{year}{2025}
+      \field{pages}{127937}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1016/j.talanta.2025.127937
+      \endverb
+    \endentry
+    \entry{Zhou2021}{article}{}{}
+      \name{author}{7}{}{%
+        {{un=0,uniquepart=base,hash=c7def614c5b94aa5499428a9644f024d}{%
+           family={Zhou},
+           familyi={Z\bibinitperiod},
+           given={Haoyi},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=452a67ad1218340845acd7e598d57f19}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Shanghang},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=146dd5c72b5270e6c98219a385645574}{%
+           family={Peng},
+           familyi={P\bibinitperiod},
+           given={Jieqi},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=53eda2415f95a1d1f76572f661905aab}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Shuai},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=221d23a1cc1702c31044af688c0b7c39}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Jianxin},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=aa0c7ab0b9dad5902ab8fc501f57cd77}{%
+           family={Xiong},
+           familyi={X\bibinitperiod},
+           given={Hui},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d4d97ecef44bb5d1d6dab7f91276d649}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Wancai},
+           giveni={W\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{fd1f7c12e5bef04a5e71b623a18fadec}
+      \strng{fullhash}{116045fd64aa9173a259ff5ef8541d4b}
+      \strng{fullhashraw}{116045fd64aa9173a259ff5ef8541d4b}
+      \strng{bibnamehash}{116045fd64aa9173a259ff5ef8541d4b}
+      \strng{authorbibnamehash}{116045fd64aa9173a259ff5ef8541d4b}
+      \strng{authornamehash}{fd1f7c12e5bef04a5e71b623a18fadec}
+      \strng{authorfullhash}{116045fd64aa9173a259ff5ef8541d4b}
+      \strng{authorfullhashraw}{116045fd64aa9173a259ff5ef8541d4b}
+      \field{sortinit}{Z}
+      \field{sortinithash}{96892c0b0a36bb8557c40c49813d48b3}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Proceedings of the AAAI Conference on Artificial Intelligence}
+      \field{number}{12}
+      \field{title}{Informer: Beyond Efficient Transformer for Long Sequence Time-Series Forecasting}
+      \field{volume}{35}
+      \field{year}{2021}
+      \field{pages}{11106\bibrangedash 11115}
+      \range{pages}{10}
+      \verb{urlraw}
+      \verb https://ojs.aaai.org/index.php/AAAI/article/view/17325
+      \endverb
+      \verb{url}
+      \verb https://ojs.aaai.org/index.php/AAAI/article/view/17325
+      \endverb
+    \endentry
+  \enddatalist
+  \datalist[entry]{apa/global//global/global/global}
+    \entry{Aragon2008}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=8edd1b63f02f9e229b09ae399006413e}{%
+           family={Aragón},
+           familyi={A\bibinitperiod},
+           given={Carlos},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=1bc03c3ba7a762d8872067701df8c06f}{%
+           family={Aguilera},
+           familyi={A\bibinitperiod},
+           given={José\bibnamedelima Antonio},
+           giveni={J\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {AIP Publishing}%
+      }
+      \strng{namehash}{ed6596101c3c946847ff27380dd9828a}
+      \strng{fullhash}{ed6596101c3c946847ff27380dd9828a}
+      \strng{fullhashraw}{ed6596101c3c946847ff27380dd9828a}
+      \strng{bibnamehash}{ed6596101c3c946847ff27380dd9828a}
+      \strng{authorbibnamehash}{ed6596101c3c946847ff27380dd9828a}
+      \strng{authornamehash}{ed6596101c3c946847ff27380dd9828a}
+      \strng{authorfullhash}{ed6596101c3c946847ff27380dd9828a}
+      \strng{authorfullhashraw}{ed6596101c3c946847ff27380dd9828a}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of Applied Physics}
+      \field{number}{1}
+      \field{title}{Characterization of laser induced plasmas by optical emission spectroscopy: A review of experiments and methods}
+      \field{volume}{103}
+      \field{year}{2008}
+      \field{pages}{013310}
+      \range{pages}{1}
+      \verb{doi}
+      \verb https://doi.org/10.1063/1.2832689
+      \endverb
+    \endentry
+    \entry{Beiser1992}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=f625abada2398458a812fbae454cc984}{%
+           family={Beiser},
+           familyi={B\bibinitperiod},
+           given={Arthur},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {McGraw-Hill}%
+      }
+      \strng{namehash}{f625abada2398458a812fbae454cc984}
+      \strng{fullhash}{f625abada2398458a812fbae454cc984}
+      \strng{fullhashraw}{f625abada2398458a812fbae454cc984}
+      \strng{bibnamehash}{f625abada2398458a812fbae454cc984}
+      \strng{authorbibnamehash}{f625abada2398458a812fbae454cc984}
+      \strng{authornamehash}{f625abada2398458a812fbae454cc984}
+      \strng{authorfullhash}{f625abada2398458a812fbae454cc984}
+      \strng{authorfullhashraw}{f625abada2398458a812fbae454cc984}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{4}
+      \field{title}{Concepts of modern physics}
+      \field{year}{1992}
+    \endentry
+    \entry{Bengio1994}{article}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=40a8e4774982146adc2688546f54efb2}{%
+           family={Bengio},
+           familyi={B\bibinitperiod},
+           given={Yoshua},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=c866c0bcd8215f257f24444a7f53932f}{%
+           family={Simard},
+           familyi={S\bibinitperiod},
+           given={Patrice},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f247df2d5de3a9ccb24aa9ee9fdaf277}{%
+           family={Frasconi},
+           familyi={F\bibinitperiod},
+           given={Paolo},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{058f6aa7282521dda725a309bd2d3fea}
+      \strng{fullhash}{e394d4a496ef63d7c69ef669365d2b97}
+      \strng{fullhashraw}{e394d4a496ef63d7c69ef669365d2b97}
+      \strng{bibnamehash}{e394d4a496ef63d7c69ef669365d2b97}
+      \strng{authorbibnamehash}{e394d4a496ef63d7c69ef669365d2b97}
+      \strng{authornamehash}{058f6aa7282521dda725a309bd2d3fea}
+      \strng{authorfullhash}{e394d4a496ef63d7c69ef669365d2b97}
+      \strng{authorfullhashraw}{e394d4a496ef63d7c69ef669365d2b97}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Transactions on Neural Networks}
+      \field{number}{2}
+      \field{title}{Learning long-term dependencies with gradient descent is difficult}
+      \field{volume}{5}
+      \field{year}{1994}
+      \field{pages}{157\bibrangedash 166}
+      \range{pages}{10}
+      \verb{doi}
+      \verb https://doi.org/10.1109/72.279181
+      \endverb
+    \endentry
+    \entry{Chandrasekhar1939}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=2cdd974df31a73795c3a486550391e0c}{%
+           family={Chandrasekhar},
+           familyi={C\bibinitperiod},
+           given={Subrahmanyan},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Chicago}%
+      }
+      \list{publisher}{1}{%
+        {University of Chicago Press}%
+      }
+      \strng{namehash}{2cdd974df31a73795c3a486550391e0c}
+      \strng{fullhash}{2cdd974df31a73795c3a486550391e0c}
+      \strng{fullhashraw}{2cdd974df31a73795c3a486550391e0c}
+      \strng{bibnamehash}{2cdd974df31a73795c3a486550391e0c}
+      \strng{authorbibnamehash}{2cdd974df31a73795c3a486550391e0c}
+      \strng{authornamehash}{2cdd974df31a73795c3a486550391e0c}
+      \strng{authorfullhash}{2cdd974df31a73795c3a486550391e0c}
+      \strng{authorfullhashraw}{2cdd974df31a73795c3a486550391e0c}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{note}{Reprinted by Dover Publications, 1958}
+      \field{title}{An introduction to the study of stellar structure}
+      \field{year}{1939}
+    \endentry
+    \entry{CremersRadzemski2013}{book}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=fb42252fd751d4b66aaad9e2f9188cb7}{%
+           family={Cremers},
+           familyi={C\bibinitperiod},
+           given={David\bibnamedelima A.},
+           giveni={D\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=3433254ad6811fba6052a640ba3d6041}{%
+           family={Radzemski},
+           familyi={R\bibinitperiod},
+           given={Leon\bibnamedelima J.},
+           giveni={L\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Wiley}%
+      }
+      \strng{namehash}{9201e78e96ed67ccdc249bbee3b9a767}
+      \strng{fullhash}{9201e78e96ed67ccdc249bbee3b9a767}
+      \strng{fullhashraw}{9201e78e96ed67ccdc249bbee3b9a767}
+      \strng{bibnamehash}{9201e78e96ed67ccdc249bbee3b9a767}
+      \strng{authorbibnamehash}{9201e78e96ed67ccdc249bbee3b9a767}
+      \strng{authornamehash}{9201e78e96ed67ccdc249bbee3b9a767}
+      \strng{authorfullhash}{9201e78e96ed67ccdc249bbee3b9a767}
+      \strng{authorfullhashraw}{9201e78e96ed67ccdc249bbee3b9a767}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{2nd}
+      \field{title}{Handbook of Laser-Induced Breakdown Spectroscopy}
+      \field{year}{2013}
+    \endentry
+    \entry{Cremers2013}{book}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=fb42252fd751d4b66aaad9e2f9188cb7}{%
+           family={Cremers},
+           familyi={C\bibinitperiod},
+           given={David\bibnamedelima A.},
+           giveni={D\bibinitperiod\bibinitdelim A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=1f033543c04c5bf57c705ea0021b58b0}{%
+           family={Radziemski},
+           familyi={R\bibinitperiod},
+           given={Leon\bibnamedelima J.},
+           giveni={L\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Chichester}%
+      }
+      \list{publisher}{1}{%
+        {John Wiley \& Sons}%
+      }
+      \strng{namehash}{26e33c35e2a35e983f841fb7fe8fcaac}
+      \strng{fullhash}{26e33c35e2a35e983f841fb7fe8fcaac}
+      \strng{fullhashraw}{26e33c35e2a35e983f841fb7fe8fcaac}
+      \strng{bibnamehash}{26e33c35e2a35e983f841fb7fe8fcaac}
+      \strng{authorbibnamehash}{26e33c35e2a35e983f841fb7fe8fcaac}
+      \strng{authornamehash}{26e33c35e2a35e983f841fb7fe8fcaac}
+      \strng{authorfullhash}{26e33c35e2a35e983f841fb7fe8fcaac}
+      \strng{authorfullhashraw}{26e33c35e2a35e983f841fb7fe8fcaac}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Handbook of Laser-Induced Breakdown Spectroscopy}
+      \field{year}{2013}
+      \verb{doi}
+      \verb 10.1002/9781118583427
+      \endverb
+    \endentry
+    \entry{Demtroder2010}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=59654c899d48eff28a4d8063e886fb5f}{%
+           family={Demtröder},
+           familyi={D\bibinitperiod},
+           given={Wolfgang},
+           giveni={W\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Berlin, Heidelberg}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{59654c899d48eff28a4d8063e886fb5f}
+      \strng{fullhash}{59654c899d48eff28a4d8063e886fb5f}
+      \strng{fullhashraw}{59654c899d48eff28a4d8063e886fb5f}
+      \strng{bibnamehash}{59654c899d48eff28a4d8063e886fb5f}
+      \strng{authorbibnamehash}{59654c899d48eff28a4d8063e886fb5f}
+      \strng{authornamehash}{59654c899d48eff28a4d8063e886fb5f}
+      \strng{authorfullhash}{59654c899d48eff28a4d8063e886fb5f}
+      \strng{authorfullhashraw}{59654c899d48eff28a4d8063e886fb5f}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{3}
+      \field{isbn}{978-3-642-10299-8}
+      \field{title}{Laser spectroscopy: Basic concepts and instrumentation}
+      \field{year}{2010}
+    \endentry
+    \entry{Draine2011}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=664de6fef69f2153fcd0b6fbbe4d45de}{%
+           family={Draine},
+           familyi={D\bibinitperiod},
+           given={Bruce\bibnamedelima T.},
+           giveni={B\bibinitperiod\bibinitdelim T\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Princeton University Press}%
+      }
+      \strng{namehash}{664de6fef69f2153fcd0b6fbbe4d45de}
+      \strng{fullhash}{664de6fef69f2153fcd0b6fbbe4d45de}
+      \strng{fullhashraw}{664de6fef69f2153fcd0b6fbbe4d45de}
+      \strng{bibnamehash}{664de6fef69f2153fcd0b6fbbe4d45de}
+      \strng{authorbibnamehash}{664de6fef69f2153fcd0b6fbbe4d45de}
+      \strng{authornamehash}{664de6fef69f2153fcd0b6fbbe4d45de}
+      \strng{authorfullhash}{664de6fef69f2153fcd0b6fbbe4d45de}
+      \strng{authorfullhashraw}{664de6fef69f2153fcd0b6fbbe4d45de}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Physics of the interstellar and intergalactic medium}
+      \field{year}{2011}
+      \verb{doi}
+      \verb https://doi.org/10.1515/9781400839087
+      \endverb
+    \endentry
+    \entry{Gaudiuso2023}{article}{}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=9772e2833dc9d2dc8b3a2302c35749cf}{%
+           family={Gaudiuso},
+           familyi={G\bibinitperiod},
+           given={Rosalba},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ad58e21e6e3f9d204c5f011697855574}{%
+           family={Dell'Aglio},
+           familyi={D\bibinitperiod},
+           given={Marcella},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a5d17d1a8c25fee0e1716da645d6ead6}{%
+           family={De\bibnamedelima Giacomo},
+           familyi={D\bibinitperiod\bibinitdelim G\bibinitperiod},
+           given={Alessandro},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=53f348e22792744ddc97e16df66ae79d}{%
+           family={Al-Wahab},
+           familyi={A\bibinithyphendelim W\bibinitperiod},
+           given={Zainab},
+           giveni={Z\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{ee89eb737d0437623e2fd720b814de67}
+      \strng{fullhash}{470c014829b9b86624d6bcce9f43f418}
+      \strng{fullhashraw}{470c014829b9b86624d6bcce9f43f418}
+      \strng{bibnamehash}{470c014829b9b86624d6bcce9f43f418}
+      \strng{authorbibnamehash}{470c014829b9b86624d6bcce9f43f418}
+      \strng{authornamehash}{ee89eb737d0437623e2fd720b814de67}
+      \strng{authorfullhash}{470c014829b9b86624d6bcce9f43f418}
+      \strng{authorfullhashraw}{470c014829b9b86624d6bcce9f43f418}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Spectrochimica Acta Part B: Atomic Spectroscopy}
+      \field{title}{Matrix effects in Laser-Induced Breakdown Spectroscopy: A review of the state of the art and a survey on the new frontiers}
+      \field{volume}{205}
+      \field{year}{2023}
+      \field{pages}{106695}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1016/j.sab.2023.106695
+      \endverb
+    \endentry
+    \entry{Griem1997}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=9dafc37417a4e73583cfa933b77fd730}{%
+           family={Griem},
+           familyi={G\bibinitperiod},
+           given={Hans\bibnamedelima R.},
+           giveni={H\bibinitperiod\bibinitdelim R\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Cambridge}%
+      }
+      \list{publisher}{1}{%
+        {Cambridge University Press}%
+      }
+      \strng{namehash}{9dafc37417a4e73583cfa933b77fd730}
+      \strng{fullhash}{9dafc37417a4e73583cfa933b77fd730}
+      \strng{fullhashraw}{9dafc37417a4e73583cfa933b77fd730}
+      \strng{bibnamehash}{9dafc37417a4e73583cfa933b77fd730}
+      \strng{authorbibnamehash}{9dafc37417a4e73583cfa933b77fd730}
+      \strng{authornamehash}{9dafc37417a4e73583cfa933b77fd730}
+      \strng{authorfullhash}{9dafc37417a4e73583cfa933b77fd730}
+      \strng{authorfullhashraw}{9dafc37417a4e73583cfa933b77fd730}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-0-521-61941-7}
+      \field{title}{Principles of plasma spectroscopy}
+      \field{year}{1997}
+    \endentry
+    \entry{Griffiths2005}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=a00328547222c4a2a201442ee59dccfd}{%
+           family={Griffiths},
+           familyi={G\bibinitperiod},
+           given={David\bibnamedelima J.},
+           giveni={D\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Pearson}%
+      }
+      \strng{namehash}{a00328547222c4a2a201442ee59dccfd}
+      \strng{fullhash}{a00328547222c4a2a201442ee59dccfd}
+      \strng{fullhashraw}{a00328547222c4a2a201442ee59dccfd}
+      \strng{bibnamehash}{a00328547222c4a2a201442ee59dccfd}
+      \strng{authorbibnamehash}{a00328547222c4a2a201442ee59dccfd}
+      \strng{authornamehash}{a00328547222c4a2a201442ee59dccfd}
+      \strng{authorfullhash}{a00328547222c4a2a201442ee59dccfd}
+      \strng{authorfullhashraw}{a00328547222c4a2a201442ee59dccfd}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{edition}{2}
+      \field{title}{Introduction to quantum mechanics}
+      \field{year}{2005}
+    \endentry
+    \entry{Harmon2021}{article}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=79a613afc803696d774bc1c66a10f02b}{%
+           family={Harmon},
+           familyi={H\bibinitperiod},
+           given={Russell\bibnamedelima S.},
+           giveni={R\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b5d5d80c4772eace56f6f031769ed83e}{%
+           family={McMillan},
+           familyi={M\bibinitperiod},
+           given={Nancy\bibnamedelima J.},
+           giveni={N\bibinitperiod\bibinitdelim J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=96ff54e53213f317c3cf230fd6fc61d1}{%
+           family={O'Sullivan},
+           familyi={O\bibinitperiod},
+           given={Seán\bibnamedelima P.},
+           giveni={S\bibinitperiod\bibinitdelim P\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{3622a9d068f9c6477c588b0ccf294df5}
+      \strng{fullhash}{8f972e56b21232dd172f40be03c43fb6}
+      \strng{fullhashraw}{8f972e56b21232dd172f40be03c43fb6}
+      \strng{bibnamehash}{8f972e56b21232dd172f40be03c43fb6}
+      \strng{authorbibnamehash}{8f972e56b21232dd172f40be03c43fb6}
+      \strng{authornamehash}{3622a9d068f9c6477c588b0ccf294df5}
+      \strng{authorfullhash}{8f972e56b21232dd172f40be03c43fb6}
+      \strng{authorfullhashraw}{8f972e56b21232dd172f40be03c43fb6}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Spectrochimica Acta Part B: Atomic Spectroscopy}
+      \field{title}{Laser induced breakdown spectroscopy – Quo Vadimus?}
+      \field{volume}{182}
+      \field{year}{2021}
+      \field{pages}{106242}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1016/j.sab.2021.106242
+      \endverb
+    \endentry
+    \entry{harmon-2021}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=79a613afc803696d774bc1c66a10f02b}{%
+           family={Harmon},
+           familyi={H\bibinitperiod},
+           given={Russell\bibnamedelima S.},
+           giveni={R\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=1aa4cd8b0aabd657ffe363926827c443}{%
+           family={Senesi},
+           familyi={S\bibinitperiod},
+           given={Giorgio\bibnamedelima S.},
+           giveni={G\bibinitperiod\bibinitdelim S\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{69f6d3d7b02678a83142e3d1c1a99ac6}
+      \strng{fullhash}{69f6d3d7b02678a83142e3d1c1a99ac6}
+      \strng{fullhashraw}{69f6d3d7b02678a83142e3d1c1a99ac6}
+      \strng{bibnamehash}{69f6d3d7b02678a83142e3d1c1a99ac6}
+      \strng{authorbibnamehash}{69f6d3d7b02678a83142e3d1c1a99ac6}
+      \strng{authornamehash}{69f6d3d7b02678a83142e3d1c1a99ac6}
+      \strng{authorfullhash}{69f6d3d7b02678a83142e3d1c1a99ac6}
+      \strng{authorfullhashraw}{69f6d3d7b02678a83142e3d1c1a99ac6}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Applied Geochemistry}
+      \field{month}{3}
+      \field{title}{{Laser-Induced Breakdown Spectroscopy – A geochemical tool for the 21st century}}
+      \field{volume}{128}
+      \field{year}{2021}
+      \field{pages}{104929}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1016/j.apgeochem.2021.104929
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1016/j.apgeochem.2021.104929
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1016/j.apgeochem.2021.104929
+      \endverb
+    \endentry
+    \entry{Hochreiter1997}{article}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=41b31e29fb2bdbf9f5c9c1b0d5b3e815}{%
+           family={Hochreiter},
+           familyi={H\bibinitperiod},
+           given={Sepp},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=288bdbcfe1b91ad7484d7a24f74f99ed}{%
+           family={Schmidhuber},
+           familyi={S\bibinitperiod},
+           given={Jürgen},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {MIT Press}%
+      }
+      \strng{namehash}{4c2e1e2e1ac91e1df9d4f7b85ebe39b4}
+      \strng{fullhash}{4c2e1e2e1ac91e1df9d4f7b85ebe39b4}
+      \strng{fullhashraw}{4c2e1e2e1ac91e1df9d4f7b85ebe39b4}
+      \strng{bibnamehash}{4c2e1e2e1ac91e1df9d4f7b85ebe39b4}
+      \strng{authorbibnamehash}{4c2e1e2e1ac91e1df9d4f7b85ebe39b4}
+      \strng{authornamehash}{4c2e1e2e1ac91e1df9d4f7b85ebe39b4}
+      \strng{authorfullhash}{4c2e1e2e1ac91e1df9d4f7b85ebe39b4}
+      \strng{authorfullhashraw}{4c2e1e2e1ac91e1df9d4f7b85ebe39b4}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Neural Computation}
+      \field{number}{8}
+      \field{title}{Long short-term memory}
+      \field{volume}{9}
+      \field{year}{1997}
+      \field{pages}{1735\bibrangedash 1780}
+      \range{pages}{46}
+      \verb{doi}
+      \verb https://doi.org/10.1162/neco.1997.9.8.1735
+      \endverb
+    \endentry
+    \entry{Konjevic1999}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=f235dd5b1d7bfcc9086300cec5805a30}{%
+           family={Konjević},
+           familyi={K\bibinitperiod},
+           given={Nikola},
+           giveni={N\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{f235dd5b1d7bfcc9086300cec5805a30}
+      \strng{fullhash}{f235dd5b1d7bfcc9086300cec5805a30}
+      \strng{fullhashraw}{f235dd5b1d7bfcc9086300cec5805a30}
+      \strng{bibnamehash}{f235dd5b1d7bfcc9086300cec5805a30}
+      \strng{authorbibnamehash}{f235dd5b1d7bfcc9086300cec5805a30}
+      \strng{authornamehash}{f235dd5b1d7bfcc9086300cec5805a30}
+      \strng{authorfullhash}{f235dd5b1d7bfcc9086300cec5805a30}
+      \strng{authorfullhashraw}{f235dd5b1d7bfcc9086300cec5805a30}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Spectrochimica Acta Part B: Atomic Spectroscopy}
+      \field{number}{14}
+      \field{title}{Plasma broadening and shifting of non-hydrogenic spectral lines: Present status and applications}
+      \field{volume}{54}
+      \field{year}{1999}
+      \field{pages}{2007\bibrangedash 2039}
+      \range{pages}{33}
+      \verb{doi}
+      \verb https://doi.org/10.1016/S0584-8547(99)00136-6
+      \endverb
+    \endentry
+    \entry{Kramida2022}{misc}{}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=dfe6b45caf6bde92c8043a6d6155a2e3}{%
+           family={Kramida},
+           familyi={K\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=18cf30cb026dddafd3a36f3f9f6c7946}{%
+           family={Ralchenko},
+           familyi={R\bibinitperiod},
+           given={Yu.},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a229e39103281c7289b6a24baab8c78a}{%
+           family={Reader},
+           familyi={R\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=bbe2795302024968bb526e4b1db0cabf}{%
+           family={{NIST ASD Team}},
+           familyi={N\bibinitperiod}}}%
+      }
+      \strng{namehash}{03d98f4ffd77c1bcf6f50c0e459f4219}
+      \strng{fullhash}{2c1e2a169dd22dc32f3176e57016f51e}
+      \strng{fullhashraw}{2c1e2a169dd22dc32f3176e57016f51e}
+      \strng{bibnamehash}{2c1e2a169dd22dc32f3176e57016f51e}
+      \strng{authorbibnamehash}{2c1e2a169dd22dc32f3176e57016f51e}
+      \strng{authornamehash}{03d98f4ffd77c1bcf6f50c0e459f4219}
+      \strng{authorfullhash}{2c1e2a169dd22dc32f3176e57016f51e}
+      \strng{authorfullhashraw}{2c1e2a169dd22dc32f3176e57016f51e}
+      \field{extraname}{1}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://dx.doi.org/10.18434/T4W30F}}
+      \field{note}{National Institute of Standards and Technology, Gaithersburg, MD, accessed: 2025-05-23}
+      \field{title}{{NIST Atomic Spectra Database (ver. 5.9)}}
+      \field{year}{2022}
+    \endentry
+    \entry{Kramida2023}{article}{}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=dfe6b45caf6bde92c8043a6d6155a2e3}{%
+           family={Kramida},
+           familyi={K\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=18cf30cb026dddafd3a36f3f9f6c7946}{%
+           family={Ralchenko},
+           familyi={R\bibinitperiod},
+           given={Yu.},
+           giveni={Y\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a229e39103281c7289b6a24baab8c78a}{%
+           family={Reader},
+           familyi={R\bibinitperiod},
+           given={J.},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=bbe2795302024968bb526e4b1db0cabf}{%
+           family={{NIST ASD Team}},
+           familyi={N\bibinitperiod}}}%
+      }
+      \strng{namehash}{03d98f4ffd77c1bcf6f50c0e459f4219}
+      \strng{fullhash}{2c1e2a169dd22dc32f3176e57016f51e}
+      \strng{fullhashraw}{2c1e2a169dd22dc32f3176e57016f51e}
+      \strng{bibnamehash}{2c1e2a169dd22dc32f3176e57016f51e}
+      \strng{authorbibnamehash}{2c1e2a169dd22dc32f3176e57016f51e}
+      \strng{authornamehash}{03d98f4ffd77c1bcf6f50c0e459f4219}
+      \strng{authorfullhash}{2c1e2a169dd22dc32f3176e57016f51e}
+      \strng{authorfullhashraw}{2c1e2a169dd22dc32f3176e57016f51e}
+      \field{extraname}{2}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{National Institute of Standards and Technology}
+      \field{title}{NIST Atomic Spectra Database (version 5.10)}
+      \field{year}{2023}
+      \verb{urlraw}
+      \verb https://physics.nist.gov/asd
+      \endverb
+      \verb{url}
+      \verb https://physics.nist.gov/asd
+      \endverb
+    \endentry
+    \entry{Mason2015}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=f5e7ac653b5dcf643751def178c6a3bb}{%
+           family={Mason},
+           familyi={M\bibinitperiod},
+           given={John},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {American Association of Physics Teachers}%
+      }
+      \strng{namehash}{f5e7ac653b5dcf643751def178c6a3bb}
+      \strng{fullhash}{f5e7ac653b5dcf643751def178c6a3bb}
+      \strng{fullhashraw}{f5e7ac653b5dcf643751def178c6a3bb}
+      \strng{bibnamehash}{f5e7ac653b5dcf643751def178c6a3bb}
+      \strng{authorbibnamehash}{f5e7ac653b5dcf643751def178c6a3bb}
+      \strng{authornamehash}{f5e7ac653b5dcf643751def178c6a3bb}
+      \strng{authorfullhash}{f5e7ac653b5dcf643751def178c6a3bb}
+      \strng{authorfullhashraw}{f5e7ac653b5dcf643751def178c6a3bb}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{American Journal of Physics}
+      \field{number}{5}
+      \field{title}{The Einstein coefficient and the partition function}
+      \field{volume}{83}
+      \field{year}{2015}
+      \field{pages}{405\bibrangedash 409}
+      \range{pages}{5}
+      \verb{doi}
+      \verb https://doi.org/10.1119/1.4913497
+      \endverb
+    \endentry
+    \entry{McWhirter1965}{inbook}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=2e196974d3ef08800ffb63b2584d6ae5}{%
+           family={McWhirter},
+           familyi={M\bibinitperiod},
+           given={R.\bibnamedelimi W.\bibnamedelimi P.},
+           giveni={R\bibinitperiod\bibinitdelim W\bibinitperiod\bibinitdelim P\bibinitperiod},
+           givenun=0}}%
+      }
+      \name{editor}{2}{}{%
+        {{hash=862496dac4f14f9420e09efafc6ac271}{%
+           family={Huddlestone},
+           familyi={H\bibinitperiod},
+           given={Richard\bibnamedelima H.},
+           giveni={R\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+        {{hash=9f34afad86bcb82fbac6bba03964e47b}{%
+           family={Leonard},
+           familyi={L\bibinitperiod},
+           given={Stanley\bibnamedelima L.},
+           giveni={S\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Academic Press}%
+      }
+      \strng{namehash}{2e196974d3ef08800ffb63b2584d6ae5}
+      \strng{fullhash}{2e196974d3ef08800ffb63b2584d6ae5}
+      \strng{fullhashraw}{2e196974d3ef08800ffb63b2584d6ae5}
+      \strng{bibnamehash}{2e196974d3ef08800ffb63b2584d6ae5}
+      \strng{authorbibnamehash}{2e196974d3ef08800ffb63b2584d6ae5}
+      \strng{authornamehash}{2e196974d3ef08800ffb63b2584d6ae5}
+      \strng{authorfullhash}{2e196974d3ef08800ffb63b2584d6ae5}
+      \strng{authorfullhashraw}{2e196974d3ef08800ffb63b2584d6ae5}
+      \strng{editorbibnamehash}{50b1f907dc39b40d7df33637912ce3f5}
+      \strng{editornamehash}{50b1f907dc39b40d7df33637912ce3f5}
+      \strng{editorfullhash}{50b1f907dc39b40d7df33637912ce3f5}
+      \strng{editorfullhashraw}{50b1f907dc39b40d7df33637912ce3f5}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Plasma Diagnostic Techniques}
+      \field{title}{Spectral intensities}
+      \field{year}{1965}
+      \field{pages}{201\bibrangedash 264}
+      \range{pages}{64}
+    \endentry
+    \entry{Miziolek2006}{book}{}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=fe630ed32110a7e62dfbd3a3e2cd8ede}{%
+           family={Miziolek},
+           familyi={M\bibinitperiod},
+           given={Andrzej\bibnamedelima W.},
+           giveni={A\bibinitperiod\bibinitdelim W\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=eead7808e0de4d2d0d75498317e6673a}{%
+           family={Palleschi},
+           familyi={P\bibinitperiod},
+           given={Vincenzo},
+           giveni={V\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2310609e023929cd13de43af8f0a8491}{%
+           family={Schechter},
+           familyi={S\bibinitperiod},
+           given={Israel},
+           giveni={I\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Cambridge}%
+      }
+      \list{publisher}{1}{%
+        {Cambridge University Press}%
+      }
+      \strng{namehash}{ffee3eb54900671f9827bb668b372a8d}
+      \strng{fullhash}{de1a24dc42d983492d2103316311dbe7}
+      \strng{fullhashraw}{de1a24dc42d983492d2103316311dbe7}
+      \strng{bibnamehash}{de1a24dc42d983492d2103316311dbe7}
+      \strng{authorbibnamehash}{de1a24dc42d983492d2103316311dbe7}
+      \strng{authornamehash}{ffee3eb54900671f9827bb668b372a8d}
+      \strng{authorfullhash}{de1a24dc42d983492d2103316311dbe7}
+      \strng{authorfullhashraw}{de1a24dc42d983492d2103316311dbe7}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{978-0-521-85274-6}
+      \field{title}{Laser-induced breakdown spectroscopy (LIBS): Fundamentals and applications}
+      \field{year}{2006}
+    \endentry
+    \entry{Panne2024}{inbook}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=78e5bbe9e66ac4071a80c5eeacc33e3c}{%
+           family={Panne},
+           familyi={P\bibinitperiod},
+           given={Ulrich},
+           giveni={U\bibinitperiod},
+           givenun=0}}%
+      }
+      \name{editor}{1}{}{%
+        {{hash=7f936ba7a00efb9cbc751c65eb2fd482}{%
+           family={Meyers},
+           familyi={M\bibinitperiod},
+           given={Robert\bibnamedelima A.},
+           giveni={R\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Wiley}%
+      }
+      \strng{namehash}{78e5bbe9e66ac4071a80c5eeacc33e3c}
+      \strng{fullhash}{78e5bbe9e66ac4071a80c5eeacc33e3c}
+      \strng{fullhashraw}{78e5bbe9e66ac4071a80c5eeacc33e3c}
+      \strng{bibnamehash}{78e5bbe9e66ac4071a80c5eeacc33e3c}
+      \strng{authorbibnamehash}{78e5bbe9e66ac4071a80c5eeacc33e3c}
+      \strng{authornamehash}{78e5bbe9e66ac4071a80c5eeacc33e3c}
+      \strng{authorfullhash}{78e5bbe9e66ac4071a80c5eeacc33e3c}
+      \strng{authorfullhashraw}{78e5bbe9e66ac4071a80c5eeacc33e3c}
+      \strng{editorbibnamehash}{7f936ba7a00efb9cbc751c65eb2fd482}
+      \strng{editornamehash}{7f936ba7a00efb9cbc751c65eb2fd482}
+      \strng{editorfullhash}{7f936ba7a00efb9cbc751c65eb2fd482}
+      \strng{editorfullhashraw}{7f936ba7a00efb9cbc751c65eb2fd482}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Encyclopedia of Analytical Chemistry}
+      \field{note}{(Hipotetis) Illustrative citation for a book chapter.}
+      \field{title}{Plasma Modeling for Spectrochemistry}
+      \field{year}{2024}
+      \verb{doi}
+      \verb 10.1002/9780470027318.a9021.pub3
+      \endverb
+    \endentry
+    \entry{Pathria2011}{book}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=d22b867978b9c363b85cd67f2a1f9f18}{%
+           family={Pathria},
+           familyi={P\bibinitperiod},
+           given={Raj\bibnamedelima K.},
+           giveni={R\bibinitperiod\bibinitdelim K\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=473d4b220f7d73dc96f11cdb76c71143}{%
+           family={Beale},
+           familyi={B\bibinitperiod},
+           given={Paul\bibnamedelima D.},
+           giveni={P\bibinitperiod\bibinitdelim D\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{3db7097cbca4e5613826cabefc773b6e}
+      \strng{fullhash}{3db7097cbca4e5613826cabefc773b6e}
+      \strng{fullhashraw}{3db7097cbca4e5613826cabefc773b6e}
+      \strng{bibnamehash}{3db7097cbca4e5613826cabefc773b6e}
+      \strng{authorbibnamehash}{3db7097cbca4e5613826cabefc773b6e}
+      \strng{authornamehash}{3db7097cbca4e5613826cabefc773b6e}
+      \strng{authorfullhash}{3db7097cbca4e5613826cabefc773b6e}
+      \strng{authorfullhashraw}{3db7097cbca4e5613826cabefc773b6e}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Statistical mechanics}
+      \field{year}{2011}
+    \endentry
+    \entry{Porizka2018}{article}{}{}
+      \name{author}{6}{}{%
+        {{un=0,uniquepart=base,hash=0de202a2342772d57e8a7f7f498831e4}{%
+           family={Pořízka},
+           familyi={P\bibinitperiod},
+           given={Pavel},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=352dcdddc3046aa0073f10b818625524}{%
+           family={Klus},
+           familyi={K\bibinitperiod},
+           given={Jakub},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=f97b937981a34fe90c948eec237d8dbe}{%
+           family={Képeš},
+           familyi={K\bibinitperiod},
+           given={Erik},
+           giveni={E\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=e7d21c7da675909b8c8df99447051944}{%
+           family={Prochazka},
+           familyi={P\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=e84d4800eb652af7704a928643b92845}{%
+           family={Hahn},
+           familyi={H\bibinitperiod},
+           given={David\bibnamedelima W.},
+           giveni={D\bibinitperiod\bibinitdelim W\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=36e9a5608e99a3d1916b05599755d8e9}{%
+           family={Kaiser},
+           familyi={K\bibinitperiod},
+           given={Jozef},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{e894c4d2b41346b7dd06e2a4c426d584}
+      \strng{fullhash}{d0c45df44c3296374c6bd35544944569}
+      \strng{fullhashraw}{d0c45df44c3296374c6bd35544944569}
+      \strng{bibnamehash}{d0c45df44c3296374c6bd35544944569}
+      \strng{authorbibnamehash}{d0c45df44c3296374c6bd35544944569}
+      \strng{authornamehash}{e894c4d2b41346b7dd06e2a4c426d584}
+      \strng{authorfullhash}{d0c45df44c3296374c6bd35544944569}
+      \strng{authorfullhashraw}{d0c45df44c3296374c6bd35544944569}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Applied Spectroscopy}
+      \field{number}{8}
+      \field{title}{Laser-Induced Breakdown Spectroscopy: A Review of Recent Advances in Instrumentation, Data Analysis, and Applications}
+      \field{volume}{72}
+      \field{year}{2018}
+      \field{pages}{1145\bibrangedash 1165}
+      \range{pages}{21}
+      \verb{doi}
+      \verb 10.1177/0003702818783307
+      \endverb
+    \endentry
+    \entry{Rybicki1985}{book}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=a8b83f4134b8420d321b4347ac783e11}{%
+           family={Rybicki},
+           familyi={R\bibinitperiod},
+           given={George\bibnamedelima B.},
+           giveni={G\bibinitperiod\bibinitdelim B\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=6f630e08309226fb2a0dbdf8e0a6fdf7}{%
+           family={Lightman},
+           familyi={L\bibinitperiod},
+           given={Alan\bibnamedelima P.},
+           giveni={A\bibinitperiod\bibinitdelim P\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Wiley}%
+      }
+      \strng{namehash}{5adc88be60a94c7021deb49fbe035855}
+      \strng{fullhash}{5adc88be60a94c7021deb49fbe035855}
+      \strng{fullhashraw}{5adc88be60a94c7021deb49fbe035855}
+      \strng{bibnamehash}{5adc88be60a94c7021deb49fbe035855}
+      \strng{authorbibnamehash}{5adc88be60a94c7021deb49fbe035855}
+      \strng{authornamehash}{5adc88be60a94c7021deb49fbe035855}
+      \strng{authorfullhash}{5adc88be60a94c7021deb49fbe035855}
+      \strng{authorfullhashraw}{5adc88be60a94c7021deb49fbe035855}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Radiative processes in astrophysics}
+      \field{year}{1985}
+      \verb{doi}
+      \verb https://doi.org/10.1002/9783527618170
+      \endverb
+    \endentry
+    \entry{Singh2007}{book}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=3d5b6f010cd0a2b8a93f610ad1d5b0ac}{%
+           family={Singh},
+           familyi={S\bibinitperiod},
+           given={Jagdish\bibnamedelima P.},
+           giveni={J\bibinitperiod\bibinitdelim P\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=31bae3f2dba7814a6bf1d97ddce5a704}{%
+           family={Thakur},
+           familyi={T\bibinitperiod},
+           given={Surya\bibnamedelima N.},
+           giveni={S\bibinitperiod\bibinitdelim N\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier}%
+      }
+      \strng{namehash}{f978a6ac8cdadc8c921526fa17e6db1c}
+      \strng{fullhash}{f978a6ac8cdadc8c921526fa17e6db1c}
+      \strng{fullhashraw}{f978a6ac8cdadc8c921526fa17e6db1c}
+      \strng{bibnamehash}{f978a6ac8cdadc8c921526fa17e6db1c}
+      \strng{authorbibnamehash}{f978a6ac8cdadc8c921526fa17e6db1c}
+      \strng{authornamehash}{f978a6ac8cdadc8c921526fa17e6db1c}
+      \strng{authorfullhash}{f978a6ac8cdadc8c921526fa17e6db1c}
+      \strng{authorfullhashraw}{f978a6ac8cdadc8c921526fa17e6db1c}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Laser-Induced Breakdown Spectroscopy}
+      \field{year}{2007}
+    \endentry
+    \entry{Thorne1999}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=c5efa33bf693eddd2d5f2f07d6733854}{%
+           family={Thorne},
+           familyi={T\bibinitperiod},
+           given={Anne\bibnamedelima P.},
+           giveni={A\bibinitperiod\bibinitdelim P\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Berlin, Heidelberg}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{c5efa33bf693eddd2d5f2f07d6733854}
+      \strng{fullhash}{c5efa33bf693eddd2d5f2f07d6733854}
+      \strng{fullhashraw}{c5efa33bf693eddd2d5f2f07d6733854}
+      \strng{bibnamehash}{c5efa33bf693eddd2d5f2f07d6733854}
+      \strng{authorbibnamehash}{c5efa33bf693eddd2d5f2f07d6733854}
+      \strng{authornamehash}{c5efa33bf693eddd2d5f2f07d6733854}
+      \strng{authorfullhash}{c5efa33bf693eddd2d5f2f07d6733854}
+      \strng{authorfullhashraw}{c5efa33bf693eddd2d5f2f07d6733854}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Spectrophysics}
+      \field{year}{1999}
+      \verb{doi}
+      \verb 10.1007/978-3-642-58581-4
+      \endverb
+    \endentry
+    \entry{Vaswani2017}{article}{}{}
+      \name{author}{8}{}{%
+        {{un=0,uniquepart=base,hash=7f28e84700536646dd6620a0db07ad09}{%
+           family={Vaswani},
+           familyi={V\bibinitperiod},
+           given={Ashish},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=62efade83d70f0323fe248755e6c90c5}{%
+           family={Shazeer},
+           familyi={S\bibinitperiod},
+           given={Noam},
+           giveni={N\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=06649ebab1ea5cac0250746a19764975}{%
+           family={Parmar},
+           familyi={P\bibinitperiod},
+           given={Niki},
+           giveni={N\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=1c25d3552a1c98a125f5ee8ede082841}{%
+           family={Uszoreit},
+           familyi={U\bibinitperiod},
+           given={Jakob},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2fd2982e30ebcec93ec1cf76e0d797fd}{%
+           family={Jones},
+           familyi={J\bibinitperiod},
+           given={Llion},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=27b07e4eacbf4ef7a1438e3badb7dd8d}{%
+           family={Gomez},
+           familyi={G\bibinitperiod},
+           given={Aidan\bibnamedelima N.},
+           giveni={A\bibinitperiod\bibinitdelim N\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=540fcd72e1fa4bbed46604f4e6cff817}{%
+           family={Kaiser},
+           familyi={K\bibinitperiod},
+           given={Łukasz},
+           giveni={Ł\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=95595a0fefb86187cbc36e551017d332}{%
+           family={Polosukhin},
+           familyi={P\bibinitperiod},
+           given={Illia},
+           giveni={I\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Curran Associates, Inc.}%
+      }
+      \strng{namehash}{ee273ab30cfb889666f8c4d806eb9ce7}
+      \strng{fullhash}{49213f0ce29a4450782375dde33f3b78}
+      \strng{fullhashraw}{49213f0ce29a4450782375dde33f3b78}
+      \strng{bibnamehash}{49213f0ce29a4450782375dde33f3b78}
+      \strng{authorbibnamehash}{49213f0ce29a4450782375dde33f3b78}
+      \strng{authornamehash}{ee273ab30cfb889666f8c4d806eb9ce7}
+      \strng{authorfullhash}{49213f0ce29a4450782375dde33f3b78}
+      \strng{authorfullhashraw}{49213f0ce29a4450782375dde33f3b78}
+      \field{sortinit}{V}
+      \field{sortinithash}{afb52128e5b4dc4b843768c0113d673b}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Advances in Neural Information Processing Systems}
+      \field{title}{Attention is all you need}
+      \field{volume}{30}
+      \field{year}{2017}
+      \field{pages}{5998\bibrangedash 6008}
+      \range{pages}{11}
+      \verb{doi}
+      \verb https://doi.org/10.48550/arXiv.1706.03762
+      \endverb
+    \endentry
+    \entry{Wu2021}{article}{}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=98dce96f41870f1bbabf03de06a05caa}{%
+           family={Wu},
+           familyi={W\bibinitperiod},
+           given={Haixu},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=bf3bab790de4dc8bc6cfc53a67ae1d4b}{%
+           family={Xu},
+           familyi={X\bibinitperiod},
+           given={Jiehui},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=5677a530ed74bcd73cbf45f8088a8418}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Jianmin},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=867778fd4a7456937f929a855edfaf77}{%
+           family={Long},
+           familyi={L\bibinitperiod},
+           given={Mingsheng},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Curran Associates, Inc.}%
+      }
+      \strng{namehash}{338d0f3691411e7dad093368d83de073}
+      \strng{fullhash}{09e3b37b89f35f1f152f3e8d8754e163}
+      \strng{fullhashraw}{09e3b37b89f35f1f152f3e8d8754e163}
+      \strng{bibnamehash}{09e3b37b89f35f1f152f3e8d8754e163}
+      \strng{authorbibnamehash}{09e3b37b89f35f1f152f3e8d8754e163}
+      \strng{authornamehash}{338d0f3691411e7dad093368d83de073}
+      \strng{authorfullhash}{09e3b37b89f35f1f152f3e8d8754e163}
+      \strng{authorfullhashraw}{09e3b37b89f35f1f152f3e8d8754e163}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Advances in Neural Information Processing Systems}
+      \field{title}{Autoformer: Decomposition Transformers with Auto-Correlation for Long-Term Series Forecasting}
+      \field{volume}{34}
+      \field{year}{2021}
+      \field{pages}{22419\bibrangedash 22430}
+      \range{pages}{12}
+      \verb{urlraw}
+      \verb https://proceedings.neurips.cc/paper/2021/file/bcc0d400288793e8bdcd7c19a8ac0c2b-Paper.pdf
+      \endverb
+      \verb{url}
+      \verb https://proceedings.neurips.cc/paper/2021/file/bcc0d400288793e8bdcd7c19a8ac0c2b-Paper.pdf
+      \endverb
+    \endentry
+    \entry{Yang2025}{article}{}{}
+      \name{author}{7}{}{%
+        {{un=0,uniquepart=base,hash=e6a2657cef820bbb49683457d72554e7}{%
+           family={Yang},
+           familyi={Y\bibinitperiod},
+           given={Jiaxing},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b6e41563944551a37706c549acea98c2}{%
+           family={Shijie},
+           familyi={S\bibinitperiod},
+           given={Li},
+           giveni={L\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=56bda333ab85070cdf1934ac222e12aa}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Zhao},
+           giveni={Z\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2e1c6bacd57962d9acf4bf7eefa38241}{%
+           family={Qian},
+           familyi={Q\bibinitperiod},
+           given={Dongbin},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a0043ad353838be4f658781084d332a1}{%
+           family={Sun},
+           familyi={S\bibinitperiod},
+           given={Shaohua},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=1e292ffa5ab2f18f01d1d941e2735808}{%
+           family={Liu},
+           familyi={L\bibinitperiod},
+           given={Xiaoliang},
+           giveni={X\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=5d9743020842d3a49953a092c484ade4}{%
+           family={Liu},
+           familyi={L\bibinitperiod},
+           given={Zuoye},
+           giveni={Z\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{0880603b74d5cdb9c5be61c3db17cf5f}
+      \strng{fullhash}{e7d176afdb2fb1fbb7eb67ad4eb35e20}
+      \strng{fullhashraw}{e7d176afdb2fb1fbb7eb67ad4eb35e20}
+      \strng{bibnamehash}{e7d176afdb2fb1fbb7eb67ad4eb35e20}
+      \strng{authorbibnamehash}{e7d176afdb2fb1fbb7eb67ad4eb35e20}
+      \strng{authornamehash}{0880603b74d5cdb9c5be61c3db17cf5f}
+      \strng{authorfullhash}{e7d176afdb2fb1fbb7eb67ad4eb35e20}
+      \strng{authorfullhashraw}{e7d176afdb2fb1fbb7eb67ad4eb35e20}
+      \field{sortinit}{Y}
+      \field{sortinithash}{fd67ad5a9ef0f7456bdd9aab10fe1495}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Talanta}
+      \field{month}{03}
+      \field{title}{Transformer-based deep learning models for quantification of La, Ce, and Nd in rare earth ores using laser-induced breakdown spectroscopy}
+      \field{volume}{292}
+      \field{year}{2025}
+      \field{pages}{127937}
+      \range{pages}{1}
+      \verb{doi}
+      \verb 10.1016/j.talanta.2025.127937
+      \endverb
+    \endentry
+    \entry{Zhou2021}{article}{}{}
+      \name{author}{7}{}{%
+        {{un=0,uniquepart=base,hash=c7def614c5b94aa5499428a9644f024d}{%
+           family={Zhou},
+           familyi={Z\bibinitperiod},
+           given={Haoyi},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=452a67ad1218340845acd7e598d57f19}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Shanghang},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=146dd5c72b5270e6c98219a385645574}{%
+           family={Peng},
+           familyi={P\bibinitperiod},
+           given={Jieqi},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=53eda2415f95a1d1f76572f661905aab}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Shuai},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=221d23a1cc1702c31044af688c0b7c39}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Jianxin},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=aa0c7ab0b9dad5902ab8fc501f57cd77}{%
+           family={Xiong},
+           familyi={X\bibinitperiod},
+           given={Hui},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d4d97ecef44bb5d1d6dab7f91276d649}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Wancai},
+           giveni={W\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{fd1f7c12e5bef04a5e71b623a18fadec}
+      \strng{fullhash}{116045fd64aa9173a259ff5ef8541d4b}
+      \strng{fullhashraw}{116045fd64aa9173a259ff5ef8541d4b}
+      \strng{bibnamehash}{116045fd64aa9173a259ff5ef8541d4b}
+      \strng{authorbibnamehash}{116045fd64aa9173a259ff5ef8541d4b}
+      \strng{authornamehash}{fd1f7c12e5bef04a5e71b623a18fadec}
+      \strng{authorfullhash}{116045fd64aa9173a259ff5ef8541d4b}
+      \strng{authorfullhashraw}{116045fd64aa9173a259ff5ef8541d4b}
+      \field{sortinit}{Z}
+      \field{sortinithash}{96892c0b0a36bb8557c40c49813d48b3}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Proceedings of the AAAI Conference on Artificial Intelligence}
+      \field{number}{12}
+      \field{title}{Informer: Beyond Efficient Transformer for Long Sequence Time-Series Forecasting}
+      \field{volume}{35}
+      \field{year}{2021}
+      \field{pages}{11106\bibrangedash 11115}
+      \range{pages}{10}
+      \verb{urlraw}
+      \verb https://ojs.aaai.org/index.php/AAAI/article/view/17325
+      \endverb
+      \verb{url}
+      \verb https://ojs.aaai.org/index.php/AAAI/article/view/17325
+      \endverb
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

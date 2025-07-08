@@ -200,7 +200,7 @@
 \def\tablename{Tabel}%
 \def\pagename{Halaman}%
 \def\bplagiasiname{PERNYATAAN BEBAS PLAGIASI}%
-\def\spernyataanname{SURAT PERNYATAAN}%
+\def\spernyataanname{PERNYATAAN PERSETUJUAN PUBLIKASI DAN EMBARGO KARYA TULIS CIVITAS AKADEMIKA USK}%
 }
 
 %English
@@ -255,10 +255,16 @@
 \newcommand{\@headprogram}{}
 \newcommand{\dept}[1]{\gdef\@dept{#1}}
 \newcommand{\@dept}{}
+\newcommand{\prodi}[1]{\gdef\@prodi{#1}}
+\newcommand{\@prodi}{}
 \newcommand{\firstsupervisor}[1]{\gdef\@firstsupervisor{#1}}
 \newcommand{\@firstsupervisor}{}
+\newcommand{\firstdept}[1]{\gdef\@firstdept{#1}}
+\newcommand{\@firstdept}{}
 \newcommand{\secondsupervisor}[1]{\gdef\@secondsupervisor{#1}}
 \newcommand{\@secondsupervisor}{}
+\newcommand{\seconddept}[1]{\gdef\@seconddept{#1}}
+\newcommand{\@seconddept}{}
 \newcommand{\kajur}[1]{\gdef\@kajur{#1}}
 \newcommand{\@kajur}{}
 \newcommand{\firstnip}[1]{\gdef\@firstnip{#1}}
@@ -275,7 +281,10 @@
 \newcommand{\@kaprodi}{}
 \newcommand{\kaprodinip}[1]{\gdef\@kaprodinip{#1}}
 \newcommand{\@kaprodinip}{}
-
+\newcommand{\koorta}[1]{\gdef\@koorta{#1}}
+\newcommand{\@koorta}{}
+\newcommand{\koortanip}[1]{\gdef\@koortanip{#1}}
+\newcommand{\@koortanip}{}
 %------------------------------------------------------------
 % Define cover in Indonesian
 %------------------------------------------------------------
@@ -412,7 +421,7 @@
 					Universitas Syiah Kuala, & & Universitas Syiah Kuala,\\
 					\vspace{0.3cm} & \vspace{0.3cm} & \vspace{0.3cm}\\
 			 		\underline{\@dekan} & & \underline{\@kaprodi}\\
-		      			NIP. \@dekannip & & NIP. \@kaprodinip
+		      		NIP. \@dekannip & & NIP. \@kaprodinip
 				\end{tabular}
 		\end{doublespace}
 

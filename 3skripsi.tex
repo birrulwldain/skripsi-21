@@ -1,22 +1,18 @@
-%
-% Template Laporan Tugas Akhir Jurusan Informatika Unsyiah 
-%
-% @author Abdul Hafidh
-% @version 1.1
-% @since 08.09.2023
-%
-% Template ini telah disesuaikan dengan aturan penulisan tugas akhir 
-% yang terdapat pada dokumen Panduan Tugas Akhir FMIPA Unsyiah tahun 2016.
-%
 
-% karena jifhasiltheme.cls ada di folder lib, maka kita harus menambahkan path lib/ ke dalam path pencarian file
 \makeatletter
 \def\input@path{{lib/}}
 \makeatother
 % Template pembuatan naskah tugas akhir.
 \documentclass[dvipsnames]{3skripsi}
 \usepackage[style=apa, backend=biber, natbib=true]{biblatex}
-
+\usepackage{tikz}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{amsmath} % Untuk persamaan
+\usepackage{algorithm} % Untuk lingkungan algoritma
+\usepackage{algorithmic} 
+\newenvironment{algoritma}{\begin{algorithm}}{\end{algorithm}}
+\floatname{algorithm}{Algoritma}
 \addbibresource{daftar-pustaka.bib}
 \DeclareLanguageMapping{bahasa}{english-apa}
 \DeclareLabeldate{%
@@ -36,8 +32,6 @@
 \emergencystretch=\maxdimen
 \hyphenpenalty=10000
 \hbadness=10000
-\usepackage{algorithm}
-\usepackage{algpseudocode}
 
 % Karena file hype.indonesia.tex ada di folder language, tambah path pencarian file
 \makeatletter
@@ -75,18 +69,18 @@
 \renewcommand\cftfigpresnum{Gambar\  }
 \renewcommand\cfttabpresnum{Tabel\   }
 
-\newcommand{\listappendicesname}{DAFTAR LAMPIRAN}
-\newlistof{appendices}{apc}{\listappendicesname}
-\newcommand{\appendices}[1]{\addcontentsline{apc}{appendices}{#1}}
-\newcommand{\newappendix}[1]{\section*{#1}\appendices{#1}}
+% \newcommand{\listappendicesname}{DAFTAR LAMPIRAN} % Removed duplicate
+% \newlistof{appendices}{apc}{\listappendicesname} % Removed duplicate
+% \newcommand{\appendices}[1]{\addcontentsline{apc}{appendices}{#1}} % Removed duplicate definition
+% \newcommand{\newappendix}[1]{\section*{#1}\appendices{#1}} % Removed duplicate definition
 
-% Untuk hyperlink dan table of content
-\usepackage[hidelinks]{hyperref}
-\renewcommand\UrlFont{\rmfamily\itshape}
-\newlength{\mylenf}
-\settowidth{\mylenf}{\cftfigpresnum}
-\setlength{\cftfignumwidth}{\dimexpr\mylenf+2em}
-\setlength{\cfttabnumwidth}{\dimexpr\mylenf+2em}
+% % Untuk hyperlink dan table of content
+% \usepackage[hidelinks]{hyperref}
+% \renewcommand\UrlFont{\rmfamily\itshape}
+% \newlength{\mylenf}
+% \settowidth{\mylenf}{\cftfigpresnum}
+% \setlength{\cftfignumwidth}{\dimexpr\mylenf+2em}
+% \setlength{\cfttabnumwidth}{\dimexpr\mylenf+2em}
 
 % Agar ada tulisan BAB pada TOC
 \renewcommand\cftchappresnum{BAB } 
@@ -101,6 +95,48 @@
 \addtocontents{lof}{~\hfill \textit{Halaman}\par}
 \addtocontents{lot}{~\hfill \textit{Halaman}\par}
 \addtocontents{apc}{~\hfill \textit{Halaman}\par}
+
+\renewcommand\cftfigpresnum{Gambar\  }
+\renewcommand\cfttabpresnum{Tabel\   }
+% Preambul (di bagian sebelum \begin{document})
+
+
+% Konfigurasi daftar lampiran
+% \newcommand{\listappendicesname}{DAFTAR LAMPIRAN} % Removed duplicate definition
+\newlistof{appendices}{apc}{DAFTAR LAMPIRAN}
+\makeatletter
+\newcommand{\appendices}[1]{%
+  \addcontentsline{apc}{appendices}{\protect\numberline{}#1}%
+}
+\makeatother
+\newcommand{\newappendix}[1]{\section*{#1}\appendices{#1}}
+\newcounter{lampiran}
+% Perintah \lampiran untuk menyederhanakan penulisan lampiran
+\newcommand{\lampiran}[1]{%
+  \clearpage% Memulai halaman baru sebelum lampiran
+  \refstepcounter{lampiran}% Increment counter lampiran
+  \subsection*{Lampiran \thelampiran. #1}% Buat judul dengan format Lampiran <nomor>. <judul>
+  \addcontentsline{apc}{appendices}{Lampiran \thelampiran. #1}% Tambahkan ke DAFTAR LAMPIRAN tanpa nomor
+}
+% Untuk hyperlink dan table of content
+\usepackage[hidelinks]{hyperref}
+\renewcommand\UrlFont{\rmfamily\itshape} % it's me!
+\newlength{\mylenf}
+\settowidth{\mylenf}{\cftfigpresnum}
+\setlength{\cftfignumwidth}{\dimexpr\mylenf+2em}
+\setlength{\cfttabnumwidth}{\dimexpr\mylenf+2em}
+
+% Agar ada tulisan BAB pada TOC
+\renewcommand\cftchappresnum{BAB } 
+\cftsetindents{chapter}{0em}{4.5em} % indenting bab
+\cftsetindents{section}{4.5em}{2em}
+\cftsetindents{subsection}{6.5em}{3em}
+
+% Agar di TOC setiap angka bab/subbab diakhiri titik
+\renewcommand{\cftsecaftersnum}{.}
+\renewcommand{\cftsubsecaftersnum}{.}
+\renewcommand{\cftsubsubsecaftersnum}{.} 
+% End agar setiap angka bab/subbab diakhiri titik
 
 % Untuk judul section
 \usepackage{titlesec}
@@ -241,7 +277,7 @@
 \approvalpage
 
 \include{bebas-plagiasi}
-\include{surat-pernyataan}
+%\include{surat-pernyataan}
 
 \include{abstrak-indonesia} 
 \include{abstrak-english} 
@@ -262,7 +298,9 @@
 \addcontentsline{toc}{chapter}{Daftar Gambar}
 \listofappendices
 \addcontentsline{toc}{chapter}{Daftar Lampiran}
+\addcontentsline{toc}{chapter}{Daftar Simbol}
 
+\nomenclaturename
 \enableboldchapterintoc
 
 \include{daftar-singkatan}

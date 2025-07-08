@@ -1,43 +1,22 @@
-%
-% Template Laporan Tugas Akhir Jurusan Informatika Unsyiah 
-%
-% @author Abdul Hafidh
-% @version 1.1
-% @since 08.09.2023
-%
-% Template ini telah disesuaikan dengan aturan penulisan tugas akhir yang terdapat pada dokumen Panduan Tugas Akhir FMIPA Unsyiah tahun 2016.
-%
 
-% karena jifhasiltheme.cls ada di folder lib, maka kita harus menambahkan path lib/ ke dalam path pencarian file
 \makeatletter
 \def\input@path{{lib/}}
 \makeatother
+
 % Template pembuatan naskah tugas akhir.
 \documentclass[dvipsnames]{2hasil}
 \usepackage[style=apa, backend=biber, natbib=true]{biblatex}
+
 
 \usepackage{enumitem}
 \usepackage{float}
 \usepackage{amsmath} % Untuk persamaan
 \usepackage{algorithm} % Untuk lingkungan algoritma
 \usepackage{algorithmic} % Untuk perintah seperti \State, \For
-\usepackage{setspace} % Untuk spasi baris
-\usepackage{chemformula} % Untuk rumus kimia
-\usepackage{glossaries} % Untuk daftar istilah/akronim
-\usepackage{booktabs} % Untuk tabel profesional
-\usepackage{csquotes} % Untuk kutipan
-\usepackage{tabularx} % Untuk tabel dengan kolom X
-\usepackage{pifont} % Untuk simbol seperti tanda centang
-
-% Definisi lingkungan algoritma
+% \usepackage[numbers]{natbib} % Untuk kutipan
+% \usepackage{algpseudocode}
 \newenvironment{algoritma}{\begin{algorithm}}{\end{algorithm}}
 \floatname{algorithm}{Algoritma}
-
-% Definisi akronim
-\newacronym{libs}{LIBS}{\textit{Laser-Induced Breakdown Spectroscopy}}
-\newacronym{ann}{ANN}{\textit{Artificial Neural Network}}
-\newacronym{lstm}{LSTM}{\textit{Long Short-Term Memory}}
-
 \addbibresource{daftar-pustaka.bib}
 \DeclareLanguageMapping{bahasa}{english-apa}
 \DeclareLabeldate{%
@@ -58,26 +37,43 @@
 \hyphenpenalty=10000
 \hbadness=10000
 
-% karena file hype.indonesia.tex ada di folder language, maka kita harus menambahkan path language/ ke dalam path pencarian file
+%\usepackage[a4paper,left=14cm,right=3cm,top=3cm,bottom=5cm]{geometry}
+
+% karena file hype.indonesia.tex ada di folder language, maka kita harus menambahkan path language/
+% ke dalam path pencarian file
 \makeatletter
 \def\input@path{{language/}}
 \makeatother
+
 % Daftar pemenggalan suku kata dan istilah dalam LaTeX
 \include{hype.indonesia}
 
 % Untuk prefiks pada daftar gambar dan tabel
 \usepackage[titles]{tocloft}
-
-\usepackage{etoolbox}% http://ctan.org/pkg/etoolbox
+\usepackage{setspace}
+\usepackage{etoolbox} % http://ctan.org/pkg/etoolbox
 \makeatletter
 % \patchcmd{<cmd>}{<search>}{<replace>}{<succes>}{<failure>}
-\patchcmd{\@chapter}{\addtocontents{lof}{\protect\addvspace{10\p@}}}{}{}{}% LoF
-\patchcmd{\@chapter}{\addtocontents{lot}{\protect\addvspace{10\p@}}}{}{}{}% LoT
+\patchcmd{\@chapter}{\addtocontents{lof}{\protect\addvspace{10\p@}}}{}{}{}
+\patchcmd{\@chapter}{\addtocontents{lot}{\protect\addvspace{10\p@}}}{}{}{}
 \makeatother
 
-\usepackage[justification=centering]{caption}% atau misalnya [format=hang]
 
-% Tambahan dari Budi
+% \usepackage{algorithm2e}
+
+\usepackage{chemformula}
+\usepackage{glossaries}
+
+\usepackage{multirow}
+\usepackage{booktabs}
+\usepackage{csquotes}
+
+
+\newacronym{libs}{LIBS}{\textit{Laser-Induced Breakdown Spectroscopy}}
+\newacronym{ann}{ANN}{\textit{Artificial Neural Network}}
+\newacronym{lstm}{LSTM}{\textit{Long Short-Term Memory}}
+
+% Ini tambahan dari budi
 \newcommand*{\enableboldchapterintoc}{%
   \addtocontents{toc}{\string\renewcommand{\protect\cftchapfont}{\protect\normalfont\protect\bfseries}}%
   \addtocontents{toc}{\string\renewcommand{\protect\cftchappagefont}{\protect\normalfont\protect}}%
@@ -88,18 +84,24 @@
   \addtocontents{toc}{\string\renewcommand{\protect\cftchapfont}{\protect\normalfont}}%
   \addtocontents{toc}{\protect\setlength{\cftbeforechapskip}{0pt}}%
 }
+% End tambahan dari budi
 
 \renewcommand{\cftdotsep}{0.5}
 \renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}}
-
-\renewcommand\cftfigpresnum{Gambar\  }
-\renewcommand\cfttabpresnum{Tabel\   }
+%\renewcommand{\cftpartleader}{\cftdotfill{\cftdotsep}}
 
 \addtocontents{toc}{~\hfill \textit{Halaman}\par} % Menambahkan kata "Halaman" di sebelah kanan daftar isi
+
+% Membuat juga kata "halaman" di daftar gambar dan daftar tabel
 \addtocontents{lof}{~\hfill \textit{Halaman}\par}
 \addtocontents{lot}{~\hfill \textit{Halaman}\par}
 
-% Mengatur daftar lampiran
+\renewcommand\cftfigpresnum{Gambar\  }
+\renewcommand\cfttabpresnum{Tabel\   }
+% Preambul (di bagian sebelum \begin{document})
+
+
+% Konfigurasi daftar lampiran
 \newcommand{\listappendicesname}{DAFTAR LAMPIRAN}
 \newlistof{appendices}{apc}{\listappendicesname}
 \makeatletter
@@ -107,17 +109,18 @@
   \addcontentsline{apc}{appendices}{\protect\numberline{}#1}%
 }
 \makeatother
+\newcommand{\newappendix}[1]{\section*{#1}\appendices{#1}}
 \newcounter{lampiran}
+% Perintah \lampiran untuk menyederhanakan penulisan lampiran
 \newcommand{\lampiran}[1]{%
   \clearpage% Memulai halaman baru sebelum lampiran
   \refstepcounter{lampiran}% Increment counter lampiran
   \subsection*{Lampiran \thelampiran. #1}% Buat judul dengan format Lampiran <nomor>. <judul>
-  \addcontentsline{apc}{appendices}{Lampiran \thelampiran. #1}%>{{DAFTAR LAMPIRAN}}
+  \addcontentsline{apc}{appendices}{Lampiran \thelampiran. #1}% Tambahkan ke DAFTAR LAMPIRAN tanpa nomor
 }
-
 % Untuk hyperlink dan table of content
 \usepackage[hidelinks]{hyperref}
-\renewcommand\UrlFont{\rmfamily\itshape}
+\renewcommand\UrlFont{\rmfamily\itshape} % it's me!
 \newlength{\mylenf}
 \settowidth{\mylenf}{\cftfigpresnum}
 \setlength{\cftfignumwidth}{\dimexpr\mylenf+2em}
@@ -125,39 +128,52 @@
 
 % Agar ada tulisan BAB pada TOC
 \renewcommand\cftchappresnum{BAB } 
-\cftsetindents{chapter}{0em}{4.5em}
+\cftsetindents{chapter}{0em}{4.5em} % indenting bab
 \cftsetindents{section}{4.5em}{2em}
 \cftsetindents{subsection}{6.5em}{3em}
 
 % Agar di TOC setiap angka bab/subbab diakhiri titik
 \renewcommand{\cftsecaftersnum}{.}
 \renewcommand{\cftsubsecaftersnum}{.}
+\renewcommand{\cftsubsubsecaftersnum}{.} 
+% End agar setiap angka bab/subbab diakhiri titik
 
-% Judul section: kapital (namun daftar isi tetap non kapital)
 \usepackage{titlesec}
+\usepackage{longtable}
+\usepackage{booktabs,xltabular}
+\usepackage{tabularx} % Untuk environment tabularx dan kolom X
+
 \titlelabel{\thetitle.\quad}
+
+% Agar disetiap caption table dan gambar diakhiri titik
+%\usepackage[labelsep=period]{caption}
+
+% Untuk Bold Face pada Keterangan Gambar
+\usepackage[labelfont=bf]{caption}
 
 % Untuk caption dan subcaption
 \usepackage{caption}
 \usepackage{subcaption}
 \captionsetup[algorithm]{position=above}
 
-\usepackage{amssymb}
-\usepackage{color}
+% Agar bisa menggunakan warna LaTeX
+\usepackage{color} % it's me!
 
-% Untuk tabel panjang
+% Agar table yang panjang bisa cut ke next page    % byRennyAdr
 \usepackage{longtable}
 
-% Untuk page landscape
+% Untuk page landscape        % byRennyAdr
 \usepackage{pdflscape}
 \usepackage{lscape}
 
-% Untuk code snippet
-\usepackage{lstautogobble}
+% Agar bisa bikin code snippet
+% Agar bisa menulis code snippet
+\usepackage{lstautogobble} % it's me!
 \usepackage{listings}
-\usepackage{xcolor}
-\usepackage{inconsolata}
+\usepackage{xcolor}  % Untuk warna sintaks (opsional)
+\usepackage{inconsolata}  % Font monospace yang rapi (disarankan)
 \usepackage{adjustbox}
+% Konfigurasi dasar untuk listings
 \lstset{
     basicstyle=\ttfamily\small,
     keywordstyle=\color{blue},
@@ -172,7 +188,7 @@
     frame=single,
     rulecolor=\color{lightgray},
     backgroundcolor=\color{white},
-    literate=
+    literate=                         % Handle karakter khusus
         {á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
         {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
         {à}{{\`a}}1 {è}{{\`e}}1 {ì}{{\`i}}1 {ò}{{\`o}}1 {ù}{{\`u}}1
@@ -186,45 +202,55 @@
         {€}{{\euro}}1 {£}{{\pounds}}1
 }
 \lstset{autogobble=true}
+% Contoh bahasa yang didukung (sesuaikan dengan kebutuhan)
 \lstdefinestyle{Java}{
     language=Java,
     morekeywords={String, interface, implements, class}
 }
+\usepackage{amssymb}
+\usepackage{pifont}
 \lstdefinestyle{Python}{
     language=Python,
     keywordstyle=\color{teal}
 }
+\usepackage{caption} % Untuk kustomisasi caption
+%Gaya Caption
 \captionsetup[lstlisting]{
-    labelfont=md,
-    textfont=md,
-    singlelinecheck=true,
-    justification=raggedright,
+    labelfont=md,          % Label tidak bold
+    textfont=md,           % Teks caption tidak bold
+    singlelinecheck=true,  % Centang caption 1 baris
+    justification=raggedright, % Rata kiri penuh
     labelsep=space,
-    format=hang,
-    indention=0pt,
-    aboveskip=10pt,
-    belowskip=5pt
+    format=hang,              % Format "hang" untuk indentasi
+    indention=0pt             % Hapus indentasi pada baris kedua+
 }
-
-% Untuk definisi teorema
+%untuk definisi teorema
 \usepackage{amsthm}
+
+% Definisi lingkungan teorema
 \theoremstyle{plain}
 \newtheorem{theorem}{Teorema}[section]
 \newtheorem{corollary}[theorem]{Korolari}
+
 \theoremstyle{definition}
 \newtheorem{definition}{Definisi}[section]
+
 \theoremstyle{remark}
 \newtheorem*{remark}{Catatan}
-\newtheorem{example}{Contoh}[section]
+% Contoh definisi untuk lingkungan "example"
+\theoremstyle{definition} % Gaya: teks normal, judul tebal
+\newtheorem{example}{Contoh}[section] % Nomor mengikuti bagian
 
-% Untuk shadow gambar
+% untuk shadow gambar     % tomy
 \usepackage{fancybox, graphicx}
 
-% Untuk cite url
+% untuk cite url
 \usepackage{url}
-\usepackage{microtype}
+\usepackage{microtype} % untuk mengatur spasi pada paragraf
 
 \usepackage{siunitx}
+
+\usepackage{xcolor}
 \usepackage{multirow}
 \usepackage[normalem]{ulem}
 \useunder{\uline}{\ul}{}
@@ -233,9 +259,6 @@
 \newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
 \newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1}}
 
-% Indentasi rumus
-\setlength{\mathindent}{1.5cm}
-
 \makeatletter
 \def\input@path{{include/}}
 \makeatother
@@ -243,18 +266,20 @@
 % Sampul Depan
 \include{sampul-depan}
 
-% Pengaturan header dan footer
+% Awal dokumen
 \usepackage{fancyhdr}
+% Command berikut untuk membuat nomor halaman berada di tengah lalu halaman selanjutnya di kanan
 \pagestyle{fancy}
 \fancyhf{}
 \fancyfoot[R]{\thepage}
-\fancypagestyle{plain}{
-  \fancyhf{}
-  \fancyfoot[C]{\thepage}
-  \renewcommand{\headrulewidth}{0pt}
+\fancypagestyle{plain}{% <-- Ini akan mempengaruhi halaman pertama dari setiap bab
+  \fancyhf{} % Clear header/footer
+  \fancyfoot[C]{\thepage} % Nomor halaman di tengah
+  \renewcommand{\headrulewidth}{0pt} % Hapus garis header
 }
 
-% Untuk daftar program
+\usepackage{rotating}
+% Untuk prefiks pada Daftar Program   % byRennyAdr
 \makeatletter
 \begingroup\let\newcounter\@gobble\let\setcounter\@gobbletwo
 \globaldefs\@ne \let\c@loldepth\@ne
@@ -267,74 +292,111 @@
 \renewcommand\cftlistingspresnum{Program~}
 \cftsetindents{listings}{1.5em}{7em}
 
-% Pengaturan daftar pustaka
+%tab daftar pustaka -Indah
 \setlength{\bibhang}{30pt}
+
+\setlength{\mathindent}{1.5cm} % Indentasi rumus 1.5cm
+\usepackage{amssymb}
+\RequirePackage{graphicx}
+
+% Mengatur jarak pada nomor atau label section dan judul section 
+% Contoh 1.1 Judul Section menjadi 1.1     Judul Section
+\usepackage{titlesec}
 
 \begin{document}
 \fancyhf{} 
 \fancyfoot[C]{\thepage}
 
 \cover
+
 \approvalpage
+\include{daftar-singkatan} % jangan dihapus
 
-% Kata Pengantar
+% berikan comment jika proposal
+
+%-----------------------------------------------------------------
+% TOC menggunakan single space
+%-----------------------------------------------------------------
 \include{kata-pengantar}
+%\usepackage{bold-extra} % Paket tambahan untuk membuat teks tebal
 
-% Daftar Singkatan
-\include{daftar-singkatan}
-
-% Abstrak
-\include{abstrak-indonesia}
-\include{abstrak-english}
-
-\titleformat{\section}{\normalfont\bfseries\uppercase}{\thesection}{1.7em}{}
+\titleformat{\section}{\normalfont\bfseries\uppercase}{\thesection}{1.7em}{} % Untuk membuat section menjadi kapital tapi daftar isi tetap non kapital
 \titleformat{\subsection}{\normalfont\bfseries}{\thesubsection}{0.9em}{}
 
-% Table of Contents dan Daftar lainnya
-\addtocontents{toc}{\protect\thispagestyle{empty}}
 \addcontentsline{toc}{chapter}{Daftar Isi}
+
 \begin{singlespace}
-  \tableofcontents
+    \tableofcontents
 \end{singlespace}
 \listoftables
-\addtocontents{toc}{\protect\addvspace{1ex}\protect\addcontentsline{toc}{chapter}{Daftar Tabel}}
+\addcontentsline{toc}{chapter}{Daftar Tabel}
 \listoffigures
-\addtocontents{toc}{\protect\addvspace{1ex}\protect\addcontentsline{toc}{chapter}{Daftar Gambar}}
-\lstlistoflistings
-\addtocontents{toc}{\protect\addvspace{1ex}\protect\addcontentsline{toc}{chapter}{Daftar Program}}
+\addcontentsline{toc}{chapter}{Daftar Gambar}
 \listofappendices
-\addtocontents{toc}{\protect\addvspace{1ex}\protect\addcontentsline{toc}{chapter}{Daftar Lampiran}}
-
-% Daftar Singkatan (kedua)
-\include{daftar-singkatan}
+\addcontentsline{toc}{chapter}{Daftar Lampiran}
 
 \enableboldchapterintoc
+%-----------------------------------------------------------------
+% Daftar Singkatan 
+%-----------------------------------------------------------------
+\include{daftar-singkatan} % jangan dihapus
 
-% Caption untuk code snippet
+% Caption untuk code snippet. it's me!
 \renewcommand{\thelstlisting}{\arabic{chapter}.\arabic{lstlisting}}
 \renewcommand*\lstlistingname{Program}
 
-% Mulai isi bab dengan spasi 1,5
+%-----------------------------------------------------------------
+% Disini awal masukan untuk Bab
+%-----------------------------------------------------------------
 \begin{onehalfspace}
+
+\fancyhf{} 
+\fancyfoot[C]{\thepage}
 \pagenumbering{arabic}
 
-\captionsetup[figure]{labelfont={normalfont}, textfont={normalfont}, singlelinecheck=true, justification=raggedright, labelsep=space, format=hang, indention=0pt, skip=10pt}
-\captionsetup[table]{labelfont={normalfont}, textfont={normalfont}, singlelinecheck=true, justification=raggedright, labelsep=space, format=hang, indention=0pt, skip=10pt}
+\captionsetup[figure]{labelfont={normalfont}, textfont={normalfont},     singlelinecheck=true,    % Nonaktifkan penengahan otomatis
+justification=raggedright, % Rata kiri penuh
+labelsep=space,           % Spasi antara label dan teks
+format=hang,              % Format "hang" untuk indentasi
+indention=0pt, skip=10pt } % Unbold caption gambar
+\captionsetup[table]{labelfont={normalfont}, textfont={normalfont}, 
+singlelinecheck=true,    % Nonaktifkan penengahan otomatis
+justification=raggedright, % Rata kiri penuh
+labelsep=space,           % Spasi antara label dan teks
+format=hang,              % Format "hang" untuk indentasi
+indention=0pt, skip=10pt } % Unbold caption tabel
 
-\fancyhf{}
+\fancyhf{} 
 \fancyfoot[R]{\thepage}
 
 \include{bab1}
+
+\fancyhf{} 
+\fancyfoot[R]{\thepage}
+
 \include{bab2}
+
+\fancyhf{} 
+\fancyfoot[R]{\thepage}
+
 \include{bab3}
+
+
 \include{bab4}
+
 \include{bab5}
+% Comment baris ini jika halaman daftar pustaka hanya 1 halaman \fancy{} dan \fancyfoot[C]{\thepage}
+\fancyhf{} 
+% \fancyfoot[C]{\thepage}
 
 \fancypagestyle{daftarpustaka}{
   \fancyhf{}
   \renewcommand{\headrulewidth}{0pt}
-  \fancyfoot[]{\thepage}
+  \fancyfoot[]{\thepage} % Halaman pertama di tengah
+  \fancyfoot[]{\thepage} % Halaman selanjutnya di kanan
 }
+
+% Atur spasi dan format daftar pustaka
 
 \AtBeginEnvironment{thebibliography}{%
   \clearpage
@@ -343,11 +405,17 @@
   \onehalfspacing
 }
 
+% Untuk memaksa semua entri muncul
+%\nocite{*}
+
 % Tampilkan daftar pustaka
 \printbibliography[heading=bibintoc, title={DAFTAR KEPUSTAKAAN}]
-
-% Lampiran
+%-----------------------------------------------------------------
+% Disini akhir masukan Daftar Pustaka
+%-----------------------------------------------------------------
+\fancyfoot[R]{\thepage} % Halaman selanjutnya di kanan
 \addcontentsline{toc}{chapter}{LAMPIRAN}
+
 \include{lampiran}
 
 \end{onehalfspace}
