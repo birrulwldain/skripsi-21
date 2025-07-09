@@ -186,7 +186,7 @@
 \def\listfigurename{DAFTAR GAMBAR}%
 \def\listtablename{DAFTAR TABEL}%
 \def\listappendixname{DAFTAR LAMPIRAN}%
-\def\nomenclaturename{DAFTAR SINGKATAN}%
+\def\nomenclaturename{Daftar Simbol}%
 \def\abstractname{ABSTRAK}%
 \def\acknowledgmentname{HALAMAN PERSEMBAHAN}%
 \def\approvalname{PENGESAHAN}%
@@ -528,15 +528,17 @@
   \vspace{0.2cm}
 \addcontentsline{toc}{chapter}{Kata Pengantar}
 }
-
+\usepackage{enumitem}
 %------------------------------------------------------------
 % Nomenclature
 %------------------------------------------------------------
 \def\singkatan{%
-  \chapter*{\nomenclaturename}%
+  \chapter*{\MakeUppercase{\nomenclaturename}}%
   \thispagestyle{plain}
+  \begin{singlespacing}%
   %\chapter*{\nomenclaturename}%
   %\printglossary
+  \end{singlespacing}%
 \addcontentsline{toc}{chapter}{\nomenclaturename}
 }
 
