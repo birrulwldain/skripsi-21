@@ -1,0 +1,140 @@
+﻿Deskripsi
+
+
+Metode Analisis Komposisi Material Berbasis Laser-Induced Breakdown Spectroscopy (LIBS) Menggunakan Model Deep Learning yang Dilatih dengan Spektrum Sintetis
+
+
+Bidang Teknik Invensi
+     Invensi ini mengenai Metode Analisis Komposisi Material Berbasis Laser-Induced Breakdown Spectroscopy (LIBS) Menggunakan Model Deep Learning Informer yang Dilatih dengan Spektrum Sintetis, lebih khusus lagi, invensi ini berhubungan dengan suatu metode untuk meningkatkan akurasi analisis komposisi material multi-elemen menggunakan Laser-Induced Breakdown Spectroscopy (LIBS) melalui pendekatan Deep Learning model Informer.
+
+
+Latar Belakang Invensi
+     Metode LIBS telah dikenal luas dan digunakan untuk analisis komposisi material secara cepat dan minim preparasi sampel. Metode ini bekerja dengan cara memfokuskan laser berenergi tinggi ke permukaan sampel untuk menghasilkan plasma, kemudian menganalisis spektrum emisi cahaya yang dipancarkan dari plasma tersebut. Struktur tingkat energi yang unik dari setiap atom atau ion menghasilkan spektrum emisi yang khas, yang berfungsi sebagai sidik jari untuk identifikasi elemen. Invensi teknologi yang berkaitan dengan pemanfaatan model Deep Learning berbasis arsitektur Transformer untuk analisis kuantitatif menggunakan LIBS juga telah diungkapkan, sebagaimana terdapat pada penelitian yang oleh Yang dan kawan kawan, dimana model Transformer digunakan untuk kuantifikasi Lantanum (La), Cerium (Ce), dan Neodymium (Nd) dalam sampel bijih tanah jarang. Dalam studi tersebut, diungkapkan bahwa arsitektur Transformer mampu secara efektif menangkap hubungan kompleks dalam spektrum emisi LIBS untuk memprediksi konsentrasi elemen-elemen tersebut. Meskipun demikian, metode-metode yang ada, baik konvensional maupun yang sudah menggunakan Deep Learning, masih menghadapi beberapa tantangan fundamental yang membatasi akurasi dan kepraktisannya. Akurasi seringkali terhambat oleh sifat spektrum LIBS yang sangat kompleks, di mana ribuan garis emisi dari berbagai elemen dapat tumpang-tindih dan menciptakan interferensi spektral yang signifikan. Hal ini juga disebabkan oleh adanya variabilitas sinyal, yang dapat disebabkan oleh fluktuasi kondisi plasma dari satu tembakan laser ke tembakan berikutnya, serta efek matriks di mana sifat fisik dan kimia dari keseluruhan sampel mempengaruhi emisi dari elemen target. Lebih lanjut, kelemahan utama dari pendekatan yang ada adalah ketergantungan yang tinggi pada proses kalibrasi yang ekstensif, yang memerlukan data eksperimental dalam jumlah besar dan penggunaan sampel standar bersertifikat yang seringkali mahal dan sulit untuk didapatkan. Selanjutnya, invensi yang diajukan ini dimaksudkan untuk mengatasi permasalahan yang dikemukakan di atas dengan menyediakan sebuah pendekatan analisis baru yang tidak bergantung pada metode kalibrasi konvensional. Invensi ini menyajikan sebuah solusi berbasis Deep Learning (DL) yang menggunakan arsitektur Transformer yang dimodifikasi, dengan mengadopsi mekanisme kunci ProbSparse Self-Attention yang efisien dari model Informer. Kunci dari invensi ini adalah melatih model secara eksklusif pada set data spektrum emisi sintetis yang besar dan beragam. Invensi ini menyelesaikan masalah tersebut dengan melatih model Deep Learning pada set data sintetis yang besar dan beragam. Dengan demikian, model belajar untuk mengidentifikasi 'sidik jari' fundamental dari setiap elemen dan secara efektif mengabaikan variasi sinyal yang tidak relevan, sehingga menghasilkan analisis kualitatif yang lebih akurat dan tahan (robust) tanpa memerlukan kalibrasi ekstensif.
+
+
+Uraian Singkat Invensi
+     Tujuan utama dari invensi ini adalah untuk menyediakan
+ sebuah metode analisis LIBS yang akurat dan efisien yang kekuatannya berasal dari proses pelatihan model yang unik. Suatu metode analisis komposisi material sesuai dengan invensi ini terdiri dari dua fase utama: (a) fase pelatihan, dimana sebuah model Deep Learning jenis Informer dilatih secara khusus menggunakan sekumpulan data spektrum emisi sintetis yang disimulasikan berdasarkan parameter fisis fundamental; dan (b) fase analisis, dimana model yang telah terlatih dari fase (a) digunakan untuk memproses spektrum emisi LIBS dari sampel uji untuk memperoleh data komposisi material secara akurat. Kunci dari invensi ini dicirikan oleh fase pelatihannya, yang tidak bergantung pada sampel kalibrasi standar eksperimental yang mahal.
+     Tujuan lain dari invensi ini adalah untuk mengurangi ketergantungan pada sampel kalibrasi standar yang mahal dalam analisis LIBS.
+    Tujuan dan manfaat-manfaat yang lain serta pengertian yang lebih lengkap dari invensi berikut ini sebagai perwujudan yang lebih disukai dan akan dijelaskan dengan mengacu pada gambar-gambar yang menyertainya.
+
+
+Uraian Singkat Gambar
+
+
+Gambar 1, adalah diagram alir (flowchart) yang mengilustrasikan langkah-langkah utama dari metode analisis sesuai dengan invensi ini, mulai dari pembuatan spektrum sintetis hingga analisis sampel uji.
+
+
+Gambar 2, adalah diagram skematik yang menunjukkan arsitektur model Deep Learning Informer yang digunakan dalam invensi ini.
+
+
+Gambar 3, adalah spektrum hasil prediksi komposisi elemen menggunakan metode konvensional dan metode sesuai invensi ini pada sampel uji.
+
+
+Uraian Lengkap Invensi
+Invensi ini akan secara lengkap diuraikan dengan mengacu kepada gambar-gambar yang menyertainya. Perlu ditekankan bahwa keunggulan metode yang diusulkan ini terletak pada Fase Pelatihan Model (100) yang inovatif, yang kemudian memungkinkan  Fase Analisis Sampel (200) berjalan secara cepat dan akurat.     
+Mengacu pada Gambar 1, diperlihatkan diagram alir dari metode analisis sesuai invensi ini. Proses invensi dibagi menjadi dua fase utama: Fase Pelatihan Model (100) dan Fase Analisis Sampel.
+Pada Fase Pelatihan Model (100), langkah pertama adalah pembuatan spektrum sintetis (110). Proses ini dimulai dengan mendefinisikan rentang komposisi elemen, temperature plasma, dan kerapatan elektron. Dengan menggunakan parameter tersebut, populasi tingkat energi atom dan ion dihitung menggunakan Persamaan Saha dan Distribusi Boltzmann, dengan asumsi plasma berada dalam keadaan Local Thermal Equilibrium (LTE). Data konstanta dan transisi atom yang diperlukan diambil dari database publik seperti Atomic Spectra Database (ASD) yang dikelola oleh National Institute of Standards and Technology (NIST). Selanjutnya, profil garis spektrum diemulasikan dengan fungsi profil garis Gaussian untuk menghasilkan spektrum emisi resolusi tinggi yang realistis. Ribuan hingga jutaan spektrum sintetis dengan variasi komposisi dan kondisi plasma yang luas dihasilkan untuk membentuk set data pelatihan. 
+Selanjutnya, model Deep Learning (120) disiapkan. Mengacu pada Gambar 2, model yang digunakan adalah sebuah arsitektur berbasis Transformer yang dimodifikasi (30). Keunikan dari arsitektur ini adalah diadopsinya mekanisme ProbSparse Self-Attention (36), yang terinspirasi dari model Informer. Mekanisme ini secara komputasi lebih efisien daripada mekanisme self-attention standar karena hanya berfokus pada bagian paling signifikan dari spektrum untuk memahami konteksnya. Sehingga model dapat menangani spektrum dengan puluhan ribu titik data secara efektif.
+Model kemudian dilatih (langkah 130 pada Gambar 1) menggunakan set data spektrum sintetis sebagai input dan data komposisi yang bersesuaian sebagai target output. Pelatihan dilakukan dengan meminimalkan fungsi kerugian (loss function) seperti Focal Loss hingga model mencapai tingkat akurasi yang diinginkan.
+Pada Fase Analisis Sampel (200), sebuah sampel uji yang komposisinya tidak diketahui dianalisis. Keberhasilan dan akurasi dari fase ini sepenuhnya bergantung pada kualitas model yang merupakan hasil dari Fase Pelatihan Model (100). Pertama, spektrum emisi LIBS dari sampel uji diakuisisi menggunakan perangkat LIBS standar (langkah 210). Spektrum mentah ini kemudian melalui tahap pra-pemrosesan yang diperlukan (misalnya, normalisasi, penghapusan baseline) sebelum dimasukkan ke dalam model Informer yang telah terlatih (langkah 220. Model akan memproses spektrum tersebut dan menghasilkan output berupa prediksi kualitatif dari komposisi elemen di dalam sampel uji (langkah 230).
+Mengacu pada Gambar 3, diperlihatkan perbandingan spektrum. Sumbu-X merepresentasikan panjang gelombang, dan sumbu-Y merepresentasikan intensitas serta label yang diprediksi oleh model. Label atom yang dihasilkan oleh metode sesuai invensi ini (42) menunjukkan prediksi yang baik dan sebaran pada sinyal yang lebih kecil dibandingkan dengan label yang dihasilkan oleh metode konvensional (44), yang menunjukkan peningkatan akurasi dan presisi secara signifikan.
+Dari uraian di atas jelas bahwa hasil dari invensi ini dapat memberi manfaat bagi perkembangan spektroskopi modern karena secara praktis dan efisien menyediakan metode analisis material yang cepat dan akurat tanpa memerlukan proses yang rumit. Invensi ini benar-benar menyajikan suatu penyempurnaan yang sangat praktis khususnya pada metode analisis kualitatif menggunakan LIBS.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Klaim
+
+
+1. Sebuah metode analisis komposisi material menggunakan Laser-Induced Breakdown Spectroscopy (LIBS), yang mencakup pelatihan sebuah model Deep Learning pada data spektrum emisi sintetis yang dihasilkan dari simulasi parameter fisis fundamental, untuk selanjutnya digunakan dalam memproses data spektrum LIBS dari sampel uji dan memprediksi komposisinya.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ABSTRAK
+
+
+METODE ANALISIS KOMPOSISI MATERIAL BERBASIS LASER-INDUCED BREAKDOWN SPECTROSCOPY (LIBS) MENGGUNAKAN MODEL DEEP LEARNING YANG DILATIH DENGAN SPEKTRUM SINTETIS
+
+
+     Invensi ini mengenai metode analisis komposisi material
+ menggunakan Laser-Induced Breakdown Spectroscopy (LIBS), yang bertujuan untuk mengatasi masalah akurasi yang disebabkan oleh interferensi spektral yang kompleks dan variabilitas sinyal yang tinggi yang mencakup fluktuasi kondisi plasma, noise dari instrumen, serta pergeseran minor garis spektrum. Invensi ini mengungkapkan suatu pendekatan analisis berbasis  Deep Learning (DL) yang menggunakan model arsitektur  Transformer yang dioptimalkan, yaitu model Informer. Kunci dari metode ini terletak pada fase pelatihannya, dimana model dilatih menggunakan spektrum emisi sintetis yang disimulasikan dengan persamaan Saha-Boltzmann dan data transisi atom dari database NIST. Model Informer, yang dilengkapi dengan mekanisme ProbSparse Self-Attention, dirancang untuk secara efisien memproses data spektrum emisi yang panjang. Penggunaan model yang telah terlatih ini memungkinkan peningkatan akurasi yang signifikan dalam deteksi multi-elemen pada kondisi analisis yang kompleks, sehingga menyajikan suatu penyempurnaan pada metode spektroskopi modern.

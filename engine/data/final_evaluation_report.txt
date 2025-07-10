@@ -1,0 +1,55 @@
+================================================================================
+LAPORAN EVALUASI FINAL MODEL KLASIFIKASI SPEKTRAL
+================================================================================
+Tanggal Analisis: 2025-07-09 05:55:25
+Model Path: /informer_multilabel_model-3.pth
+Dataset: /content/dataset-50.h5
+
+
+--------------------------------------------------
+1. Ringkasan Eksekutif
+--------------------------------------------------
+Evaluasi model menunjukkan F1-Score (Macro) sebesar 0.3272. Model menunjukkan karakteristik Recall (0.7958) yang lebih tinggi dibandingkan Precision (0.2159), mengindikasikan efektivitas dalam mendeteksi elemen namun dengan kecenderungan prediksi berlebih (false positives).
+
+
+--------------------------------------------------
+2. Hasil Kuantitatif (Overall Metrics)
+--------------------------------------------------
+- Subset Accuracy (Exact Match)      : 0.0118
+- Hamming Loss                       : 0.2864 (lebih rendah lebih baik)
+- F1-Score (Micro Average)           : 0.3515
+- F1-Score (Macro Average)           : 0.3272
+- F1-Score (Samples Average)         : 0.3450
+- Precision (Macro Average)          : 0.2159
+- Recall (Macro Average)             : 0.7958
+
+
+--------------------------------------------------
+3. Analisis Performa per Elemen (Kelas)
+--------------------------------------------------
+
+              precision    recall  f1-score   support
+
+          Al     0.1380    0.6931    0.2302   2151278
+          Ar     0.1991    0.6386    0.3035   2934101
+           C     0.0988    0.7146    0.1736   1690801
+          Ca     0.1585    0.9946    0.2734   1122969
+          Cl     0.1587    0.9340    0.2713    188145
+          Co     0.2250    0.6900    0.3393   4295347
+          Cr     0.2287    0.9260    0.3668   2973100
+          Fe     0.2845    0.7099    0.4062   6220587
+          Mg     0.1264    0.6296    0.2106   2140461
+          Mn     0.3186    0.8269    0.4600   4910881
+           N     0.1219    0.7809    0.2109   2062908
+          Na     0.3036    0.8096    0.4416   2433518
+          Ni     0.4409    0.9193    0.5960   3569412
+           O     0.0732    0.6877    0.1323    977839
+           S     0.1102    0.8485    0.1951   1148103
+          Si     0.1490    0.8558    0.2538   1554981
+          Ti     0.3000    0.8429    0.4425   5220926
+  background     0.4510    0.8226    0.5826   8764784
+
+   micro avg     0.2262    0.7884    0.3515  54360141
+   macro avg     0.2159    0.7958    0.3272  54360141
+weighted avg     0.2763    0.7884    0.3978  54360141
+ samples avg     0.2389    0.7554    0.3450  54360141

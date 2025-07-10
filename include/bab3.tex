@@ -1,22 +1,10 @@
-%-------------------------------------------------------------------------------
-%                            BAB III
-%               		METODE PENELITIAN
-%-------------------------------------------------------------------------------
-
-
 \chapter{METODE PENELITIAN}
 
 \section{Waktu dan Lokasi Penelitian}
-Penelitian ini dilaksanakan di Laboratorium Gelombang dan Optik, Departemen Fisika, Fakultas Matematika dan Ilmu Pengetahuan Alam, Universitas Syiah Kuala, dari Desember 2024 hingga Juni 2025.
+Penelitian ini dilaksanakan di Laboratorium Gelombang dan Optik, Departemen Fisika, Fakultas Matematika dan Ilmu Pengetahuan Alam, Universitas Syiah Kuala. Pelaksanaan penelitian berlangsung dari bulan September 2024 hingga Juni 2025, yang mencakup seluruh tahapan mulai dari studi literatur hingga penyusunan laporan akhir.
 
 \section{Jadwal Pelaksanaan Penelitian}
-Penelitian ini direncanakan berlangsung selama 10 bulan, dari September 2024 hingga Juni 2025. Tabel~\ref{tab:jadwal_penelitian} menunjukkan jadwal pelaksanaan penelitian yang mencakup fase studi literatur, pengumpulan data, pengembangan model, validasi, dan penulisan laporan akhir.
-
-Studi Literatur dan Pembentukan Persamaan
-Perancangan Model Simulasi Spektral dan Dataset Pelatihan
-Pengembangan Model \textit{Informer} sistem evaluasi dan sistem prediksi
-Validasi Hasil Prediksi 
-Penulisan  Laporan Akhir
+Penelitian ini direncanakan berlangsung selama sepuluh bulan. Tabel~\ref{tab:jadwal_penelitian} menunjukkan rincian jadwal pelaksanaan penelitian untuk setiap fase utamanya.
 
 \begin{table}[H]
   \centering
@@ -30,64 +18,64 @@ Penulisan  Laporan Akhir
     & \textbf{Sep} & \textbf{Okt} & \textbf{Nov} & \textbf{Des} & \textbf{Jan} & \textbf{Feb} & \textbf{Mar} & \textbf{Apr} & \textbf{Mei} & \textbf{Jun} \\
     \midrule
     Studi Literatur dan Pembentukan Persamaan & \cellcolor{gray!20} & \cellcolor{gray!20} & & & & & & & & \\
-    Perancangan Model Simulasi Spektral dan Dataset Pelatihan & & & \cellcolor{gray!20} & \cellcolor{gray!20} & & & & & & \\
-    Pengembangan Model \textit{Informer} sistem evaluasi dan sistem prediksi & & & & & \cellcolor{gray!20} & \cellcolor{gray!20} & \cellcolor{gray!20} & & & \\
-    Validasi Hasil Prediksi & & & & & & & & \cellcolor{gray!20} & \cellcolor{gray!20} & \\
+    Perancangan Model Simulasi dan Dataset & & & \cellcolor{gray!20} & \cellcolor{gray!20} & & & & & & \\
+    Pengembangan Model \textit{Informer} & & & & & \cellcolor{gray!20} & \cellcolor{gray!20} & \cellcolor{gray!20} & & & \\
+    Validasi Hasil dan Analisis & & & & & & & & \cellcolor{gray!20} & \cellcolor{gray!20} & \\
     Penulisan Laporan Akhir & & & & & & & & & \cellcolor{gray!20} & \cellcolor{gray!20} \\
     \bottomrule
   \end{tabularx}
-  \vspace{0.2cm}
 \end{table}
 
 \section{Alat dan Bahan}
-Penelitian ini memanfaatkan berbagai alat dan bahan yang mencakup perangkat keras, perangkat lunak, serta sumber data untuk mendukung proses pengumpulan, pengolahan, analisis, dan visualisasi data spektral atomik. Berikut adalah rincian alat dan bahan yang digunakan:
+Penelitian ini memanfaatkan berbagai perangkat keras dan lunak, serta sumber data untuk mendukung keseluruhan proses penelitian.
 
 \subsection{Perangkat Keras}
 \begin{enumerate}
-  \item \textbf{Laptop \textit{Apple MacBook} Air M1 2020}: Dilengkapi dengan prosesor \textit{Apple M1}, memori (RAM) sebesar \SI{8}{\giga\byte}, dan penyimpanan internal berbasis \textit{SSD}. Perangkat ini digunakan untuk persiapan data, eksplorasi awal, pengembangan kode, serta penyusunan laporan penelitian.
-  \item \textbf{\textit{Google Colaboratory}}: Lingkungan komputasi berbasis awan yang menyediakan akses ke unit pemrosesan grafis (\textit{GPU}) \textit{NVIDIA Tesla T4} dengan memori \SIrange{15}{20}{\giga\byte}. Platform ini digunakan untuk pelatihan model \textit{Informer}, evaluasi performa model, serta komputasi intensif lainnya.
+  \item \textbf{Laptop \textit{Apple MacBook Air M1 2020}}: Dilengkapi dengan prosesor \textit{Apple M1}, memori (RAM) sebesar \SI{8}{\giga\byte}, dan penyimpanan \textit{SSD}. Perangkat ini digunakan untuk pengembangan kode lokal, analisis awal, dan penyusunan laporan.
+  \item \textbf{\textit{Google Colaboratory Pro}}: Lingkungan komputasi awan yang menyediakan akses ke \textit{Graphics Processing Unit} (GPU) \textit{NVIDIA Tesla T4} atau yang setara dengan memori VRAM hingga \SI{16}{\giga\byte}. Platform ini digunakan untuk pengembangan model \textit{Informer}.
+  \item \textbf{Infrastruktur \textit{High Performance Computing} (HPC) Mahameru 4 BRIN}: Infrastruktur ini digunakan untuk simulasi spektrum emisi dan pelatihan model \textit{Informer} yang intensif secara komputasi. Spesifikasi utamanya meliputi:
+  \begin{itemize}
+    \item Klaster CPU: 92 \textit{compute node} dengan dual prosesor Xeon Gold (sekitar 32 \textit{core} per node) dan 256 GB RAM per node. Terdapat 1 \textit{high memory node} dengan 1.5 TB memori.
+    \item Klaster GPU: Terkonsolidasi dari berbagai sumber daya GPU (misalnya, DGX A100, V100, P100).
+    \item Penyimpanan: Total 4.5 PB, dengan \textit{Hi performance SSD}.
+    \item Jaringan: InfiniBand HDR (100 Gbps per detik antar sistem).
+    \item Sistem Penjadwalan Job: SLURM.
+  \end{itemize}
 \end{enumerate}
 
 \subsection{Perangkat Lunak}
 \begin{enumerate}
   \item \textbf{Sistem Operasi}:
   \begin{itemize}
-    \item \textit{macOS Ventura} 13.6: Digunakan pada perangkat lokal untuk pengembangan dan pengujian awal.
-    \item \textit{Ubuntu}: Digunakan dalam lingkungan virtual \textit{Google Colaboratory} untuk komputasi berbasis awan.
+    \item \textit{macOS Ventura 13.6}: Digunakan pada perangkat lokal.
+    \item \textit{Ubuntu}: Digunakan dalam lingkungan \textit{Google Colaboratory}.
   \end{itemize}
   
   \item \textbf{Bahasa Pemrograman dan Lingkungan Kerja}:
   \begin{itemize}
-    \item Python 3.10: Bahasa pemrograman utama untuk pengembangan algoritma dan analisis data.
-    \item \textit{Jupyter Notebook}: Digunakan baik secara lokal maupun pada \textit{Google Colaboratory} untuk pengembangan kode interaktif dan dokumentasi analisis.
+    \item Python 3.10: Bahasa pemrograman utama yang digunakan.
+    \item \textit{Jupyter Notebook}: Digunakan untuk pengembangan kode interaktif.
   \end{itemize}
   
-  \item \textbf{Pustaka dan Modul Python}:
+  \item \textbf{Pustaka dan Kerangka Kerja Python}:
   \begin{itemize}
-    \item \textit{NumPy} (versi 2.2.0) dan \textit{Pandas} (versi 2.2.3): Untuk manipulasi, eksplorasi, dan analisis data numerik serta tabular.
-    \item \textit{h5py} (versi 3.13.0): Untuk pengelolaan dataset dalam format \textit{HDF5}, termasuk pembacaan dan penyimpanan data.
-    \item \textit{scikit-learn} (versi 1.6.1): Untuk prapemrosesan data, evaluasi model \textit{machine learning}, dan visualisasi dimensi rendah menggunakan algoritma \textit{t-SNE} (\texttt{sklearn.manifold.TSNE}).
-    \item \textit{Matplotlib} (versi 3.10.3): Untuk pembuatan visualisasi grafik dan representasi hasil analisis.
-    \item \textit{Joblib} (versi 1.2.0): Untuk serialisasi model dan optimalisasi pemrosesan paralel.
-    \item \textit{PyTorch} (versi 2.7.0): Kerangka kerja pembelajaran mendalam untuk pengembangan, pelatihan, dan evaluasi model.
-    \item \textit{TensorBoard} (versi 2.19.0): Untuk pemantauan metrik pelatihan dan validasi model secara \textit{real-time}.
-    \item \textit{itertools}: Modul standar Python untuk operasi iterasi kompleks.
+    \item \textit{NumPy} dan \textit{Pandas}: Untuk manipulasi dan analisis data numerik.
+    \item \textit{h5py}: Untuk pengelolaan dataset dalam format HDF5.
+    \item \textit{scikit-learn}: Untuk evaluasi model \textit{machine learning}.
+    \item \textit{Matplotlib}: Untuk visualisasi data dan hasil analisis.
+    \item \textit{PyTorch}: Kerangka kerja utama untuk pengembangan, pelatihan, dan evaluasi model \textit{deep learning}.
+    \item \textit{TensorBoard}: Untuk pemantauan metrik pelatihan secara \textit{real-time}.
+    \item \textit{itertools}: Modul standar Python untuk operasi iterasi.
   \end{itemize}
 \end{enumerate}
 
 \subsection{Sumber Data}
 \begin{enumerate}
-\item \textbf{\textit{NIST Atomic Spectra Database} (\textit{ASD})}: Basis data resmi dari \textit{National Institute of Standards and Technology} (\textit{NIST}) yang digunakan sebagai sumber utama parameter spektral atomik. Parameter yang diambil meliputi energi ionisasi (\(E_\text{i}\)), energi keadaan (\(E_\text{k}\)), bobot statistik (\(g_\text{i}\), \(g_\text{k}\)), dan koefisien probabilitas transisi (\(A_\text{ki}\)). Data diakses melalui antarmuka daring resmi \textit{NIST}.%\footnote{\url{https://physics.nist.gov/PhysRefData/ASD/}}
+\item \textbf{\textit{NIST Atomic Spectra Database} (ASD)}: Basis data dari \textit{National Institute of Standards and Technology} (NIST) yang digunakan sebagai sumber parameter spektral atomik, seperti energi ionisasi (\(E_{xi}\)), energi keadaan (\(E_\text{k}\)), bobot statistik (\(g_i\), \(g_k\)), dan probabilitas transisi (\(A_{ki}\)). Data diakses melalui antarmuka daring resmi NIST.
 \end{enumerate}
 
-
-
-
 \section{Prosedur Penelitian}
-
-Penelitian ini mengadopsi prosedur sistematis yang mencakup studi literatur, perancangan model simulasi, perancangan model \textit{Informer} hingga membangun sistem prediksi spektrum LIBS. Seperti yang ditunjukkan pada Gambar~\ref{diagram}, prosedur penelitian ini terdiri dari beberapa langkah utama yang saling berkaitan. Prosedur ini diuraikan dalam langkah-langkah berikut:
-
-\begin{enumerate}
+Penelitian ini mengadopsi prosedur sistematis yang mencakup studi literatur, perancangan model simulasi, dan pengembangan model \textit{Informer} untuk sistem prediksi spektrum LIBS. Diagram alur pada Gambar~\ref{diagram} mengilustrasikan tahapan utama penelitian ini.
 
     \begin{figure}[H]
         \centering
@@ -95,128 +83,101 @@ Penelitian ini mengadopsi prosedur sistematis yang mencakup studi literatur, per
         \caption{Diagram alur penelitian.}
         \label{diagram}
     \end{figure}
-
+    
+\begin{enumerate}
     \item \textbf{Studi Literatur} \\
-    Studi literatur dilakukan secara komprehensif untuk membentuk landasan teoretis yang kokoh bagi simulasi spektrum emisi atom dalam kondisi LTE. Proses ini melibatkan analisis mendalam terhadap prinsip-prinsip fisika plasma, yang mencakup:
+    Studi literatur dilakukan untuk membentuk landasan teoretis yang kokoh bagi simulasi spektrum emisi atom dalam kondisi \textit{Local Thermodynamic Equilibrium} (LTE). Proses ini melibatkan analisis mendalam terhadap:
     \begin{enumerate}
-      \item \textbf{Kalkulasi Intensitas Spektral} \\
-      Intensitas spektrum atom pada suhu tertentu dihitung menggunakan distribusi Boltzmann, yang menggambarkan distribusi populasi tingkat energi, yang kemudian dirumuskan dalam persamaan \eqref{eq:intensity_relative}.
-
-      \item \textbf{Kalkulasi Rasio Ionisasi Plasma} \\
-      Rasio antara atom terionisasi dan netral dalam plasma ditentukan melalui persamaan Saha, yang mempertimbangkan parameter termodinamika dan fungsi partisi, dan juga densitas elektron yang kemudian disebut pada persamaan \eqref{eq:saha_final_int}.
-
-      \item \textbf{Profil Garis Spektral Voigt} \\
-      Profil Voigt menggabungkan kontribusi pelebaran Doppler (berdistribusi Gaussian) dan pelebaran tekanan (berdistribusi Lorentzian) untuk memodelkan garis spektral secara akurat, dengan lebar HWHM Gaussian pada \eqref{eq:sigma_doppler}, lebar HWHM Lorentzian pada \eqref{eq:stark_broadening}, dan profil Voigt secara keseluruhan pada \eqref{eq:voigt}.
+      \item \textbf{Kalkulasi Intensitas Spektral}: Menggunakan distribusi Boltzmann untuk menghitung populasi tingkat energi sesuai persamaan \eqref{eq:bab2_eq11}.
+      \item \textbf{Kalkulasi Rasio Ionisasi Plasma}: Menggunakan persamaan Saha untuk menentukan rasio antara atom terionisasi dan netral sesuai persamaan \eqref{eq:bab2_eq27}.
+      \item \textbf{Profil Garis Spektral Gaussian}: Menggunakan pelebaran Doppler (Gaussian, \eqref{eq:bab2_eq30}) untuk memodelkan bentuk garis spektral secara akurat.
     \end{enumerate}
-
-    Data transisi atom yang digunakan dalam simulasi divalidasi dengan merujuk pada basis data NIST \citep{Kramida2023}, yang menyediakan informasi spektral atom dan ion yang andal.
+    Data transisi atom yang digunakan dalam simulasi divalidasi dengan merujuk pada basis data NIST \citep{Kramida2023}.
 
     \item \textbf{Pemodelan Simulasi Spektrum Emisi Atom} \\
-    Simulasi spektrum emisi atom dilaksanakan dalam kondisi LTE, dengan asumsi bahwa plasma memiliki distribusi energi termal yang seragam, dikendalikan oleh suhu \(T\) dan densitas elektron \(n_e\). Pendekatan ini berfokus pada interaksi atom-elektron yang menghasilkan emisi foton pada panjang gelombang tertentu. Intensitas garis spektral ditentukan oleh probabilitas transisi dan populasi tingkat energi, sedangkan pelebaran garis dimodelkan menggunakan profil Voigt untuk memperhitungkan efek Doppler dan tekanan.
+    Simulasi spektrum emisi atom dilaksanakan dalam kondisi LTE, dengan asumsi plasma memiliki distribusi energi termal yang seragam dan dikendalikan oleh suhu plasma (\(T\)) dan densitas elektron (\(n_e\)). Intensitas garis spektral ditentukan oleh probabilitas transisi dan populasi tingkat energi, sedangkan pelebaran garis dimodelkan menggunakan profil Gaussian.
 
-    Secara matematis, simulasi ini menghitung fungsi partisi, rasio ionisasi, intensitas relatif, dan profil garis dengan persamaan berikut:
+    Secara matematis, simulasi menghitung intensitas relatif dan mengaplikasikan profil Voigt:
     \begin{equation}
-    I_{\text{rel}} = \frac{N g_k A_{ki} \exp\left(-\frac{E_k}{k_B T}\right)}{Z}
+    I_{\text{rel}} = \frac{N g_k A_{ki} \exp\left(-\frac{E_k}{k_B T}\right)}{Z} \label{eq:bab3_eq1}
     \end{equation}
     \begin{equation}
-    I(\lambda) = I_{\text{rel}} \cdot V(\lambda - \lambda_{ij}, \alpha_G, \alpha_L)
+    I(\lambda) = I_{\text{rel}} \cdot G(\lambda - \lambda_{ij}, \sigma) \label{eq:bab3_eq2}
     \end{equation}
-    di mana \(I_{\text{rel}}\) adalah intensitas relatif, \(A_{ki}\) adalah probabilitas transisi, \(Z\) adalah fungsi partisi, \(f\) adalah faktor koreksi, dan \(V\) adalah fungsi profil Voigt dengan parameter HWHM Gaussian \(\alpha_G\) dan Lorentzian \(\alpha_L\).
+    di mana \(I_{\text{rel}}\) adalah intensitas relatif, \(A_{ki}\) probabilitas transisi, \(Z\) fungsi partisi, dan \(G\) fungsi profil Gaussian. Hyperparameter untuk proses simulasi dirangkum pada Tabel~\ref{tab:hyperparameter}.
+
     \begin{table}[h]
       \centering
       \small
-      \caption{Tabel Hyperparameter untuk Semua Algoritma Simulasi Spektral Atomik}
+      \caption{Hyperparameter untuk Algoritma Simulasi Spektral Atomik}
       \label{tab:hyperparameter}
       \begin{tabular}{p{2cm} p{5cm} p{3cm} p{3cm}}
         \toprule
-        \textbf{Simbol} & \textbf{Deskripsi} & \textbf{Satuan} & \textbf{Nilai Default} \\
+        \textbf{Simbol} & \textbf{Deskripsi} & \textbf{Satuan} & \textbf{Nilai} \\
         \midrule
         $k$ & Jumlah pasangan elemen-ion & -- & 4 \\
-        $N$ & Jumlah maksimum sampel spektral & -- & Tidak ditentukan ($\mathbb{N}$) \\
+        $N_{\text{samples}}$ & Jumlah maksimum sampel spektral & -- & Tidak ditentukan \\
         $\Delta T$ & Langkah suhu & \si{\kelvin} & 1000 \\
-        $\Delta n_e$ & Langkah densitas elektron & \si{\per\cubic\centi\metre} & $10^{0.5} \times 10^{12} \approx 3.162 \times 10^{12}$ \\
-        $T_{\text{min}}$ & Batas bawah rentang suhu & \si{\kelvin} & 5000 \\
-        $T_{\text{max}}$ & Batas atas rentang suhu & \si{\kelvin} table& 15000 \\
-        $n_{e,\text{min}}$ & Batas bawah rentang densitas elektron & \si{\per\cubic\centi\metre} & $10^{12}$ \\
-        $n_{e,\text{max}}$ & Batas atas rentang densitas elektron & \si{\per\cubic\centi\metre} & $10^{16}$ \\
-        Modulus penyimpanan & Frekuensi penyimpanan $\mathcal{S}$ & -- & 1000 \\
+        $\Delta n_e$ & Langkah densitas elektron & \si{\per\cubic\centi\metre} & $10^{0.5} \times 10^{12}$ \\
+        $T_{\text{min}}$ & Batas bawah suhu & \si{\kelvin} & 5000 \\
+        $T_{\text{max}}$ & Batas atas suhu & \si{\kelvin} & 15000 \\
+        $n_{e,\text{min}}$ & Batas bawah densitas elektron & \si{\per\cubic\centi\metre} & $10^{16}$ \\
+        $n_{e,\text{max}}$ & Batas atas densitas elektron & \si{\per\cubic\centi\metre} & $10^{18}$ \\
+        Modulus & Frekuensi penyimpanan spektrum emisi & -- & 1000 \\
         \bottomrule
       \end{tabular}
     \end{table}
 
-    Untuk efisiensi komputasi, algoritma dirancang dengan memilih subset atom secara acak, menerapkan langkah diskrit untuk \(T\) dan \(n_e\), serta menyimpan spektrum secara periodik. Proses ini menghasilkan dataset spektral \(\mathcal{S}\) yang siap digunakan untuk pelatihan model \textit{Informer}.
-
-    Pemodelan simulasi terdiri dari empat sub-langkah berikut:
-    \begin{enumerate}
-        \item \textbf{Inisialisasi Data Spektral Atom} \\
-        Algoritma ini mengumpulkan dan memvalidasi data transisi atom dari basis data NIST, menginisialisasi set kandidat atom (\(\mathcal{C}\)), kamus subset atom (\(\mathcal{A}\)), dan set spektrum (\(\mathcal{S}\)). Subset atom dipilih secara acak untuk setiap kombinasi \(T\) dan \(n_e\) guna menjamin representasi yang beragam. Algoritma dapat dilihat pada  \textbf{Lampiran~\ref{app:algo1}}.
-
-        \item \textbf{Kalkulasi Rasio Populasi Ionisasi} \\
-        Algoritma ini menghitung rasio populasi ionisasi untuk setiap pasangan elemen-ion, menghasilkan kamus rasio populasi (\(\mathcal{R}\)). Rasio ini penting untuk menentukan fraksi atom netral dan terionisasi dalam plasma. Algoritma dapat dilihat pada \textbf{Lampiran~\ref{app:algo2}}.
-
-        \item \textbf{Kalkulasi Intensitas Garis Spektral} \\
-        Algoritma ini menghitung intensitas relatif garis spektral (\(I_{\text{rel}}\)) yang menghasilkan kamus intensitas sementara (\(\mathcal{I}\)). Intensitas ini mencerminkan probabilitas emisi foton. Algoritma dapat dilihat pada  \textbf{Lampiran~\ref{app:algo3}}.
-
-        \item \textbf{Kalkulasi Spektrum Emisi dengan Profil Voigt} \\
-        Algoritma ini menghasilkan nilai HWHM Gaussian (\(\alpha_G\)) dan Lorentzian (\(\alpha_L\)) yang kemudian mengaplikasikan profil Voigt untuk menghasilkan spektrum emisi akhir, yang disimpan dalam set spektrum (\(\mathcal{S}\)) dengan normalisasi intensitas.Algoritma dapat dilihat pada  \textbf{Lampiran~\ref{app:algo4}}.
-    \end{enumerate}
+    Proses pemodelan simulasi ini terdiri dari empat sub-langkah yang dijalankan secara berurutan, mulai dari inisialisasi data atom (Lampiran~\ref{app:algo1}), kalkulasi rasio ionisasi (Lampiran~\ref{app:algo2}), kalkulasi intensitas garis (Lampiran~\ref{app:algo3}), hingga generasi spektrum emisi akhir dengan profil Gaussian (Lampiran~\ref{app:algo4}).
 
     \item \textbf{Perancangan Model Informer} \\
-    \begin{table}[h]
+    Tahap ini melibatkan perancangan dan pelatihan model \textit{Informer} untuk memprediksi komposisi multi-elemen dari spektrum emisi masukan. Model ini memanfaatkan mekanisme \textit{ProbSparse Self-Attention} untuk menangani data sekuensial panjang secara efisien.
+
+    \textbf{Arsitektur Model}:
+    Konfigurasi arsitektur model \textit{Informer} yang diimplementasikan dirinci dalam Tabel~\ref{tab:hyperparameter_informer}, dengan arsitektur visual diilustrasikan pada Gambar~\ref{fig:informer_architecture}. Model ini menerima input spektrum emisi 1D, memproyeksikannya ke dimensi model, menambahkan \textit{Positional Encoding}, dan memprosesnya melalui beberapa lapisan \textit{encoder} sebelum menghasilkan prediksi multi-label.
+    
+    \begin{table}[H]
       \centering
       \small
-      \caption{Tabel Hyperparameter untuk Model Informer}
+      \caption{Hyperparameter untuk Pelatihan Model Informer}
       \label{tab:hyperparameter_informer}
-      \begin{tabular}{p{3cm} p{5cm} p{3cm}}
+      \begin{tabular}{p{4cm} p{6cm} l}
         \toprule
-        \textbf{Simbol} & \textbf{Deskripsi} & \textbf{Nilai Default} \\
+        \textbf{Parameter} & \textbf{Deskripsi} & \textbf{Nilai} \\
         \midrule
-        $d_{\text{model}}$ & Dimensi embedding & 64 \\
-        $H$ & Jumlah kepala perhatian & 4 \\
-        $L$ & Jumlah lapisan enkoder & 3 \\
-        $d_{\text{ff}}$ & Dimensi feedforward & 128 \\
-        $\beta$ & Faktor dropout & 0.1 \\
-        $S$ & Panjang sekuens & 4096 \\
-        $A$ & Faktor perhatian & 7 \\
-        $B$ & Ukuran batch & 4 \\
-        $E$ & Jumlah epoch & 30 \\
-        $\eta$ & Laju pembelajaran & $10^{-3}$ \\
+        Dimensi model ($d_{\text{model}}$) & Dimensi internal model & 32 \\
+        Jumlah kepala perhatian ($H$) & Jumlah kepala pada mekanisme \textit{multi-head attention} & 4 \\
+        Jumlah lapisan enkoder ($L$) & Jumlah lapisan \textit{encoder} yang ditumpuk & 3 \\
+        Dimensi \textit{feed-forward} ($d_{\text{ff}}$) & Dimensi lapisan \textit{feed-forward} dalam \textit{encoder} & 64 \\
+        Faktor \textit{dropout} & Probabilitas \textit{dropout} untuk regularisasi & 0.4 \\
+        Panjang sekuens (\(L_x\)) & Jumlah titik data dalam satu spektrum emisi & 4096 \\
+        Faktor perhatian & Faktor \textit{sampling} untuk \textit{ProbSparse attention} & 5 \\
+        Ukuran \textit{batch} & Jumlah sampel per iterasi pelatihan & 25 \\
+        Jumlah \textit{epoch} & Jumlah maksimum \textit{epoch} pelatihan & 31 \\
+        Laju pembelajaran & Laju pembelajaran awal untuk optimizer & $10^{-4}$ \\
+        \textit{Weight decay} & Parameter regularisasi untuk optimizer AdamW & $10^{-5}$ \\
+        Akumulasi gradien & Jumlah langkah untuk akumulasi gradien & 4 \\
+        \textit{Patience} & Toleransi untuk \textit{early stopping} & 6 \\
+        $\Delta F1$ & Peningkatan F1 minimum yang dianggap signifikan & 0.001 \\
         \bottomrule
       \end{tabular}
     \end{table}
-    Tahap ini melibatkan perancangan model \textit{Informer}, sebuah arsitektur Transformer yang dioptimalkan untuk data sekuensial panjang, untuk memprediksi atom berdasarkan dataset spektral \(\mathcal{S}\). Model ini memanfaatkan mekanisme perhatian probabilitas guna menangkap pola spektral yang kompleks. Pelatihan model bertujuan meminimalkan \textit{mean squared error} (MSE):
-    \[
-    \text{MSE} = \frac{1}{n} \sum_{i=1}^n (y_i - \hat{y}_i)^2,
-    \]
-    di mana \(y_i\) adalah nilai aktual dan \(\hat{y}_i\) adalah nilai prediksi model.
 
-    Hyperparameter model disesuaikan untuk mencapai keseimbangan optimal antara akurasi dan efisiensi komputasi, sebagaimana dirinci dalam Tabel~\ref{tab:hyperparameter_informer}.
-    Model Informer dirancang dengan beberapa komponen utama:
-    \begin{enumerate}
-      \item \textbf{Enkoder} \\
-      Enkoder terdiri dari beberapa lapisan yang menerapkan mekanisme perhatian probabilitas untuk menangkap hubungan antar elemen spektral. Setiap lapisan enkoder mengolah input sekuensial dan menghasilkan representasi yang kaya.
-
-      \item \textbf{ProbSparse Self-Attention} \\
-      Mekanisme perhatian ini mengurangi kompleksitas komputasi dengan hanya mempertimbangkan subset elemen yang relevan, sehingga memungkinkan model menangani sekuens panjang dengan efisien.
-
-      \item \textbf{Feed-Forward Network (FFN)} \\
-      FFN mengaplikasikan transformasi non-linear pada representasi dari lapisan perhatian untuk meningkatkan kemampuan model dalam menangkap pola kompleks dalam data spektral.
-
-      \item \textbf{Normalisasi Layer dan Dropout} \\
-      Normalisasi layer diterapkan untuk stabilisasi pelatihan, sedangkan dropout digunakan untuk mencegah overfitting. Keduanya berkontribusi pada generalisasi model yang lebih baik.
-
-      \item \textbf{Output Layer} \\
-      Lapisan output menghasilkan prediksi spektral akhir, yang diukur dengan MSE terhadap nilai aktual. Output ini mencakup intensitas relatif dan profil garis spektral untuk setiap elemen yang diprediksi.
-    \end{enumerate}   
-    \begin{figure}
+    \textbf{Proses Pelatihan}:
+    Model dilatih dengan tujuan meminimalkan *loss* dan memaksimalkan F1-Score pada data validasi.
+    \begin{itemize}
+        \item \textbf{Fungsi \textit{Loss}}: Digunakan \textbf{MultiLabelFocalLoss} dengan \texttt{gamma=2.0} dan \texttt{pos\_weight} untuk mengatasi ketidakseimbangan kelas.
+        \item \textbf{Optimizer:} Digunakan \textbf{AdamW} dengan laju pembelajaran awal \texttt{1e-4}.
+        \item \textbf{Penjadwal Laju Pembelajaran:} Digunakan \textbf{OneCycleLR} untuk mengatur laju pembelajaran secara dinamis.
+        \item \textbf{Ukuran Batch Efektif:} Ukuran \textit{batch} 25 dengan 4 langkah akumulasi gradien menghasilkan ukuran \textit{batch} efektif 100.
+        \item \textbf{Pelatihan Presisi Campuran:} Pelatihan menggunakan presisi campuran (FP16) melalui \texttt{torch.cuda.amp} untuk efisiensi.
+        \item \textbf{Early Stopping dan Checkpointing:} Pelatihan berhenti jika F1-Score validasi tidak meningkat selama 6 \textit{epoch}, dan model dengan F1-Score terbaik akan disimpan secara otomatis.
+    \end{itemize}
+    
+    \begin{figure}[H]
         \centering
         \includegraphics[width=0.8\textwidth]{images/informer.drawio.pdf}
         \caption{Arsitektur model Informer yang digunakan dalam penelitian ini.}
         \label{fig:informer_architecture}
     \end{figure}
 \end{enumerate}
-
-
-
-
-

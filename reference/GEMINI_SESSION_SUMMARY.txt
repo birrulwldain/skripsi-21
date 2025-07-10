@@ -1,0 +1,46 @@
+# GEMINI SESSION SUMMARY - skripsi-21 Project
+
+## Project Overview
+- **Current Working Directory:** /Volumes/Private-C/Private-C-backup/skripsi-21/
+- **Main Goal:** Develop a LIBS analysis method using Informer DL model trained on synthetic spectra to reduce reliance on experimental calibration.
+- **Key Technologies/Domains:** Laser-Induced Breakdown Spectroscopy (LIBS), Deep Learning (DL), Informer (a Transformer variant), Synthetic Spectra Generation (based on Saha-Boltzmann equations).
+
+## Key File Locations
+- **Main Content:** `include/bab*.tex`
+- **Bibliography:** `daftar-pustaka.bib`
+- **Figures:** `images/`
+- **LaTeX Class Files:** `lib/` (e.g., `3skripsi.cls`)
+- **Reference Documents:** `reference/` (where this summary is stored)
+- **Python Engine/Data:** `engine/`, `engine/data/`
+
+## Key Learnings & Applied Revisions
+
+### 1. Content & Argumentation Flow
+- **Bab 1 (Pendahuluan):** Problem statement strengthened to emphasize urgency and research gap. (See `include/bab1.tex`)
+- **Bab 2 (Tinjauan Pustaka):** Added a bridge paragraph at the end to logically connect LIBS physics and Deep Learning concepts, justifying Informer's selection. (See `include/bab2.tex`)
+- **Bab 4 (Hasil & Pembahasan):**
+    - Linked model performance directly to the initial problem (calibration dependency).
+    - Added a new subsection: "Keterbatasan Penelitian" (Limitations of the Study). (See `include/bab4.tex`)
+- **Bab 5 (Kesimpulan & Saran):** Restructured "Saran" section to directly address the identified limitations, providing concrete future research directions. (See `include/bab5.tex`)
+- **Discussion on Transformer:** Confirmed that discussing Transformer before Informer is crucial for context and justifying Informer's advantages.
+
+### 2. LaTeX & Formatting Consistency
+- **Equation Labeling:** All equations in `include/bab2.tex` and `include/bab3.tex` are now uniquely labeled (e.g., `eq:bab2_eq1`, `eq:bab3_eq1`).
+- **Equation References:** All `\ref{eq:...}` calls in the narrative have been verified and fixed to point to the correct, newly assigned labels.
+- **Duplicate Label:** The duplicate `eq:power` label in `include/bab2.tex` was resolved.
+- **Unused Labels:** All previously identified unused `\label` commands were removed from `include/bab2.tex`.
+- **Foreign Terms Italicization:** All identified foreign terms (e.g., `online`, `vanishing gradient`, `parsing`, `real-time`, `start token`, `placeholder`, `false positives`, `Support`, `micro avg`, `macro avg`, `weighted avg`, `robustness`) are now consistently italicized (`\textit{...}`).
+- **Abbreviations:** Consistent use of abbreviations (NIST, LTE, DL) after their first full definition.
+- **Slash (/) Usage:** Verified that `/` is only used in LaTeX commands, file paths, URLs, or mathematical notation, not as a substitute for "atau" in narrative text.
+
+## Reference Documents (in `reference/` folder)
+- **`Template Deskripsi Paten.txt`:** Excellent example of formal, structured technical writing. Provides a strong style guide for clarity and logical flow.
+- **`skripsi bg john.txt` & `Tesis_Harish.txt`:** Excellent examples of complete academic research reports. Valuable for understanding scientific argumentation, data presentation, and interpretation within a thesis/dissertation context.
+- **`panduan-usk.txt`:** The definitive and binding style and formatting guide for the university. All LaTeX formatting (margins, fonts, citations, etc.) must adhere strictly to this document.
+
+## Future Considerations (for Gemini)
+- Continue to enforce consistent abbreviation usage.
+- Maintain strict italicization for foreign terms.
+- Ensure new equations are properly labeled and referenced.
+- Adhere to `panduan-usk.txt` for all formatting aspects.
+- Remind user to compile LaTeX document regularly to catch any new warnings/errors.
