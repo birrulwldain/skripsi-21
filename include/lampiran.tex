@@ -15,7 +15,7 @@
   \ENSURE Candidate atom set $\mathcal{C}$, atom subset dictionary $\mathcal{A}$, spectra set $\mathcal{S}$
   \STATE Validate inputs: Ensure $N > 0$, $\Delta T > 0$, $\Delta n_e > 0$
   \STATE Initialize: $\Delta T \gets 1000$, $\Delta n_e \gets 10^{0.5} \times 10^{12}$
-  \STATE Define: $\mathcal{C} \gets \{\text{Al}, \text{Ar}, \text{C}, \text{Ca}, \text{Cl}, \text{Co}, \text{Cr}, \text{Fe}, \text{Mg}, \text{Mn}, \text{N}, \text{Na}, \text{Ni}, \text{O}, \text{S}, \text{Si}, \text{Ti}\}$
+  \STATE Define: $\mathcal{C} \gets \{\text{Al}, \text{Ar}, \text{C}, \text{Ca}, \text{Cl}, \text{Co}, \text{Cr}, \text{Fe}, \text{Mg}, \text{Mn}, \text{N}, \text{Na}, \text{Ni}, \text{O}, \text{S}, \text{Si}, \text{Ti}\}$ % Sorted alphabetically: Al, Ar, C, Ca, Cl, Co, Cr, Fe, Mg, Mn, N, Na, Ni, O, S, Si, Ti
   \STATE Initialize: $\mathcal{S} \gets \emptyset$, $\mathcal{A} \gets \emptyset$
   \FORALL{$T \in [5000, 15000]$ \textbf{step} $\Delta T$}
     \FORALL{$n_e \in [10^{12}, 10^{16}]$ \textbf{step} $\Delta n_e$}
