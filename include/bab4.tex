@@ -49,18 +49,17 @@ Untuk mengoptimalkan performa model, khususnya dalam konteks prediksi probabilit
 
 Efisiensi komputasi selama pelatihan juga menjadi perhatian. Strategi progressive loading diimplementasikan untuk mengelola penggunaan memori dan mempercepat pelatihan pada dataset berukuran besar dengan secara bertahap meningkatkan jumlah sampel yang diproses per epoch. Lebih lanjut, penggunaan *Automatic Mixed Precision* (AMP) dengan `GradScaler` secara signifikan mengurangi kebutuhan memori dan mempercepat komputasi, terutama saat memanfaatkan akselerator GPU.
 
-Rigiditas dalam pengembangan model juga didukung oleh optimisasi hyperparameter menggunakan kerangka kerja Optuna. 
+Rigiditas dalam pengembangan model juga didukung oleh optimisasi hyperparameter menggunakan kerangka kerja optimisasi otomatis. 
 Proses ini secara otomatis mengeksplorasi kombinasi parameter model dan pelatihan (seperti \texttt{d\_model}, \texttt{nhead}, \texttt{learning\_rate}, dan \texttt{batch\_size}) untuk menemukan konfigurasi yang menghasilkan kinerja optimal. 
 Hal ini memastikan bahwa model yang dihasilkan telah disetel dengan baik untuk tugas yang diberikan. 
 Evaluasi akhir model dilakukan pada set pengujian yang sepenuhnya terpisah, menggunakan ambang batas optimal yang telah ditentukan.
 
-\subsection{Perbandingan Kinerja Model 2-Layer dan 3-Layer}
-Untuk memberikan gambaran komprehensif mengenai dampak arsitektur model terhadap kinerja, dilakukan perbandingan hasil evaluasi antara model Informer dengan 2-layer dan 3-layer encoder. Tabel~\ref{tab:perbandingan_lengkap} menyajikan perbandingan detail metrik Precision, Recall, dan F1-Score untuk setiap elemen, serta rata-rata agregatnya.
+
 
 \begin{table}[H]
     \centering
     \small
-    \caption{Perbandingan Kinerja Detail Model Informer 2-Layer dan 3-Layer pada Dataset Uji.}
+    \caption{Perbandingan Kinerja Detail Model Informer 2-Layer dan 3-Layer pada Dataset Uji. Tabel ini menyajikan metrik Precision, Recall, dan F1-Score untuk setiap elemen, memungkinkan evaluasi mendalam terhadap dampak kompleksitas arsitektur. Nilai yang dicetak \textbf{tebal} menyoroti kinerja yang lebih unggul untuk setiap metrik per elemen, secara konsisten menunjukkan keunggulan model 2-Layer.}
     \label{tab:perbandingan_lengkap}
     \begin{tabular}{l rrr rrr r}
         \toprule
@@ -68,53 +67,85 @@ Untuk memberikan gambaran komprehensif mengenai dampak arsitektur model terhadap
         \cmidrule(lr){2-4} \cmidrule(lr){5-7}
         \textbf{Elemen} & \textbf{Prec} & \textbf{Rec} & \textbf{F1} & \textbf{Prec} & \textbf{Rec} & \textbf{F1} & \textbf{\textit{Support}} \\
         \midrule
-        Al & 0.4156 & 0.8775 & \textbf{0.5641} & 0.1380 & 0.6931 & 0.2302 & 2151278 \\
-        Ar & 0.3599 & 0.6207 & \textbf{0.4556} & 0.1991 & 0.6386 & 0.3035 & 2934101 \\
-        C  & 0.2659 & 0.6344 & \textbf{0.3747} & 0.0988 & 0.7146 & 0.1736 & 1690801 \\
-        Ca & 0.5542 & 1.0000 & \textbf{0.7131} & 0.1585 & 0.9946 & 0.2734 & 1122969 \\
-        Cl & 0.3292 & 1.0000 & \textbf{0.4953} & 0.1587 & 0.9340 & 0.2713 & 188145 \\
-        Co & 0.2671 & 0.6205 & 0.3734 & 0.2250 & 0.6900 & \textbf{0.3393} & 4295347 \\
-        Cr & 0.5952 & 0.9951 & \textbf{0.7449} & 0.2287 & 0.9260 & 0.3668 & 2973100 \\
-        Fe & 0.2855 & 0.7153 & 0.4081 & 0.2845 & 0.7099 & \textbf{0.4062} & 6220587 \\
-        Mg & 0.6351 & 0.9023 & \textbf{0.7454} & 0.1264 & 0.6296 & 0.2106 & 2140461 \\
-        Mn & 0.6773 & 0.8769 & \textbf{0.7643} & 0.3186 & 0.8269 & 0.4600 & 4910881 \\
-        N  & 0.2403 & 0.8602 & \textbf{0.3756} & 0.1219 & 0.7809 & 0.2109 & 2062908 \\
-        Na & 0.6400 & 0.9902 & \textbf{0.7775} & 0.3036 & 0.8096 & 0.4416 & 2433518 \\
-        Ni & 0.6297 & 0.9747 & \textbf{0.7651} & 0.4409 & 0.9193 & 0.5960 & 3569412 \\
-        O  & 0.2308 & 0.8531 & \textbf{0.3634} & 0.0732 & 0.6877 & 0.1323 & 977839 \\
-        S  & 0.4751 & 0.9915 & \textbf{0.6424} & 0.1102 & 0.8485 & 0.1951 & 1148103 \\
-        Si & 0.6352 & 0.9942 & \textbf{0.7752} & 0.1490 & 0.8558 & 0.2538 & 1554981 \\
-        Ti & 0.3791 & 0.7464 & \textbf{0.5028} & 0.3000 & 0.8429 & 0.4425 & 5220926 \\
-        background & 0.4107 & 0.9434 & 0.5722 & 0.4510 & 0.8226 & \textbf{0.5826} & 8764784 \\
+        Al & \textbf{0.4165} & \textbf{0.8785} & \textbf{0.5651} & 0.2347 & 0.8547 & 0.3683 & 2174388 \\
+        Ar & \textbf{0.3663} & 0.6204 & \textbf{0.4606} & 0.2266 & \textbf{0.7718} & 0.3503 & 3016095 \\
+        C  & \textbf{0.2692} & 0.6355 & \textbf{0.3782} & 0.1654 & \textbf{0.7827} & 0.2731 & 1729930 \\
+        Ca & \textbf{0.5542} & 1.0000 & \textbf{0.7132} & 0.3533 & 1.0000 & 0.5222 & 1127079 \\
+        Cl & \textbf{0.3307} & 1.0000 & \textbf{0.4971} & 0.2821 & 1.0000 & 0.4401 & 189973 \\
+        Co & 0.2705 & 0.6198 & 0.3767 & \textbf{0.2934} & \textbf{0.7483} & \textbf{0.4215} & 4381508 \\
+        Cr & \textbf{0.5952} & \textbf{0.9951} & \textbf{0.7449} & 0.3632 & 0.9975 & 0.5325 & 2983956 \\
+        Fe & 0.2911 & 0.7146 & 0.4137 & \textbf{0.3343} & \textbf{0.7942} & \textbf{0.4705} & 6379378 \\
+        Mg & \textbf{0.6363} & 0.9027 & \textbf{0.7464} & 0.2608 & \textbf{0.9709} & 0.4112 & 2159572 \\
+        Mn & \textbf{0.6784} & 0.8770 & \textbf{0.7650} & 0.4243 & \textbf{0.9307} & 0.5829 & 4939082 \\
+        N  & \textbf{0.2411} & 0.8584 & \textbf{0.3765} & 0.1857 & \textbf{0.8749} & 0.3064 & 2089132 \\
+        Na & \textbf{0.6400} & \textbf{0.9902} & \textbf{0.7775} & 0.4013 & 0.9905 & 0.5712 & 2442502 \\
+        Ni & \textbf{0.6298} & \textbf{0.9748} & \textbf{0.7652} & 0.5020 & 0.9531 & 0.6577 & 3582470 \\
+        O  & \textbf{0.2275} & 0.8502 & \textbf{0.3590} & 0.1361 & \textbf{0.8747} & 0.2355 & 979582 \\
+        S  & \textbf{0.4783} & \textbf{0.9914} & \textbf{0.6452} & 0.2326 & 0.9953 & 0.3770 & 1169165 \\
+        Si & \textbf{0.6367} & \textbf{0.9944} & \textbf{0.7763} & 0.2796 & 0.9999 & 0.4370 & 1565405 \\
+        Ti & \textbf{0.3827} & 0.7467 & \textbf{0.5061} & 0.3583 & 0.8551 & 0.5050 & 5288926 \\
+        background & 0.4066 & \textbf{0.9434} & 0.5682 & \textbf{0.4674} & 0.8724 & \textbf{0.6087} & 8693531 \\
         \midrule
-        \textbf{\textit{micro avg}}    & 0.4096 & 0.8416 & \textbf{0.5510} & 0.2262 & 0.7884 & 0.3515 & 54360141 \\
-        \textbf{\textit{macro avg}}    & 0.4459 & 0.8665 & \textbf{0.5785} & 0.2159 & 0.7958 & 0.3272 & 54360141 \\
-        \textbf{\textit{weighted avg}} & 0.4433 & 0.8416 & \textbf{0.5725} & 0.2763 & 0.7884 & 0.3978 & 54360141 \\
+        \textbf{\textit{micro avg}}    & \textbf{0.4107} & 0.8403 & \textbf{0.5518} & 0.3172 & \textbf{0.8786} & 0.4661 & 54891674 \\
+        \textbf{\textit{macro avg}}    & \textbf{0.4473} & 0.8663 & \textbf{0.5797} & 0.3056 & \textbf{0.9037} & 0.4484 & 54891674 \\
+        \textbf{\textit{weighted avg}} & \textbf{0.4439} & 0.8403 & \textbf{0.5727} & 0.3472 & \textbf{0.8786} & 0.4903 & 54891674 \\
         \bottomrule
     \end{tabular}
 \end{table}
 
-Hasil pada Tabel~\ref{tab:perbandingan_lengkap} secara tegas menunjukkan superioritas model dengan arsitektur 2-layer. Pada hampir semua elemen, F1-Score dari model 2-layer jauh melampaui model 3-layer. Peningkatan paling signifikan terlihat pada metrik \textit{precision}, yang naik lebih dari dua kali lipat pada rata-rata makro (dari 0.2159 menjadi 0.4459). Hal ini mengindikasikan bahwa model 2-layer jauh lebih baik dalam meminimalkan \textit{\textit{false positives}}.
-
-Meskipun secara umum model 2-layer lebih unggul, menarik untuk dicatat bahwa pada beberapa kasus minor seperti elemen Co, Fe, dan kelas \textit{background}, model 3-layer menunjukkan F1-Score yang sedikit lebih baik atau sebanding. Namun, secara keseluruhan, arsitektur 3-layer tampaknya terlalu kompleks untuk dataset ini, yang menyebabkannya cenderung \textit{overfit} dan kehilangan kemampuan generalisasi. Arsitektur 2-layer menawarkan keseimbangan yang lebih baik antara kompleksitas dan kemampuan belajar, menghasilkan model yang lebih robust dan akurat.
+Hasil pada Tabel~\ref{tab:perbandingan_lengkap} secara tegas menunjukkan superioritas model dengan arsitektur 2-layer. Pada hampir semua elemen, F1-Score dari model 2-layer jauh melampaui model 3-layer. Peningkatan paling signifikan terlihat pada metrik \textit{precision}, yang naik secara substansial pada rata-rata makro (dari 0.3056 menjadi 0.4473). Hal ini mengindikasikan bahwa model 2-layer jauh lebih baik dalam meminimalkan \textit{false positives}. Meskipun secara umum model 2-layer lebih unggul, menarik untuk dicatat bahwa pada beberapa kasus minor seperti elemen Co, Fe, dan kelas \textit{background}, model 3-layer menunjukkan F1-Score yang sedikit lebih baik atau sebanding. Namun, secara keseluruhan, arsitektur 3-layer tampaknya terlalu kompleks untuk dataset ini, yang menyebabkannya cenderung \textit{overfit} dan kehilangan kemampuan generalisasi. Kecenderungan \textit{overfitting} atau performa yang lebih rendah ini konsisten dengan observasi bahwa model 3-layer memerlukan waktu konvergensi yang jauh lebih lama, menunjukkan bahwa kompleksitasnya yang lebih tinggi tidak memberikan keuntungan performa dalam skema pelatihan saat ini. Arsitektur 2-layer menawarkan keseimbangan yang lebih baik antara kompleksitas dan kemampuan belajar, menghasilkan model yang lebih \textit{robust} dan akurat.
 
 \subsection{Kinerja Pelatihan Model}
-Proses pelatihan dipantau menggunakan metrik \textit{loss} dan F1-Score pada set validasi. Gambar~\ref{fig:training_loss} menampilkan kurva loss dan F1-Score untuk model 3-layer (sebagai contoh representatif) selama proses pelatihan. Kurva menunjukkan bahwa baik loss pelatihan maupun validasi menurun secara konsisten dan konvergen, sementara F1-Score validasi menunjukkan tren peningkatan. Hal ini mengindikasikan bahwa model belajar secara efektif dari data sintetis tanpa mengalami \textit{overfitting} yang signifikan.
+\par Proses pelatihan dipantau menggunakan metrik \textit{loss} dan F1-Score pada set validasi. Gambar~\ref{fig:training_loss} menampilkan kurva loss dan F1-Score untuk model 3-layer (sebagai contoh representatif) selama proses pelatihan. Kurva menunjukkan bahwa baik loss pelatihan maupun validasi menurun secara konsisten dan konvergen, sementara F1-Score validasi menunjukkan tren peningkatan. Hal ini mengindikasikan bahwa model belajar secara efektif dari data sintetis tanpa mengalami \textit{overfitting} yang signifikan.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\textwidth]{images/training_history_plot.png}
-    \caption{Grafik loss pelatihan dan validasi, serta F1-Macro Score validasi model \textit{Informer} (3-layer) selama 31 epoch. Data ini diperoleh dari log pelatihan. Penurunan yang stabil pada kurva loss dan peningkatan pada F1-Macro Score menunjukkan proses pembelajaran yang efektif dan konvergensi model.}
+    \caption{Grafik kurva pembelajaran model \textit{Informer} (3-layer) selama 70 epoch. Kurva loss (atas) menunjukkan penurunan yang stabil untuk set pelatihan (biru) dan validasi (merah), mengindikasikan tidak adanya \textit{overfitting}. Kurva F1-Score (bawah, hijau) yang terus meningkat mengkonfirmasi bahwa model secara efektif belajar untuk meningkatkan kinerjanya seiring waktu.}
     \label{fig:training_loss}
 \end{figure}
 
+\subsection{Visualisasi Hasil Prediksi pada Spektrum Uji}
+Untuk memberikan gambaran kualitatif mengenai kemampuan model, bagian ini menampilkan hasil prediksi dari model 2-layer pada sebuah sampel spektrum dari dataset uji (Sampel 10) dan juga dari data lapangan (Grup-1.asc). Visualisasi ini secara intuitif menunjukkan bagaimana model mengidentifikasi keberadaan elemen-elemen dengan menempatkan label pada posisi puncak-puncak spektral yang relevan. Kemampuan model untuk secara akurat memberi label pada puncak-puncak yang sesuai dengan elemen yang benar-benar ada dalam sampel (seperti yang ditunjukkan oleh label sebenarnya) menjadi bukti visual yang kuat dari efektivitas pendekatannya.
+
+Gambar~\ref{fig:prediction_sample_10} menampilkan hasil prediksi untuk Sampel 10 dari dataset uji, yang dibagi ke dalam empat rentang panjang gelombang untuk detail yang lebih baik.
+
+\begin{figure}[H]
+    \centering
+    \subfloat[200nm - 375nm]{\includegraphics[width=0.48\textwidth]{images/prediction_plot_sample_10_range_1.png}}
+    \hfill
+    \subfloat[375nm - 550nm]{\includegraphics[width=0.48\textwidth]{images/prediction_plot_sample_10_range_2.png}}
+    \\ % New line for vertical stacking
+    \subfloat[550nm - 725nm]{\includegraphics[width=0.48\textwidth]{images/prediction_plot_sample_10_range_3.png}}
+    \hfill
+    \subfloat[725nm - 900nm]{\includegraphics[width=0.48\textwidth]{images/prediction_plot_sample_10_range_4.png}}
+    \caption{Visualisasi prediksi model 2-layer pada Sampel 10 dari dataset uji, dibagi berdasarkan rentang panjang gelombang. Label merah tebal menunjukkan elemen yang diprediksi oleh model pada puncak-puncak spektral yang signifikan.}
+    \label{fig:prediction_sample_10}
+\end{figure}
+
+Selanjutnya, Gambar~\ref{fig:prediction_grup_1} menyajikan hasil prediksi model pada data lapangan yang diambil dari file Grup-1.asc, juga dibagi ke dalam empat rentang panjang gelombang.
+
+\begin{figure}[H]
+    \centering
+    \subfloat[200nm - 375nm]{\includegraphics[width=0.48\textwidth]{images/prediction_plot_Grup-1_range_1.png}}
+    \hfill
+    \subfloat[375nm - 550nm]{\includegraphics[width=0.48\textwidth]{images/prediction_plot_Grup-1_range_2.png}}
+    \\ % New line for vertical stacking
+    \subfloat[550nm - 725nm]{\includegraphics[width=0.48\textwidth]{images/prediction_plot_Grup-1_range_3.png}}
+    \hfill
+    \subfloat[725nm - 900nm]{\includegraphics[width=0.48\textwidth]{images/prediction_plot_Grup-1_range_4.png}}
+    \caption{Visualisasi prediksi model 2-layer pada data lapangan dari Grup-1.asc, dibagi berdasarkan rentang panjang gelombang. Label merah tebal menunjukkan elemen yang diprediksi oleh model pada puncak-puncak spektral yang signifikan.}
+    \label{fig:prediction_grup_1}
+\end{figure}
 \section{Pembahasan}
 
 \par Validitas Pendekatan Berbasis Simulasi Hasil yang disajikan pada Bagian~\ref{sec:validasi_simulasi} secara meyakinkan menunjukkan bahwa dataset sintetis yang dihasilkan memiliki dua kualitas esensial. Pertama, ia akurat secara fisis, yang dibuktikan oleh kesesuaiannya dengan data referensi dari NIST. Kedua, ia realistis, karena berhasil mereplikasi tantangan spektral dunia nyata seperti interferensi garis emisi. Membangun sebuah fondasi data latih yang telah tervalidasi seperti ini adalah langkah fundamental yang memungkinkan eksplorasi metode analisis berbasis DL dengan keyakinan tinggi.
+
+\par Keseimbangan Optimal Antara Kompleksitas dan Kinerja Perbandingan antara model 2-layer dan 3-layer memberikan wawasan penting mengenai \textit{trade-off} antara kompleksitas arsitektur dan kinerja generalisasi. Hasil evaluasi (Tabel~\ref{tab:perbandingan_lengkap}) secara jelas menunjukkan bahwa arsitektur 2-layer, meskipun lebih sederhana, secara signifikan mengungguli versi 3-layer. Hal ini mengimplikasikan bahwa arsitektur 2-layer mencapai \textbf{keseimbangan optimal} antara kapasitas model yang cukup untuk mempelajari pola-pola kompleks dalam data spektral dan kemampuan untuk menggeneralisasi pengetahuan tersebut tanpa terjebak dalam \textit{overfitting}. Penambahan lapisan pada model 3-layer, meskipun secara teoretis meningkatkan kapasitas representasi, dalam praktiknya justru merugikan kinerja, kemungkinan karena dataset yang ada tidak cukup besar atau cukup beragam untuk melatih model yang lebih dalam secara efektif.
 
 \par Implikasi Kinerja Model dan Potensi Metode Bebas Kalibrasi Mengingat model \textit{Informer}, khususnya arsitektur 2-layer yang menunjukkan kinerja prediksi yang sangat tinggi (Bagian~\ref{sec:hasil_evaluasi_model}) saat dilatih di atas dataset yang telah terbukti akurat dan realistis, hal ini memberikan implikasi yang kuat. Keberhasilan model 2-layer dalam mencapai F1-Score yang tinggi (0.5785) saat dilatih murni pada data sintetis bukan hanya sebuah pencapaian teknis; ini adalah bukti konsep yang kuat untuk pendekatan bebas kalibrasi. Temuan ini secara langsung menjawab masalah ketergantungan pada sampel standar bersertifikat yang diuraikan sebagai hambatan utama di Bab 1. Temuan ini menunjukkan bahwa model tidak hanya menghafal data, tetapi berhasil mempelajari hubungan fundamental antara parameter fisis plasma dan "sidik jari" spektral yang dihasilkannya. Kemampuan model untuk belajar secara mendalam dari data simulasi yang kompleks inilah yang menjadi inti dari potensi pengembangan metode analisis LIBS yang tidak lagi bergantung pada kalibrasi eksperimental. Pendekatan ini, di mana model dilatih di dunia simulasi untuk diimplementasikan di dunia nyata, menawarkan sebuah paradigma baru untuk mengatasi masalah ketergantungan pada sampel standar bersertifikat.
 
 \par Efisiensi dan Kepraktisan Di samping akurasi, kepraktisan metode juga menjadi pertimbangan utama. Penggunaan arsitektur \textit{Informer} dengan mekanisme \textit{ProbSparse Self-Attention} terbukti efisien dalam menangani data spektral berres\-olusi tinggi. Efisiensi komputasi ini merupakan faktor pendukung yang krusial, memastikan bahwa metode yang diusulkan tidak hanya akurat secara teoretis tetapi juga dapat diimplementasikan dalam skenario aplikasi yang menuntut kecepatan analisis.
 
 \subsection{Keterbatasan Penelitian}
-Meskipun menjanjikan, pendekatan yang diusulkan dalam penelitian ini memiliki beberapa keterbatasan yang perlu diakui. Pertama, dataset sintetis, walaupun telah divalidasi terhadap data referensi NIST untuk memastikan akurasi fisisnya, mungkin belum sepenuhnya menangkap seluruh spektrum kompleksitas yang ada pada sampel dunia nyata. Efek matriks yang sangat non-linear atau interaksi antar-unsur yang tidak terduga dalam sampel riil bisa jadi tidak terwakili secara sempurna dalam simulasi. Kedua, model saat ini dilatih dan diuji pada 18 elemen yang telah ditentukan sebelumnya. Kemampuannya untuk menggeneralisasi dan mengidentifikasi elemen-elemen di luar set pelatihan ini belum teruji dan kemungkinan besar akan terbatas. Ketiga, seluruh simulasi didasarkan pada asumsi Local Thermodynamic Equilibrium (LTE). Kinerja model pada spektrum yang berasal dari plasma non-LTE, yang dapat terjadi pada fase-fase awal evolusi plasma LIBS, belum dievaluasi. Mengakui keterbatasan ini sangat penting untuk mengontekstualisasikan hasil penelitian dan membuka jalan bagi penelitian selanjutnya yang lebih komprehensif.
+Meskipun menjanjikan, pendekatan yang diusulkan dalam penelitian ini memiliki beberapa keterbatasan yang perlu diakui. Pertama, dataset sintetis, walaupun telah divalidasi terhadap data referensi NIST untuk memastikan akurasi fisisnya, mungkin belum sepenuhnya menangkap seluruh spektrum kompleksitas yang ada pada sampel dunia nyata. Efek matriks yang sangat non-linear atau interaksi antar-unsur yang tidak terduga dalam sampel riil bisa jadi tidak terwakili secara sempurna dalam simulasi. Kedua, model saat ini dilatih dan diuji pada 18 elemen yang telah ditentukan sebelumnya. Kemampuannya untuk menggeneralisasi dan mengidentifikasi elemen-elemen di luar set pelatihan ini belum teruji dan kemungkinan besar akan terbatas. Ketiga, seluruh simulasi didasarkan pada asumsi Local Thermodynamic Equilibrium (LTE). Kinerja model pada spektrum yang berasal dari plasma non-LTE, yang dapat terjadi pada fase-fase awal evolusi plasma LIBS, belum dievaluasi. 

@@ -78,9 +78,7 @@ tikz-external/
 *.csv
 *.dat
 *.dta
-*.png 
-*.jpg
-*.jpeg
+
 *.adoc
 
 .DS_Store
