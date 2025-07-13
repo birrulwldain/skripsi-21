@@ -7,6 +7,7 @@ import json
 import os
 import matplotlib.pyplot as plt
 import logging
+import pandas as pd # Added pandas import
 from train import InformerModel, set_seed
 from scipy.signal import find_peaks
 
@@ -39,8 +40,8 @@ def create_static_plot(
     logger = logging.getLogger('AnalysisToolkit')
     logger.info("Membuat plot statis dengan Matplotlib...")
 
-    ranges = [(200, 550), (550, 900)]
-    range_titles = ["200nm - 550nm", "550nm - 900nm"]
+    ranges = [(200, 375), (375, 550), (550, 725), (725, 900)]
+    range_titles = ["200nm - 375nm", "375nm - 550nm", "550nm - 725nm", "725nm - 900nm"]
 
     for i, (wl_min, wl_max) in enumerate(ranges):
         # Filter data for the current wavelength range
@@ -156,6 +157,43 @@ def save_prediction_details_to_txt(
             f.write(f"{peak_wl:.3f}\t{peak_int:.3f}\t{predicted_str}\t{true_str}\n")
     logger.info(f"Detail prediksi berhasil disimpan di {output_filename}")
 
+def analyze_from_asc(model, element_map, config, asc_file_path, peak_height, prominence, distance, threshold):
+    print(f"\n--- Menganalisis Data Lapangan dari File: {os.path.basename(asc_file_path)} ---")
+    def _prepare_asc_file(asc_path, h5_grid_path):
+        df = pd.read_csv(asc_path, sep=r'\s+', names=['wavelength', 'intensity'], comment='#')
+        original_wl, original_spec = df['wavelength'].values, df['intensity'].values
+        with h5py.File(h5_grid_path, 'r') as f: target_wl = f['wavelengths'][:]
+        baseline = np.percentile(original_spec, 5)
+        spec_corrected = original_spec - baseline
+        spec_corrected[spec_corrected < 0] = 0
+        max_val = np.max(spec_corrected)
+        spec_normalized = (spec_corrected / max_val) * 0.8 if max_val > 0 else spec_corrected
+        return target_wl, np.interp(target_wl, original_wl, spec_normalized).astype(np.float32)
+    try:
+        wavelengths, spectrum = _prepare_asc_file(asc_file_path, config["paths"]["h5_dataset_path"])
+    except Exception as e:
+        print(f"Gagal memproses file .asc: {e}")
+        return
+    class_names, device = list(element_map.keys()), next(model.parameters()).device
+    input_tensor = torch.from_numpy(spectrum[np.newaxis, :, np.newaxis]).to(device)
+    with torch.no_grad():
+        logits = model(input_tensor)
+        probabilities = torch.sigmoid(logits).squeeze(0).cpu().numpy()
+    predictions = (probabilities > threshold).astype(int)
+
+    # Calculate peak_indices here for ASC data
+    peak_indices, _ = find_peaks(spectrum, height=peak_height, distance=distance, prominence=prominence)
+
+    # Call static plot function
+    base_output_path = os.path.join(os.path.dirname(__file__), '..', 'images', f'prediction_plot_{os.path.basename(asc_file_path).replace('.asc', '')}.png')
+    create_static_plot(wavelengths, spectrum, predictions, probabilities, class_names, None, peak_height, prominence, distance, title_prefix=f"Prediksi pada Data Lapangan ({os.path.basename(asc_file_path)})", base_output_path=base_output_path)
+
+    # Save prediction details to text file for ASC data
+    output_filename = os.path.join(os.path.dirname(__file__), '..', 'images', f'prediction_details_{os.path.basename(asc_file_path).replace('.asc', '')}.txt')
+    os.makedirs(os.path.dirname(output_filename), exist_ok=True)
+    save_prediction_details_to_txt(wavelengths, spectrum, predictions, probabilities, class_names, None, peak_indices, output_filename=output_filename)
+
+
 def load_model(model_path, model_config, device):
     """Memuat model Informer dari file .pth."""
     model = InformerModel(**model_config)
@@ -198,7 +236,8 @@ if __name__ == '__main__':
         "paths": {
             "h5_dataset_path": '/Volumes/Private-C/Private-C-backup/skripsi-21/engine/dataset-50.h5',
             "element_map_path": '/Volumes/Private-C/Private-C-backup/skripsi-21/engine/element-map-18a.json',
-            "model_path": '/Volumes/Private-C/Private-C-backup/skripsi-21/engine/data/informer_multilabel_model-2.pth'
+            "model_path": '/Volumes/Private-C/Private-C-backup/skripsi-21/engine/data/informer_multilabel_model-2.pth',
+            "asc_data_dir": '/Volumes/Private-C/Private-C-backup/skripsi-21/engine/data/telur/' # New: Directory for .asc files
         },
         "model_params": {
             "input_dim": 1,
@@ -230,7 +269,7 @@ if __name__ == '__main__':
     # Muat model
     model = load_model(config["paths"]["model_path"], config["model_params"], DEVICE)
 
-    # Analisis dan plot hasil
+    # Analisis dan plot hasil dari H5 dataset
     analyze_from_h5(
         model,
         element_map,
@@ -242,4 +281,21 @@ if __name__ == '__main__':
         config["analysis_params"]["distance"],
         config["analysis_params"]["threshold"]
     )
+
+    # Analisis dan plot hasil dari file .asc
+    # Ganti 'sample.asc' dengan nama file .asc yang ingin Anda analisis
+    asc_file_to_analyze = os.path.join(config["paths"]["asc_data_dir"], 'Grup-1.asc') # Placeholder
+    if os.path.exists(asc_file_to_analyze):
+        analyze_from_asc(
+            model,
+            element_map,
+            config,
+            asc_file_to_analyze,
+            config["analysis_params"]["peak_height"],
+            config["analysis_params"]["prominence"],
+            config["analysis_params"]["distance"],
+            config["analysis_params"]["threshold"]
+        )
+    else:
+        print(f"Peringatan: File .asc tidak ditemukan di {asc_file_to_analyze}. Melewatkan analisis .asc.")
 

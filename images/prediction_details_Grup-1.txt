@@ -1,0 +1,128 @@
+Panjang Gelombang (nm)	Intensitas	Prediksi Atom (Probabilitas)	Atom Asli
+239.829	0.004	Ca (80.3%)	Tidak Ada
+247.863	0.008	Na (77.9%)	Tidak Ada
+279.487	0.051	Mg (83.8%), Mn (73.8%)	Tidak Ada
+280.342	0.045	Mg (75.3%)	Tidak Ada
+284.273	0.007	Na (74.3%)	Tidak Ada
+285.299	0.029	Na (89.5%)	Tidak Ada
+289.402	0.005	Cr (71.6%), Mn (75.8%), Na (83.2%)	Tidak Ada
+293.675	0.008	Tidak Ada	Tidak Ada
+300.000	0.006	Ca (90.9%), Cr (80.3%), Ni (74.8%)	Tidak Ada
+300.684	0.021	Ca (96.4%), Cr (83.3%), Ni (73.2%)	Tidak Ada
+306.325	0.005	Na (77.2%), Ni (81.4%)	Tidak Ada
+311.111	0.011	Ni (81.2%)	Tidak Ada
+315.897	0.377	Ar (83.3%), Ca (92.6%), Na (92.8%)	Tidak Ada
+317.949	0.087	Ca (92.5%), Na (79.6%)	Tidak Ada
+321.026	0.024	Si (83.3%)	Tidak Ada
+323.077	0.007	Tidak Ada	Tidak Ada
+336.068	0.015	Ca (92.0%)	Tidak Ada
+348.889	0.008	Mn (75.5%), Ni (85.9%)	Tidak Ada
+356.239	0.006	Ni (71.3%)	Tidak Ada
+362.393	0.033	Ca (81.4%), Ni (79.9%)	Tidak Ada
+364.444	0.025	Ca (89.8%)	Tidak Ada
+366.838	0.016	Tidak Ada	Tidak Ada
+370.598	0.041	Ca (86.5%)	Tidak Ada
+373.675	0.295	Ar (87.1%), Ca (94.1%), Na (79.2%)	Tidak Ada
+380.855	0.033	Tidak Ada	Tidak Ada
+381.880	0.019	Tidak Ada	Tidak Ada
+382.906	0.040	Mn (71.6%)	Tidak Ada
+383.248	0.086	Mg (84.0%), N (70.1%)	Tidak Ada
+385.812	0.027	Si (71.4%)	Tidak Ada
+389.231	0.064	Ar (72.5%), Mg (88.7%)	Tidak Ada
+390.598	0.025	Si (71.4%)	Tidak Ada
+393.333	0.329	Ar (85.3%), Ca (94.6%), S (86.7%), Ti (70.3%)	Tidak Ada
+395.727	0.055	Ar (70.5%), Ca (95.1%)	Tidak Ada
+396.923	0.779	Ar (85.1%), Ca (94.1%), Ti (77.4%)	Tidak Ada
+401.368	0.048	N (71.1%)	Tidak Ada
+404.786	0.111	Ar (76.9%), Cr (70.4%)	Tidak Ada
+409.915	0.017	Tidak Ada	Tidak Ada
+414.017	0.032	Tidak Ada	Tidak Ada
+421.538	0.036	Tidak Ada	Tidak Ada
+422.735	0.351	Ar (85.5%), Ca (93.7%)	Tidak Ada
+428.376	0.061	Ca (89.7%)	Tidak Ada
+428.889	0.072	Ar (74.0%), Ca (94.4%), Cr (77.8%)	Tidak Ada
+429.915	0.113	Ar (74.0%), Ca (93.6%)	Tidak Ada
+430.256	0.224	Ar (78.0%), Ca (95.7%)	Tidak Ada
+430.769	0.133	Ca (90.4%)	Tidak Ada
+431.795	0.130	Ca (96.0%)	Tidak Ada
+435.727	0.012	Cr (78.4%)	Tidak Ada
+437.607	0.013	Tidak Ada	Tidak Ada
+438.291	0.017	Tidak Ada	Tidak Ada
+439.658	0.035	Na (70.8%)	Tidak Ada
+440.171	0.023	Tidak Ada	Tidak Ada
+441.368	0.024	Tidak Ada	Tidak Ada
+442.564	0.093	Ca (92.2%), Na (84.1%)	Tidak Ada
+443.590	0.027	Ca (88.4%), Mg (70.0%), Mn (70.4%)	Tidak Ada
+445.470	0.126	Ca (81.9%)	Tidak Ada
+452.308	0.019	Cl (70.5%), Cr (79.2%)	Tidak Ada
+453.675	0.006	Cr (79.5%)	Tidak Ada
+455.727	0.023	Tidak Ada	Tidak Ada
+458.120	0.050	Ca (91.0%), Cr (76.6%)	Tidak Ada
+458.632	0.083	Ar (71.0%), Ca (97.4%), Cr (71.5%)	Tidak Ada
+468.889	0.015	Tidak Ada	Tidak Ada
+469.402	0.015	Tidak Ada	Tidak Ada
+483.248	0.006	Tidak Ada	Tidak Ada
+487.863	0.023	Ca (89.3%)	Tidak Ada
+500.171	0.006	Tidak Ada	Tidak Ada
+504.273	0.034	S (74.1%), Si (70.0%)	Tidak Ada
+516.752	0.012	Tidak Ada	Tidak Ada
+517.265	0.033	Mg (78.9%)	Tidak Ada
+518.462	0.041	Mg (77.3%)	Tidak Ada
+518.974	0.061	Tidak Ada	Tidak Ada
+526.496	0.047	Cr (76.6%)	Tidak Ada
+527.009	0.058	Cr (76.1%)	Tidak Ada
+530.940	0.009	Cr (70.3%)	Tidak Ada
+532.650	0.016	Tidak Ada	Tidak Ada
+535.043	0.051	Cr (84.1%), S (82.9%)	Tidak Ada
+540.855	0.014	Tidak Ada	Tidak Ada
+541.367	0.016	Tidak Ada	Tidak Ada
+543.761	0.011	O (71.9%)	Tidak Ada
+549.402	0.016	Tidak Ada	Tidak Ada
+551.282	0.027	Mn (74.9%), S (81.6%)	Tidak Ada
+558.291	0.029	Tidak Ada	Tidak Ada
+558.974	0.119	Ni (81.7%)	Tidak Ada
+559.487	0.097	Tidak Ada	Tidak Ada
+559.829	0.077	Tidak Ada	Tidak Ada
+560.171	0.065	Tidak Ada	Tidak Ada
+566.667	0.007	S (85.8%)	Tidak Ada
+574.872	0.028	Tidak Ada	Tidak Ada
+575.556	0.024	Tidak Ada	Tidak Ada
+575.897	0.023	Tidak Ada	Tidak Ada
+585.812	0.021	Tidak Ada	Tidak Ada
+589.060	0.035	Na (82.7%)	Tidak Ada
+589.573	0.028	Na (84.4%)	Tidak Ada
+594.188	0.012	Mg (79.5%)	Tidak Ada
+598.120	0.021	Si (77.4%)	Tidak Ada
+603.590	0.006	Tidak Ada	Tidak Ada
+607.009	0.010	Tidak Ada	Tidak Ada
+607.521	0.010	Tidak Ada	Tidak Ada
+610.256	0.051	Ar (73.3%), Ca (89.5%)	Tidak Ada
+612.308	0.113	Ar (79.1%), Ca (96.7%), Mn (70.8%)	Tidak Ada
+616.239	0.167	Ar (73.1%), Ca (93.2%), Cl (91.0%), Na (85.3%)	Tidak Ada
+616.923	0.082	Ar (79.7%)	Tidak Ada
+629.402	0.015	Tidak Ada	Tidak Ada
+631.453	0.027	S (82.0%)	Tidak Ada
+635.556	0.037	Tidak Ada	Tidak Ada
+636.239	0.030	Tidak Ada	Tidak Ada
+643.932	0.034	Tidak Ada	Tidak Ada
+644.957	0.016	Tidak Ada	Tidak Ada
+646.325	0.044	Tidak Ada	Tidak Ada
+647.180	0.018	Tidak Ada	Tidak Ada
+649.402	0.047	N (70.7%)	Tidak Ada
+649.915	0.019	N (70.3%)	Tidak Ada
+656.239	0.012	Tidak Ada	Tidak Ada
+665.470	0.008	Tidak Ada	Tidak Ada
+667.863	0.010	C (73.8%)	Tidak Ada
+671.111	0.010	Tidak Ada	Tidak Ada
+671.795	0.028	Si (73.6%)	Tidak Ada
+695.043	0.006	Tidak Ada	Tidak Ada
+714.872	0.025	Tidak Ada	Tidak Ada
+720.171	0.019	Tidak Ada	Tidak Ada
+732.479	0.008	Tidak Ada	Tidak Ada
+741.367	0.005	Tidak Ada	Tidak Ada
+747.009	0.006	Tidak Ada	Tidak Ada
+777.265	0.010	O (79.2%)	Tidak Ada
+819.658	0.004	Tidak Ada	Tidak Ada
+849.915	0.014	Ca (89.8%)	Tidak Ada
+854.188	0.024	Ca (81.0%)	Tidak Ada
+866.325	0.005	Ca (83.4%), N (70.0%)	Tidak Ada
