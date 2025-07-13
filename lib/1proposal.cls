@@ -255,22 +255,27 @@
 \newcommand{\@degree}{}
 \newcommand{\yearsubmit}[1]{\gdef\@yearsubmit{#1}}
 \newcommand{\@yearsubmit}{}
-\newcommand{\program}[1]{\gdef\@program{Fisika}}
+\newcommand{\program}[1]{\gdef\@program{#1}}
 \newcommand{\@program}{}
-\newcommand{\headprogram}[1]{\gdef\@headprogram{Fisika}}
+\newcommand{\headprogram}[1]{\gdef\@headprogram{#1}}
 \newcommand{\@headprogram}{}
-\newcommand{\dept}[1]{\gdef\@dept{Fisika}}
+\newcommand{\dept}[1]{\gdef\@dept{#1}}
 \newcommand{\@dept}{}
-\newcommand{\firstsupervisor}[1]{\gdef\@firstsupervisor{Prof. Dr. Eng. Nasrullah, S.Si., M.T.}}
+\newcommand{\prodi}[1]{\gdef\@prodi{#1}}
+\newcommand{\@prodi}{}
+\newcommand{\firstsupervisor}[1]{\gdef\@firstsupervisor{#1}}
 \newcommand{\@firstsupervisor}{}
-\newcommand{\secondsupervisor}[1]{\gdef\@secondsupervisor{Dr. Khairun Saddami, S.T.
-}}
+\newcommand{\firstdept}[1]{\gdef\@firstdept{#1}}
+\newcommand{\@firstdept}{}
+\newcommand{\secondsupervisor}[1]{\gdef\@secondsupervisor{#1}}
 \newcommand{\@secondsupervisor}{}
-\newcommand{\kajur}[1]{\gdef\@kajur{Dr. Saumi Syahreza, S.Si., M.Si.}}
+\newcommand{\seconddept}[1]{\gdef\@seconddept{#1}}
+\newcommand{\@seconddept}{}
+\newcommand{\kajur}[1]{\gdef\@kajur{#1}}
 \newcommand{\@kajur}{}
-\newcommand{\firstnip}[1]{\gdef\@firstnip{197607031995121001}}
+\newcommand{\firstnip}[1]{\gdef\@firstnip{#1}}
 \newcommand{\@firstnip}{}
-\newcommand{\secondnip}[1]{\gdef\@secondnip{199103182022031008}}
+\newcommand{\secondnip}[1]{\gdef\@secondnip{#1}}
 \newcommand{\@secondnip}{}
 \newcommand{\kajurnip}[1]{\gdef\@kajurnip{#1}}
 \newcommand{\@kajurnip}{}
@@ -280,8 +285,13 @@
 \newcommand{\@dekannip}{}
 \newcommand{\kaprodi}[1]{\gdef\@kaprodi{#1}}
 \newcommand{\@kaprodi}{}
-\newcommand{\kaprodinip}[1]{\gdef\@kaprodinip{197609172005011002}}
+\newcommand{\kaprodinip}[1]{\gdef\@kaprodinip{#1}}
 \newcommand{\@kaprodinip}{}
+\newcommand{\koorta}[1]{\gdef\@koorta{#1}}
+\newcommand{\@koorta}{}
+\newcommand{\koortanip}[1]{\gdef\@koortanip{#1}}
+\newcommand{\@koortanip}{}
+
 
 %------------------------------------------------------------
 % Define cover in Indonesian
@@ -410,6 +420,8 @@
       \vspace{0.9cm}%
       \end{tabular}
     \end{doublespace}%
+    \vspace{3cm}
+	  Lulus Proposal Penelitian pada hari Rabu 25, Juni, 2025\\
   \end{center}%
 }
 %------------------------------------------------------------

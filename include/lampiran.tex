@@ -3,22 +3,29 @@
 % Sesuai Panduan Tugas Akhir dan Tesis 2024 FMIPA Universitas Syiah Kuala
 % Struktur: Hanya Lampiran 1, 2, dst., tanpa subbab atau section
 
-% \begin{onehalfspace} % Spasi 1,5 sesuai dokumen utama
+\begin{onehalfspace} % 1.5 spacing as per main document
 
 \lampiran{Algoritma Inisialisasi Data Spektral Atom}
 \label{app:algo1}
-\begin{algoritma}[H]
+\begin{algorithm}[H]
 \small
 \caption{Inisialisasi Data Spektral Atom}
 \begin{algorithmic}[1]
-  \REQUIRE Transition dataset $\mathcal{D} = \{ (\lambda_{ij}, E_i, E_k, g_i, g_k, A_{ki}) \mid \lambda_{ij} \in [200, 900], E_i, E_k, g_i, g_k, A_{ki} > 0 \}$ ; Number of element-ion pairs $k = 4$; Maximum spectral samples $N \in \mathbb{N}$; Temperature step $\Delta T > 0$; Electron density step $\Delta n_e > 0$
+  \REQUIRE Transition dataset $\mathcal{D} = \{ (\lambda_{ij}, E_i, E_k, g_i, g_k, A_{ki}) \mid \lambda_{ij} \in [200, 900], E_i, E_k, g_i, g_k, A_{ki} > 0 \}$ ;
+  Number of element-ion pairs $k = 4$ ;
+  Maximum spectral samples $N \in \mathbb{N}$ ;
+  Number of temperatures $N_T$ ;
+  Number of electron densities $N_{n_e}$
   \ENSURE Candidate atom set $\mathcal{C}$, atom subset dictionary $\mathcal{A}$, spectra set $\mathcal{S}$
-  \STATE Validate inputs: Ensure $N > 0$, $\Delta T > 0$, $\Delta n_e > 0$
-  \STATE Initialize: $\Delta T \gets 1000$, $\Delta n_e \gets 10^{0.5} \times 10^{12}$
-  \STATE Define: $\mathcal{C} \gets \{\text{Al}, \text{Ar}, \text{C}, \text{Ca}, \text{Cl}, \text{Co}, \text{Cr}, \text{Fe}, \text{Mg}, \text{Mn}, \text{N}, \text{Na}, \text{Ni}, \text{O}, \text{S}, \text{Si}, \text{Ti}\}$ % Sorted alphabetically: Al, Ar, C, Ca, Cl, Co, Cr, Fe, Mg, Mn, N, Na, Ni, O, S, Si, Ti
+  \STATE Validate inputs: Ensure $N > 0$, $N_T > 0$, $N_{n_e} > 0$
+  \STATE Initialize: $T_{\text{min}} \gets 5000$, $T_{\text{max}} \gets 15000$
+  \STATE Initialize: $n_{e,\text{min}} \gets 10^{12}$, $n_{e,\text{max}} \gets 10^{16}$
+  \STATE Generate $T_{\text{values}}$: $N_T$ values linearly spaced between $T_{\text{min}}$ and $T_{\text{max}}$
+  \STATE Generate $n_{e,\text{values}}$: $N_{n_e}$ values logarithmically spaced between $n_{e,\text{min}}$ and $n_{e,\text{max}}$
+  \STATE Define: $\mathcal{C} \gets \{\text{Al}, \text{Ar}, \text{C}, \text{Ca}, \text{Cl}, \text{Co}, \text{Cr}, \text{Fe}, \text{Mg}, \text{Mn}, \text{N}, \text{Na}, \text{Ni}, \text{O}, \text{S}, \text{Si}, \text{Ti}\}$ % Sorted alphabetically
   \STATE Initialize: $\mathcal{S} \gets \emptyset$, $\mathcal{A} \gets \emptyset$
-  \FORALL{$T \in [5000, 15000]$ \textbf{step} $\Delta T$}
-    \FORALL{$n_e \in [10^{12}, 10^{16}]$ \textbf{step} $\Delta n_e$}
+  \FORALL{$T \in T_{\text{values}}$}
+    \FORALL{$n_e \in n_{e,\text{values}}$}
       \STATE Randomly select $\mathcal{A}_{T,n_e} \subseteq \mathcal{C}$ with $|\mathcal{A}_{T,n_e}| = k$ without replacement
       \IF{no transitions exist in $\mathcal{D}$ for any species in $\mathcal{A}_{T,n_e}$}
         \STATE Log warning: ``No transitions for $\mathcal{A}_{T,n_e}$ at $T$, $n_e$'' \COMMENT{Skip}
@@ -29,18 +36,18 @@
   \ENDFOR
   \RETURN $\mathcal{C}$, $\mathcal{A}$, $\mathcal{S}$
 \end{algorithmic}
-\end{algoritma}
-% Algoritma ini mengumpulkan dan memvalidasi data transisi atom dari basis data NIST, menginisialisasi set kandidat atom (\(\mathcal{C}\)), kamus subset atom (\(\mathcal{A}\)), dan set spektrum emisi (\(\mathcal{S}\)). Subset atom dipilih secara acak untuk setiap kombinasi \(T\) dan \(n_e\), memastikan representasi yang beragam.
+\end{algorithm}
+% Algoritma ini mengumpulkan dan memvalidasi data transisi atom dari basis data NIST, menginisialisasi himpunan kandidat atom (\(\mathcal{C}\)), kamus subset atom (\(\mathcal{A}\)), dan himpunan spektrum emisi (\(\mathcal{S}\)). Subset atom dipilih secara acak untuk setiap kombinasi \(T\) dan \(n_e\), memastikan representasi yang beragam.
 
 \lampiran{Algoritma Kalkulasi Rasio Populasi Ionisasi}
 \label{app:algo2}
-\begin{algoritma}[h]
+\begin{algorithm}[H]
 \small
 \caption{Kalkulasi Rasio Populasi Ionisasi}
 \begin{algorithmic}[1]
   \REQUIRE Transition dataset $\mathcal{D} = \{ (\lambda_{ij}, E_i, E_k, g_i, g_k, A_{ki}) \mid \lambda_{ij} \in [200, 900], E_i, E_k, g_i, g_k, A_{ki} > 0 \}$; Candidate atom set $\mathcal{C}$; Atom subset dictionary $\mathcal{A} = \{ (T, n_e, \mathcal{A}_{T,n_e}) \}$; Physical constants $m_e = 9.109 \times 10^{-31}$, $k_B = 8.617 \times 10^{-5}$, $h = 4.1357 \times 10^{-15}$
   \ENSURE Population ratio dictionary $\mathcal{R} = \{ (T, n_e, \mathbf{R}_{T,n_e}) \mid \mathbf{R}_{T,n_e} \in [0, 1]^2 \}$
-  \STATE Initialize $\mathcal{R} \gets \emptyset$ \COMMENT{Ratio dictionary}
+  \STATE Initialize $\mathcal{R} \gets \emptyset$ \COMMENT{Population ratio dictionary}
   \FORALL{$(T, n_e, \mathcal{A}_{T,n_e}) \in \mathcal{A}$}
     \STATE $\mathbf{R}_{T,n_e} \gets \emptyset$ \COMMENT{Temporary ratio}
     \FORALL{$S \in \mathcal{A}_{T,n_e}$}
@@ -50,12 +57,12 @@
         \STATE Log warning: ``No transitions for $S$'' \COMMENT{Skip}
         \STATE continue
       \ENDIF
-      \STATE $Z_{\text{neutral}} \gets \sum_i g_i \exp\left(-\frac{E_i}{k_B T}\right)$ \COMMENT{Neutral partition}
+      \STATE $Z_{\text{neutral}} \gets \sum_i g_i \exp\left(-\frac{E_i}{k_B T}\right)$ \COMMENT{Neutral partition function}
       \IF{$Z_{\text{neutral}} \leq 0$}
         \STATE Log warning: ``Invalid partition function for $S_{\text{neutral}}$'' \COMMENT{Skip}
         \STATE continue
       \ENDIF
-      \STATE $Z_{\text{ion}} \gets \sum_i g_i \exp\left(-\frac{E_i}{k_B T}\right)$ \COMMENT{Ion partition}
+      \STATE $Z_{\text{ion}} \gets \sum_i g_i \exp\left(-\frac{E_i}{k_B T}\right)$ \COMMENT{Ion partition function}
       \IF{$Z_{\text{ion}} \leq 0$}
         \STATE Log warning: ``Invalid partition function for $S_{\text{ion}}$'' \COMMENT{Skip}
         \STATE continue
@@ -69,12 +76,12 @@
   \ENDFOR
   \RETURN $\mathcal{R}$ \COMMENT{Result}
 \end{algorithmic}
-\end{algoritma}
+\end{algorithm}
 % Algoritma ini menghitung rasio populasi ionisasi untuk setiap pasangan elemen-ion, menghasilkan kamus rasio populasi (\(\mathcal{R}\)). Rasio ini penting untuk menentukan fraksi atom netral dan terionisasi dalam plasma.
 
 \lampiran{Algoritma Kalkulasi Intensitas Garis Spektral}
 \label{app:algo3}
-\begin{algoritma}[H]
+\begin{algorithm}[H]
 \small
 \caption{Kalkulasi Intensitas Garis Spektral}
 \begin{algorithmic}[1]
@@ -95,10 +102,10 @@
         \STATE $n_{e,\text{min}} \gets 1.6 \times 10^{12} T^{1/2} (\Delta E)^{3/2}$ \COMMENT{Minimum density}
         \IF{$n_e \geq n_{e,\text{min}}$}
           \IF{$S$ is $S_{\text{neutral}}$}
-            \STATE $Z \gets Z_{\text{neutral}}$ (Algoritma 2) \COMMENT{Neutral partition}
+            \STATE $Z \gets Z_{\text{neutral}}$ (Algorithm 2) \COMMENT{Neutral partition function}
             \STATE $f \gets f_{\text{neutral}}$ from $\mathbf{R}_{T,n_e}$ \COMMENT{Neutral fraction}
           \ELSE
-            \STATE $Z \gets Z_{\text{ion}}$ (Algoritma 2) \COMMENT{Ion partition}
+            \STATE $Z \gets Z_{\text{ion}}$ (Algorithm 2) \COMMENT{Ion partition function}
             \STATE $f \gets f_{\text{ion}}$ from $\mathbf{R}_{T,n_e}$ \COMMENT{Ion fraction}
           \ENDIF
           \STATE $I_{\text{rel}} \gets \frac{g_k A_{ki} \exp\left(-\frac{E_k}{k_B T}\right)}{Z} \cdot f$ \COMMENT{Relative intensity}
@@ -112,16 +119,22 @@
   \ENDFOR
   \RETURN $\mathcal{I}$ \COMMENT{Result}
 \end{algorithmic}
-\end{algoritma}
-% \par Algoritma ini menghitung intensitas relatif garis spektral (\(I_{\text{rel}}\)) untuk setiap transisi atom, menghasilkan kamus intensitas sementara (\(\mathcal{I}\)). Intensitas ini mencerminkan probabilitas emisi foton.
+\end{algorithm}
+% Algoritma ini menghitung intensitas relatif garis spektral (\(I_{\text{rel}}\)) untuk setiap transisi atom, menghasilkan kamus intensitas sementara (\(\mathcal{I}\)). Intensitas ini mencerminkan probabilitas emisi foton.
 
 \lampiran{Algoritma Kalkulasi Spektrum Emisi dengan Profil Gaussian}
 \label{app:algo4}
-\begin{algoritma}[H]
+\begin{algorithm}[H]
 \small
-\caption{Kalkulasi Spektrum Emisi Atom dengan Profil Garis \textit{Gaussian}}
+\caption{Kalkulasi Spektrum Emisi Atom dengan Profil Garis Gaussian}
 \begin{algorithmic}[1]
-  \REQUIRE Temporary intensity dictionary $\mathcal{I} = \{ (T, n_e, \mathbf{I}_{\text{temp}}) \mid \mathbf{I}_{\text{temp}} = \{ (\lambda_{ij}, I_{\text{rel}}) \} \}$; Transition dataset $\mathcal{D} = \{ (\lambda_{ij}, E_i, E_k, g_i, g_k, A_{ki}, m_a) \mid \lambda_{ij} \in [200, 900], E_i, E_k, g_i, g_k, A_{ki}, m_a > 0 \}$; Atom subset dictionary $\mathcal{A} = \{ (T, n_e, \mathcal{A}_{T,n_e}) \}$; Population ratio dictionary $\mathcal{R} = \{ (T, n_e, \mathbf{R}_{T,n_e}) \mid \mathbf{R}_{T,n_e} \in [0, 1]^2 \}$; Physical constants $c = 2.998 \times 10^8$, $k_B = 8.617 \times 10^{-5}$; Maximum spectral samples $N \in \mathbb{N}$; Spectra set $\mathcal{S}$
+  \REQUIRE Temporary intensity dictionary $\mathcal{I} = \{ (T, n_e, \mathbf{I}_{\text{temp}}) \mid \mathbf{I}_{\text{temp}} = \{ (\lambda_{ij}, I_{\text{rel}}) \} \}$ ;
+  Transition dataset $\mathcal{D} = \{ (\lambda_{ij}, E_i, E_k, g_i, g_k, A_{ki}, m_a) \mid \lambda_{ij} \in [200, 900], E_i, E_k, g_i, g_k, A_{ki}, m_a > 0 \}$ ;
+  Atom subset dictionary $\mathcal{A} = \{ (T, n_e, \mathcal{A}_{T,n_e}) \}$ ;
+  Population ratio dictionary $\mathcal{R} = \{ (T, n_e, \mathbf{R}_{T,n_e}) \mid \mathbf{R}_{T,n_e} \in [0, 1]^2 \}$ ;
+  Physical constants $c = 2.998 \times 10^8$, $k_B = 8.617 \times 10^{-5}$ ;
+  Maximum spectral samples $N \in \mathbb{N}$ ;
+  Spectra set $\mathcal{S}$
   \ENSURE $\mathcal{S}$ with $(T, n_e, \mathbf{I}_{T,n_e}, \mathbf{R}_{T,n_e})$
   \STATE Initialize $c \gets 0$ \COMMENT{Counter}
   \FORALL{$(T, n_e, \mathbf{I}_{\text{temp}}) \in \mathcal{I}$}
@@ -137,8 +150,8 @@
       \STATE Normalize $\mathbf{I}_{T,n_e}$: divide each $I$ by $\max(\{I \mid (\lambda_{ij}, I) \in \mathbf{I}_{T,n_e}\})$ \COMMENT{Normalization}
     \ENDIF
     \STATE Store $(T, n_e, \mathbf{I}_{T,n_e}, \mathbf{R}_{T,n_e})$ in $\mathcal{S}$ \COMMENT{Add spectrum}
-    \STATE $c \gets c + 1$ \COMMENT{Increment}
-    \IF{$c \mod 1000 = 0$} %\COMMENT{Check storage modulo}
+    \STATE $c \gets c + 1$ \COMMENT{Increment counter}
+    \IF{$c \mod 1000 = 0$}% \COMMENT{Check storage modulo}
       \STATE Save $\mathcal{S}$ \COMMENT{Save}
       \STATE Clear $\mathcal{S}$ \COMMENT{Clear}
     \ENDIF
@@ -148,7 +161,7 @@
   \ENDFOR
   \RETURN $\mathcal{S}$ \COMMENT{Result}
 \end{algorithmic}
-\end{algoritma}
-% Algoritma ini menghitung parameter pelebaran Gaussian (\(\alpha_G\)), lalu mengaplikasikan profil Gaussian untuk menghasilkan spektrum emisi akhir, menyimpannya dalam set spektrum emisi (\(\mathcal{S}\)) dengan normalisasi intensitas.
+\end{algorithm}
+% Algoritma ini menghitung parameter pelebaran Gaussian (\(\sigma\)), lalu mengaplikasikan profil Gaussian untuk menghasilkan spektrum emisi akhir, menyimpannya dalam himpunan spektrum emisi (\(\mathcal{S}\)) dengan normalisasi intensitas.
 
-% % \end{onehalfspace}
+\end{onehalfspace} % 1.5 spacing as per main document --- IGNORE ---

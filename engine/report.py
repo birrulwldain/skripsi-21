@@ -334,34 +334,8 @@ def generate_plots_and_latex(h5_path, map_path, num_plots=5, output_dir="/Volume
                 'plot_filename': plot_filename
             })
 
-    # --- Generate LaTeX Document ---
-    latex_content = r"""
-\documentclass[a4paper,11pt]{article}
-\usepackage{geometry}
-\geometry{margin=1cm} % Margin lebih kecil untuk memaksimalkan ruang plot
-\usepackage{booktabs}
-\usepackage{graphicx}
-\usepackage{amsmath}
-\usepackage{siunitx}
-\usepackage{caption}
-\usepackage{times}
-\usepackage[utf8]{inputenc}
-\usepackage{tocloft}
-\usepackage{float}
-
-\title{Spectral Simulation Report}
-\author{Automated Analysis}
-\date{\today}
-
-\begin{document}
-
-\maketitle
-\tableofcontents
-\clearpage
-
-
-
-"""
+    # --- Generate LaTeX Content String ---
+    full_latex_content_string = ""
 
     for sample in latex_data:
         sample_id = sample['sample_id']
@@ -373,84 +347,91 @@ def generate_plots_and_latex(h5_path, map_path, num_plots=5, output_dir="/Volume
         table_rows = sample['table_rows']
         plot_filename = sample['plot_filename']
 
-        latex_content += f"""
-\\section{{Sample: {sample_id}}}
-\\begin{{minipage}}[t]{{0.48\\textwidth}}
-    \\subsection{{Simulation Parameters}}
-    \\centering
-    \\begin{{table}}[H]
-        \\centering
-        \\small
-        \\begin{{tabular}}{{ll}}
-            \\toprule
-            \\textbf{{Parameter}} & \\textbf{{Value}} \\\\
-            \\midrule
-            Temperature ($T$) & \\SI{{{temp}}}{{\\kelvin}} \\\\
-            Electron Density ($n_e$) & \\SI{{{n_e}}}{{\\per\\cubic\\centi\\meter}} \\\\
-            Total Pixels & \\num{{{total_pixels}}} \\\\
-            Signal-to-Noise Ratio (SNR) & \\num{{{snr}}} \\\\
-            \\bottomrule
-        \\end{{tabular}}
-        \\caption{{Simulation parameters and additional metrics for sample {sample_id}.}}
-        \\label{{tab:params_{sample_id}}}
-    \\end{{table}}
-\\end{{minipage}}\\hfill
-\\begin{{minipage}}[t]{{0.48\\textwidth}}
-    \\subsection{{Composition Analysis}}
-    \\centering
-    \\begin{{table}}[H]
-        \\centering
-        \\small
-        \\begin{{tabular}}{{lcc}}
-            \\toprule
-            \\textbf{{Element}} & \\textbf{{Initial Composition (\\%)}} & \\textbf{{Actual Positions}} \\\\
-            \\midrule
+        # Use \section* for unnumbered sections in appendix, or \section for numbered ones
+        # For appendix, \section* is often preferred unless you want them in the main TOC
+        full_latex_content_string += f"""
+\section*{{Contoh Spektrum Simulasi: Sampel {sample_id}}}
+\addcontentsline{{toc}}{{section}}{{Contoh Spektrum Simulasi: Sampel {sample_id}}}
+
+\begin{{minipage}}[t]{{0.48\textwidth}}
+    \subsection*{{Parameter Simulasi}}
+    \centering
+    \begin{{table}}[H]
+        \centering
+        \small
+        \begin{{tabular}}{{ll}}
+            \toprule
+            \textbf{{Parameter}} & \textbf{{Nilai}} \\
+            \midrule
+            Temperature ($T$) & \SI{{{temp}}}{{\kelvin}} \\
+            Electron Density ($n_e$) & \SI{{{n_e}}}{{\per\cubic\centi\meter}} \\
+            Total Pixels & \num{{{total_pixels}}} \\
+            Signal-to-Noise Ratio (SNR) & \num{{{snr}}} \\
+            \bottomrule
+        \end{{tabular}}
+        \caption{{Parameter simulasi dan metrik tambahan untuk sampel {sample_id}.}}
+        \label{{tab:params_{sample_id}}}
+    \end{{table}}
+\end{{minipage}}\hfill
+\begin{{minipage}}[t]{{0.48\textwidth}}
+    \subsection*{{Analisis Komposisi}}
+    \centering
+    \begin{{table}}[H]
+        \centering
+        \small
+        \begin{{tabular}}{{lcc}}
+            \toprule
+            \textbf{{Elemen}} & \textbf{{Komposisi Awal (\%)}} & \textbf{{Posisi Aktual}} \\
+            \midrule
 """
 
         for row in table_rows:
-            element = row['element'].replace('_', '\\_')
+            element = row['element'].replace('_', '\_')
             initial_comp = row['initial_comp']
             actual_pos = row['actual_pos']
-            latex_content += f"            {element} & {initial_comp} & {actual_pos} \\\\\n"
+            full_latex_content_string += f"            {element} & {initial_comp} & {actual_pos} \\
+"
 
-        latex_content += f"""
-            \\midrule
-            \\textbf{{Total Positions}} & & {total_actual} \\\\
-            \\bottomrule
-        \\end{{tabular}}
-        \\caption{{Composition analysis for sample {sample_id}.}}
-        \\label{{tab:comp_{sample_id}}}
-    \\end{{table}}
-\\end{{minipage}}
-\\subsection{{Spectral Plot}}
-\\begin{{figure}}[h]
-    \\centering
-    \\includegraphics[width=\\textwidth,angle=0]{{/Volumes/Data/birrulwldain/spectral_report_v12/{plot_filename}}}
-    \\caption{{Spectral simulation plot for sample {sample_id} with multi-label encoding and detailed composition analysis.}}
-    \\label{{fig:spectrum_{sample_id}}}
-    \\addcontentsline{{toc}}{{subsection}}{{Spectral Plot for Sample {sample_id}}}
-\\end{{figure}}
-\\clearpage
+        full_latex_content_string += f"""
+            \midrule
+            \textbf{{Total Posisi}} & & {total_actual} \\
+            \bottomrule
+        \end{{tabular}}
+        \caption{{Analisis komposisi untuk sampel {sample_id}.}}
+        \label{{tab:comp_{sample_id}}}
+    \end{{table}}
+\end{{minipage}}
+\subsection*{{Plot Spektral}}
+\begin{{figure}}[h]
+    \centering
+    % Pastikan jalur gambar ini relatif terhadap direktori kompilasi dokumen utama Anda
+    % Misalnya, jika gambar disimpan di 'images/spectral_report_plots/' di root proyek Anda
+    \includegraphics[width=\textwidth,angle=0]{{images/spectral_report_plots/{plot_filename}}}
+    \caption{{Plot simulasi spektral untuk sampel {sample_id} dengan pengkodean multi-label dan analisis komposisi detail.}}
+    \label{{fig:spectrum_{sample_id}}}
+\end{{figure}}
+\clearpage
 """
 
-    latex_content += r"""
-\end{document}
-"""
-
-    # Simpan file LaTeX
-    latex_filepath = os.path.join(output_dir, "spectral_report.tex")
+    # Simpan file LaTeX content string ke file .tex terpisah
+    latex_filepath = os.path.join(output_dir, "spectral_samples_appendix.tex")
     with open(latex_filepath, 'w', encoding='utf-8') as f:
-        f.write(latex_content)
-    print(f"Dokumen LaTeX disimpan: {latex_filepath}")
+        f.write(full_latex_content_string)
+    print(f"Konten LaTeX untuk lampiran disimpan: {latex_filepath}")
 
-    print(f"\nInstruksi: Untuk menghasilkan PDF, jalankan perintah berikut di direktori {output_dir}:\n"
-          f"pdflatex {latex_filepath}\n"
-          "Pastikan pdflatex terinstal dan semua file gambar (PNG) ada di direktori yang sama. Jalankan dua kali untuk memperbarui referensi.")
+    print(f"\nInstruksi:")
+    print(f"1. Salin file PNG yang dihasilkan ke direktori: {output_dir}")
+    print(f"2. Di dokumen LaTeX utama Anda (misalnya, 3skripsi.tex atau lampiran.tex), tambahkan baris berikut di bagian Lampiran:")
+    print(f"   \\input{{{os.path.relpath(latex_filepath, os.path.dirname(os.path.abspath(latex_filepath)))}}}") # This will give relative path from the output_dir to the file itself
+    print(f"   (Pastikan jalur ini benar relatif terhadap file .tex utama Anda)")
+    print(f"3. Kompilasi dokumen LaTeX utama Anda dua kali untuk memperbarui referensi dan daftar isi.")
 
 # --- Konfigurasi Path ---
 H5_FILE_PATH = "dataset-20.h5"  # Ganti dengan path dataset Anda
 MAP_FILE_PATH = "element-map-18a.json"  # Ganti dengan path element map Anda
-OUTPUT_PLOTS_DIR = "spectral_report_v12"  # Direktori output
+# Ubah OUTPUT_PLOTS_DIR agar sesuai dengan struktur proyek LaTeX Anda
+# Misalnya, jika Anda ingin gambar disimpan di 'images/spectral_report_plots/' di root proyek
+OUTPUT_PLOTS_DIR = "images/spectral_report_plots" # Ini akan menjadi direktori tempat PNG disimpan
 
 # Jalankan fungsi
 generate_plots_and_latex(H5_FILE_PATH, MAP_FILE_PATH, num_plots=10, output_dir=OUTPUT_PLOTS_DIR)

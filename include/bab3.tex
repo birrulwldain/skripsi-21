@@ -164,15 +164,20 @@ Penelitian ini mengadopsi prosedur sistematis yang mencakup studi literatur, per
     \end{table}
 
     \textbf{Proses Pelatihan}:
-    Model dilatih dengan tujuan meminimalkan *loss* dan memaksimalkan F1-Score pada data validasi.
+    Model dilatih dengan tujuan meminimalkan *loss* dan memaksimalkan F1-Score pada data validasi. Untuk mencapai kinerja model yang optimal dan efisiensi komputasi, beberapa strategi pelatihan tingkat lanjut diterapkan:
     \begin{itemize}
-        \item \textbf{Fungsi \textit{Loss}}: Digunakan \textbf{MultiLabelFocalLoss} dengan \texttt{gamma=2.0} dan \texttt{pos\_weight} untuk mengatasi ketidakseimbangan kelas.
-        \item \textbf{Optimizer:} Digunakan \textbf{AdamW} dengan laju pembelajaran awal \texttt{1e-4}.
-        \item \textbf{Penjadwal Laju Pembelajaran:} Digunakan \textbf{OneCycleLR} untuk mengatur laju pembelajaran secara dinamis.
-        \item \textbf{Ukuran Batch Efektif:} Ukuran \textit{batch} 25 dengan 4 langkah akumulasi gradien menghasilkan ukuran \textit{batch} efektif 100.
-        \item \textbf{Pelatihan Presisi Campuran:} Pelatihan menggunakan presisi campuran (FP16) melalui \texttt{torch.cuda.amp} untuk efisiensi.
-        \item \textbf{Early Stopping dan Checkpointing:} Pelatihan berhenti jika F1-Score validasi tidak meningkat selama 6 \textit{epoch}, dan model dengan F1-Score terbaik akan disimpan secara otomatis.
+        \item \textbf{Fungsi Kerugian (Loss Function)}: Digunakan \textbf{MultiLabelFocalLoss} dengan parameter \texttt{gamma}\(=2.0\). Fungsi ini dipilih secara spesifik untuk menangani potensi ketidakseimbangan distribusi elemen dalam dataset training. Bobot kelas (\texttt{pos\_weight}) juga dihitung dari dataset training dan digunakan untuk memberikan pinalti yang lebih besar pada kesalahan klasifikasi kelas minoritas.
+        \item \textbf{Optimizer dan Penjadwal}: Digunakan optimizer \textbf{AdamW} yang merupakan varian dari Adam dengan perbaikan pada mekanisme \textit{weight decay}. Laju pembelajaran diatur secara dinamis menggunakan \textbf{OneCycleLR scheduler}, yang secara bertahap menaikkan laju pembelajaran dari nilai awal ke nilai maksimum, kemudian menurunkannya. Strategi ini terbukti efektif dalam membantu model menghindari \textit{local minima} dan mencapai konvergensi yang lebih cepat.
+        \item \textbf{Ukuran Batch Efektif dan Akumulasi Gradien}: Untuk menstabilkan gradien dan secara efektif melatih model dengan \textit{batch size} yang lebih besar dari yang dapat ditampung oleh memori GPU, diterapkan teknik \textbf{gradient accumulation}. Dengan ukuran \textit{batch} 25 dan 4 langkah akumulasi, \textit{effective batch size} sebesar 100 tercapai.
+        \item \textbf{Mixed-Precision Training}: Proses pelatihan dipercepat secara signifikan dengan mengaktifkan teknik \textit{mixed-precision} melalui \texttt{torch.amp}. Hal ini mengurangi penggunaan memori GPU dan memanfaatkan Tensor Cores untuk kalkulasi yang lebih cepat menggunakan format bilangan presisi 16-bit (FP16).
+        \item \textbf{Early Stopping dan Checkpointing}: Untuk mencegah \textit{overfitting}, mekanisme \textit{early stopping} diimplementasikan. Pelatihan akan berhenti secara otomatis jika F1-Score (Macro) pada set validasi tidak menunjukkan peningkatan yang signifikan (lebih dari 0.001) selama 6 \textit{epoch} berturut-turut. Model dengan F1-Score validasi terbaik akan disimpan (\textit{checkpointing}) selama proses pelatihan.
     \end{itemize}
+
+    \textbf{Optimisasi Hyperparameter}:
+    Pencarian \textit{hyperparameter} optimal untuk model Informer dilakukan secara sistematis menggunakan \textit{framework} optimisasi otomatis. Proses optimisasi dijalankan untuk mengeksplorasi ruang pencarian yang mencakup \texttt{\detokenize{d_model}}, \texttt{\detokenize{nhead}}, \texttt{\detokenize{num_encoder_layers}}, \texttt{\detokenize{dim_feedforward}}, \texttt{\detokenize{dropout}}, \texttt{\detokenize{learning_rate}}, dan \texttt{\detokenize{batch_size}}. Untuk efisiensi, studi ini juga memanfaatkan mekanisme \textit{pruning}, yang secara otomatis menghentikan \textit{trials} dengan kinerja di bawah median pada tahap awal. Konfigurasi \textit{hyperparameter} terbaik yang ditemukan melalui proses ini kemudian digunakan untuk pelatihan model final.
+
+    \textbf{Evaluasi dan Penentuan Ambang Batas}:
+    Metrik utama untuk menyimpan model terbaik adalah \textbf{F1-Score (Macro)} pada set validasi. Setelah proses pelatihan selesai, dilakukan tahap pasca-pemrosesan krusial yaitu \textbf{pencarian ambang batas prediksi optimal (\textit{optimal threshold})}. Karena keluaran model untuk setiap kelas adalah probabilitas (nilai antara 0 dan 1), penentuan ambang batas yang tepat sangat penting. Proses ini dilakukan dengan mengevaluasi F1-Score (Macro) pada set validasi untuk serangkaian nilai ambang batas (dari 0.1 hingga 0.9). Ambang batas yang menghasilkan F1-Score tertinggi kemudian ditetapkan sebagai ambang batas final dan digunakan untuk melakukan evaluasi akhir pada \textit{test set}.
     
     \begin{figure}[H]
         \centering

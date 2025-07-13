@@ -16,8 +16,6 @@ import torch.nn.functional as F
 import math
 from torch.amp import GradScaler, autocast
 import psutil
-import optuna
-import sys
 
 # Mengatur variabel lingkungan untuk mencegah fragmentasi memori di PyTorch
 os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "expandable_segments:True"
@@ -111,21 +109,37 @@ def compute_class_weights(dataset, num_classes, batch_size=256, num_workers=2):
 
 def plot_and_save_history(history, save_dir):
     os.makedirs(save_dir, exist_ok=True)
+    plt.style.use('seaborn-v0_8-whitegrid')
     fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(12, 10), sharex=True)
     epochs = range(1, len(history['train_loss']) + 1)
-    ax1.plot(epochs, history['train_loss'], 'bo-', label='Training Loss')
-    ax1.plot(epochs, history['val_loss'], 'ro-', label='Validation Loss')
-    ax1.set_title('Training & Validation Loss'); ax1.set_ylabel('Loss'); ax1.legend(); ax1.grid(True, linestyle=':')
-    ax2.plot(epochs, history['val_f1_macro'], 'go-', label='Validation F1-Score (Macro)')
-    ax2.set_title('Validation F1-Score & Accuracy'); ax2.set_xlabel('Epoch'); ax2.set_ylabel('F1-Score'); ax2.grid(True, linestyle=':')
+
+    # Plot Loss
+    ax1.plot(epochs, history['train_loss'], 'o-', color='royalblue', label='Training Loss', markersize=5)
+    ax1.plot(epochs, history['val_loss'], 's--', color='orangered', label='Validation Loss', markersize=5)
+    ax1.set_title('Training and Validation Loss Over Epochs', fontsize=16)
+    ax1.set_ylabel('Loss', fontsize=12)
+    ax1.legend(fontsize=10)
+
+    # Plot F1 Score
+    ax2.plot(epochs, history['val_f1_macro'], '^-', color='forestgreen', label='Validation F1-Score (Macro)', markersize=5)
+    ax2.set_title('Validation F1-Score and Accuracy Over Epochs', fontsize=16)
+    ax2.set_xlabel('Epoch', fontsize=12)
+    ax2.set_ylabel('F1-Score (Macro)', fontsize=12)
+    
+    # Plot Accuracy on a secondary y-axis
     ax2b = ax2.twinx()
-    ax2b.plot(epochs, history['val_acc'], 'ms--', label='Validation Accuracy (Subset)', alpha=0.6)
-    ax2b.set_ylabel('Accuracy (Subset)', color='m'); ax2b.tick_params(axis='y', labelcolor='m')
-    lines, labels = ax2.get_legend_handles_labels(); lines2, labels2 = ax2b.get_legend_handles_labels()
-    ax2.legend(lines + lines2, labels + labels2, loc='best')
-    plt.tight_layout()
+    ax2b.plot(epochs, history['val_acc'], 'd:', color='mediumorchid', label='Validation Accuracy (Subset)', markersize=5, alpha=0.7)
+    ax2b.set_ylabel('Accuracy (Subset)', fontsize=12, color='mediumorchid')
+    ax2b.tick_params(axis='y', labelcolor='mediumorchid')
+
+    # Combine legends
+    lines, labels = ax2.get_legend_handles_labels()
+    lines2, labels2 = ax2b.get_legend_handles_labels()
+    ax2.legend(lines + lines2, labels + labels2, loc='best', fontsize=10)
+
+    plt.tight_layout(pad=3.0)
     save_path = os.path.join(save_dir, "training_history_plot.png")
-    plt.savefig(save_path)
+    plt.savefig(save_path, dpi=300)
     print(f"\nPlot histori training disimpan di: {save_path}")
     plt.close(fig)
 
@@ -277,8 +291,6 @@ def parse_arguments():
     parser.add_argument('--batch_size', type=int, default=CONFIG['training']['batch_size'], help='Ukuran batch.')
     parser.add_argument('--lr', type=float, default=CONFIG['training']['learning_rate'], help='Learning rate.')
     parser.add_argument('--find-batch-size', action='store_true', help='Jalankan mode pencarian batch size optimal dan keluar.')
-    parser.add_argument('--optimize-hparams', type=int, nargs='?', const=100, default=None,
-                        help='Jalankan mode optimisasi Optuna. Opsional: tentukan jumlah percobaan (default: 100).')
     parser.add_argument('--resume-from', type=str, default=None, 
                     help='Path ke file model .pth untuk melanjutkan training (jika tidak ada progress.json).')
     
@@ -286,76 +298,7 @@ def parse_arguments():
 
 # --- FUNGSI UNTUK OPTIMISASI & EVALUASI ---
 
-def objective(trial, args):
-    """Fungsi yang dijalankan Optuna untuk setiap percobaan (trial)."""
-    device = CONFIG['training']['device']
-    
-    hparams = {
-        'd_model': trial.suggest_categorical('d_model', [16, 32, 64]),
-        'nhead': trial.suggest_categorical('nhead', [2, 4, 8]),
-        'num_encoder_layers': trial.suggest_int('num_encoder_layers', 1, 4),
-        'dim_feedforward': trial.suggest_categorical('dim_feedforward', [64, 128, 256]),
-        'dropout': trial.suggest_float('dropout', 0.1, 0.5),
-        'learning_rate': trial.suggest_float('learning_rate', 1e-5, 1e-3, log=True),
-        'batch_size': trial.suggest_categorical('batch_size', [16, 24, 32])
-    }
-    
-    if hparams['d_model'] % hparams['nhead'] != 0:
-        raise optuna.exceptions.TrialPruned("d_model harus bisa dibagi oleh nhead.")
 
-    print(f"\n--- Memulai Trial #{trial.number} ---")
-    print(f"Parameter: {hparams}")
-
-    train_dataset = HDF5SpectrumDataset(file_path=args.dataset_path, split="train", max_samples=4000)
-    val_dataset = HDF5SpectrumDataset(file_path=args.dataset_path, split="validation", max_samples=1000)
-    train_loader = DataLoader(train_dataset, batch_size=hparams['batch_size'], shuffle=True, num_workers=2)
-    val_loader = DataLoader(val_dataset, batch_size=hparams['batch_size']*2, shuffle=False, num_workers=2)
-
-    model_config = CONFIG['model'].copy()
-    model_config.update(hparams)
-    model = InformerModel(**model_config).to(device)
-
-    optimizer = optim.AdamW(model.parameters(), lr=hparams['learning_rate'])
-    criterion = MultiLabelFocalLoss()
-
-    scaler = GradScaler()
-    epochs_for_trial = 5 
-    for epoch in range(epochs_for_trial):
-        train_one_epoch(model, train_loader, criterion, optimizer, device, 1, scaler, None)
-        val_loss, _, val_f1_macro = validate_one_epoch(model, val_loader, criterion, device, model_config['num_classes'])
-        
-        # ### REVISI: Melaporkan hasil dan melakukan pruning di setiap epoch ###
-        trial.report(val_f1_macro, epoch)
-        if trial.should_prune():
-            raise optuna.exceptions.TrialPruned()
-
-    print(f"--- Trial #{trial.number} Selesai | F1 Macro Score: {val_f1_macro:.4f} ---")
-    return val_f1_macro
-
-def run_hparam_optimization(args):
-    """Mengelola studi Optuna untuk mencari hyperparameter terbaik."""
-    print("\n--- Memulai Mode Optimisasi Hyperparameter dengan Optuna ---")
-    
-    # ### REVISI: Menggunakan storage untuk melanjutkan studi yang terputus ###
-    study_name = "informer-hparam-study"
-    storage_url = f"sqlite:///{study_name}.db"
-    study = optuna.create_study(
-        study_name=study_name,
-        storage=storage_url,
-        load_if_exists=True,
-        direction='maximize',
-        pruner=optuna.pruners.MedianPruner()
-    )
-    
-    study.optimize(lambda trial: objective(trial, args), n_trials=args.optimize_hparams)
-    
-    print("\n\n--- Optimisasi Selesai ---")
-    print(f"Jumlah percobaan selesai: {len(study.trials)}")
-    best_trial = study.best_trial
-    print(f"Skor F1 Macro terbaik: {best_trial.value:.4f}")
-    print("Parameter terbaik yang ditemukan:")
-    for key, value in best_trial.params.items():
-        print(f"  - {key}: {value}")
 
 def find_optimal_threshold(model, val_loader, device, num_classes):
     """### REVISI: Fungsi baru untuk mencari ambang batas prediksi optimal."""
@@ -619,7 +562,5 @@ if __name__ == "__main__":
             dataset_path=args.dataset_path,
             element_map_path=args.element_map_path
         )
-    elif args.optimize_hparams is not None:
-        run_hparam_optimization(args)
     else:
         main(args)

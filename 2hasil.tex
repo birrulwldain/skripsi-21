@@ -3,13 +3,14 @@
 \def\input@path{{lib/}}
 \makeatother
 
-% Template pembuatan naskah tugas akhir.
+% Template pembuatbacaan naskah tugas akhir.
 \documentclass[dvipsnames]{2hasil}
 \usepackage[style=apa, backend=biber, natbib=true]{biblatex}
 
 \usepackage{siunitx}
 \usepackage{enumitem}
 \usepackage{float}
+\usepackage{float} % Added to ensure [H] option is recognized
 \usepackage{amsmath} % Untuk persamaan
 \usepackage{algorithm} % Untuk lingkungan algoritma
 \usepackage{algorithmic} % Untuk perintah seperti \State, \For
@@ -224,7 +225,6 @@
     format=hang,              % Format "hang" untuk indentasi
     indention=0pt             % Hapus indentasi pada baris kedua+
 }
-%untuk definisi teorema
 \usepackage{amsthm}
 
 % Definisi lingkungan teorema

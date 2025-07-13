@@ -470,9 +470,29 @@ Namun, keterbatasan meliputi:
 \end{enumerate}
 Keterbatasan ini mendorong pengembangan varian seperti \textit{Informer}, yang mengurangi kompleksitas menjadi x menggunakan \textit{ProbSparse self-attention}.
 
-\section{\textit{Informer}}
+\section{Teknik Pelatihan Lanjutan untuk Model Deep Learning}
 
-Pemodelan deret waktu panjang (\textit{long sequence time-series forecasting}, LSTF) menghadapi tantangan dalam menangkap ketergantungan jarak jauh pada urutan dengan panjang \( n \gg 1000 \), seperti prediksi konsumsi energi atau lalu lintas \citep{Wu2021}. \textit{Transformer} \citep{Vaswani2017} unggul dalam menangkap pola musiman dan tren jangka panjang, tetapi kompleksitas kuadratiknya (\( O(n^2 \cdot d) \)) menyebabkan kebutuhan memori dan waktu komputasi yang besar. \textit{Informer}, dikembangkan oleh \citet{Zhou2021}, mengatasi keterbatasan ini dengan mengoptimalkan \textit{self-attention} menjadi \textit{ProbSparse self-attention} (kompleksitas \( O(n \cdot \ln n \cdot d) \)), menyuling fitur melalui \textit{self-attention distilling}, dan mempercepat inferensi dengan \textit{generative-style decoding}. \textit{Informer} menawarkan solusi efisien dan akurat untuk LSTF, ideal untuk penelitian empiris.
+\subsection{Focal Loss}
+
+Focal Loss adalah sebuah pengembangan dari fungsi kerugian (*loss function*) Cross-Entropy yang dirancang khusus untuk mengatasi masalah ketidakseimbangan kelas (*class imbalance*) dalam tugas klasifikasi. Pada banyak dataset dunia nyata, termasuk data spektrometri, distribusi kelas seringkali tidak merata, di mana beberapa kelas (sampel positif) jauh lebih sedikit daripada kelas lainnya (sampel negatif).
+
+Focal Loss bekerja dengan cara memodifikasi fungsi Cross-Entropy standar agar memberikan bobot yang lebih kecil pada sampel yang sudah dapat diklasifikasikan dengan mudah (*well-classified examples*). Dengan demikian, model dapat memfokuskan proses pelatihannya pada sampel-sampel yang sulit (*hard examples*). Mekanisme ini diatur oleh sebuah parameter pemfokusan, gamma (\(\gamma\)). Ketika \(\gamma > 0\), loss untuk sampel yang mudah diklasifikasikan akan dikurangi, sehingga kontribusi dari sampel yang sulit menjadi lebih signifikan dalam perhitungan gradien untuk pembaruan bobot model.
+
+\subsection{Mixed-Precision Training}
+
+	\textit{Mixed-Precision Training} (Pelatihan Presisi Campuran) adalah sebuah teknik untuk mengoptimalkan proses pelatihan model 	\textit{deep learning} dengan menggunakan kombinasi antara format bilangan 	\textit{floating-point} presisi 32-bit (FP32 atau 	\textit{single precision}) dan presisi 16-bit (FP16 atau 	\textit{half precision}).
+
+Teknik ini memberikan dua keuntungan utama. Pertama, penggunaan presisi 16-bit secara signifikan mengurangi jejak memori (*memory footprint*) yang dibutuhkan oleh model di GPU, sehingga memungkinkan pelatihan dengan ukuran 	\textit{batch} (*batch size*) yang lebih besar atau model dengan arsitektur yang lebih kompleks. Kedua, pada unit pemrosesan grafis (GPU) modern yang dilengkapi dengan Tensor Cores, operasi matematis menggunakan presisi 16-bit dapat dieksekusi jauh lebih cepat dibandingkan presisi 32-bit, sehingga mempersingkat total waktu pelatihan secara drastis. Untuk mencegah masalah numerik seperti 	\textit{gradient underflow} (gradien menjadi nol karena nilainya terlalu kecil dalam presisi 16-bit), teknik ini umumnya diimplementasikan bersama dengan 	\textit{loss scaling}.
+
+\subsection{Optimisasi Hyperparameter Otomatis}
+
+Optimisasi 	\textit{hyperparameter} adalah proses menemukan kombinasi 	\textit{hyperparameter} (misalnya, 	\textit{learning rate}, 	\textit{dropout rate}, jumlah 	\textit{layer}) yang menghasilkan kinerja model terbaik. Metode manual seperti 	\textit{grid search} atau 	\textit{random search} seringkali tidak efisien secara komputasi.
+
+	\textit{Framework} optimisasi otomatis modern menggunakan algoritma pencarian yang lebih cerdas, salah satunya berbasis 	\textit{Bayesian Optimization}. Selain itu, 	\textit{framework} ini mengimplementasikan mekanisme 	\textit{pruning} (pemangkasan). 	\textit{Pruning} adalah strategi untuk menghentikan 	\textit{trial} (percobaan) pelatihan secara dini jika kinerjanya terdeteksi tidak menjanjikan berdasarkan metrik evaluasi pada epoch-epoch awal. Dengan menghentikan 	\textit{trial} yang buruk lebih awal, sumber daya komputasi dapat dialokasikan untuk mengeksplorasi kombinasi 	\textit{hyperparameter} lain yang lebih potensial, membuat proses pencarian menjadi jauh lebih efisien.
+
+\section{	\textit{Informer}}
+
+Pemodelan deret waktu panjang (	\textit{long sequence time-series forecasting}, LSTF) menghadapi tantangan dalam menangkap ketergantungan jarak jauh pada urutan dengan panjang \( n \gg 1000 \), seperti prediksi konsumsi energi atau lalu lintas \citep{Wu2021}. 	\textit{Transformer} \citep{Vaswani2017} unggul dalam menangkap pola musiman dan tren jangka panjang, tetapi kompleksitas kuadratiknya (\( O(n^2 \cdot d) \)) menyebabkan kebutuhan memori dan waktu komputasi yang besar. 	\textit{Informer}, dikembangkan oleh \citet{Zhou2021}, mengatasi keterbatasan ini dengan mengoptimalkan 	\textit{self-attention} menjadi 	\textit{ProbSparse self-attention} (kompleksitas \( O(n \cdot \ln n \cdot d) \)), menyuling fitur melalui 	\textit{self-attention distilling}, dan mempercepat inferensi dengan 	\textit{generative-style decoding}. 	\textit{Informer} menawarkan solusi efisien dan akurat untuk LSTF, ideal untuk penelitian empiris.
 
 \subsection{Arsitektur \textit{Informer}}
 

@@ -222,7 +222,6 @@
 \def\tablename{Table}%
 \def\pagename{Page}%
 }
-
 %------------------------------------------------------------]
 % Define thesis's inputs
 %------------------------------------------------------------
@@ -285,6 +284,7 @@
 \newcommand{\@koorta}{}
 \newcommand{\koortanip}[1]{\gdef\@koortanip{#1}}
 \newcommand{\@koortanip}{}
+
 %------------------------------------------------------------
 % Define cover in Indonesian
 %------------------------------------------------------------

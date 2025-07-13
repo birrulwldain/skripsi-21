@@ -1,0 +1,35 @@
+Saran untuk Penulisan dan Visualisasi Naskah Skripsi
+
+==================================================
+
+Berikut adalah rangkuman saran untuk menyempurnakan penyajian hasil penelitian di dalam naskah akhir Anda.
+
+
+=== SARAN UNTUK PENULISAN (NARASI HASIL) ===
+
+1. Perkuat Narasi "Kompleksitas vs. Kinerja" di Bab Pembahasan:
+   - Dedikasikan satu paragraf untuk membahas trade-off antara model 2-layer dan 3-layer.
+   - Jelaskan bahwa arsitektur 2-layer mewakili "keseimbangan optimal" antara kompleksitas model dan kemudahan training untuk masalah ini.
+
+2. Tekankan "Bukti Konsep" (Proof of Concept) di Bab Kesimpulan:
+   - Gunakan frasa yang lebih tegas seperti "Penelitian ini berhasil memberikan bukti konsep (proof of concept) yang kuat..." untuk menunjukkan kontribusi utama penelitian Anda.
+
+3. Bingkai Ulang "Saran" menjadi "Arah Penelitian di Masa Depan":
+   - Ganti judul sub-bab 5.2 menjadi "Arah Penelitian di Masa Depan".
+   - Tulis setiap poin sebagai langkah logis berikutnya yang dibangun di atas keterbatasan penelitian, membuatnya terdengar lebih strategis.
+
+
+=== SARAN UNTUK VISUALISASI DAN TABEL ===
+
+1. Optimalkan Tabel Perbandingan Kinerja (Tabel 4.1):
+   - Caption Deskriptif: Tulis caption yang memungkinkan tabel dipahami secara mandiri.
+   - Sorot Hasil Kunci: Gunakan cetak tebal (bold) pada nilai metrik yang lebih unggul di setiap baris untuk menonjolkan superioritas model 2-layer.
+
+2. Jadikan Grafik Kurva Pembelajaran Lebih Informatif (Gambar 4.3):
+   - Caption Analitis: Buat caption yang tidak hanya mendeskripsikan isi grafik, tetapi juga menginterpretasikannya (misal, "menunjukkan tidak adanya overfitting...").
+   - Estetika Visual: Gunakan kombinasi gaya garis dan penanda (marker) yang berbeda untuk meningkatkan keterbacaan.
+
+3. (Sangat Direkomendasikan) Tambahkan Visualisasi Hasil Prediksi:
+   - Buat gambar baru yang menampilkan satu contoh spektrum dari data uji.
+   - Di atas spektrum tersebut, tampilkan label elemen ("Fe", "Ca", "Si", dll.) yang diprediksi oleh model pada posisi puncak yang sesuai.
+   - Visualisasi ini memberikan bukti kerja model yang sangat kuat dan intuitif.

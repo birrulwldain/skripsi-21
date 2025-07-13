@@ -41,7 +41,7 @@ def plot_and_save_history(history, save_dir):
     plt.close(fig)
 
 # --- Bagian Utama ---
-json_file_path = '/Volumes/Private-C/Private-C-backup/skripsi-21/engine/training_progress-3.json'
+json_file_path = '/Volumes/Private-C/Private-C-backup/skripsi-21/engine/data/training_progress-3.json'
 output_dir = '/Volumes/Private-C/Private-C-backup/skripsi-21/images' # Changed to images folder
 
 try:
