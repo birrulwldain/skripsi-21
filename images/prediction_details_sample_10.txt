@@ -1,0 +1,155 @@
+Panjang Gelombang (nm)	Intensitas	Prediksi Atom (Probabilitas)	Atom Asli
+205.641	0.055	Ni (85.7%)	Co, Cr, Fe, Ni
+206.325	0.042	Cr (81.0%)	Co, Cr
+211.282	0.005	Ca (93.5%), Ni (88.7%)	Ca, Ni
+216.581	0.016	Ni (84.2%)	Ni
+217.607	0.015	Ni (73.5%)	C, Co, Fe, Ni
+218.462	0.006	Ni (72.4%)	Co, Fe, Ni
+220.684	0.009	Al (75.2%), Ca (83.2%), Ni (82.8%)	Co, Fe, N, Ni, Si
+221.709	0.031	Ni (77.2%), Si (74.7%)	Co, Fe, Mg, Ni, Si
+222.564	0.015	Mg (71.5%), Ni (78.5%), Si (75.6%)	Co, Mg, Ni, Si
+225.470	0.008	Ni (74.5%)	C, Co, Fe, Mg, Ni
+226.496	0.008	Al (74.8%), Ni (85.6%)	Co, Fe, Ni
+227.179	0.012	Al (71.1%), Ni (82.1%)	C, Co, Fe, Ni
+228.034	0.009	Ca (76.4%), Ni (80.1%)	Co, Fe, Ni, Ti
+228.718	0.021	Ni (82.2%)	Co, Fe, N, Ni
+229.744	0.021	Ni (79.8%)	Co, Fe, Mn, Ni
+230.427	0.014	Ni (75.8%)	Co, Fe, Mg, Mn, Ni, Si, Ti
+231.624	0.030	Na (76.7%), Ni (78.7%)	Ar, Co, Fe, N, Na, Ni
+232.650	0.009	Ni (83.7%)	C, Co, Fe, N, Ni
+233.333	0.009	Ni (76.8%)	Co, Fe, Ni
+234.359	0.014	Tidak Ada	Co, Fe
+236.410	0.011	Cr (71.6%)	Co, Cr, Fe
+238.291	0.040	Tidak Ada	Co, Fe, Ti
+238.974	0.026	Ni (78.3%)	Co, Fe, N, Ni
+239.658	0.029	Ca (73.3%)	Co, Fe, Mn, Ni
+240.513	0.019	Tidak Ada	C, Co, Fe, Mg, Mn
+241.197	0.015	Tidak Ada	Co, Fe, Ni
+241.709	0.016	Tidak Ada	Co, Fe, Ni, O, Ti
+243.932	0.006	Mn (72.5%), Si (77.2%)	Co, Fe, Mn, Ni, Ti
+244.615	0.006	Si (80.4%)	Co, Fe, Mn, O, Si
+249.402	0.024	Cr (80.5%), Na (73.5%)	C, Cr, Fe, N, Na
+251.111	0.006	Cr (72.4%), Na (78.9%), Si (88.1%)	C, Co, Cr, Fe, Ni
+252.650	0.009	Mn (73.1%), Si (88.8%)	Co, Fe, Mn, Si, Ti
+254.017	0.008	Tidak Ada	C, Co, Fe
+256.410	0.012	Mn (77.7%)	Co, Fe, Mn
+257.778	0.017	Mn (75.8%)	C, Co, Fe, Mn
+258.632	0.011	Mn (79.1%)	Co, Fe, Mn, Na
+259.487	0.014	Mn (71.2%), Na (81.2%)	C, Cr, Fe, Mn, Na, Ti
+260.000	0.040	Mn (77.2%)	Fe, Ti
+261.197	0.013	Mn (72.7%)	Co, Fe, Mn, O, Ti
+263.248	0.015	Al (71.5%), Mn (75.0%), Si (83.7%)	Co, Fe, Mn, Ni, Si, Ti
+266.496	0.004	Tidak Ada	Co, Fe, Ti
+274.017	0.012	Tidak Ada	Fe, Mn
+275.043	0.016	Tidak Ada	C, Co, Fe, Mn
+275.727	0.015	Cr (79.7%)	Ar, Cr, Fe
+279.658	0.196	Mg (94.8%), Mn (76.3%)	Co, Fe, Mg, Mn
+280.342	0.095	Mg (80.9%)	C, Co, Fe, Mg, Mn, Ni
+281.026	0.017	Mg (71.2%)	Co, Fe, Mg, Na, O, Ti
+282.393	0.032	Cr (70.7%)	C, Co, Cr, Fe, N, Ni
+283.590	0.148	Cr (75.0%)	C, Co, Cr, Fe
+284.273	0.044	Na (80.1%)	Ar, Fe, Mg, Na, Ti
+285.983	0.007	Na (81.4%)	Fe, Na, Ti
+287.179	0.008	Mn (72.4%), Na (75.9%)	Fe, Mn, Na, Ti
+288.205	0.024	Mn (82.8%), Na (82.9%), Si (82.1%)	Fe, Mn, Na, O, Si, Ti
+290.598	0.037	Mn (75.7%), Na (89.4%), Si (79.5%)	C, Fe, Mn, Na, Si
+291.795	0.043	Na (85.9%)	Fe, Mg, Na
+295.214	0.015	Mn (73.4%), Na (74.7%)	Fe, Mn, Na
+297.607	0.019	Cr (89.3%), Na (82.7%)	Cr, Fe, Na
+298.462	0.010	Cr (76.9%), Na (72.3%)	Fe, Na, Ni, Ti
+300.855	0.006	Ca (97.2%), Cr (79.5%), Ni (74.0%)	Ca, Fe, N, Na
+305.641	0.048	Na (87.1%)	Co, Cr, Fe, Na, Ni, Ti
+307.863	0.049	Na (87.6%)	Fe, Na, Ti
+309.402	0.193	Mg (84.9%), Na (92.7%)	Fe, Mg, Na
+312.991	0.081	Na (83.9%)	Co, Na, O
+313.675	0.027	Na (82.6%), Ni (73.9%)	Co, Fe, Na, Ni, O
+315.043	0.023	Cr (79.2%), Na (86.4%)	Co, Cr, Fe, Na, Ti
+315.897	0.055	Ca (93.8%), Na (77.2%)	Ca, Co, Fe, Ni, Ti
+317.949	0.096	Ca (92.1%), Na (82.0%)	Ar, Ca, Fe, Na
+319.145	0.040	Tidak Ada	Co, Fe, Na, Ti
+321.368	0.034	Na (75.0%)	Ar, Fe, Na, Ti
+323.590	0.026	Na (77.0%), Ni (76.3%)	Co, Fe, Na, Ni, Ti
+325.299	0.008	Na (77.8%)	Ar, Co, Fe, Na, Ni, Ti
+326.325	0.008	Na (88.0%)	Ar, Fe, Na, Ti
+328.718	0.061	Na (81.7%), Ni (76.3%)	Fe, Na, Ni, Ti
+332.308	0.007	Ni (76.4%)	Fe, N, Ni, Ti
+334.188	0.013	Ca (80.6%)	Fe, Si, Ti
+335.043	0.039	Ca (92.1%), Cr (75.8%)	Ca, Cr, Fe, Mn, Ti
+336.239	0.021	Ca (93.3%), Ni (72.1%)	C, Ca, Ni, Ti
+337.436	0.016	Ni (75.3%)	Fe, Ni, Ti
+338.462	0.012	Tidak Ada	Co, Fe, Ti
+347.692	0.005	Tidak Ada	Ar, Co, Fe, Mn, Ti
+349.231	0.015	Mn (70.5%), Ni (79.9%)	Ar, Co, Fe, Mn, Ni, Ti
+351.111	0.006	Ni (89.5%)	Ar, Co, Fe, Mn, Ni, Ti
+353.333	0.054	Na (79.2%)	Fe, Mg, Na, Ti
+356.068	0.009	Tidak Ada	Ar, Co, Fe, Ni, Ti
+357.778	0.010	Cr (74.7%)	Ar, Co, Cr, Fe
+358.291	0.010	Tidak Ada	Ar, C, Fe
+358.974	0.015	Tidak Ada	Ar, C, Co, Fe, Ni, Ti
+363.248	0.023	Ca (92.3%), Cr (70.3%)	Ca, Co, Fe, Na
+370.769	0.014	Ca (91.3%)	Ar, Ca, Fe, Ti
+372.991	0.013	Cr (73.4%)	Ar, Cr, Fe, Mn, O, Ti
+373.846	0.025	Ca (91.0%)	Ar, Ca, Fe, Ti
+376.239	0.012	Tidak Ada	Ar, Fe, Ti
+385.128	0.011	Mg (79.9%)	Ar, Fe, Mg, O
+385.641	0.023	Mg (70.4%), S (78.8%), Si (73.3%)	Fe, N, O, S, Si, Ti
+386.325	0.010	Tidak Ada	Co, Fe, Si
+393.504	0.800	Ar (88.3%), Ca (92.7%), S (88.6%), Ti (73.9%)	Ar, Ca, Co, Fe, S, Ti
+396.923	0.393	Ar (84.5%), Ca (98.3%), Ti (73.6%)	Ar, Ca, Fe
+401.538	0.009	Tidak Ada	Ar, Fe, Ti
+407.350	0.006	Mn (76.1%), O (70.1%), Si (77.9%)	Ar, C, Fe, Mn, O, Si
+413.162	0.017	Si (89.4%)	Ar, Co, Fe, O, Si, Ti
+422.906	0.007	Ca (82.1%)	Ar, Ca, Fe, N, Ti
+426.667	0.010	Tidak Ada	Ar, C, Fe, Mn, N
+427.863	0.006	Tidak Ada	Ar, Fe, N, Na
+433.162	0.023	Tidak Ada	Ar, Ti
+434.872	0.097	Ar (73.7%), Cr (80.7%), Na (88.1%)	Ar, Fe, Mn, O
+437.265	0.013	Cr (74.2%)	Ar, C, Cr, Fe
+438.120	0.018	Tidak Ada	Ar, Fe
+440.171	0.032	Tidak Ada	Ar, Fe, Ti
+442.735	0.049	Ca (90.3%)	Ar, Ca, Fe, Mg
+448.205	0.006	Tidak Ada	Ar, Fe, Mg
+454.530	0.014	Cr (74.4%)	Ar, Cr, Mg, Na
+457.949	0.011	Ca (84.3%)	Ar, Ca, Co, Cr, Fe
+459.145	0.010	Cr (82.6%)	Ar, Cr, Fe, O
+461.026	0.015	Tidak Ada	Ar, N
+465.812	0.014	Cl (86.2%), S (79.3%)	Ar, Cr, Fe, O, S, Ti
+472.821	0.019	Cr (77.1%)	Ar, Fe, Mn
+473.675	0.029	Cr (77.1%), Mg (71.1%)	Ar, C, Cr, Fe
+476.581	0.019	Tidak Ada	Ar, C, Mn, Ti
+480.684	0.061	Cl (83.7%)	Ar, Mn
+484.786	0.021	Tidak Ada	Ar, Co, Fe
+488.034	0.043	Ca (82.7%)	Ar, Ca, Fe
+493.333	0.007	Tidak Ada	Ar, C, Co, Fe
+496.581	0.013	O (72.1%)	Ar, C, Co, Cr, Fe, Mn, O, Ti
+501.026	0.012	Tidak Ada	Ar, C, Co, Fe, N, S, Ti
+504.103	0.004	C (70.1%), Si (82.2%)	C, Fe, Mn, N, Si, Ti
+505.641	0.014	Cr (72.1%)	C, Co, Fe, Si
+506.325	0.011	Tidak Ada	Ar, Fe, Ti
+514.701	0.006	S (72.8%)	Ar, C, Co, Fe, Ti
+597.949	0.005	Si (83.6%)	Fe, Si, Ti
+634.872	0.029	Si (85.1%)	Mg, Mn, Si
+637.265	0.017	Si (75.2%)	Co, Si
+664.444	0.012	Tidak Ada	Ar, Co, O
+668.547	0.006	C (77.4%)	Ar, C, Fe
+696.581	0.004	Tidak Ada	Ar, Fe
+706.838	0.005	Tidak Ada	Ar
+738.462	0.010	Tidak Ada	Ar
+750.427	0.009	Tidak Ada	Ar, Co
+751.624	0.010	Tidak Ada	Ar, Fe
+763.590	0.033	Tidak Ada	Ar, C
+772.479	0.012	S (78.1%)	Ar, Fe
+794.872	0.014	Tidak Ada	Ar, Ti
+800.684	0.007	Tidak Ada	Ar, Co, Si
+801.538	0.013	S (74.3%)	Ar, Co, S
+810.427	0.020	Tidak Ada	Ar, Fe
+811.624	0.068	Mg (73.5%)	Ar, Mg
+821.709	0.005	Mg (70.5%), N (75.5%)	Co, Mg, N
+826.496	0.011	Tidak Ada	Ar, Fe
+840.855	0.027	Tidak Ada	Ar
+842.564	0.031	Tidak Ada	Ar, Fe, S, Ti
+849.915	0.006	Ca (91.1%)	Ca, Fe
+852.308	0.010	Tidak Ada	Ar, Fe
+854.359	0.054	Ca (83.0%)	Ca, Mg
+866.325	0.030	Ca (88.9%)	Ca, Fe, N
+868.034	0.008	S (90.7%)	N, S
