@@ -63,7 +63,7 @@ Penelitian ini memanfaatkan berbagai perangkat keras dan lunak, serta sumber dat
     \item \textit{h5py}: Untuk pengelolaan dataset dalam format HDF5.
     \item \textit{scikit-learn}: Untuk evaluasi model \textit{machine learning}.
     \item \textit{Matplotlib}: Untuk visualisasi data dan hasil analisis.
-    \item \textit{PyTorch}: Kerangka kerja utama untuk pengembangan, pelatihan, dan evaluasi model \textit{deep learning}.
+    \item \textit{PyTorch}: Kerangka kerja utama untuk pengembangan, pelatihan, dan evaluasi model \textit{Deep Learning}.
     \item \textit{TensorBoard}: Untuk pemantauan metrik pelatihan secara \textit{real-time}.
     \item \textit{itertools}: Modul standar Python untuk operasi iterasi.
   \end{itemize}
@@ -71,7 +71,7 @@ Penelitian ini memanfaatkan berbagai perangkat keras dan lunak, serta sumber dat
 
 \subsection{Sumber Data}
 \begin{enumerate}
-\item \textbf{\textit{NIST Atomic Spectra Database} (ASD)}: Basis data dari \textit{National Institute of Standards and Technology} (NIST) yang digunakan sebagai sumber parameter spektral atomik, seperti energi ionisasi (\(E_{xi}\)), energi keadaan (\(E_\text{k}\)), bobot statistik (\(g_i\), \(g_k\)), dan probabilitas transisi (\(A_{ki}\)). Data diakses melalui antarmuka daring resmi NIST.
+\item \textbf{\textit{NIST Atomic Spectra Database} (ASD)}: Basis data dari \textit{National Institute of Standards and Technology} (NIST) yang digunakan sebagai sumber parameter spektral atomik, seperti energi ionisasi (\(E_{xi}\)), energi keadaan (\(E_\text{k}\)) (\(E_\text{i}\)), bobot statistik (\(g_i\), \(g_k\)), dan probabilitas transisi (\(A_{ki}\)). Data diakses melalui antarmuka daring resmi NIST.
 \end{enumerate}
 
 \section{Prosedur Penelitian}
@@ -92,12 +92,12 @@ Penelitian ini mengadopsi prosedur sistematis yang mencakup studi literatur, per
       \item \textbf{Kalkulasi Rasio Ionisasi Plasma}: Menggunakan persamaan Saha untuk menentukan rasio antara atom terionisasi dan netral sesuai persamaan \eqref{eq:bab2_eq27}.
       \item \textbf{Profil Garis Spektral Gaussian}: Menggunakan pelebaran Doppler (Gaussian, \eqref{eq:bab2_eq30}) untuk memodelkan bentuk garis spektral secara akurat.
     \end{enumerate}
-    Data transisi atom yang digunakan dalam simulasi divalidasi dengan merujuk pada basis data NIST \citep{Kramida2023}.
+    Data transisi atom yang digunakan dalam simulasi divalidasi dengan merujuk pada basis data NIST ASD \citep{Kramida2023}.
 
     \item \textbf{Pemodelan Simulasi Spektrum Emisi Atom} \\
     Simulasi spektrum emisi atom dilaksanakan dalam kondisi LTE, dengan asumsi plasma memiliki distribusi energi termal yang seragam dan dikendalikan oleh suhu plasma (\(T\)) dan densitas elektron (\(n_e\)). Intensitas garis spektral ditentukan oleh probabilitas transisi dan populasi tingkat energi, sedangkan pelebaran garis dimodelkan menggunakan profil Gaussian.
 
-    Secara matematis, simulasi menghitung intensitas relatif dan mengaplikasikan profil Voigt:
+    Secara matematis, simulasi menghitung intensitas relatif dan mengaplikasikan profil Gaussian:
     \begin{equation}
     I_{\text{rel}} = \frac{N g_k A_{ki} \exp\left(-\frac{E_k}{k_B T}\right)}{Z} \label{eq:bab3_eq1}
     \end{equation}
@@ -106,32 +106,37 @@ Penelitian ini mengadopsi prosedur sistematis yang mencakup studi literatur, per
     \end{equation}
     di mana \(I_{\text{rel}}\) adalah intensitas relatif, \(A_{ki}\) probabilitas transisi, \(Z\) fungsi partisi, dan \(G\) fungsi profil Gaussian. Hyperparameter untuk proses simulasi dirangkum pada Tabel~\ref{tab:hyperparameter}.
 
-    \begin{table}[h]
+    \begin{table}[H]
       \centering
       \small
-      \caption{Hyperparameter untuk Algoritma Simulasi Spektral Atomik}
+      \caption{Parameter Kunci untuk Perencanaan dan Simulasi Spektral}
       \label{tab:hyperparameter}
-      \begin{tabular}{p{2cm} p{5cm} p{3cm} p{3cm}}
+      \begin{tabular}{p{3cm} p{7cm} p{3cm}}
         \toprule
-        \textbf{Simbol} & \textbf{Deskripsi} & \textbf{Satuan} & \textbf{Nilai} \\
+        \textbf{Parameter} & \textbf{Deskripsi} & \textbf{Nilai} \\
         \midrule
-        $k$ & Jumlah pasangan elemen-ion & -- & 4 \\
-        $N_{\text{samples}}$ & Jumlah maksimum sampel spektral & -- & Tidak ditentukan \\
-        $\Delta T$ & Langkah suhu & \si{\kelvin} & 1000 \\
-        $\Delta n_e$ & Langkah densitas elektron & \si{\per\cubic\centi\metre} & $10^{0.5} \times 10^{12}$ \\
-        $T_{\text{min}}$ & Batas bawah suhu & \si{\kelvin} & 5000 \\
-        $T_{\text{max}}$ & Batas atas suhu & \si{\kelvin} & 15000 \\
-        $n_{e,\text{min}}$ & Batas bawah densitas elektron & \si{\per\cubic\centi\metre} & $10^{16}$ \\
-        $n_{e,\text{max}}$ & Batas atas densitas elektron & \si{\per\cubic\centi\metre} & $10^{18}$ \\
-        Modulus & Frekuensi penyimpanan spektrum emisi & -- & 1000 \\
+        \multicolumn{3}{l}{\textbf{Parameter Perencanaan (Algoritma~\ref{app:algo1})}} \\
+        $N_{\text{total}}$ & Jumlah total resep/sampel yang akan dibuat. & 10,000 \\
+        $k_{\text{range}}$ & Rentang jumlah elemen yang dipilih per resep. & [10, 17] \\
+        $k_{\text{avg}}$ & Rata-rata elemen per resep untuk penyeimbangan. & 13.5 \\
+        \midrule
+        \multicolumn{3}{l}{\textbf{Parameter Fisika (Algoritma~\ref{app:algo2})}} \\
+        $R_T$ & Rentang suhu plasma untuk pemilihan acak. & [5000, 15000] K \\
+        $R_{n_e}$ & Rentang densitas elektron untuk pemilihan acak. & [$10^{16}$, $10^{18}$] cm$^{-3}$ \\
+        \midrule
+        \multicolumn{3}{l}{\textbf{Parameter Spektrum (Algoritma~\ref{app:algo2})}} \\
+        Resolusi & Jumlah titik data dalam satu spektrum. & 4096 \\
+        Rentang $\lambda$ & Rentang panjang gelombang spektrum. & [200, 900] nm \\
+        $\sigma_{\text{Doppler}}$ & Lebar standar deviasi untuk pelebaran Doppler. & 0.1 nm \\
+        $\sigma_{\text{instrumen}}$ & Lebar standar deviasi untuk konvolusi instrumental. & 0.1 nm \\
         \bottomrule
       \end{tabular}
     \end{table}
 
-    Proses pemodelan simulasi ini terdiri dari empat sub-langkah yang dijalankan secara berurutan, mulai dari inisialisasi data atom (Lampiran~\ref{app:algo1}), kalkulasi rasio ionisasi (Lampiran~\ref{app:algo2}), kalkulasi intensitas garis (Lampiran~\ref{app:algo3}), hingga generasi spektrum emisi akhir dengan profil Gaussian (Lampiran~\ref{app:algo4}).
+    Proses pemodelan simulasi ini terdiri dari dua algoritma utama yang dijelaskan di lampiran. Pertama, sebuah rencana kombinasi sampel yang seimbang dan beragam dibuat menggunakan \textbf{Algoritma~\ref{app:algo1}}. Kemudian, setiap resep dari rencana tersebut dieksekusi untuk menghasilkan spektrum emisi akhir menggunakan \textbf{Algoritma~\ref{app:algo2}}, yang mencakup seluruh proses fisika mulai dari kalkulasi rasio ionisasi, intensitas garis, hingga pelebaran spektral.
 
-    \item \textbf{Perancangan Model Informer} \\
-    Tahap ini melibatkan perancangan dan pelatihan model \textit{Informer} untuk memprediksi komposisi multi-elemen dari spektrum emisi masukan. Model ini memanfaatkan mekanisme \textit{ProbSparse Self-Attention} untuk menangani data sekuensial panjang secara efisien.
+    \item \textbf{Perancangan dan Perbandingan Arsitektur Model Informer} \\
+    Tahap ini melibatkan perancangan, pelatihan, dan perbandingan dua varian arsitektur model \textit{Informer} untuk menentukan konfigurasi yang paling optimal. Varian utama yang diuji adalah jumlah lapisan \textit{encoder} (2-layer vs. 3-layer), sementara hyperparameter lainnya dijaga konsisten pada awalnya. Model ini memanfaatkan mekanisme \textit{ProbSparse Self-Attention} untuk menangani data sekuensial panjang secara efisien.
 
     \textbf{Arsitektur Model}:
     Konfigurasi arsitektur model \textit{Informer} yang diimplementasikan dirinci dalam Tabel~\ref{tab:hyperparameter_informer}, dengan arsitektur visual diilustrasikan pada Gambar~\ref{fig:informer_architecture}. Model ini menerima input spektrum emisi 1D, memproyeksikannya ke dimensi model, menambahkan \textit{Positional Encoding}, dan memprosesnya melalui beberapa lapisan \textit{encoder} sebelum menghasilkan prediksi multi-label.
@@ -147,18 +152,18 @@ Penelitian ini mengadopsi prosedur sistematis yang mencakup studi literatur, per
         \midrule
         Dimensi model ($d_{\text{model}}$) & Dimensi internal model & 32 \\
         Jumlah kepala perhatian ($H$) & Jumlah kepala pada mekanisme \textit{multi-head attention} & 4 \\
-        Jumlah lapisan enkoder ($L$) & Jumlah lapisan \textit{encoder} yang ditumpuk & 3 \\
+        Jumlah lapisan enkoder ($L$) & Jumlah lapisan \textit{encoder} yang diuji untuk perbandingan & 2 dan 3 \\
         Dimensi \textit{feed-forward} ($d_{\text{ff}}$) & Dimensi lapisan \textit{feed-forward} dalam \textit{encoder} & 64 \\
         Faktor \textit{dropout} & Probabilitas \textit{dropout} untuk regularisasi & 0.4 \\
-        Panjang sekuens (\(L_x\)) & Jumlah titik data dalam satu spektrum emisi & 4096 \\
+        Panjang sekuens ($L_x$) & Jumlah titik data dalam satu spektrum emisi & 4096 \\
         Faktor perhatian & Faktor \textit{sampling} untuk \textit{ProbSparse attention} & 5 \\
-        Ukuran \textit{batch} & Jumlah sampel per iterasi pelatihan & 25 \\
-        Jumlah \textit{epoch} & Jumlah maksimum \textit{epoch} pelatihan & 31 \\
+        Ukuran \textit{batch} & Jumlah sampel per iterasi pelatihan & 26 \\
+        Jumlah \textit{epoch} & Jumlah maksimum \textit{epoch} pelatihan & 100 \\
         Laju pembelajaran & Laju pembelajaran awal untuk optimizer & $10^{-4}$ \\
         \textit{Weight decay} & Parameter regularisasi untuk optimizer AdamW & $10^{-5}$ \\
         Akumulasi gradien & Jumlah langkah untuk akumulasi gradien & 4 \\
-        \textit{Patience} & Toleransi untuk \textit{early stopping} & 6 \\
-        $\Delta F1$ & Peningkatan F1 minimum yang dianggap signifikan & 0.001 \\
+        \textit{Patience} & Toleransi untuk \textit{early stopping} & 10 \\
+        $\Delta F1$ & Peningkatan F1 minimum yang dianggap signifikan & 0.0001 \\
         \bottomrule
       \end{tabular}
     \end{table}
@@ -181,7 +186,7 @@ Penelitian ini mengadopsi prosedur sistematis yang mencakup studi literatur, per
     
     \begin{figure}[H]
         \centering
-        \includegraphics[width=0.8\textwidth]{images/informer.drawio.pdf}
+        \includegraphics[width=0.8\textwidth]{images/informer.pdf}
         \caption{Arsitektur model Informer yang digunakan dalam penelitian ini.}
         \label{fig:informer_architecture}
     \end{figure}

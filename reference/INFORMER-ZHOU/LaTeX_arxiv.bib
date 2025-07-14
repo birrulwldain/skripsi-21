@@ -1,0 +1,857 @@
+
+% Journals
+
+% First the Full Name is given, then the abbreviation used in the AMS Math
+% Reviews, with an indication if it could not be found there.
+% Note the 2nd overwrites the 1st, so swap them if you want the full name.
+
+ %{AMS}
+ @String{AMSTrans = "American Mathematical Society Translations" }
+ @String{AMSTrans = "Amer. Math. Soc. Transl." }
+ @String{BullAMS = "Bulletin of the American Mathematical Society" }
+ @String{BullAMS = "Bull. Amer. Math. Soc." }
+ @String{ProcAMS = "Proceedings of the American Mathematical Society" }
+ @String{ProcAMS = "Proc. Amer. Math. Soc." }
+ @String{TransAMS = "Transactions of the American Mathematical Society" }
+ @String{TransAMS = "Trans. Amer. Math. Soc." }
+
+ %ACM
+ @String{CACM = "Communications of the {ACM}" }
+ @String{CACM = "Commun. {ACM}" }
+ @String{CompServ = "Comput. Surveys" }
+ @String{JACM = "J. ACM" }
+ @String{ACMMathSoft = "{ACM} Transactions on Mathematical Software" }
+ @String{ACMMathSoft = "{ACM} Trans. Math. Software" }
+ @String{SIGNUM = "{ACM} {SIGNUM} Newsletter" }
+ @String{SIGNUM = "{ACM} {SIGNUM} Newslett." }
+
+ @String{AmerSocio = "American Journal of Sociology" }
+ @String{AmerStatAssoc = "Journal of the American Statistical Association" }
+ @String{AmerStatAssoc = "J. Amer. Statist. Assoc." }
+ @String{ApplMathComp = "Applied Mathematics and Computation" }
+ @String{ApplMathComp = "Appl. Math. Comput." }
+ @String{AmerMathMonthly = "American Mathematical Monthly" }
+ @String{AmerMathMonthly = "Amer. Math. Monthly" }
+ @String{BIT = "{BIT}" }
+ @String{BritStatPsych = "British Journal of Mathematical and Statistical
+          Psychology" }
+ @String{BritStatPsych = "Brit. J. Math. Statist. Psych." }
+ @String{CanMathBull = "Canadian Mathematical Bulletin" }
+ @String{CanMathBull = "Canad. Math. Bull." }
+ @String{CompApplMath = "Journal of Computational and Applied Mathematics" }
+ @String{CompApplMath = "J. Comput. Appl. Math." }
+ @String{CompPhys = "Journal of Computational Physics" }
+ @String{CompPhys = "J. Comput. Phys." }
+ @String{CompStruct = "Computers and Structures" }
+ @String{CompStruct = "Comput. \& Structures" }
+ @String{CompJour = "The Computer Journal" }
+ @String{CompJour = "Comput. J." }
+ @String{CompSysSci = "Journal of Computer and System Sciences" }
+ @String{CompSysSci = "J. Comput. System Sci." }
+ @String{Computing = "Computing" }
+ @String{ContempMath = "Contemporary Mathematics" }
+ @String{ContempMath = "Contemp. Math." }
+ @String{Crelle = "Crelle's Journal" }
+ @String{GiornaleMath = "Giornale di Mathematiche" }
+ @String{GiornaleMath = "Giorn. Mat." } % didn't find in AMS MR., ibid.
+
+ %IEEE
+ @String{Computer = "{IEEE} Computer" }
+ @String{IEEETransComp = "{IEEE} Transactions on Computers" }
+ @String{IEEETransComp = "{IEEE} Trans. Comput." }
+ @String{IEEETransAC = "{IEEE} Transactions on Automatic Control" }
+ @String{IEEETransAC = "{IEEE} Trans. Automat. Control" }
+ @String{IEEESpec = "{IEEE} Spectrum" } % didn't find in AMS MR
+ @String{ProcIEEE = "Proceedings of the {IEEE}" }
+ @String{ProcIEEE = "Proc. {IEEE}" } % didn't find in AMS MR
+ @String{IEEETransAeroElec = "{IEEE} Transactions on Aerospace and Electronic
+     Systems" }
+ @String{IEEETransAeroElec = "{IEEE} Trans. Aerospace Electron. Systems" }
+
+ @String{IMANumerAna = "{IMA} Journal of Numerical Analysis" }
+ @String{IMANumerAna = "{IMA} J. Numer. Anal." }
+ @String{InfProcLet = "Information Processing Letters" }
+ @String{InfProcLet = "Inform. Process. Lett." }
+ @String{InstMathApp = "Journal of the Institute of Mathematics and
+     its Applications" }
+ @String{InstMathApp = "J. Inst. Math. Appl." }
+ @String{IntControl = "International Journal of Control" }
+ @String{IntControl = "Internat. J. Control" }
+ @String{IntNumerEng = "International Journal for Numerical Methods in
+     Engineering" }
+ @String{IntNumerEng = "Internat. J. Numer. Methods Engrg." }
+ @String{IntSuper = "International Journal of Supercomputing Applications" }
+ @String{IntSuper = "Internat. J. Supercomputing Applic." } % didn't find
+%% in AMS MR
+ @String{Kibernetika = "Kibernetika" }
+ @String{JResNatBurStand = "Journal of Research of the National Bureau
+     of Standards" }
+ @String{JResNatBurStand = "J. Res. Nat. Bur. Standards" }
+ @String{LinAlgApp = "Linear Algebra and its Applications" }
+ @String{LinAlgApp = "Linear Algebra Appl." }
+ @String{MathAnaAppl = "Journal of Mathematical Analysis and Applications" }
+ @String{MathAnaAppl = "J. Math. Anal. Appl." }
+ @String{MathAnnalen = "Mathematische Annalen" }
+ @String{MathAnnalen = "Math. Ann." }
+ @String{MathPhys = "Journal of Mathematical Physics" }
+ @String{MathPhys = "J. Math. Phys." }
+ @String{MathComp = "Mathematics of Computation" }
+ @String{MathComp = "Math. Comp." }
+ @String{MathScand = "Mathematica Scandinavica" }
+ @String{MathScand = "Math. Scand." }
+ @String{TablesAidsComp = "Mathematical Tables and Other Aids to Computation" }
+ @String{TablesAidsComp = "Math. Tables Aids Comput." }
+ @String{NumerMath = "Numerische Mathematik" }
+ @String{NumerMath = "Numer. Math." }
+ @String{PacificMath = "Pacific Journal of Mathematics" }
+ @String{PacificMath = "Pacific J. Math." }
+ @String{ParDistComp = "Journal of Parallel and Distributed Computing" }
+ @String{ParDistComp = "J. Parallel and Distrib. Comput." } % didn't find
+%% in AMS MR
+ @String{ParComputing = "Parallel Computing" }
+ @String{ParComputing = "Parallel Comput." }
+ @String{PhilMag = "Philosophical Magazine" }
+ @String{PhilMag = "Philos. Mag." }
+ @String{ProcNAS = "Proceedings of the National Academy of Sciences
+                    of the USA" }
+ @String{ProcNAS = "Proc. Nat. Acad. Sci. U. S. A." }
+ @String{Psychometrika = "Psychometrika" }
+ @String{QuartMath = "Quarterly Journal of Mathematics, Oxford, Series (2)" }
+ @String{QuartMath = "Quart. J. Math. Oxford Ser. (2)" }
+ @String{QuartApplMath = "Quarterly of Applied Mathematics" }
+ @String{QuartApplMath = "Quart. Appl. Math." }
+ @String{RevueInstStat = "Review of the International Statisical Institute" }
+ @String{RevueInstStat = "Rev. Inst. Internat. Statist." }
+
+ %SIAM
+ @String{JSIAM = "Journal of the Society for Industrial and Applied
+     Mathematics" }
+ @String{JSIAM = "J. Soc. Indust. Appl. Math." }
+ @String{JSIAMB = "Journal of the Society for Industrial and Applied
+     Mathematics, Series B, Numerical Analysis" }
+ @String{JSIAMB = "J. Soc. Indust. Appl. Math. Ser. B Numer. Anal." }
+ @String{SIAMAlgMeth = "{SIAM} Journal on Algebraic and Discrete Methods" }
+ @String{SIAMAlgMeth = "{SIAM} J. Algebraic Discrete Methods" }
+ @String{SIAMAppMath = "{SIAM} Journal on Applied Mathematics" }
+ @String{SIAMAppMath = "{SIAM} J. Appl. Math." }
+ @String{SIAMComp = "{SIAM} Journal on Computing" }
+ @String{SIAMComp = "{SIAM} J. Comput." }
+ @String{SIAMMatrix = "{SIAM} Journal on Matrix Analysis and Applications" }
+ @String{SIAMMatrix = "{SIAM} J. Matrix Anal. Appl." }
+ @String{SIAMNumAnal = "{SIAM} Journal on Numerical Analysis" }
+ @String{SIAMNumAnal = "{SIAM} J. Numer. Anal." }
+ @String{SIAMReview = "{SIAM} Review" }
+ @String{SIAMReview = "{SIAM} Rev." }
+ @String{SIAMSciStat = "{SIAM} Journal on Scientific and Statistical
+     Computing" }
+ @String{SIAMSciStat = "{SIAM} J. Sci. Statist. Comput." }
+
+ @String{SoftPracExp = "Software Practice and Experience" }
+ @String{SoftPracExp = "Software Prac. Experience" } % didn't find in AMS MR
+ @String{StatScience = "Statistical Science" }
+ @String{StatScience = "Statist. Sci." }
+ @String{Techno = "Technometrics" }
+ @String{USSRCompMathPhys = "{USSR} Computational Mathematics and Mathematical
+     Physics" }
+ @String{USSRCompMathPhys = "{U. S. S. R.} Comput. Math. and Math. Phys." }
+ @String{VLSICompSys = "Journal of {VLSI} and Computer Systems" }
+ @String{VLSICompSys = "J. {VLSI} Comput. Syst." }
+ @String{ZAngewMathMech = "Zeitschrift fur Angewandte Mathematik und
+     Mechanik" }
+ @String{ZAngewMathMech = "Z. Angew. Math. Mech." }
+ @String{ZAngewMathPhys = "Zeitschrift fur Angewandte Mathematik und Physik" }
+ @String{ZAngewMathPhys = "Z. Angew. Math. Phys." }
+
+% Publishers % ================================================= |
+
+ @String{Academic = "Academic Press" }
+ @String{ACMPress = "{ACM} Press" }
+ @String{AdamHilger = "Adam Hilger" }
+ @String{AddisonWesley = "Addison-Wesley" }
+ @String{AllynBacon = "Allyn and Bacon" }
+ @String{AMS = "American Mathematical Society" }
+ @String{Birkhauser = "Birkha{\"u}ser" }
+ @String{CambridgePress = "Cambridge University Press" }
+ @String{Chelsea = "Chelsea" }
+ @String{ClaredonPress = "Claredon Press" }
+ @String{DoverPub = "Dover Publications" }
+ @String{Eyolles = "Eyolles" }
+ @String{HoltRinehartWinston = "Holt, Rinehart and Winston" }
+ @String{Interscience = "Interscience" }
+ @String{JohnsHopkinsPress = "The Johns Hopkins University Press" }
+ @String{JohnWileySons = "John Wiley and Sons" }
+ @String{Macmillan = "Macmillan" }
+ @String{MathWorks = "The Math Works Inc." }
+ @String{McGrawHill = "McGraw-Hill" }
+ @String{NatBurStd = "National Bureau of Standards" }
+ @String{NorthHolland = "North-Holland" }
+ @String{OxfordPress = "Oxford University Press" }  %address Oxford or London?
+ @String{PergamonPress = "Pergamon Press" }
+ @String{PlenumPress = "Plenum Press" }
+ @String{PrenticeHall = "Prentice-Hall" }
+ @String{SIAMPub = "{SIAM} Publications" }
+ @String{Springer = "Springer-Verlag" }
+ @String{TexasPress = "University of Texas Press" }
+ @String{VanNostrand = "Van Nostrand" }
+ @String{WHFreeman = "W. H. Freeman and Co." }
+
+%Entries
+
+@article{Dirac1953888,
+  title   = "The lorentz transformation and absolute time",
+  journal = "Physica ",
+  volume  = "19",
+  number  = "1-–12",
+  pages   = "888--896",
+  year    = "1953",
+  doi     = "10.1016/S0031-8914(53)80099-6",
+  author  = "P.A.M. Dirac"
+}
+
+@article{Feynman1963118,
+  title   = "The theory of a general quantum system interacting with a linear dissipative system",
+  journal = "Annals of Physics ",
+  volume  = "24",
+  pages   = "118--173",
+  year    = "1963",
+  doi     = "10.1016/0003-4916(63)90068-X",
+  author  = "R.P Feynman and F.L {Vernon Jr.}"
+}
+
+@article{shulman1979moving,
+  title={Moving attention through visual space.},
+  author={Shulman, Gordon L and Remington, Roger W and Mclean, John P},
+  journal={Journal of Experimental Psychology: Human Perception and Performance},
+  volume={5},
+  number={3},
+  pages={522},
+  year={1979},
+  publisher={American Psychological Association}
+}
+
+@inproceedings{cho2014properties,
+  author    = {Kyunghyun Cho and
+               Bart van Merrienboer and
+               Dzmitry Bahdanau and
+               Yoshua Bengio},
+  title     = {On the Properties of Neural Machine Translation: Encoder-Decoder Approaches},
+  booktitle = {Proceedings of SSST@EMNLP 2014},
+  pages     = {103--111},
+  year      = {2014},
+  timestamp = {Fri, 07 Oct 2016 13:15:52 +0200},
+}
+
+@inproceedings{sutskever2014sequence,
+  title={Sequence to sequence learning with neural networks},
+  author={Sutskever, Ilya and Vinyals, Oriol and Le, Quoc V},
+  booktitle={NIPS},
+  pages={3104--3112},
+  year={2014}
+}
+
+@article{hochreiter1997long,
+  title={Long short-term memory},
+  author={Hochreiter, Sepp and Schmidhuber, J{\"u}rgen},
+  journal={Neural computation},
+  volume={9},
+  number={8},
+  pages={1735--1780},
+  year={1997},
+  publisher={MIT Press}
+}
+
+@inproceedings{vaswani2017attention,
+  title={Attention is all you need},
+  author={Vaswani, Ashish and Shazeer, Noam and Parmar, Niki and Uszkoreit, Jakob and Jones, Llion and Gomez, Aidan N and Kaiser, {\L}ukasz and Polosukhin, Illia},
+  booktitle={NIPS},
+  pages={5998--6008},
+  year={2017}
+}
+
+
+@article{schuster1997bidirectional,
+  title={Bidirectional recurrent neural networks},
+  author={Schuster, Mike and Paliwal, Kuldip K},
+  journal={IEEE Transactions on Signal Processing},
+  volume={45},
+  number={11},
+  pages={2673--2681},
+  year={1997},
+  publisher={IEEE}
+}
+
+@article{chang2018memory,
+  title={A Memory-Network Based Solution for Multivariate Time-Series Forecasting},
+  author={Chang, Yen-Yu and Sun, Fan-Yun and Wu, Yueh-Hua and Lin, Shou-De},
+  journal={arXiv:1809.02105},
+  year={2018}
+}
+
+@article{devlin2018bert,
+  title={Bert: Pre-training of deep bidirectional transformers for language understanding},
+  author={Devlin, Jacob and Chang, Ming-Wei and Lee, Kenton and Toutanova, Kristina},
+  journal={arXiv:1810.04805},
+  year={2018}
+}
+
+@article{chung2014empirical,
+  title={Empirical evaluation of gated recurrent neural networks on sequence modeling},
+  author={Chung, Junyoung and Gulcehre, Caglar and Cho, KyungHyun and Bengio, Yoshua},
+  journal={arXiv:1412.3555},
+  year={2014}
+}
+
+@article{taylor2018forecasting,
+  title={Forecasting at scale},
+  author={Taylor, Sean J and Letham, Benjamin},
+  journal={The American Statistician},
+  volume={72},
+  number={1},
+  pages={37--45},
+  year={2018},
+  publisher={Taylor \& Francis}
+}
+
+@article{hendrycks2016bridging,
+  author    = {Dan Hendrycks and
+               Kevin Gimpel},
+  title     = {Bridging Nonlinearities and Stochastic Regularizers with Gaussian Error Linear Units},
+  journal   = {CoRR},
+  volume    = {abs/1606.08415},
+  year      = {2016},
+  url       = {http://arxiv.org/abs/1606.08415},
+  archivePrefix = {arXiv},
+  eprint    = {1606.08415},
+  timestamp = {Mon, 13 Aug 2018 16:46:20 +0200},
+  biburl    = {https://dblp.org/rec/bib/journals/corr/HendrycksG16},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}
+
+@inproceedings{clevert2015fast,
+  author    = {Djork{-}Arn{\'{e}} Clevert and
+               Thomas Unterthiner and
+               Sepp Hochreiter},
+  title     = {Fast and Accurate Deep Network Learning by Exponential Linear Units
+               (ELUs)},
+  booktitle = {ICLR 2016},
+  year      = {2016},
+  timestamp = {Fri, 29 Mar 2019 10:35:07 +0100},
+}
+
+@article{child2019generating,
+  title={Generating Long Sequences with Sparse Transformers},
+  author={Child, Rewon and Gray, Scott and Radford, Alec and Sutskever, Ilya},
+  journal={arXiv:1904.10509},
+  year={2019}
+}
+
+@inproceedings{bahdanau2014neural,
+  author    = {Dzmitry Bahdanau and
+               Kyunghyun Cho and
+               Yoshua Bengio},
+  title     = {Neural Machine Translation by Jointly Learning to Align and Translate},
+  booktitle = {ICLR 2015},
+  year      = {2015},
+  timestamp = {Fri, 29 Mar 2019 10:36:36 +0100},
+}
+
+@inproceedings{gehring2017convolutional,
+  title={Convolutional sequence to sequence learning},
+  author={Gehring, Jonas and Auli, Michael and Grangier, David and Yarats, Denis and Dauphin, Yann N},
+  booktitle={ICML 2017},
+  pages={1243--1252},
+  year={2017},
+  organization={JMLR. org}
+}
+
+@article{dehghani2018universal,
+  title={Universal transformers},
+  author={Dehghani, Mostafa and Gouws, Stephan and Vinyals, Oriol and Uszkoreit, Jakob and Kaiser, {\L}ukasz},
+  journal={arXiv:1807.03819},
+  year={2018}
+}
+
+@inproceedings{ariyo2014stock,
+  title={Stock price prediction using the ARIMA model},
+  author={Ariyo, Adebiyi A and Adewumi, Adewumi O and Ayo, Charles K},
+  booktitle={The 16th International Conference on Computer Modelling and Simulation},
+  pages={106--112},
+  year={2014},
+  organization={IEEE}
+}
+
+@inproceedings{lai2018modeling,
+  title={Modeling long-and short-term temporal patterns with deep neural networks},
+  author={Lai, Guokun and Chang, Wei-Cheng and Yang, Yiming and Liu, Hanxiao},
+  booktitle={ACM SIGIR 2018},
+  pages={95--104},
+  year={2018},
+  organization={ACM}
+}
+
+
+% by Shanghang
+@article{journals/corr/abs-1904-07464,
+  author    = {Yeqi Liu and
+               Chuanyang Gong and
+               Ling Yang and
+               Yingyi Chen},
+  title     = {{DSTP-RNN:} a dual-stage two-phase attention-based recurrent neural
+               networks for long-term and multivariate time series prediction},
+  journal   = {CoRR},
+  volume    = {abs/1904.07464},
+  year      = {2019},
+  eprint    = {1904.07464},
+  timestamp = {Thu, 25 Apr 2019 13:55:01 +0200},
+}
+
+@inproceedings{conf/ijcai/QinSCCJC17,
+  author    = {Yao Qin and
+               Dongjin Song and
+               Haifeng Chen and
+               Wei Cheng and
+               Guofei Jiang and
+               Garrison W. Cottrell},
+  title     = {A Dual-Stage Attention-Based Recurrent Neural Network for Time Series
+               Prediction},
+  booktitle = {IJCAI 2017},
+  pages     = {2627--2633},
+  year      = {2017},
+}
+
+@article{DBLP:journals/pvldb/FaloutsosGJW18,
+  author    = {Christos Faloutsos and
+               Jan Gasthaus and
+               Tim Januschowski and
+               Yuyang Wang},
+  title     = {Forecasting Big Time Series: Old and New},
+  journal   = {{PVLDB}},
+  volume    = {11},
+  number    = {12},
+  pages     = {2102--2105},
+  year      = {2018},
+  doi       = {10.14778/3229863.3229878},
+  timestamp = {Fri, 30 Nov 2018 11:58:39 +0100},
+}
+
+@inproceedings{papadimitriou2006optimal,
+  title={Optimal multi-scale patterns in time series streams},
+  author={Papadimitriou, Spiros and Yu, Philip},
+  booktitle={ACM SIGMOD 2006},
+  pages={647--658},
+  year={2006},
+  organization={ACM}
+}
+
+@inproceedings{DBLP:conf/kdd/MatsubaraSPF14,
+  author    = {Yasuko Matsubara and
+               Yasushi Sakurai and
+               Willem G. van Panhuis and
+               Christos Faloutsos},
+  title     = {{FUNNEL:} automatic mining of spatially coevolving epidemics},
+  booktitle = {ACM SIGKDD 2014},
+  pages     = {105--114},
+  year      = {2014},
+}
+
+@inproceedings{DBLP:conf/vldb/ZhuS02,
+  author    = {Yunyue Zhu and
+               Dennis E. Shasha},
+  title     = {StatStream: Statistical Monitoring of Thousands of Data Streams in
+               Real Time},
+  booktitle = {VLDB 2002},
+  pages     = {358--369},
+  year      = {2002},
+}
+
+%2
+@book{box2015time,
+  title={Time series analysis: forecasting and control},
+  author={Box, George EP and Jenkins, Gwilym M and Reinsel, Gregory C and Ljung, Greta M},
+  year={2015},
+  publisher={John Wiley \& Sons}
+}
+
+%3
+@article{ray1990time,
+  title={Time series: theory and methods},
+  author={Ray, WD},
+  journal={Journal of the Royal Statistical Society: Series A (Statistics in Society)},
+  volume={153},
+  number={3},
+  pages={400--400},
+  year={1990},
+  publisher={Wiley Online Library}
+}
+%15
+
+@inproceedings{li2009dynammo,
+  title={Dynammo: Mining and summarization of coevolving sequences with missing values},
+  author={Li, Lei and McCann, James and Pollard, Nancy S and Faloutsos, Christos},
+  booktitle={ACM SIGKDD 2009},
+  pages={507--516},
+  year={2009},
+  organization={ACM}
+}
+
+%16
+@article{li2010parsimonious,
+  title={Parsimonious linear fingerprinting for time series},
+  author={Li, Lei and Prakash, B Aditya and Faloutsos, Christos},
+  journal={Proceedings of the VLDB Endowment},
+  volume={3},
+  number={1-2},
+  pages={385--396},
+  year={2010},
+  publisher={VLDB Endowment}
+}
+
+@inproceedings{li2017graph,
+  author    = {Yaguang Li and
+               Rose Yu and
+               Cyrus Shahabi and
+               Yan Liu},
+  title     = {Diffusion Convolutional Recurrent Neural Network: Data-Driven Traffic
+               Forecasting},
+  booktitle = {ICLR 2018},
+  year      = {2018},
+}
+
+@article{seeger2017approximate,
+  title={Approximate bayesian inference in linear state space models for intermittent demand forecasting at scale},
+  author={Seeger, Matthias and Rangapuram, Syama and Wang, Yuyang and Salinas, David and Gasthaus, Jan and Januschowski, Tim and Flunkert, Valentin},
+  journal={arXiv:1709.07638},
+  year={2017}
+}
+
+@inproceedings{seeger2016bayesian,
+  title={Bayesian intermittent demand forecasting for large inventories},
+  author={Seeger, Matthias W and Salinas, David and Flunkert, Valentin},
+  booktitle={NIPS},
+  pages={4646--4654},
+  year={2016}
+}
+
+
+@article{yu2017long,
+  title={Long-term forecasting using tensor-train rnns},
+  author={Yu, Rose and Zheng, Stephan and Anandkumar, Anima and Yue, Yisong},
+  journal={arXiv:1711.00073},
+  year={2017}
+}
+
+@article{flunkert2017deepar,
+  title={DeepAR: Probabilistic forecasting with autoregressive recurrent networks},
+  author={Flunkert, Valentin and Salinas, David and Gasthaus, Jan},
+  journal={arXiv:1704.04110},
+  year={2017}
+}
+
+@article{mukherjee2018armdn,
+  title={Armdn: Associative and recurrent mixture density networks for eretail demand forecasting},
+  author={Mukherjee, Srayanta and Shankar, Devashish and Ghosh, Atin and Tathawadekar, Nilam and Kompalli, Pramod and Sarawagi, Sunita and Chaudhury, Krishnendu},
+  journal={arXiv:1803.03800},
+  year={2018}
+}
+
+@article{wen2017multi,
+  title={A multi-horizon quantile recurrent forecaster},
+  author={Wen, Ruofeng and Torkkola, Kari and Narayanaswamy, Balakrishnan and Madeka, Dhruv},
+  journal={arXiv:1711.11053},
+  year={2017}
+}
+
+@inproceedings{song2018attend,
+  title={Attend and diagnose: Clinical time series analysis using attention models},
+  author={Song, Huan and Rajan, Deepta and Thiagarajan, Jayaraman J and Spanias, Andreas},
+  booktitle={AAAI 2018},
+  year={2018}
+}
+
+@article{ma2019cdsa,
+  title={CDSA: Cross-Dimensional Self-Attention for Multivariate, Geo-tagged Time Series Imputation},
+  author={Ma, Jiawei and Shou, Zheng and Zareian, Alireza and Mansour, Hassan and Vetro, Anthony and Chang, Shih-Fu},
+  journal={arXiv:1905.09904},
+  year={2019}
+}
+
+@article{li2019enhancing,
+  title={Enhancing the Locality and Breaking the Memory Bottleneck of Transformer on Time Series Forecasting},
+  author={Li, Shiyang and Jin, Xiaoyong and Xuan, Yao and Zhou, Xiyou and Chen, Wenhu and Wang, Yu-Xiang and Yan, Xifeng},
+  journal={arXiv:1907.00235},
+  year={2019}
+}
+
+@inproceedings{tsai2019transformer,
+  title={Transformer Dissection: An Unified Understanding for Transformer’s Attention via the Lens of Kernel},
+  author={Tsai, Yao-Hung Hubert and Bai, Shaojie and Yamada, Makoto and Morency, Louis-Philippe and Salakhutdinov, Ruslan},
+  booktitle={ACL 2019},
+  pages={4335--4344},
+  year={2019}
+}
+
+@article{hatemi2004multivariate,
+  title={Multivariate tests for autocorrelation in the stable and unstable VAR models},
+  author={Hatemi-J, Abdulnasser},
+  journal={Economic Modelling},
+  volume={21},
+  number={4},
+  pages={661--683},
+  year={2004},
+  publisher={Elsevier}
+}
+
+@inproceedings{yu2017dilated,
+  title={Dilated residual networks},
+  author={Yu, Fisher and Koltun, Vladlen and Funkhouser, Thomas},
+  booktitle={CVPR},
+  pages={472--480},
+  year={2017}
+}
+
+@article{gupta2017dilated,
+  title={Dilated convolutions for modeling long-distance genomic dependencies},
+  author={Gupta, Ankit and Rush, Alexander M},
+  journal={arXiv:1710.01278},
+  year={2017}
+}
+
+@inproceedings{kitaev2019reformer,
+  title={Reformer: The Efficient Transformer},
+  author={Kitaev, Nikita and Kaiser, Lukasz and Levskaya, Anselm},
+  booktitle={ICLR},
+  year={2019}
+}
+
+@article{DBLP:journals/corr/abs-2005-14165,
+  author    = {Tom B. Brown and
+               Benjamin Mann and
+               Nick Ryder and
+               Melanie Subbiah and
+               Jared Kaplan and
+               Prafulla Dhariwal and
+               Arvind Neelakantan and
+               Pranav Shyam and
+               Girish Sastry and
+               Amanda Askell and
+               Sandhini Agarwal and
+               Ariel Herbert{-}Voss and
+               Gretchen Krueger and
+               Tom Henighan and
+               Rewon Child and
+               Aditya Ramesh and
+               Daniel M. Ziegler and
+               Jeffrey Wu and
+               Clemens Winter and
+               Christopher Hesse and
+               Mark Chen and
+               Eric Sigler and
+               Mateusz Litwin and
+               Scott Gray and
+               Benjamin Chess and
+               Jack Clark and
+               Christopher Berner and
+               Sam McCandlish and
+               Alec Radford and
+               Ilya Sutskever and
+               Dario Amodei},
+  title     = {Language Models are Few-Shot Learners},
+  journal   = {CoRR},
+  volume    = {abs/2005.14165},
+  year      = {2020},
+}
+
+@article{DBLP:journals/corr/abs-2004-05150,
+  author    = {Iz Beltagy and
+               Matthew E. Peters and
+               Arman Cohan},
+  title     = {Longformer: The Long-Document Transformer},
+  journal   = {CoRR},
+  volume    = {abs/2004.05150},
+  year      = {2020},
+}
+
+
+@article{qiu2019blockwise,
+  title={Blockwise Self-Attention for Long Document Understanding},
+  author={Qiu, Jiezhong and Ma, Hao and Levy, Omer and Yih, Scott Wen-tau and Wang, Sinong and Tang, Jie},
+  journal={arXiv:1911.02972},
+  year={2019}
+}
+
+@article{wang2020linformer,
+  title={Linformer: Self-Attention with Linear Complexity},
+  author={Wang, Sinong and Li, Belinda and Khabsa, Madian and Fang, Han and Ma, Hao},
+  journal={arXiv:2006.04768},
+  year={2020}
+}
+
+@article{dai2019transformer,
+  title={Transformer-xl: Attentive language models beyond a fixed-length context},
+  author={Dai, Zihang and Yang, Zhilin and Yang, Yiming and Carbonell, Jaime and Le, Quoc V and Salakhutdinov, Ruslan},
+  journal={arXiv:1901.02860},
+  year={2019}
+}
+
+@article{rae2019compressive,
+  title={Compressive transformers for long-range sequence modelling},
+  author={Rae, Jack W and Potapenko, Anna and Jayakumar, Siddhant M and Lillicrap, Timothy P},
+  journal={arXiv:1911.05507},
+  year={2019}
+}
+
+% appendix
+
+%Entries
+
+@article{DBLP:journals/corr/abs-1806-07850,
+  author    = {Giuseppe C. Calafiore and
+               Stephane Gaubert and
+               Corrado Possieri},
+  title     = {Log-sum-exp neural networks and posynomial models for convex and log-log-convex
+               data},
+  journal   = {CoRR},
+  volume    = {abs/1806.07850},
+  year      = {2018},
+  archivePrefix = {arXiv},
+  eprint    = {1806.07850},
+}
+
+@book{adams1995hitchhiker,
+  title={The Hitchhiker's Guide to the Galaxy},
+  author={Adams, D.},
+  isbn={9781417642595},
+  url={http://books.google.com/books?id=W-xMPgAACAAJ},
+  year={1995},
+  publisher={San Val}
+}
+
+@inproceedings{dufresne2008sums,
+  title={Sums of lognormals},
+  author={Dufresne, Daniel},
+  booktitle={Actuarial Research Conference},
+  pages={1--6},
+  year={2008}
+}
+
+@article{vargasguzman2005change,
+title={Change of Support of Transformations: Conservation of Lognormality Revisited},
+author={Vargasguzman, J A},
+journal={Mathematical Geosciences},
+volume={37},
+number={6},
+pages={551--567},
+year={2005}}
+
+@article{romeo2003broad,
+  title={Broad distribution effects in sums of lognormal random variables},
+  author={Romeo, M and Da Costa, V and Bardou, F},
+  journal={The European Physical Journal B-Condensed Matter and Complex Systems},
+  volume={32},
+  number={4},
+  pages={513--525},
+  year={2003},
+  publisher={Springer}
+}
+
+@article{hcine2015approximation,
+  title={On the approximation of the sum of lognormals by a log skew normal distribution},
+  author={Hcine, Marwane Ben and Bouallegue, Ridha},
+  journal={arXiv preprint arXiv:1502.03619},
+  year={2015}
+}
+
+@article{beaulieu2011extended,
+  title={An extended limit theorem for correlated lognormal sums},
+  author={Beaulieu, Norman C},
+  journal={IEEE transactions on communications},
+  volume={60},
+  number={1},
+  pages={23--26},
+  year={2011},
+  publisher={IEEE}
+}
+
+@article{lo2012sum,
+  title={The sum and difference of two lognormal random variables},
+  author={Lo, Chi-Fai},
+  journal={Journal of Applied Mathematics},
+  volume={2012},
+  year={2012},
+  publisher={Hindawi}
+}
+
+@article{weiner1984meaning,
+  title={The meaning and measurement of size hierarchies in plant populations},
+  author={Weiner, Jacob and Solbrig, Otto T},
+  journal={Oecologia},
+  volume={61},
+  number={3},
+  pages={334--336},
+  year={1984},
+  publisher={Springer}
+}
+
+@article{aicher2019adaptively,
+  title={Adaptively Truncating Backpropagation Through Time to Control Gradient Bias},
+  author={Aicher, Christopher and Foti, Nicholas J and Fox, Emily B},
+  journal={arXiv:1905.07473},
+  year={2019}
+}
+
+@article{trinh2018learning,
+  title={Learning longer-term dependencies in rnns with auxiliary losses},
+  author={Trinh, Trieu H and Dai, Andrew M and Luong, Minh-Thang and Le, Quoc V},
+  journal={arXiv preprint arXiv:1803.00144},
+  year={2018}
+}
+
+@inproceedings{zilly2017recurrent,
+  title={Recurrent highway networks},
+  author={Zilly, Julian Georg and Srivastava, Rupesh Kumar and Koutn{\'\i}k, Jan and Schmidhuber, J{\"u}rgen},
+  booktitle={ICML},
+  pages={4189--4198},
+  year={2017},
+}
+
+@article{cao2019better,
+  title={Better Long-Range Dependency By Bootstrapping A Mutual Information Regularizer},
+  author={Cao, Yanshuai and Xu, Peng},
+  journal={arXiv:1905.11978},
+  year={2019}
+}
+
+@article{stoller2019seq,
+  title={Seq-U-Net: A One-Dimensional Causal U-Net for Efficient Sequence Modelling},
+  author={Stoller, Daniel and Tian, Mi and Ewert, Sebastian and Dixon, Simon},
+  journal={arXiv:1911.06393},
+  year={2019}
+}
+
+@article{bai2018convolutional,
+  title={Convolutional sequence modeling revisited},
+  author={Bai, Shaojie and Kolter, J Zico and Koltun, Vladlen},
+  journal={ICLR},
+  year={2018}
+}
+
+@inproceedings{DBLP:conf/emnlp/LuongPM15,
+  author    = {Thang Luong and
+               Hieu Pham and
+               Christopher D. Manning},
+  editor    = {Llu{\'{\i}}s M{\`{a}}rquez and
+               Chris Callison{-}Burch and
+               Jian Su and
+               Daniele Pighin and
+               Yuval Marton},
+  title     = {Effective Approaches to Attention-based Neural Machine Translation},
+  booktitle = {EMNLP},
+  pages     = {1412--1421},
+  publisher = {The Association for Computational Linguistics},
+  year      = {2015},
+  url       = {https://doi.org/10.18653/v1/d15-1166},
+  doi       = {10.18653/v1/d15-1166},
+  timestamp = {Tue, 28 Jan 2020 10:28:39 +0100},
+  biburl    = {https://dblp.org/rec/conf/emnlp/LuongPM15.bib},
+  bibsource = {dblp computer science bibliography, https://dblp.org}
+}

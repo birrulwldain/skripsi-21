@@ -47,7 +47,7 @@ Sistem LIBS terdiri dari beberapa komponen utama yang bekerja bersama untuk meng
     \item \textbf{Lensa Optik}: Lensa memfokuskan pulsa laser ke titik kecil pada sampel dan mengumpulkan cahaya yang dipancarkan dari plasma untuk diteruskan ke alat analisis \citep{Miziolek2006}.
     \item \textbf{Spektrometer}: Alat ini memisahkan cahaya menjadi panjang gelombang untuk menghasilkan spektrum emisi \citep{Singh2007}.
     \item \textbf{Detektor}: Detektor seperti CCD (Charge-Coupled Device) atau ICCD (Intensified CCD) merekam intensitas cahaya. ICCD dapat mengatur waktu pengukuran untuk meningkatkan kualitas spektrum emisi emisi emisi \citep{Cremers2013}.
-    \item \textbf{Komputer}: Mengendalikan laser, merekam data spektrum emisi, dan membandingkannya dengan basis data, seperti NIST, untuk mengidentifikasi elemen dalam sampel \citep{Kramida2023}.
+    \item \textbf{Komputer}: Mengendalikan laser, merekam data spektrum emisi, dan membandingkannya dengan basis data seperti \textit{NIST Atomic Spectra Database} (ASD) untuk mengidentifikasi elemen dalam sampel \citep{Kramida2023}.
 \end{enumerate}
 Untuk memperjelas fungsi masing-masing komponen, Tabel~\ref{tab:libs_components} merangkum komponen utama sistem LIBS beserta peranannya dalam analisis spektral.
 
@@ -133,7 +133,7 @@ Seri Balmer (\( n_f = 2 \), \( n_i = 3, 4, 5 \)) menghasilkan garis spektral dal
     \frac{1}{\lambda} = 1.0973731568 \times 10^7 \left( \frac{1}{2^2} - \frac{1}{5^2} \right), \quad \lambda \approx 434.05 \, \text{nm}.
     \]
 \end{itemize}
-Data ini divalidasi dengan basis data NIST \citep{Kramida2023}. Aturan seleksi (\( \Delta l = \pm 1 \), \( \Delta m_l = 0, \pm 1 \), dan \( \Delta S = 0 \)) memastikan transisi seri Balmer diizinkan, menghasilkan garis spektral yang kuat dalam rentang tampak, dengan garis H\(\alpha\) pada 656.28 nm sebagai indikator utama keberadaan hidrogen dalam LIBS \citep{CremersRadzemski2013}.
+Data ini divalidasi dengan basis data NIST ASD \citep{Kramida2023}. Aturan seleksi (\( \Delta l = \pm 1 \), \( \Delta m_l = 0, \pm 1 \), dan \( \Delta S = 0 \)) memastikan transisi seri Balmer diizinkan, menghasilkan garis spektral yang kuat dalam rentang tampak, dengan garis H\(\alpha\) pada 656.28 nm sebagai indikator utama keberadaan hidrogen dalam LIBS \citep{CremersRadzemski2013}.
 
 Diagram Grotrian memvisualisasikan tingkat energi dan transisi yang diizinkan, seperti seri Balmer, memungkinkan analisis transisi elektronik dalam plasma \citep{Mason2015}. Diagram ini ditunjukkan pada Gambar~\ref{fig:grotrian}, dengan tingkat energi dihitung menggunakan persamaan (\ref{eq:energy_hydrogen}) dan transisi emisi digambarkan sebagai panah ke bawah untuk H\(\alpha\), H\(\beta\), dan H\(\gamma\).
 
@@ -474,29 +474,33 @@ Keterbatasan ini mendorong pengembangan varian seperti \textit{Informer}, yang m
 
 \subsection{Focal Loss}
 
-Focal Loss adalah sebuah pengembangan dari fungsi kerugian (*loss function*) Cross-Entropy yang dirancang khusus untuk mengatasi masalah ketidakseimbangan kelas (*class imbalance*) dalam tugas klasifikasi. Pada banyak dataset dunia nyata, termasuk data spektrometri, distribusi kelas seringkali tidak merata, di mana beberapa kelas (sampel positif) jauh lebih sedikit daripada kelas lainnya (sampel negatif).
+Focal Loss adalah sebuah pengembangan dari fungsi kerugian (*loss function*) Cross-Entropy yang dirancang khusus untuk mengatasi masalah ketidakseimbangan kelas (*class imbalance*) dalam tugas klasifikasi. Pada banyak dataset eksperimental, termasuk data spektrometri, distribusi kelas seringkali tidak merata, di mana beberapa kelas (sampel positif) jauh lebih sedikit daripada kelas lainnya (sampel negatif).
 
-Focal Loss bekerja dengan cara memodifikasi fungsi Cross-Entropy standar agar memberikan bobot yang lebih kecil pada sampel yang sudah dapat diklasifikasikan dengan mudah (*well-classified examples*). Dengan demikian, model dapat memfokuskan proses pelatihannya pada sampel-sampel yang sulit (*hard examples*). Mekanisme ini diatur oleh sebuah parameter pemfokusan, gamma (\(\gamma\)). Ketika \(\gamma > 0\), loss untuk sampel yang mudah diklasifikasikan akan dikurangi, sehingga kontribusi dari sampel yang sulit menjadi lebih signifikan dalam perhitungan gradien untuk pembaruan bobot model.
+Focal Loss bekerja dengan cara memodifikasi fungsi Cross-Entropy standar agar memberikan bobot yang lebih kecil pada sampel yang sudah dapat diklasifikasikan dengan mudah (*well-classified examples*). Dengan demikian, model dapat memfokuskan proses pelatihannya pada sampel-sampel yang sulit (*hard examples*). Secara matematis, Focal Loss didefinisikan sebagai:
+\begin{equation}
+\text{FL}(p_t) = -\alpha_t (1 - p_t)^\gamma \log(p_t)
+\end{equation}
+di mana \(p_t\) adalah probabilitas yang diprediksi model untuk kelas yang benar, \(\gamma\) adalah parameter pemfokusan, dan \(\alpha_t\) adalah faktor pembobotan. Ketika \(\gamma > 0\), loss untuk sampel yang mudah diklasifikasikan (di mana \(p_t\) mendekati 1) akan dikurangi, sehingga kontribusi dari sampel yang sulit menjadi lebih signifikan dalam perhitungan gradien untuk pembaruan bobot model \parencite{Lin2017FocalLoss}.
 
 \subsection{Mixed-Precision Training}
 
-	\textit{Mixed-Precision Training} (Pelatihan Presisi Campuran) adalah sebuah teknik untuk mengoptimalkan proses pelatihan model 	\textit{deep learning} dengan menggunakan kombinasi antara format bilangan 	\textit{floating-point} presisi 32-bit (FP32 atau 	\textit{single precision}) dan presisi 16-bit (FP16 atau 	\textit{half precision}).
+	\textit{Deep Learning} (Pelatihan Presisi Campuran) adalah sebuah teknik untuk mengoptimalkan proses pelatihan model 	\textit{Deep Learning} dengan menggunakan kombinasi antara format bilangan 	\textit{floating-point} presisi 32-bit (FP32 atau 	\textit{single precision}) dan presisi 16-bit (FP16 atau 	\textit{half precision}).
 
-Teknik ini memberikan dua keuntungan utama. Pertama, penggunaan presisi 16-bit secara signifikan mengurangi jejak memori (*memory footprint*) yang dibutuhkan oleh model di GPU, sehingga memungkinkan pelatihan dengan ukuran 	\textit{batch} (*batch size*) yang lebih besar atau model dengan arsitektur yang lebih kompleks. Kedua, pada unit pemrosesan grafis (GPU) modern yang dilengkapi dengan Tensor Cores, operasi matematis menggunakan presisi 16-bit dapat dieksekusi jauh lebih cepat dibandingkan presisi 32-bit, sehingga mempersingkat total waktu pelatihan secara drastis. Untuk mencegah masalah numerik seperti 	\textit{gradient underflow} (gradien menjadi nol karena nilainya terlalu kecil dalam presisi 16-bit), teknik ini umumnya diimplementasikan bersama dengan 	\textit{loss scaling}.
+Teknik ini memberikan dua keuntungan utama. Pertama, penggunaan presisi 16-bit secara signifikan mengurangi jejak memori (*memory footprint*) yang dibutuhkan oleh model di GPU, sehingga memungkinkan pelatihan dengan ukuran 	\textit{batch} (*batch size*) yang lebih besar atau model dengan arsitektur yang lebih kompleks. Kedua, pada unit pemrosesan grafis (GPU) modern yang dilengkapi dengan Tensor Cores, operasi matematis menggunakan presisi 16-bit dapat dieksekusi jauh lebih cepat dibandingkan presisi 32-bit, sehingga mempersingkat total waktu pelatihan secara drastis. Untuk mencegah masalah numerik seperti 	\textit{gradient underflow} (gradien menjadi nol karena nilainya terlalu kecil dalam presisi 16-bit), teknik ini umumnya diimplementasikan bersama dengan 	\textit{loss scaling} \parencite{Micikevicius2018MixedPrecision}.
 
 \subsection{Optimisasi Hyperparameter Otomatis}
 
 Optimisasi 	\textit{hyperparameter} adalah proses menemukan kombinasi 	\textit{hyperparameter} (misalnya, 	\textit{learning rate}, 	\textit{dropout rate}, jumlah 	\textit{layer}) yang menghasilkan kinerja model terbaik. Metode manual seperti 	\textit{grid search} atau 	\textit{random search} seringkali tidak efisien secara komputasi.
 
-	\textit{Framework} optimisasi otomatis modern menggunakan algoritma pencarian yang lebih cerdas, salah satunya berbasis 	\textit{Bayesian Optimization}. Selain itu, 	\textit{framework} ini mengimplementasikan mekanisme 	\textit{pruning} (pemangkasan). 	\textit{Pruning} adalah strategi untuk menghentikan 	\textit{trial} (percobaan) pelatihan secara dini jika kinerjanya terdeteksi tidak menjanjikan berdasarkan metrik evaluasi pada epoch-epoch awal. Dengan menghentikan 	\textit{trial} yang buruk lebih awal, sumber daya komputasi dapat dialokasikan untuk mengeksplorasi kombinasi 	\textit{hyperparameter} lain yang lebih potensial, membuat proses pencarian menjadi jauh lebih efisien.
+	\textit{Framework} optimisasi otomatis modern menggunakan algoritma pencarian yang lebih cerdas, salah satunya berbasis 	\textit{Bayesian Optimization}. Selain itu, 	\textit{framework} ini mengimplementasikan mekanisme 	\textit{pruning} (pemangkasan). 	\textit{Pruning} adalah strategi untuk menghentikan 	\textit{trial} (percobaan) pelatihan secara dini jika kinerjanya terdeteksi tidak menjanjikan berdasarkan metrik evaluasi pada epoch-epoch awal. Dengan menghentikan 	\textit{trial} yang buruk lebih awal, sumber daya komputasi dapat dialokasikan untuk mengeksplorasi kombinasi 	\textit{hyperparameter} lain yang lebih potensial, membuat proses pencarian menjadi jauh lebih efisien \parencite{Akiba2019Optuna}.
 
 \section{	\textit{Informer}}
 
-Pemodelan deret waktu panjang (	\textit{long sequence time-series forecasting}, LSTF) menghadapi tantangan dalam menangkap ketergantungan jarak jauh pada urutan dengan panjang \( n \gg 1000 \), seperti prediksi konsumsi energi atau lalu lintas \citep{Wu2021}. 	\textit{Transformer} \citep{Vaswani2017} unggul dalam menangkap pola musiman dan tren jangka panjang, tetapi kompleksitas kuadratiknya (\( O(n^2 \cdot d) \)) menyebabkan kebutuhan memori dan waktu komputasi yang besar. 	\textit{Informer}, dikembangkan oleh \citet{Zhou2021}, mengatasi keterbatasan ini dengan mengoptimalkan 	\textit{self-attention} menjadi 	\textit{ProbSparse self-attention} (kompleksitas \( O(n \cdot \ln n \cdot d) \)), menyuling fitur melalui 	\textit{self-attention distilling}, dan mempercepat inferensi dengan 	\textit{generative-style decoding}. 	\textit{Informer} menawarkan solusi efisien dan akurat untuk LSTF, ideal untuk penelitian empiris.
+Pemodelan deret waktu panjang (\textit{long sequence time-series forecasting}, LSTF) menghadapi tantangan dalam menangkap ketergantungan jarak jauh pada urutan dengan panjang \( n \gg 1000 \), seperti prediksi konsumsi energi atau lalu lintas \citep{Wu2021}. Meskipun \textit{Transformer} \citep{Vaswani2017} unggul dalam menangkap pola temporal, kompleksitas kuadratiknya (\( O(n^2 \cdot d) \)) menyebabkan kebutuhan memori dan waktu komputasi yang sangat besar, membuatnya tidak praktis untuk sekuens yang sangat panjang seperti data spektral resolusi tinggi. Untuk mengatasi limitasi fundamental ini, \citet{Zhou2021} memperkenalkan \textbf{\textit{Informer}}, sebuah arsitektur yang dirancang secara spesifik untuk menjadi \textbf{solusi yang lebih efektif dan efisien dalam menangani LSTF}. Argumen utama dari \textcite{Zhou2021} adalah bahwa dengan tiga inovasi kunci—yaitu \textit{ProbSparse Self-Attention} dengan kompleksitas \( O(L \log L) \), \textit{self-attention distilling} untuk memperpendek sekuens di lapisan dalam, dan \textit{decoder} generatif untuk inferensi cepat—\textit{Informer} mampu mencapai kinerja yang lebih tinggi dengan penggunaan sumber daya komputasi yang jauh lebih rendah, menjadikannya pilihan yang superior untuk aplikasi yang melibatkan data sekuensial panjang.
 
 \subsection{Arsitektur \textit{Informer}}
 
-\textit{Informer} mempertahankan struktur \textit{encoder-decoder} dari \textit{Transformer}, yang dioptimalkan untuk menangani LSTF \citep{Zhou2021}. \textit{Encoder} memproses urutan masukan \( \mathcal{X}^t = \{ \mathbf{x}_1^t, \ldots, \mathbf{x}_{L_x}^t \mid \mathbf{x}_i^t \in \mathbb{R}^{d_{\text{model}}} \} \) menggunakan \textit{ProbSparse self-attention} dan \textit{self-attention distilling}, menghasilkan representasi tersandi \( \mathbf{Z}^t \in \mathbb{R}^{L_z \times d_{\text{model}}} \), dengan \( L_z \ll L_x \). \textit{Decoder} menerima masukan \( \mathbf{X}_{\text{de}}^t \) dan menghasilkan urutan keluaran \( \mathbf{Y}^t \in \mathbb{R}^{L_y \times d_y} \) dalam satu langkah generatif, sebagaimana ditunjukkan pada persamaan berikut:
+\textit{Informer} mempertahankan struktur \textit{encoder-decoder} dari \textit{Transformer}, yang dioptimalkan untuk menangani LSTF \citep{Zhou2021}. \textit{Encoder} memproses urutan masukan \( \mathcal{X}^t = \{ \mathbf{x}_1^t, \ldots, \mathbf{x}_{L_x}^t \mid \mathbf{x}_i^t \in \mathbb{R}^{d_{\text{model}}} \} \) menggunakan \textit{ProbSparse Self-Attention} dan \textit{self-attention distilling}, menghasilkan representasi tersandi \( \mathbf{Z}^t \in \mathbb{R}^{L_z \times d_{\text{model}}} \), dengan \( L_z \ll L_x \). \textit{Decoder} menerima masukan \( \mathbf{X}_{\text{de}}^t \) dan menghasilkan urutan keluaran \( \mathbf{Y}^t \in \mathbb{R}^{L_y \times d_y} \) dalam satu langkah generatif, sebagaimana ditunjukkan pada persamaan berikut:
 \begin{equation}
 \text{Encoder: } \mathbf{X}^t \mapsto \mathbf{Z}^t, \quad \text{Decoder: } \mathbf{X}_{\text{de}}^t \mapsto \mathbf{Y}^t \label{eq:bab2_eq43}
 \end{equation}
@@ -511,7 +515,7 @@ Kompleksitas per lapisan \textit{Informer} adalah \( O(n \cdot \ln n \cdot d) \)
 
 \subsection{\textit{ProbSparse Self-Attention}}
 
-Mekanisme \textit{ProbSparse self-attention} dirancang untuk mengurangi kompleksitas \textit{self-attention} kanonikal dari \( O(L_Q \cdot L_K) \) menjadi \( O(L \cdot \ln L) \) untuk \( L_Q = L_K = L \) \citep{Zhou2021}. Pendekatan ini memanfaatkan distribusi skor \textit{attention} yang jarang, dengan skor \textit{attention} didefinisikan sebagai:
+Mekanisme \textit{ProbSparse Self-Attention} dirancang untuk mengurangi kompleksitas \textit{self-attention} kanonikal dari \( O(L_Q \cdot L_K) \) menjadi \( O(L \cdot \ln L) \) untuk \( L_Q = L_K = L \) \citep{Zhou2021}. Pendekatan ini memanfaatkan distribusi skor \textit{attention} yang jarang, dengan skor \textit{attention} didefinisikan sebagai:
 \begin{equation}
 p(\mathbf{k}_j \mid \mathbf{q}_i) = \frac{e^{\frac{\mathbf{q}_i \mathbf{k}_j^T}{\sqrt{d}}}}{\sum_{m=1}^{L_K} e^{\frac{\mathbf{q}_i \mathbf{k}_m^T}{\sqrt{d}}}} \label{eq:bab2_eq44}
 \end{equation}
@@ -519,7 +523,38 @@ Hanya sejumlah kecil \textit{query} dengan skor tertinggi yang dipilih, membentu
 \begin{equation}
 \mathcal{A}(\mathbf{Q}, \mathbf{K}, \mathbf{V}) = \text{Softmax}\left( \frac{\overline{\mathbf{Q}} \mathbf{K}^T}{\sqrt{d}} \right) \mathbf{V} \label{eq:bab2_eq45}
 \end{equation}
-Mekanisme ini memungkinkan penanganan hubungan temporal yang signifikan, seperti dalam prediksi lalu lintas, dengan efisiensi komputasi yang tinggi.
+Mekanisme ini memungkinkan penanganan hubungan temporal yang signifikan, seperti dalam prediksi lalu lintas, dengan efisiensi komputasi yang tinggi. Efektivitas dan efisiensi memori dari mekanisme ini dibandingkan dengan mekanisme \textit{self-attention} kanonikal dan varian lainnya ditunjukkan secara empiris pada Tabel~\ref{tab:ablation_probsparse}.
+
+\begin{table}[H]
+\centering
+\small % Menggunakan \small agar konsisten dengan tabel lain
+\caption{Studi Ablasi Mekanisme \textit{ProbSparse Self-Attention} \parencite{Zhou2021}.}
+\label{tab:ablation_probsparse} % Anda bisa tetap menggunakan label yang sama
+\begin{tabular}{ll ccc ccc}
+    \toprule
+    & & \multicolumn{6}{c}{\textbf{Panjang Prediksi}} \\
+    \cmidrule(lr){3-8}
+    & & \multicolumn{3}{c}{\textbf{336}} & \multicolumn{3}{c}{\textbf{720}} \\
+    \cmidrule(lr){3-5} \cmidrule(lr){6-8}
+    \textbf{Metode} & \textbf{Metrik} & \textbf{336} & \textbf{720} & \textbf{1440} & \textbf{720} & \textbf{1440} & \textbf{2880} \\
+    \midrule
+    Informer & MSE & 0.249 & 0.225 & 0.216 & 0.271 & 0.261 & 0.257 \\
+             & MAE & 0.393 & 0.384 & 0.376 & 0.435 & 0.431 & 0.422 \\
+    \midrule
+    Informer$^{\dag}$ & MSE & 0.241 & 0.214 & - & 0.259 & - & - \\
+                      & MAE & 0.383 & 0.371 & - & 0.423 & - & - \\
+    \midrule
+    LogTrans & MSE & 0.263 & 0.231 & - & 0.273 & - & - \\
+             & MAE & 0.418 & 0.398 & - & 0.463 & - & - \\
+    \midrule
+    Reformer & MSE & 1.875 & 1.865 & 1.861 & 2.243 & 2.174 & 2.113 \\
+             & MAE & 1.144 & 1.129 & 1.125 & 1.536 & 1.497 & 1.434 \\
+    \bottomrule
+\end{tabular}
+\footnote{Model Informer$^{\dag}$ menggunakan mekanisme \textit{self-attention} kanonikal. Tanda `-' menunjukkan kegagalan karena kehabisan memori (\textit{out-of-memory}).}
+\end{table}
+
+Tabel~\ref{tab:ablation_probsparse} menyajikan bukti empiris yang kuat mengenai keunggulan efisiensi \textit{Informer}. Poin paling krusial adalah kegagalan model \textit{Informer$^{\dag}$} (yang menggunakan \textit{self-attention} kanonikal dari \textit{Transformer}) dan \textit{LogTrans} saat dihadapkan pada sekuens masukan yang lebih panjang (1440 atau lebih), yang ditandai dengan `-' karena kehabisan memori (\textit{out-of-memory}). Hal ini secara langsung menunjukkan bahwa kompleksitas memori kuadratik ($O(L^2)$) dari arsitektur berbasis \textit{Transformer} standar menjadi penghalang praktis. Sebaliknya, \textit{Informer}, dengan mekanisme \textit{ProbSparse Self-Attention}-nya, tidak hanya berhasil memproses sekuens masukan hingga panjang 2880, tetapi juga menunjukkan penurunan error (MSE) yang konsisten seiring dengan bertambahnya panjang masukan. Ini membuktikan bahwa \textit{Informer} tidak hanya lebih efisien secara komputasi, tetapi juga mampu memanfaatkan informasi dari sekuens yang lebih panjang untuk meningkatkan akurasi prediksi, sebuah kemampuan yang tidak dimiliki oleh varian \textit{Transformer} lainnya dalam skenario ini.
 
 \subsection{\textit{Self-Attention Distilling}}
 
@@ -539,7 +574,7 @@ Struktur replika tumpukan pada \textit{encoder} meningkatkan ketahanan model, me
 \begin{equation}
 \mathbf{X}_{\text{de}}^t = \text{Concat}\left( \mathbf{X}_{\text{start}}^t, \mathbf{X}_0^t \right) \in \mathbb{R}^{(L_{\text{token}} + L_y) \times d_{\text{model}}} \label{eq:bab2_eq48}
 \end{equation}
-dengan \( \mathbf{X}_{\text{start}}^t \) sebagai \textit{start token} dan \( \mathbf{X}_0^t \) sebagai \textit{placeholder}. Mekanisme \textit{masked ProbSparse self-attention} memastikan kausalitas temporal melalui:
+dengan \( \mathbf{X}_{\text{start}}^t \) sebagai \textit{start token} dan \( \mathbf{X}_0^t \) sebagai \textit{placeholder}. Mekanisme \textit{masked ProbSparse Self-Attention} memastikan kausalitas temporal melalui:
 \begin{equation}
 \text{MaskedAttention}(\mathbf{Q}, \mathbf{K}, \mathbf{V}) = \text{Softmax}\left( \frac{\overline{\mathbf{Q}} \mathbf{K}^T - M_{\text{mask}}}{\sqrt{d}} \right) \mathbf{V} \label{eq:bab2_eq49}
 \end{equation}
@@ -569,7 +604,7 @@ dengan \( \mathbf{u}_i^t \in \mathbb{R}^{d_{\text{model}}} \) sebagai proyeksi m
 
 \subsection{Metrik Evaluasi}
 
-Evaluasi kinerja \textit{Informer} dilakukan menggunakan beberapa metrik untuk mengukur akurasi prediksi dan kemampuan model dalam mengidentifikasi elemen secara tepat. Metrik utama yang digunakan meliputi \textit{Mean Squared Error} (MSE), \textit{Mean Absolute Error} (MAE), \textit{Root Mean Squared Error} (RMSE), dan \textit{F1-score} (Macro).
+Evaluasi kinerja \textit{Informer} dilakukan menggunakan beberapa metrik untuk mengukur akurasi prediksi dan kemampuan model dalam mengidentifikasi elemen secara tepat. Metrik utama yang digunakan meliputi \textit{Mean Squared Error} (MSE), \textit{Mean Absolute Error} (MAE), \textit{Root Mean Squared Error} (RMSE), dan \textit{F1-Score} (Macro).
 
 \textit{Mean Squared Error} (MSE) mengukur rata-rata kuadrat selisih antara nilai prediksi \( \hat{\mathbf{y}}_i^t \) dan nilai aktual \( \mathbf{y}_i^t \), yang didefinisikan sebagai:
 \begin{equation}
@@ -583,7 +618,9 @@ Sedangkan \textit{Root Mean Squared Error} (RMSE) didefinisikan sebagai akar kua
 \begin{equation}
 \text{RMSE} = \sqrt{\frac{1}{L_y} \sum_{i=1}^{L_y} (\mathbf{y}_i^t - \hat{\mathbf{y}}_i^t)^2} \label{eq:bab2_eq53}
 \end{equation}
-Untuk masalah klasifikasi multi-label, terutama dalam konteks identifikasi elemen, \textit{F1-score} (Macro) digunakan sebagai metrik kunci. \textit{F1-score} adalah rata-rata harmonik dari presisi (proporsi prediksi positif yang benar) dan *recall* (proporsi positif aktual yang teridentifikasi dengan benar). Versi Macro menghitung \textit{F1-score} untuk setiap kelas secara independen dan kemudian mengambil rata-ratanya, memberikan bobot yang sama untuk setiap kelas tanpa memandang jumlah sampel per kelas. Ini sangat relevan untuk memastikan model berkinerja baik di semua elemen, termasuk elemen minor.
+Untuk masalah klasifikasi multi-label, terutama dalam konteks identifikasi elemen, metrik evaluasi yang lebih informatif diperlukan. \textbf{Presisi (\textit{Precision})} mengukur seberapa akurat prediksi positif yang dibuat oleh model, dengan menjawab pertanyaan: "Dari semua elemen yang diprediksi ada, berapa persen yang benar-benar ada?". \textbf{Recall} (juga dikenal sebagai sensitivitas) mengukur seberapa lengkap model dalam menemukan semua sampel positif yang relevan, dengan menjawab pertanyaan: "Dari semua elemen yang seharusnya terdeteksi, berapa persen yang berhasil ditemukan oleh model?".
+
+Sebagai penyeimbang antara kedua metrik tersebut, \textbf{F1-Score} digunakan sebagai metrik kunci. F1-Score adalah rata-rata harmonik dari presisi dan *recall*, yang memberikan representasi kinerja yang seimbang. Versi Macro menghitung F1-Score untuk setiap kelas secara independen dan kemudian mengambil rata-ratanya, memberikan bobot yang sama untuk setiap kelas tanpa memandang jumlah sampel per kelas. Ini sangat relevan untuk memastikan model berkinerja baik di semua elemen, termasuk elemen minor.
 
 Metrik-metrik ini memungkinkan perbandingan kinerja \textit{Informer} dengan model lain serta evaluasi komprehensif terhadap kemampuan model dalam memprediksi spektrum emisi dan mengidentifikasi elemen.
 

@@ -185,11 +185,11 @@ def analyze_from_asc(model, element_map, config, asc_file_path, peak_height, pro
     peak_indices, _ = find_peaks(spectrum, height=peak_height, distance=distance, prominence=prominence)
 
     # Call static plot function
-    base_output_path = os.path.join(os.path.dirname(__file__), '..', 'images', f'prediction_plot_{os.path.basename(asc_file_path).replace('.asc', '')}.png')
+    base_output_path = os.path.join(os.path.dirname(__file__), '..', 'images', f'prediction_plot_{os.path.basename(asc_file_path).replace(".asc", "")}.png')
     create_static_plot(wavelengths, spectrum, predictions, probabilities, class_names, None, peak_height, prominence, distance, title_prefix=f"Prediksi pada Data Lapangan ({os.path.basename(asc_file_path)})", base_output_path=base_output_path)
 
     # Save prediction details to text file for ASC data
-    output_filename = os.path.join(os.path.dirname(__file__), '..', 'images', f'prediction_details_{os.path.basename(asc_file_path).replace('.asc', '')}.txt')
+    output_filename = os.path.join(os.path.dirname(__file__), '..', 'images', f'prediction_details_{os.path.basename(asc_file_path).replace(".asc", "")}.txt')
     os.makedirs(os.path.dirname(output_filename), exist_ok=True)
     save_prediction_details_to_txt(wavelengths, spectrum, predictions, probabilities, class_names, None, peak_indices, output_filename=output_filename)
 
@@ -253,7 +253,7 @@ if __name__ == '__main__':
             "sample_idx": 10, # Ganti index untuk sampel lain
             "split": "test",
             "peak_height": 0.001, # Sesuaikan jika perlu
-            "prominence": 0.004, # Tambahkan jika perlu
+            "prominence": 0.00004, # Tambahkan jika perlu
             "distance": 1, # Tambahkan jika perlu
             "threshold": 0.7 # Sesuaikan jika perlu
         }
@@ -270,17 +270,17 @@ if __name__ == '__main__':
     model = load_model(config["paths"]["model_path"], config["model_params"], DEVICE)
 
     # Analisis dan plot hasil dari H5 dataset
-    analyze_from_h5(
-        model,
-        element_map,
-        config,
-        config["analysis_params"]["sample_idx"],
-        config["analysis_params"]["split"],
-        config["analysis_params"]["peak_height"],
-        config["analysis_params"]["prominence"],
-        config["analysis_params"]["distance"],
-        config["analysis_params"]["threshold"]
-    )
+    # analyze_from_h5(
+    #     model,
+    #     element_map,
+    #     config,
+    #     config["analysis_params"]["sample_idx"],
+    #     config["analysis_params"]["split"],
+    #     config["analysis_params"]["peak_height"],
+    #     config["analysis_params"]["prominence"],
+    #     config["analysis_params"]["distance"],
+    #     config["analysis_params"]["threshold"]
+    # )
 
     # Analisis dan plot hasil dari file .asc
     # Ganti 'sample.asc' dengan nama file .asc yang ingin Anda analisis

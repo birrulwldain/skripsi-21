@@ -4,164 +4,616 @@
 % Struktur: Hanya Lampiran 1, 2, dst., tanpa subbab atau section
 
 \begin{onehalfspace} % 1.5 spacing as per main document
-
-\lampiran{Algoritma Inisialisasi Data Spektral Atom}
-\label{app:algo1}
+%====================================================================
+% Appendix A: Balanced Sample Combination Plan Generation
+%====================================================================
+\lampiran{Algoritma Pembangkitan Rencana Kombinasi Sampel}
 \begin{algorithm}[H]
 \small
-\caption{Inisialisasi Data Spektral Atom}
+\caption{Algoritma Pembangkitan Rencana Kombinasi Sampel}
+\label{app:algo1}
 \begin{algorithmic}[1]
-  \REQUIRE Transition dataset $\mathcal{D} = \{ (\lambda_{ij}, E_i, E_k, g_i, g_k, A_{ki}) \mid \lambda_{ij} \in [200, 900], E_i, E_k, g_i, g_k, A_{ki} > 0 \}$ ;
-  Number of element-ion pairs $k = 4$ ;
-  Maximum spectral samples $N \in \mathbb{N}$ ;
-  Number of temperatures $N_T$ ;
-  Number of electron densities $N_{n_e}$
-  \ENSURE Candidate atom set $\mathcal{C}$, atom subset dictionary $\mathcal{A}$, spectra set $\mathcal{S}$
-  \STATE Validate inputs: Ensure $N > 0$, $N_T > 0$, $N_{n_e} > 0$
-  \STATE Initialize: $T_{\text{min}} \gets 5000$, $T_{\text{max}} \gets 15000$
-  \STATE Initialize: $n_{e,\text{min}} \gets 10^{12}$, $n_{e,\text{max}} \gets 10^{16}$
-  \STATE Generate $T_{\text{values}}$: $N_T$ values linearly spaced between $T_{\text{min}}$ and $T_{\text{max}}$
-  \STATE Generate $n_{e,\text{values}}$: $N_{n_e}$ values logarithmically spaced between $n_{e,\text{min}}$ and $n_{e,\text{max}}$
-  \STATE Define: $\mathcal{C} \gets \{\text{Al}, \text{Ar}, \text{C}, \text{Ca}, \text{Cl}, \text{Co}, \text{Cr}, \text{Fe}, \text{Mg}, \text{Mn}, \text{N}, \text{Na}, \text{Ni}, \text{O}, \text{S}, \text{Si}, \text{Ti}\}$ % Sorted alphabetically
-  \STATE Initialize: $\mathcal{S} \gets \emptyset$, $\mathcal{A} \gets \emptyset$
-  \FORALL{$T \in T_{\text{values}}$}
-    \FORALL{$n_e \in n_{e,\text{values}}$}
-      \STATE Randomly select $\mathcal{A}_{T,n_e} \subseteq \mathcal{C}$ with $|\mathcal{A}_{T,n_e}| = k$ without replacement
-      \IF{no transitions exist in $\mathcal{D}$ for any species in $\mathcal{A}_{T,n_e}$}
-        \STATE Log warning: ``No transitions for $\mathcal{A}_{T,n_e}$ at $T$, $n_e$'' \COMMENT{Skip}
-        \STATE continue
-      \ENDIF
-      \STATE Store $(T, n_e, \mathcal{A}_{T,n_e})$ in $\mathcal{A}$
+    \REQUIRE NIST dataset $D_{\text{NIST}}$, Set of elements $E$, Temperature range $R_T$, Electron density range $R_{n_e}$, Total number of samples $N_{\text{total}}$, Average elements per sample $k_{\text{avg}}$
+    \ENSURE A sample combination plan $P$ containing $N_{\text{total}}$ recipes
+    
+    \STATE \COMMENT{\textit{Phase 1: Pre-calculation of Spectral Density Weights}}
+    \STATE Initialize weight map $W \gets \emptyset$
+    \FORALL{element $e \in E$}
+        \STATE $S_e \gets \text{SimulateSingleSpectrum}(e, D_{\text{NIST}})$
+        \STATE $W[e] \gets \text{CountActivePeaks}(S_e)$ \COMMENT{Calculate the spectral "richness"}
     \ENDFOR
-  \ENDFOR
-  \RETURN $\mathcal{C}$, $\mathcal{A}$, $\mathcal{S}$
+    
+    \STATE \COMMENT{\textit{Phase 2: Determine Target Occurrence Frequencies}}
+    \STATE Initialize target occurrence map $N_{\text{target}} \gets \emptyset$
+    \STATE $\text{TotalInverseWeight} \gets \sum_{e \in E} (1 / (W[e] + \epsilon))$ \COMMENT{$\epsilon$ for numerical stability}
+    \STATE $\text{TotalOccurrences} \gets N_{\text{total}} \times k_{\text{avg}}$
+    \FORALL{element $e \in E$}
+        \STATE $\text{proportion}_e \gets (1 / (W[e] + \epsilon)) / \text{TotalInverseWeight}$
+        \STATE $N_{\text{target}}[e] \gets \lceil \text{proportion}_e \times \text{TotalOccurrences} \rceil$
+    \ENDFOR
+    \STATE $N_{\text{remaining}} \gets N_{\text{target}}$ \COMMENT{Initialize remaining occurrences needed}
+    
+    \STATE \COMMENT{\textit{Phase 3: Iterative Recipe Construction}}
+    \STATE Initialize plan $P \gets []$
+    \FOR{$i \gets 1 \ \text{to} \ N_{\text{total}}$}
+        \STATE $k \gets \text{RandomIntegerInRange}([10, 17])$
+        \STATE $E_{\text{sorted}} \gets \text{SortByValueDescending}(E, N_{\text{remaining}})$
+        \STATE $E_{\text{recipe}} \gets E_{\text{sorted}}[1 \dots k]$ \COMMENT{Select top k most needed elements}
+        \STATE $T_i \gets \text{SampleRandomFrom}(R_T)$
+        \STATE $n_{e,i} \gets \text{SampleRandomFrom}(R_{n_e})$
+        \STATE $r_i \gets \{ \text{id: } i, T: T_i, n_e: n_{e,i}, \text{elements: } E_{\text{recipe}} \}$
+        \STATE $P.\text{append}(r_i)$
+        \FORALL{element $e \in E_{\text{recipe}}$}
+            \STATE $N_{\text{remaining}}[e] \gets N_{\text{remaining}}[e] - 1$
+        \ENDFOR
+    \ENDFOR
+    
+    \STATE \RETURN $P$
 \end{algorithmic}
 \end{algorithm}
-% Algoritma ini mengumpulkan dan memvalidasi data transisi atom dari basis data NIST, menginisialisasi himpunan kandidat atom (\(\mathcal{C}\)), kamus subset atom (\(\mathcal{A}\)), dan himpunan spektrum emisi (\(\mathcal{S}\)). Subset atom dipilih secara acak untuk setiap kombinasi \(T\) dan \(n_e\), memastikan representasi yang beragam.
 
-\lampiran{Algoritma Kalkulasi Rasio Populasi Ionisasi}
+%====================================================================
+% Appendix B: Per-Recipe Spectrum Simulation
+%====================================================================
+\lampiran{Algoritma Simulasi Spektrum Berdasarkan Rencana Kombinasi}
 \label{app:algo2}
 \begin{algorithm}[H]
 \small
-\caption{Kalkulasi Rasio Populasi Ionisasi}
+\caption{Simulasi Spektrum Berdasarkan Rencana Kombinasi}
 \begin{algorithmic}[1]
-  \REQUIRE Transition dataset $\mathcal{D} = \{ (\lambda_{ij}, E_i, E_k, g_i, g_k, A_{ki}) \mid \lambda_{ij} \in [200, 900], E_i, E_k, g_i, g_k, A_{ki} > 0 \}$; Candidate atom set $\mathcal{C}$; Atom subset dictionary $\mathcal{A} = \{ (T, n_e, \mathcal{A}_{T,n_e}) \}$; Physical constants $m_e = 9.109 \times 10^{-31}$, $k_B = 8.617 \times 10^{-5}$, $h = 4.1357 \times 10^{-15}$
-  \ENSURE Population ratio dictionary $\mathcal{R} = \{ (T, n_e, \mathbf{R}_{T,n_e}) \mid \mathbf{R}_{T,n_e} \in [0, 1]^2 \}$
-  \STATE Initialize $\mathcal{R} \gets \emptyset$ \COMMENT{Population ratio dictionary}
-  \FORALL{$(T, n_e, \mathcal{A}_{T,n_e}) \in \mathcal{A}$}
-    \STATE $\mathbf{R}_{T,n_e} \gets \emptyset$ \COMMENT{Temporary ratio}
-    \FORALL{$S \in \mathcal{A}_{T,n_e}$}
-      \STATE Define $(S_{\text{neutral}}, S_{\text{ion}}) \gets (S_{\text{neutral}}, S_{\text{ion}})$ \COMMENT{Species pair}
-      \STATE Extract $\mathcal{T}_S \subseteq \mathcal{D}$ for $S_{\text{neutral}}$ or $S_{\text{ion}}$ \COMMENT{Transitions}
-      \IF{$\mathcal{T}_S = \emptyset$}
-        \STATE Log warning: ``No transitions for $S$'' \COMMENT{Skip}
-        \STATE continue
-      \ENDIF
-      \STATE $Z_{\text{neutral}} \gets \sum_i g_i \exp\left(-\frac{E_i}{k_B T}\right)$ \COMMENT{Neutral partition function}
-      \IF{$Z_{\text{neutral}} \leq 0$}
-        \STATE Log warning: ``Invalid partition function for $S_{\text{neutral}}$'' \COMMENT{Skip}
-        \STATE continue
-      \ENDIF
-      \STATE $Z_{\text{ion}} \gets \sum_i g_i \exp\left(-\frac{E_i}{k_B T}\right)$ \COMMENT{Ion partition function}
-      \IF{$Z_{\text{ion}} \leq 0$}
-        \STATE Log warning: ``Invalid partition function for $S_{\text{ion}}$'' \COMMENT{Skip}
-        \STATE continue
-      \ENDIF
-      \STATE $\frac{N_{\text{ion}}}{N_{\text{neutral}}} \gets \frac{2 Z_{\text{ion}}}{n_e Z_{\text{neutral}}} \left( \frac{2\pi m_e k_B T}{h^2} \right)^{3/2} \exp\left(-\frac{E_{\text{ion}}}{k_B T}\right)$ \COMMENT{Ionization ratio}
-      \STATE $f_{\text{neutral}} \gets \frac{1}{1 + \frac{N_{\text{ion}}}{N_{\text{neutral}}}}$ \COMMENT{Neutral fraction}
-      \STATE $f_{\text{ion}} \gets \frac{\frac{N_{\text{ion}}}{N_{\text{neutral}}}}{1 + \frac{N_{\text{ion}}}{N_{\text{neutral}}}}$ \COMMENT{Ion fraction}
-      \STATE Store $(f_{\text{neutral}}, f_{\text{ion}})$ in $\mathbf{R}_{T,n_e}[S_{\text{neutral}}, S_{\text{ion}}]$ \COMMENT{Store ratio}
+    \REQUIRE Combination plan $P$ (from Algorithm~\ref{app:algo1}), NIST Dataset $D_{\text{NIST}}$
+    \ENSURE Final set of emission spectra $\mathcal{S}$
+    
+    \STATE Initialize set of spectra: $\mathcal{S} \gets \emptyset$
+    \FORALL{recipe $r \in P$}
+        \STATE Extract parameters $T, n_e, E_{\text{recipe}}$ from recipe $r$.
+        \STATE $I_{\text{stick}} \gets \text{ZeroArray}(\text{spectrum resolution})$ \COMMENT{Initialize empty stick spectrum}
+        
+        \FORALL{element $e \in E_{\text{recipe}}$}
+            \STATE \COMMENT{\textit{Step A: On-the-fly Ionization Ratio Calculation}}
+            \STATE $(f_{\text{neutral}}, f_{\text{ion}}) \gets \text{CalculateSahaFractions}(e, T, n_e, D_{\text{NIST}})$
+            
+            \FORALL{ionization state $s \in \{\text{neutral, ion}\}$}
+                \IF{$s$ is neutral}
+                    \STATE $f_s \gets f_{\text{neutral}}$
+                \ELSE
+                    \STATE $f_s \gets f_{\text{ion}}$
+                \ENDIF
+                \STATE $Z_s \gets \text{CalculatePartitionFunction}(e, s, T, D_{\text{NIST}})$
+                \IF{$Z_s \le 0$} \STATE \textbf{continue} \ENDIF
+                
+                \STATE $\mathcal{T}_{e,s} \gets \text{GetTransitionsFor}(e, s, D_{\text{NIST}})$
+                \FORALL{transition $t \in \mathcal{T}_{e,s}$}
+                    \STATE \COMMENT{\textit{Step B: Line Intensity Calculation}}
+                    \STATE Extract parameters $\lambda_{ij}, E_k, g_k, A_{ki}$ from $t$.
+                    \STATE $I_{\text{rel}} \gets \frac{g_k A_{ki} \exp(-E_k / k_B T)}{Z_s} \times f_s$
+                    \STATE $I_{\text{stick}}[\text{index}(\lambda_{ij})] \gets I_{\text{stick}}[\text{index}(\lambda_{ij})] + I_{\text{rel}}$
+                \ENDFOR
+            \ENDFOR
+        \ENDFOR
+        
+        \STATE \COMMENT{\textit{Step C: Line Broadening and Storage}}
+        \STATE $I_{\text{final}} \gets \text{Convolve}(I_{\text{stick}}, \text{GaussianProfile}(T, \text{atomic mass}))$
+        \STATE $I_{\text{final}} \gets \text{NormalizeIntensity}(I_{\text{final}})$
+        \STATE Store spectrum $(I_{\text{final}}, r)$ in $\mathcal{S}$
     \ENDFOR
-    \STATE Store $(T, n_e, \mathbf{R}_{T,n_e})$ in $\mathcal{R}$ \COMMENT{Add to dictionary}
-  \ENDFOR
-  \RETURN $\mathcal{R}$ \COMMENT{Result}
+    
+    \STATE \RETURN $\mathcal{S}$
 \end{algorithmic}
 \end{algorithm}
-% Algoritma ini menghitung rasio populasi ionisasi untuk setiap pasangan elemen-ion, menghasilkan kamus rasio populasi (\(\mathcal{R}\)). Rasio ini penting untuk menentukan fraksi atom netral dan terionisasi dalam plasma.
 
-\lampiran{Algoritma Kalkulasi Intensitas Garis Spektral}
-\label{app:algo3}
-\begin{algorithm}[H]
-\small
-\caption{Kalkulasi Intensitas Garis Spektral}
-\begin{algorithmic}[1]
-  \REQUIRE Transition dataset $\mathcal{D} = \{ (\lambda_{ij}, E_i, E_k, g_i, g_k, A_{ki}, m_a) \mid \lambda_{ij} \in [200, 900], E_i, E_k, g_i, g_k, A_{ki}, m_a > 0 \}$; Atom subset dictionary $\mathcal{A} = \{ (T, n_e, \mathcal{A}_{T,n_e}) \}$; Population ratio dictionary $\mathcal{R} = \{ (T, n_e, \mathbf{R}_{T,n_e}) \mid \mathbf{R}_{T,n_e} \in [0, 1]^2 \}$; Physical constants $c = 2.998 \times 10^8$, $k_B = 8.617 \times 10^{-5}$
-  \ENSURE Temporary intensity dictionary $\mathcal{I} = \{ (T, n_e, \mathbf{I}_{\text{temp}}) \mid \mathbf{I}_{\text{temp}} = \{ (\lambda_{ij}, I_{\text{rel}}) \} \}$
-  \STATE Initialize $\mathcal{I} \gets \emptyset$ \COMMENT{Temporary intensity dictionary}
-  \FORALL{$(T, n_e, \mathcal{A}_{T,n_e}) \in \mathcal{A}$}
-    \STATE Extract $\mathbf{R}_{T,n_e}$ from $\mathcal{R}$ \COMMENT{Population ratio}
-    \STATE $\mathbf{I}_{\text{temp}} \gets \emptyset$ \COMMENT{Temporary intensity list}
-    \FORALL{$S \in \mathcal{A}_{T,n_e}$}
-      \STATE Extract $\mathcal{T}_S \subseteq \mathcal{D}$ for $S_{\text{neutral}}$ or $S_{\text{ion}}$ \COMMENT{Transitions}
-      \IF{$\mathcal{T}_S = \emptyset$}
-        \STATE Log warning: ``No transitions for $S$'' \COMMENT{Skip}
-        \STATE continue
-      \ENDIF
-      \FORALL{$(\lambda_{ij}, E_i, E_k, g_i, g_k, A_{ki}, m_a) \in \mathcal{T}_S$}
-        \STATE $\Delta E \gets E_k - E_i$ \COMMENT{Energy}
-        \STATE $n_{e,\text{min}} \gets 1.6 \times 10^{12} T^{1/2} (\Delta E)^{3/2}$ \COMMENT{Minimum density}
-        \IF{$n_e \geq n_{e,\text{min}}$}
-          \IF{$S$ is $S_{\text{neutral}}$}
-            \STATE $Z \gets Z_{\text{neutral}}$ (Algorithm 2) \COMMENT{Neutral partition function}
-            \STATE $f \gets f_{\text{neutral}}$ from $\mathbf{R}_{T,n_e}$ \COMMENT{Neutral fraction}
-          \ELSE
-            \STATE $Z \gets Z_{\text{ion}}$ (Algorithm 2) \COMMENT{Ion partition function}
-            \STATE $f \gets f_{\text{ion}}$ from $\mathbf{R}_{T,n_e}$ \COMMENT{Ion fraction}
-          \ENDIF
-          \STATE $I_{\text{rel}} \gets \frac{g_k A_{ki} \exp\left(-\frac{E_k}{k_B T}\right)}{Z} \cdot f$ \COMMENT{Relative intensity}
-          \STATE Append $(\lambda_{ij}, I_{\text{rel}})$ to $\mathbf{I}_{\text{temp}}$ \COMMENT{Accumulate}
-        \ELSE
-          \STATE Log warning: ``LTE condition not satisfied'' \COMMENT{Skip}
-        \ENDIF
-      \ENDFOR
-    \ENDFOR
-    \STATE Store $(T, n_e, \mathbf{I}_{\text{temp}})$ in $\mathcal{I}$ \COMMENT{Add to dictionary}
-  \ENDFOR
-  \RETURN $\mathcal{I}$ \COMMENT{Result}
-\end{algorithmic}
-\end{algorithm}
-% Algoritma ini menghitung intensitas relatif garis spektral (\(I_{\text{rel}}\)) untuk setiap transisi atom, menghasilkan kamus intensitas sementara (\(\mathcal{I}\)). Intensitas ini mencerminkan probabilitas emisi foton.
 
-\lampiran{Algoritma Kalkulasi Spektrum Emisi dengan Profil Gaussian}
-\label{app:algo4}
-\begin{algorithm}[H]
-\small
-\caption{Kalkulasi Spektrum Emisi Atom dengan Profil Garis Gaussian}
-\begin{algorithmic}[1]
-  \REQUIRE Temporary intensity dictionary $\mathcal{I} = \{ (T, n_e, \mathbf{I}_{\text{temp}}) \mid \mathbf{I}_{\text{temp}} = \{ (\lambda_{ij}, I_{\text{rel}}) \} \}$ ;
-  Transition dataset $\mathcal{D} = \{ (\lambda_{ij}, E_i, E_k, g_i, g_k, A_{ki}, m_a) \mid \lambda_{ij} \in [200, 900], E_i, E_k, g_i, g_k, A_{ki}, m_a > 0 \}$ ;
-  Atom subset dictionary $\mathcal{A} = \{ (T, n_e, \mathcal{A}_{T,n_e}) \}$ ;
-  Population ratio dictionary $\mathcal{R} = \{ (T, n_e, \mathbf{R}_{T,n_e}) \mid \mathbf{R}_{T,n_e} \in [0, 1]^2 \}$ ;
-  Physical constants $c = 2.998 \times 10^8$, $k_B = 8.617 \times 10^{-5}$ ;
-  Maximum spectral samples $N \in \mathbb{N}$ ;
-  Spectra set $\mathcal{S}$
-  \ENSURE $\mathcal{S}$ with $(T, n_e, \mathbf{I}_{T,n_e}, \mathbf{R}_{T,n_e})$
-  \STATE Initialize $c \gets 0$ \COMMENT{Counter}
-  \FORALL{$(T, n_e, \mathbf{I}_{\text{temp}}) \in \mathcal{I}$}
-    \STATE Extract $\mathbf{R}_{T,n_e}$ from $\mathcal{R}$ \COMMENT{Population ratio}
-    \STATE $\mathbf{I}_{T,n_e} \gets \emptyset$ \COMMENT{Final intensity list}
-    \FORALL{$(\lambda_{ij}, I_{\text{rel}}) \in \mathbf{I}_{\text{temp}}$}
-      \STATE Extract $m_a$ from $\mathcal{D}$ for the transition at $\lambda_{ij}$ \COMMENT{Atom mass}
-      \STATE $\sigma \gets \frac{\lambda_{ij}}{c} \sqrt{\frac{k_B T}{m_a}}$ \COMMENT{Gaussian width (Doppler)}
-      \STATE $I(\lambda) \gets I_{\text{rel}} \cdot G(\lambda - \lambda_{ij}, \sigma)$ \COMMENT{Gaussian profile}
-      \STATE Append $(\lambda_{ij}, I(\lambda))$ to $\mathbf{I}_{T,n_e}$ \COMMENT{Accumulate}
-    \ENDFOR
-    \IF{$\max(\{I \mid (\lambda_{ij}, I) \in \mathbf{I}_{T,n_e}\}) > 0$}
-      \STATE Normalize $\mathbf{I}_{T,n_e}$: divide each $I$ by $\max(\{I \mid (\lambda_{ij}, I) \in \mathbf{I}_{T,n_e}\})$ \COMMENT{Normalization}
-    \ENDIF
-    \STATE Store $(T, n_e, \mathbf{I}_{T,n_e}, \mathbf{R}_{T,n_e})$ in $\mathcal{S}$ \COMMENT{Add spectrum}
-    \STATE $c \gets c + 1$ \COMMENT{Increment counter}
-    \IF{$c \mod 1000 = 0$}% \COMMENT{Check storage modulo}
-      \STATE Save $\mathcal{S}$ \COMMENT{Save}
-      \STATE Clear $\mathcal{S}$ \COMMENT{Clear}
-    \ENDIF
-    \IF{$c \geq N$}
-      \STATE break \COMMENT{Terminate}
-    \ENDIF
-  \ENDFOR
-  \RETURN $\mathcal{S}$ \COMMENT{Result}
-\end{algorithmic}
-\end{algorithm}
-% Algoritma ini menghitung parameter pelebaran Gaussian (\(\sigma\)), lalu mengaplikasikan profil Gaussian untuk menghasilkan spektrum emisi akhir, menyimpannya dalam himpunan spektrum emisi (\(\mathcal{S}\)) dengan normalisasi intensitas.
 
-\end{onehalfspace} % 1.5 spacing as per main document --- IGNORE ---
+\lampiran{Cuplikan Detail Prediksi Model pada Sampel 10 dari Dataset Uji}
+\label{app:prediction_details_sample_10}
+\begin{longtable}{p{0.25\textwidth}p{0.35\textwidth}p{0.35\textwidth}}
+    \caption{Cuplikan Detail Prediksi Model pada Sampel 10 dari Dataset Uji.}\\
+    \toprule
+    \multicolumn{1}{p{0.25\textwidth}}{\centering \textbf{Panjang}\\ \textbf{Gelombang (nm)}} & \multicolumn{1}{p{0.35\textwidth}}{\centering \textbf{Prediksi Atom}\\ \textbf{(Probabilitas)}} & \multicolumn{1}{p{0.35\textwidth}}{\centering \textbf{Atom Asli}} \\
+    \midrule
+    \endfirsthead
+    \multicolumn{3}{c}%
+    {{\bfseries \tablename\ \thetable{} -- Lanjutan dari halaman sebelumnya}} \\
+    \toprule
+    \multicolumn{1}{p{0.25\textwidth}}{\centering \textbf{Panjang}\\ \textbf{Gelombang (nm)}} & \multicolumn{1}{p{0.35\textwidth}}{\centering \textbf{Prediksi Atom}\\ \textbf{(Probabilitas)}} & \multicolumn{1}{p{0.35\textwidth}}{\centering \textbf{Atom Asli}} \\
+    \midrule
+    \endhead
+    \midrule
+    \multicolumn{3}{r}{{Lanjutan di halaman berikutnya}} \\
+    \endfoot
+    \bottomrule
+    \endlastfoot
+        205.641 & Ni (85.7\%) & Co, Cr, Fe, Ni \\
+        206.325 & Cr (81.0\%) & Co, Cr \\
+        211.282 & Ca (93.5\%), Ni (88.7\%) & Ca, Ni \\
+        216.581 & Ni (84.2\%) & Ni \\
+        217.607 & Ni (73.5\%) & C, Co, Fe, Ni \\
+        218.462 & Ni (72.4\%) & Co, Fe, Ni \\
+        220.684 & Al (75.2\%), Ca (83.2\%), Ni (82.8\%) & Co, Fe, N, Ni, Si \\
+        221.709 & Ni (77.2\%), Si (74.7\%) & Co, Fe, Mg, Ni, Si \\
+        222.564 & Mg (71.5\%), Ni (78.5\%), Si (75.6\%) & Co, Mg, Ni, Si \\
+        225.470 & Ni (74.5\%) & C, Co, Fe, Mg, Ni \\
+        226.496 & Al (74.8\%), Ni (85.6\%) & Co, Fe, Ni \\
+        227.179 & Al (71.1\%), Ni (82.1\%) & C, Co, Fe, Ni \\
+        228.034 & Ca (76.4\%), Ni (80.1\%) & Co, Fe, Ni, Ti \\
+        228.718 & Ni (82.2\%) & Co, Fe, N, Ni \\
+        229.744 & Ni (79.8\%) & Co, Fe, Mn, Ni \\
+        230.427 & Ni (75.8\%) & Co, Fe, Mg, Mn, Ni, Si, Ti \\
+        231.624 & Na (76.7\%), Ni (78.7\%) & Ar, Co, Fe, N, Na, Ni \\
+        232.650 & Ni (83.7\%) & C, Co, Fe, N, Ni \\
+        233.333 & Ni (76.8\%) & Co, Fe, Ni \\
+        234.359 & Tidak Ada & Co, Fe \\
+        236.410 & Cr (71.6\%) & Co, Cr, Fe \\
+        238.291 & Tidak Ada & Co, Fe, Ti \\
+        238.974 & Ni (78.3\%) & Co, Fe, N, Ni \\
+        239.658 & Ca (73.3\%) & Co, Fe, Mn, Ni \\
+        240.513 & Tidak Ada & C, Co, Fe, Mg, Mn \\
+        241.197 & Tidak Ada & Co, Fe, Ni \\
+        241.709 & Tidak Ada & Co, Fe, Ni, O, Ti \\
+        243.932 & Mn (72.5\%), Si (77.2\%) & Co, Fe, Mn, Ni, Ti \\
+        244.615 & Si (80.4\%) & Co, Fe, Mn, O, Si \\
+        249.402 & Cr (80.5\%), Na (73.5\%) & C, Cr, Fe, N, Na \\
+        251.111 & Cr (72.4\%), Na (78.9\%), Si (88.1\%) & C, Co, Cr, Fe, Ni \\
+        252.650 & Mn (73.1\%), Si (88.8\%) & Co, Fe, Mn, Si, Ti \\
+        254.017 & Tidak Ada & C, Co, Fe \\
+        256.410 & Mn (77.7\%) & Co, Fe, Mn \\
+        257.778 & Mn (75.8\%) & C, Co, Fe, Mn \\
+        258.632 & Mn (79.1\%) & Co, Fe, Mn, Na \\
+        259.487 & Mn (71.2\%), Na (81.2\%) & C, Cr, Fe, Mn, Na, Ti \\
+        260.000 & Mn (77.2\%) & Fe, Ti \\
+        261.197 & Mn (72.7\%) & Co, Fe, Mn, O, Ti \\
+        263.248 & Al (71.5\%), Mn (75.0\%), Si (83.7\%) & Co, Fe, Mn, Ni, Si, Ti \\
+        266.496 & Tidak Ada & Co, Fe, Ti \\
+        274.017 & Tidak Ada & Fe, Mn \\
+        275.043 & Tidak Ada & C, Co, Fe, Mn \\
+        275.727 & Cr (79.7\%) & Ar, Cr, Fe \\
+        279.658 & Mg (94.8\%), Mn (76.3\%) & Co, Fe, Mg, Mn \\
+        280.342 & Mg (80.9\%) & C, Co, Fe, Mg, Mn, Ni \\
+        281.026 & Mg (71.2\%) & Co, Fe, Mg, Na, O, Ti \\
+        282.393 & Cr (70.7\%) & C, Co, Cr, Fe, N, Ni \\
+        283.590 & Cr (75.0\%) & C, Co, Cr, Fe \\
+        284.273 & Na (80.1\%) & Ar, Fe, Mg, Na, Ti \\
+        285.983 & Na (81.4\%) & Fe, Na, Ti \\
+        287.179 & Mn (72.4\%), Na (75.9\%) & Fe, Mn, Na, Ti \\
+        288.205 & Mn (82.8\%), Na (82.9\%), Si (82.1\%) & Fe, Mn, Na, O, Si, Ti \\
+        290.598 & Mn (75.7\%), Na (89.4\%), Si (79.5\%) & C, Fe, Mn, Na, Si \\
+        291.795 & Na (85.9\%) & Fe, Mg, Na \\
+        295.214 & Mn (73.4\%), Na (74.7\%) & Fe, Mn, Na \\
+        297.607 & Cr (89.3\%), Na (82.7\%) & Cr, Fe, Na \\
+        298.462 & Cr (76.9\%), Na (72.3\%) & Fe, Na, Ni, Ti \\
+        300.855 & Ca (97.2\%), Cr (79.5\%), Ni (74.0\%) & Ca, Fe, N, Na \\
+        305.641 & Na (87.1\%) & Co, Cr, Fe, Na, Ni, Ti \\
+        307.863 & Na (87.6\%) & Fe, Na, Ti \\
+        309.402 & Mg (84.9\%), Na (92.7\%) & Fe, Mg, Na \\
+        312.991 & Na (83.9\%) & Co, Na, O \\
+        313.675 & Na (82.6\%), Ni (73.9\%) & Co, Fe, Na, Ni, O \\
+        315.043 & Cr (79.2\%), Na (86.4\%) & Co, Cr, Fe, Na, Ti \\
+        315.897 & Ca (93.8\%), Na (77.2\%) & Ca, Co, Fe, Ni, Ti \\
+        317.949 & Ca (92.1\%), Na (82.0\%) & Ar, Ca, Fe, Na \\
+        319.145 & Tidak Ada & Co, Fe, Na, Ti \\
+        321.368 & Na (75.0\%) & Ar, Fe, Na, Ti \\
+        323.590 & Na (77.0\%), Ni (76.3\%) & Co, Fe, Na, Ni, Ti \\
+        325.299 & Na (77.8\%) & Ar, Co, Fe, Na, Ni, Ti \\
+        326.325 & Na (88.0\%) & Ar, Fe, Na, Ti \\
+        328.718 & Na (81.7\%), Ni (76.3\%) & Fe, Na, Ni, Ti \\
+        332.308 & Ni (76.4\%) & Fe, N, Ni, Ti \\
+        334.188 & Ca (80.6\%) & Fe, Si, Ti \\
+        335.043 & Ca (92.1\%), Cr (75.8\%) & Ca, Cr, Fe, Mn, Ti \\
+        336.239 & Ca (93.3\%), Ni (72.1\%) & C, Ca, Ni, Ti \\
+        337.436 & Ni (75.3\%) & Fe, Ni, Ti \\
+        338.462 & Tidak Ada & Co, Fe, Ti \\
+        347.692 & Tidak Ada & Ar, Co, Fe, Mn, Ti \\
+        349.231 & Mn (70.5\%), Ni (79.9\%) & Ar, Co, Fe, Mn, Ni, Ti \\
+        351.111 & Ni (89.5\%) & Ar, Co, Fe, Mn, Ni, Ti \\
+        353.333 & Na (79.2\%) & Fe, Mg, Na, Ti \\
+        356.068 & Tidak Ada & Ar, Co, Fe, Ni, Ti \\
+        357.778 & Cr (74.7\%) & Ar, Co, Cr, Fe \\
+        358.291 & Tidak Ada & Ar, C, Fe \\
+        358.974 & Tidak Ada & Ar, C, Co, Fe, Ni, Ti \\
+        363.248 & Ca (92.3\%), Cr (70.3\%) & Ca, Co, Fe, Na \\
+        370.769 & Ca (91.3\%) & Ar, Ca, Fe, Ti \\
+        372.991 & Cr (73.4\%) & Ar, Cr, Fe, Mn, O, Ti \\
+        373.846 & Ca (91.0\%) & Ar, Ca, Fe, Ti \\
+        376.239 & Tidak Ada & Ar, Fe, Ti \\
+        385.128 & Mg (79.9\%) & Ar, Fe, Mg, O \\
+        385.641 & Mg (70.4\%), S (78.8\%), Si (73.3\%) & Fe, N, O, S, Si, Ti \\
+        386.325 & Tidak Ada & Co, Fe, Si \\
+        393.504 & Ar (88.3\%), Ca (92.7\%), S (88.6\%), Ti (73.9\%) & Ar, Ca, Co, Fe, S, Ti \\
+        396.923 & Ar (84.5\%), Ca (98.3\%), Ti (73.6\%) & Ar, Ca, Fe \\
+        401.538 & Tidak Ada & Ar, Fe, Ti \\
+        407.350 & Mn (76.1\%), O (70.1\%), Si (77.9\%) & Ar, C, Fe, Mn, O, Si \\
+        413.162 & Si (89.4\%) & Ar, Co, Fe, O, Si, Ti \\
+        422.906 & Ca (82.1\%) & Ar, Ca, Fe, N, Ti \\
+        426.667 & Tidak Ada & Ar, C, Fe, Mn, N \\
+        427.863 & Tidak Ada & Ar, Fe, N, Na \\
+        433.162 & Tidak Ada & Ar, Ti \\
+        434.872 & Ar (73.7\%), Cr (80.7\%), Na (88.1\%) & Ar, Fe, Mn, O \\
+        437.265 & Cr (74.2\%) & Ar, C, Cr, Fe \\
+        438.120 & Tidak Ada & Ar, Fe \\
+        440.171 & Tidak Ada & Ar, Fe, Ti \\
+        442.735 & Ca (90.3\%) & Ar, Ca, Fe, Mg \\
+        448.205 & Tidak Ada & Ar, Fe, Mg \\
+        454.530 & Cr (74.4\%) & Ar, Cr, Mg, Na \\
+        457.949 & Ca (84.3\%) & Ar, Ca, Co, Cr, Fe \\
+        459.145 & Cr (82.6\%) & Ar, Cr, Fe, O \\
+        461.026 & Tidak Ada & Ar, N \\
+        465.812 & Cl (86.2\%), S (79.3\%) & Ar, Cr, Fe, O, S, Ti \\
+        472.821 & Cr (77.1\%) & Ar, Fe, Mn \\
+        473.675 & Cr (77.1\%), Mg (71.1\%) & Ar, C, Cr, Fe \\
+        476.581 & Tidak Ada & Ar, C, Mn, Ti \\
+        480.684 & Cl (83.7\%) & Ar, Mn \\
+        484.786 & Tidak Ada & Ar, Co, Fe \\
+        488.034 & Ca (82.7\%) & Ar, Ca, Fe \\
+        493.333 & Tidak Ada & Ar, C, Co, Fe \\
+        496.581 & O (72.1\%) & Ar, C, Co, Cr, Fe, Mn, O, Ti \\
+        501.026 & Tidak Ada & Ar, C, Co, Fe, N, S, Ti \\
+        504.103 & C (70.1\%), Si (82.2\%) & C, Fe, Mn, N, Si, Ti \\
+        505.641 & Cr (72.1\%) & C, Co, Fe, Si \\
+        506.325 & Tidak Ada & Ar, Fe, Ti \\
+        514.701 & S (72.8\%) & Ar, C, Co, Fe, Ti \\
+        597.949 & Si (83.6\%) & Fe, Si, Ti \\
+        634.872 & Si (85.1\%) & Mg, Mn, Si \\
+        637.265 & Si (75.2\%) & Co, Si \\
+        664.444 & Tidak Ada & Ar, Co, O \\
+        668.547 & C (77.4\%) & Ar, C, Fe \\
+        696.581 & Tidak Ada & Ar, Fe \\
+        706.838 & Tidak Ada & Ar \\
+        738.462 & Tidak Ada & Ar \\
+        750.427 & Tidak Ada & Ar, Co \\
+        751.624 & Tidak Ada & Ar, Fe \\
+        763.590 & Tidak Ada & Ar, C \\
+        772.479 & S (78.1\%) & Ar, Fe \\
+        794.872 & Tidak Ada & Ar, Ti \\
+        800.684 & Tidak Ada & Ar, Co, Si \\
+        801.538 & S (74.3\%) & Ar, Co, S \\
+        810.427 & Tidak Ada & Ar, Fe \\
+        811.624 & Mg (73.5\%) & Ar, Mg \\
+        821.709 & Mg (70.5\%), N (75.5\%) & Co, Mg, N \\
+        826.496 & Tidak Ada & Ar, Fe \\
+        840.855 & Tidak Ada & Ar \\
+        842.564 & Tidak Ada & Ar, Fe, S, Ti \\
+        849.915 & Ca (91.1\%) & Ca, Fe \\
+        852.308 & Tidak Ada & Ar, Fe \\
+        854.359 & Ca (83.0\%) & Ca, Mg \\
+        866.325 & Ca (88.9\%) & Ca, Fe, N \\
+        868.034 & S (90.7\%) & N, S \\
+\end{longtable}
+
+
+
+
+\lampiran{Cuplikan Detail Prediksi Model pada Sampel Eksperimental Cangkang Telur}
+\label{app:prediction_details_sample_eks}
+\begin{longtable}{p{0.25\textwidth} p{0.35\textwidth} p{0.35\textwidth}}
+    \caption{Cuplikan Detail Prediksi Model pada Sampel Eksperimental Cangkang Telur}
+    \\
+    \toprule
+    \multicolumn{1}{p{0.25\textwidth}}{\centering \textbf{Panjang}\\ \textbf{Gelombang (nm)}} & \multicolumn{1}{p{0.35\textwidth}}{\centering \textbf{Prediksi Atom}\\ \textbf{(Probabilitas)}} & \multicolumn{1}{p{0.35\textwidth}}{\centering \textbf{Atom Asli}} \\
+    \midrule
+    \endfirsthead
+    \multicolumn{3}{c}%
+    {{\bfseries \tablename\ \thetable{} -- Lanjutan dari halaman sebelumnya}} \\
+    \toprule
+    \multicolumn{1}{p{0.25\textwidth}}{\centering \textbf{Panjang}\\ \textbf{Gelombang (nm)}} & \multicolumn{1}{p{0.35\textwidth}}{\centering \textbf{Prediksi Atom}\\ \textbf{(Probabilitas)}} & \multicolumn{1}{p{0.35\textwidth}}{\centering \textbf{Atom Asli}} \\
+    \midrule
+    \endhead
+    \midrule
+    \multicolumn{3}{r}{{Lanjutan di halaman berikutnya}} \\
+    \endfoot
+    \bottomrule
+    \endlastfoot
+    % Data dari prediction_details_Grup-1.txt
+    211.282 & Ca (94.2\%), Ni (88.2\%) & Tidak Ada \\
+    220.855 & Al (75.5\%), Ca (83.3\%), Ni (86.5\%), Si (79.1\%) & Fe (I) \\
+    239.829 & Ca (80.3\%) & Fe (II) \\
+    247.863 & Na (77.9\%) & Fe (II) \\
+    255.385 & Tidak Ada & Tidak Ada \\
+    272.137 & Mn (79.1\%) & Tidak Ada \\
+    272.650 & Cr (75.8\%), Mn (75.9\%) & Tidak Ada \\
+    273.675 & Cr (70.1\%) & Tidak Ada \\
+    275.727 & Cr (80.8\%) & Fe (II) \\
+    276.410 & Tidak Ada & Tidak Ada \\
+    277.094 & Cr (71.9\%), Mn (70.4\%) & Mg (II) \\
+    277.607 & Tidak Ada & Mg (II) \\
+    278.291 & Tidak Ada & Mg (II) \\
+    279.145 & Mg (75.3\%), Mn (70.8\%) & Mg (II) \\
+    279.487 & Mg (83.8\%), Mn (73.8\%) & Mg (II) \\
+    280.342 & Mg (75.3\%) & Tidak Ada \\
+    281.197 & Mn (73.1\%) & Tidak Ada \\
+    283.590 & Cr (79.6\%) & Tidak Ada \\
+    284.273 & Na (74.3\%) & Tidak Ada \\
+    285.299 & Na (89.5\%) & Mg (I) \\
+    288.376 & Mn (82.8\%), Na (83.1\%), O (71.7\%), Si (80.3\%) & Tidak Ada \\
+    289.402 & Cr (71.6\%), Mn (75.8\%), Na (83.2\%) & Tidak Ada \\
+    292.821 & Mn (71.9\%), Na (80.1\%) & Mg (II) \\
+    293.675 & Tidak Ada & Mg (II) \\
+    297.265 & Cr (91.0\%), Mg (72.4\%), Na (89.3\%) & Tidak Ada \\
+    297.949 & Cr (78.2\%), Si (74.8\%) & Tidak Ada \\
+    299.487 & Ca (83.1\%), Ni (71.5\%) & Fe (I) \\
+    300.000 & Ca (90.9\%), Cr (80.3\%), Ni (74.8\%) & Fe (I) \\
+    300.684 & Ca (96.4\%), Cr (83.3\%), Ni (73.2\%) & Fe (I) \\
+    301.709 & Cr (81.7\%), Na (84.7\%) & Fe (I) \\
+    304.615 & Na (78.8\%), Ni (79.9\%) & Tidak Ada \\
+    305.299 & Na (71.8\%), Ni (73.0\%) & Tidak Ada \\
+    306.325 & Na (77.2\%), Ni (81.4\%) & Tidak Ada \\
+    307.179 & Na (75.6\%) & Tidak Ada \\
+    308.205 & Na (74.7\%) & Tidak Ada \\
+    309.402 & Mg (71.2\%), Na (81.0\%) & Tidak Ada \\
+    309.744 & Mg (73.2\%), Na (73.0\%), Ni (70.8\%) & Tidak Ada \\
+    311.111 & Ni (81.2\%) & Tidak Ada \\
+    311.966 & Tidak Ada & Tidak Ada \\
+    312.991 & Na (74.2\%) & Tidak Ada \\
+    315.897 & Ar (83.3\%), Ca (92.6\%), Na (92.8\%) & Tidak Ada \\
+    317.949 & Ca (92.5\%), Na (79.6\%) & Tidak Ada \\
+    321.026 & Si (83.3\%) & Tidak Ada \\
+    323.077 & Tidak Ada & Fe (I) \\
+    324.786 & Ni (70.8\%) & Tidak Ada \\
+    326.154 & Na (87.2\%) & Tidak Ada \\
+    327.009 & Tidak Ada & Tidak Ada \\
+    327.350 & Na (80.2\%) & Tidak Ada \\
+    328.718 & Ni (79.4\%) & Fe (I) \\
+    330.256 & Na (85.5\%), O (72.2\%) & Fe (I) \\
+    331.624 & Ni (86.5\%) & Tidak Ada \\
+    332.650 & Tidak Ada & Fe (I) \\
+    332.991 & Na (72.1\%) & Fe (I) \\
+    335.043 & Al (70.5\%), Ca (91.2\%), Cr (75.2\%) & Tidak Ada \\
+    336.068 & Ca (92.0\%) & Ca (I) \\
+    338.120 & Tidak Ada & Tidak Ada \\
+    341.880 & Tidak Ada & Tidak Ada \\
+    342.906 & Ni (70.6\%) & Tidak Ada \\
+    347.521 & Tidak Ada & Fe (I) \\
+    348.034 & Mn (74.6\%) & Tidak Ada \\
+    348.889 & Mn (75.5\%), Ni (85.9\%) & Fe (I) \\
+    349.744 & Ni (81.3\%) & Fe (I) \\
+    354.017 & Mg (71.2\%) & Tidak Ada \\
+    355.043 & Mg (73.0\%) & Tidak Ada \\
+    356.239 & Ni (71.3\%) & Fe (I) \\
+    357.949 & Cr (77.7\%) & Fe (I) \\
+    358.632 & Tidak Ada & Fe (I) \\
+
+    359.487 & S (71.4\%) & Fe (I) \\
+    360.342 & Ni (76.5\%) & Tidak Ada \\
+    361.368 & Ni (76.5\%) & Tidak Ada \\
+    362.393 & Ca (81.4\%), Ni (79.9\%) & Fe (I) \\
+    362.906 & Ca (90.3\%), Mg (80.1\%) & Fe (I) \\
+    364.444 & Ca (89.8\%) & Fe (I) \\
+    366.838 & Tidak Ada & Fe (I) \\
+    367.863 & Cl (92.3\%) & Fe (I) \\
+    369.060 & Tidak Ada & Tidak Ada \\
+    369.402 & Mn (72.2\%) & Tidak Ada \\
+    370.598 & Ca (86.5\%) & Tidak Ada \\
+    371.282 & Ca (77.3\%), Na (72.0\%) & Tidak Ada \\
+    373.675 & Ar (87.1\%), Ca (94.1\%), Na (79.2\%) & Ca (I) \\
+    374.701 & Cr (76.0\%) & Tidak Ada \\
+    376.068 & Tidak Ada & Tidak Ada \\
+    377.607 & Tidak Ada & Tidak Ada \\
+    378.462 & Ni (74.4\%) & Tidak Ada \\
+    380.855 & Tidak Ada & Tidak Ada \\
+    381.880 & Tidak Ada & Tidak Ada \\
+    382.906 & Mn (71.6\%) & Tidak Ada \\
+    383.248 & Mg (84.0\%), N (70.1\%) & Tidak Ada \\
+    385.812 & Si (71.4\%) & Tidak Ada \\
+    387.179 & Tidak Ada & Tidak Ada \\
+    388.376 & Cr (81.3\%) & Tidak Ada \\
+    389.231 & Ar (72.5\%), Mg (88.7\%) & Tidak Ada \\
+    390.598 & Si (71.4\%) & Tidak Ada \\
+    393.333 & Ar (85.3\%), Ca (94.6\%), S (86.7\%), Ti (70.3\%) & Tidak Ada \\
+    394.872 & Ca (84.9\%), O (71.7\%) & Tidak Ada \\
+    395.727 & Ar (70.5\%), Ca (95.1\%) & Tidak Ada \\
+    396.923 & Ar (85.1\%), Ca (94.1\%), Ti (77.4\%) & Tidak Ada \\
+    401.368 & N (71.1\%) & Tidak Ada \\
+    402.564 & Tidak Ada & Tidak Ada \\
+    404.786 & Ar (76.9\%), Cr (70.4\%) & Tidak Ada \\
+    407.863 & Tidak Ada & Tidak Ada \\
+    409.915 & Tidak Ada & Tidak Ada \\
+    410.940 & Tidak Ada & Tidak Ada \\
+    413.162 & Si (90.6\%) & Tidak Ada \\
+    414.017 & Tidak Ada & Tidak Ada \\
+    418.632 & Tidak Ada & Tidak Ada \\
+    419.316 & Tidak Ada & Tidak Ada \\
+    420.000 & Tidak Ada & Tidak Ada \\
+    421.538 & Tidak Ada & Tidak Ada \\
+    422.735 & Ar (85.5\%), Ca (93.7\%) & Tidak Ada \\
+    424.103 & Tidak Ada & Tidak Ada \\
+    426.496 & Tidak Ada & Tidak Ada \\
+    428.376 & Ca (89.7\%) & Tidak Ada \\
+    428.889 & Ar (74.0\%), Ca (94.4\%), Cr (77.8\%) & Tidak Ada \\
+    429.915 & Ar (74.0\%), Ca (93.6\%) & Tidak Ada \\
+    430.256 & Ar (78.0\%), Ca (95.7\%) & Tidak Ada \\
+    430.769 & Ca (90.4\%) & Tidak Ada \\
+    431.795 & Ca (96.0\%) & Tidak Ada \\
+    432.991 & Tidak Ada & Tidak Ada \\
+    433.846 & Cr (79.6\%) & Tidak Ada \\
+    435.727 & Cr (78.4\%) & Tidak Ada \\
+    437.607 & Tidak Ada & Tidak Ada \\
+    438.291 & Tidak Ada & Tidak Ada \\
+    439.316 & Cr (78.4\%), Mg (72.5\%), Na (73.9\%) & Tidak Ada \\
+    439.658 & Na (70.8\%) & Tidak Ada \\
+    440.171 & Tidak Ada & Tidak Ada \\
+    441.368 & Tidak Ada & Tidak Ada \\
+    442.564 & Ca (92.2\%), Na (84.1\%) & Tidak Ada \\
+    443.590 & Ca (88.4\%), Mg (70.0\%), Mn (70.4\%) & Tidak Ada \\
+    445.470 & Ca (81.9\%) & Tidak Ada \\
+    448.034 & Tidak Ada & Tidak Ada \\
+    448.376 & Tidak Ada & Tidak Ada \\
+    449.573 & Cr (75.3\%), Na (81.2\%) & Tidak Ada \\
+
+    451.111 & Tidak Ada & Ca (I) \\
+    452.308 & Cl (70.5\%), Cr (79.2\%) & Tidak Ada \\
+    453.675 & Cr (79.5\%) & Ca (I) \\
+    455.727 & Tidak Ada & Ca (I) \\
+    458.120 & Ca (91.0\%), Cr (76.6\%) & Ca (I) \\
+    458.632 & Ar (71.0\%), Ca (97.4\%), Cr (71.5\%) & Ca (I) \\
+    460.684 & Tidak Ada & Tidak Ada \\
+    461.368 & Cr (79.1\%) & Tidak Ada \\
+    462.735 & Ar (70.2\%), Cr (87.6\%) & Tidak Ada \\
+    463.077 & Cr (82.4\%), Mg (73.4\%) & Tidak Ada \\
+    464.273 & Tidak Ada & Tidak Ada \\
+    466.325 & Cl (85.5\%), N (70.8\%), Na (77.2\%), O (70.3\%) & Ca (I) \\
+    468.547 & Tidak Ada & Mg (I) \\
+    468.889 & Tidak Ada & Mg (I) \\
+    469.402 & Tidak Ada & Mg (I) \\
+    470.427 & Cr (81.2\%) & Mg (I) \\
+    471.453 & Tidak Ada & Tidak Ada \\
+    473.675 & Cr (75.8\%) & Tidak Ada \\
+    476.239 & Tidak Ada & Ca (II) \\
+    480.171 & Cr (77.7\%) & Ca (II) \\
+    480.513 & Cl (76.6\%) & Tidak Ada \\
+    481.197 & Cl (81.8\%), Cr (73.5\%) & Ca (II) \\
+    481.709 & Cl (82.9\%), S (73.5\%) & Ca (II) \\
+    482.222 & Cl (78.7\%) & Tidak Ada \\
+    483.248 & Tidak Ada & Tidak Ada \\
+    484.615 & Tidak Ada & Tidak Ada \\
+    487.863 & Ca (89.3\%) & Tidak Ada \\
+    491.795 & S (87.9\%) & Tidak Ada \\
+    493.504 & Tidak Ada & Fe (I) \\
+    495.214 & Tidak Ada & Fe (I) \\
+    495.727 & Tidak Ada & Fe (I) \\
+    500.171 & Tidak Ada & Tidak Ada \\
+    502.051 & Tidak Ada & Tidak Ada \\
+    504.273 & S (74.1\%), Si (70.0\%) & Ca (I) \\
+    505.470 & Cr (73.7\%) & Ca (I) \\
+    505.812 & Tidak Ada & Tidak Ada \\
+    508.205 & Tidak Ada & Fe (I) \\
+    509.573 & Tidak Ada & Tidak Ada \\
+    512.991 & Tidak Ada & Mg (I) \\
+    513.504 & Tidak Ada & Mg (I) \\
+    515.897 & Tidak Ada & Tidak Ada \\
+    516.752 & Tidak Ada & Tidak Ada \\
+    517.265 & Mg (78.9\%) & Tidak Ada \\
+    518.462 & Mg (77.3\%) & Tidak Ada \\
+    518.974 & Tidak Ada & Tidak Ada \\
+    521.197 & S (71.8\%) & Tidak Ada \\
+    526.496 & Cr (76.6\%) & Ca (I) \\
+    527.009 & Cr (76.1\%) & Ca (I) \\
+    530.427 & Cr (75.8\%) & Tidak Ada \\
+    530.940 & Cr (70.3\%) & Tidak Ada \\
+    532.137 & Cr (70.8\%), S (71.4\%) & Tidak Ada \\
+    532.650 & Tidak Ada & Tidak Ada \\
+    535.043 & Cr (84.1\%), S (82.9\%) & Fe (I) \\
+    536.752 & Tidak Ada & Fe (I) \\
+    540.513 & Tidak Ada & Tidak Ada \\
+    540.855 & Tidak Ada & Tidak Ada \\
+    541.367 & Tidak Ada & Tidak Ada \\
+    543.077 & S (78.5\%) & Fe (I) \\
+    543.761 & O (71.9\%) & Tidak Ada \\
+    544.273 & Tidak Ada & Tidak Ada \\
+    544.786 & Tidak Ada & Tidak Ada \\
+    546.496 & Mg (71.3\%), Si (70.2\%) & Tidak Ada \\
+    547.350 & Tidak Ada & Tidak Ada \\
+    548.205 & Tidak Ada & Tidak Ada \\
+    549.402 & Tidak Ada & Tidak Ada \\
+    551.282 & Mn (74.9\%), S (81.6\%) & Mg (I) \\
+    555.897 & O (71.6\%), S (79.2\%) & Tidak Ada \\
+    556.410 & S (71.9\%) & Tidak Ada \\
+    557.265 & Tidak Ada & Tidak Ada \\
+    558.291 & Tidak Ada & Tidak Ada \\
+    558.974 & Ni (81.7\%) & Tidak Ada \\
+    559.487 & Tidak Ada & Tidak Ada \\
+    559.829 & Tidak Ada & Tidak Ada \\
+    560.171 & Tidak Ada & Tidak Ada \\
+    562.393 & Tidak Ada & Ca (I) \\
+    564.786 & S (81.1\%) & Tidak Ada \\
+    566.667 & S (85.8\%) & Tidak Ada \\
+    569.060 & Na (70.8\%), Si (84.1\%) & Tidak Ada \\
+    572.137 & Cr (80.6\%) & Tidak Ada \\
+    572.650 & Tidak Ada & Tidak Ada \\
+    574.188 & N (73.9\%) & Tidak Ada \\
+    574.872 & Tidak Ada & Tidak Ada \\
+    575.556 & Tidak Ada & Tidak Ada \\
+    575.897 & Tidak Ada & Tidak Ada \\
+    576.239 & Tidak Ada & Ca (I) \\
+    581.026 & Tidak Ada & Tidak Ada \\
+    582.906 & Tidak Ada & Tidak Ada \\
+    585.812 & Tidak Ada & Ca (I) \\
+    586.838 & Tidak Ada & Ca (I) \\
+    589.060 & Na (82.7\%) & Ca (I) \\
+    589.573 & Na (84.4\%) & Ca (I) \\
+    592.308 & Mg (77.7\%) & Tidak Ada \\
+    594.188 & Mg (79.5\%) & Tidak Ada \\
+    595.727 & Si (82.3\%) & Tidak Ada \\
+    598.120 & Si (77.4\%) & Ca (I) \\
+    598.803 & Tidak Ada & Ca (I) \\
+    600.342 & Tidak Ada & Tidak Ada \\
+    603.590 & Tidak Ada & Ca (I) \\
+    607.009 & Tidak Ada & Tidak Ada \\
+    607.521 & Tidak Ada & Tidak Ada \\
+
+    608.889 & Tidak Ada & Tidak Ada \\
+    610.256 & Ar (73.3\%), Ca (89.5\%) & Tidak Ada \\
+    612.308 & Ar (79.1\%), Ca (96.7\%), Mn (70.8\%) & Ca (I) \\
+    614.188 & Tidak Ada & Tidak Ada \\
+    616.239 & Ar (73.1\%), Ca (93.2\%), Cl (91.0\%), Na (85.3\%) & Ca (I) \\
+    616.923 & Ar (79.7\%) & Ca (I) \\
+    622.564 & Tidak Ada & Ca (I) \\
+    623.761 & Tidak Ada & Tidak Ada \\
+    624.786 & Tidak Ada & Tidak Ada \\
+    625.983 & Tidak Ada & Tidak Ada \\
+    626.838 & Tidak Ada & Tidak Ada \\
+    629.402 & Tidak Ada & Tidak Ada \\
+    631.453 & S (82.0\%) & Tidak Ada \\
+    634.359 & Tidak Ada & Tidak Ada \\
+    635.556 & Tidak Ada & Tidak Ada \\
+    636.239 & Tidak Ada & Tidak Ada \\
+    639.487 & S (76.0\%) & Tidak Ada \\
+    643.932 & Tidak Ada & Ca (I) \\
+    644.957 & Tidak Ada & Ca (I) \\
+    645.641 & Tidak Ada & Ca (I) \\
+    646.325 & Tidak Ada & Ca (I) \\
+    647.180 & Tidak Ada & Ca (I) \\
+    649.402 & N (70.7\%) & Ca (I) \\
+    649.915 & N (70.3\%) & Tidak Ada \\
+    650.940 & Tidak Ada & Ca (I) \\
+    651.966 & Tidak Ada & Ca (I) \\
+    655.043 & Tidak Ada & Tidak Ada \\
+    656.239 & Tidak Ada & Tidak Ada \\
+    665.470 & Tidak Ada & Ca (I) \\
+    666.667 & Si (80.1\%) & Ca (I) \\
+    667.180 & Si (78.2\%) & Ca (I) \\
+    667.863 & C (73.8\%) & Ca (I) \\
+    668.889 & C (73.2\%) & Ca (I) \\
+    671.111 & Tidak Ada & Tidak Ada \\
+    671.795 & Si (73.6\%) & Tidak Ada \\
+    673.675 & Tidak Ada & Ca (I) \\
+    674.701 & Tidak Ada & Ca (I) \\
+    675.556 & Tidak Ada & Tidak Ada \\
+    678.291 & Tidak Ada & Tidak Ada \\
+    690.085 & Tidak Ada & Ca (II) \\
+    690.940 & Tidak Ada & Ca (II) \\
+    691.966 & N (74.0\%) & Ca (II) \\
+    695.043 & Tidak Ada & Tidak Ada \\
+    698.120 & Cr (70.5\%), N (72.3\%) & Tidak Ada \\
+    701.880 & Tidak Ada & Tidak Ada \\
+    714.872 & Tidak Ada & Tidak Ada \\
+    720.171 & Tidak Ada & Tidak Ada \\
+    723.248 & Tidak Ada & Tidak Ada \\
+    732.479 & Tidak Ada & Tidak Ada \\
+    741.367 & Tidak Ada & N (I) \\
+    742.393 & Tidak Ada & N (I) \\
+    744.273 & Tidak Ada & N (I) \\
+    747.009 & Tidak Ada & Tidak Ada \\
+    748.547 & Tidak Ada & Tidak Ada \\
+    759.658 & Tidak Ada & Ca (II) \\
+    766.496 & Tidak Ada & Ca (II) \\
+    769.915 & Tidak Ada & Ca (II) \\
+    775.727 & Tidak Ada & Ca (II) \\
+    777.265 & O (79.2\%) & Ca (II) \\
+    788.034 & Tidak Ada & Mg (II) \\
+    808.547 & Tidak Ada & Mg (I) \\
+    815.727 & Tidak Ada & Tidak Ada \\
+    818.462 & Na (73.6\%) & Tidak Ada \\
+    819.658 & Tidak Ada & Tidak Ada \\
+    820.000 & Tidak Ada & Tidak Ada \\
+    821.026 & Mg (77.8\%) & N (I) \\
+    821.709 & N (75.9\%) & N (I) \\
+    844.615 & Tidak Ada & Tidak Ada \\
+    849.915 & Ca (89.8\%) & Tidak Ada \\
+    854.188 & Ca (81.0\%) & Tidak Ada \\
+    866.325 & Ca (83.4\%), N (70.0\%) & Tidak Ada \\
+    886.838 & Tidak Ada & Tidak Ada \\
+    891.453 & Al (73.1\%) & Tidak Ada \\
+
+\end{longtable}
+
+
+\end{onehalfspace} % 1.5 spacing as per main document
