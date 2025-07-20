@@ -413,8 +413,9 @@
 			
 			% Mengetahui dekan dan kajur informatika
 			% Tanpa mengetahui dekan
-			Mengetahui:\\
+			
 				\begin{tabular}{lll}
+					&&Mengetahui:\\
 					Dekan FMIPA & \hfill &
 					Koordinator Prodi S1 Fisika FMIPA\\ 
 					\vspace{-0.27cm} & \vspace{-0.27cm} & \vspace{-0.27cm}\\
@@ -426,7 +427,7 @@
 		\end{doublespace}
 
 		\vspace{0.9cm}
-		Lulus Sidang Sarjana pada hari \@approvaldate
+		% Lulus Sidang Sarjana pada hari \@approvaldate
 	\end{center}
 } 
 %sidang

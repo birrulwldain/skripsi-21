@@ -5,6 +5,8 @@
 % Template pembuatan naskah tugas akhir.
 \documentclass[dvipsnames]{3skripsi}
 \usepackage[style=apa, backend=biber, natbib=true]{biblatex}
+\usepackage{threeparttable}
+\usepackage{siunitx}
 \usepackage{tikz}
 \usepackage{enumitem}
 \usepackage{float}
@@ -249,7 +251,7 @@
 % Untuk daftar program
 \makeatletter
 \begingroup\let\newcounter\@gobble\let\setcounter\@gobbletwo
-\globaldefs\@ne \let\c@loldepth\@ne
+\globaldefs\@ne \let\c@loldepth\@neper
 \newlistof{listings}{lol}{\lstlistlistingname}
 \endgroup
 \let\l@lstlisting\l@listings
@@ -355,6 +357,6 @@ indention=0pt, skip=10pt } % Unbold caption tabel
 \printbibliography[heading=bibintoc, title={DAFTAR KEPUSTAKAAN}]
 \include{lampiran}
 \addcontentsline{toc}{chapter}{LAMPIRAN}
-
+\include{biodata}
 \end{onehalfspace}
 \end{document}

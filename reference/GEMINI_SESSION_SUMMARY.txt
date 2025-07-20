@@ -44,3 +44,28 @@
 - Ensure new equations are properly labeled and referenced.
 - Adhere to `panduan-usk.txt` for all formatting aspects.
 - Remind user to compile LaTeX document regularly to catch any new warnings/errors.
+
+---
+### **Ringkasan Sesi 2025-07-14**
+
+**Fokus Utama:** Sinkronisasi dan penyempurnaan dokumen LaTeX (`.tex`) agar secara akurat merefleksikan implementasi kode Python (`.py`) dan alur kerja eksekusi (`.sh`).
+
+**1. Analisis Kode dan Metodologi:**
+*   **`planner.py`:** Ditemukan bahwa skrip ini menggunakan algoritma perencanaan cerdas untuk menyeimbangkan dataset berdasarkan "kepadatan spektral" elemen, bukan sekadar pemilihan acak.
+*   **`job.py`:** Diidentifikasi sebagai skrip produksi untuk eksekusi simulasi secara paralel di lingkungan HPC, menggunakan `multiprocessing` dan menyimpan hasil ke HDF5.
+*   **`train.py`:** Dikonfirmasi sebagai skrip pelatihan yang canggih, menggunakan teknik-teknik seperti Focal Loss, AMP, Gradient Accumulation, dan Optuna.
+*   **`run.sh` & `run-eval.sh`:** Diidentifikasi sebagai skrip submisi SLURM yang mengelola alokasi sumber daya (GPU A100) dan meneruskan hyperparameter ke skrip Python.
+*   **`eval.py`:** Ditemukan sebagai alat evaluasi multi-mode untuk metrik kuantitatif (classification report) dan visualisasi kualitatif.
+
+**2. Sinkronisasi Dokumen LaTeX:**
+*   **Algoritma Lampiran:** Algoritma 1 di `lampiran.tex` ditulis ulang sepenuhnya untuk mencerminkan logika penyeimbangan dari `planner.py`. Algoritma 2, 3, dan 4 yang usang digabungkan menjadi satu Algoritma 2 baru yang secara akurat mendeskripsikan alur kerja per-resep dari `job.py`.
+*   **Hyperparameter Bab 3:** Tabel hyperparameter simulasi dan pelatihan di `bab3.tex` diperbarui secara total agar sesuai dengan nilai dan parameter yang sebenarnya digunakan di `run.sh` dan `train.py` (misalnya, `epochs=100`, `batch_size=26`, rentang `k` dinamis).
+*   **Konsistensi Referensi:** Semua referensi internal di `bab3.tex` yang menunjuk ke algoritma di lampiran telah diperbaiki untuk mencerminkan struktur algoritma yang baru.
+*   **Terminologi:** Semua penyebutan "NIST" distandarkan menjadi `NIST ASD` di seluruh bab untuk konsistensi.
+*   **Format Tabel:** Memulai proses perbaikan format tabel yang memiliki caption panjang dengan memindahkannya ke catatan kaki menggunakan paket `threeparttable` untuk meningkatkan keterbacaan.
+
+**3. Penguatan Argumen Ilmiah:**
+*   **Penjelasan Precision/Recall:** Menambahkan paragraf khusus di Bab 4 untuk membahas secara naratif makna dari hasil `recall` yang tinggi dan `precision` yang lebih rendah dalam konteks spektral.
+*   **Justifikasi Teknik Pelatihan:** Menambahkan sub-seksi baru di Bab 4 yang menjelaskan *mengapa* penggunaan Focal Loss, regularisasi, dan AMP sangat penting untuk mencapai hasil penelitian.
+*   **Bukti Efisiensi Informer:** Menyisipkan tabel dari paper asli Informer (Zhou et al., 2021) ke Bab 2, lengkap dengan narasi yang menjelaskan bagaimana tabel tersebut membuktikan keunggulan efisiensi memori Informer dibandingkan Transformer standar.
+*   **Penambahan Sitasi:** Menambahkan sitasi ilmiah untuk teknik-teknik pelatihan lanjutan (Focal Loss, Mixed-Precision Training, Optuna) di Bab 2.
