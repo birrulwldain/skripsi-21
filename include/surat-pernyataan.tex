@@ -1,31 +1,32 @@
 \spernyataan % Note: \preface JANGAN DIHAPUS!
 \makeatletter
+\begin{singlespacing}
+
 \noindent
 Saya yang bertanda tangan di bawah ini,
 \vspace{-0.1cm}
 \begin{table}[H]
-{\renewcommand{\arraystretch}{0.7}
-\begin{tabular}{M{0.6cm}ll}
-	& Nama   		&: \@fullname \\
-	& NPM       	&: \@idnum \\
-	& Judul 		&: \@judul \\
-	& Fakultas		&: MIPA \\
-	& Departemen 	&: \@dept \\
-	& Program Studi &: \@prodi \\
-
-\end{tabular}
+{\renewcommand{\arraystretch}{1} % Sedikit menambah jarak baris agar lebih mudah dibaca
+\begin{tabularx}{\textwidth}{@{} l @{\hspace{1em}:\hspace{1em}} X @{}}
+    Nama & \@fullname \\
+    NPM & \@idnum \\
+    Judul & \@judul \\
+    Fakultas & MIPA \\
+    Departemen & \@dept \\
+    Program Studi & \@prodi \\
+\end{tabularx}
 }
 \end{table}
 \onehalfspacing
 \vspace{-0.4cm}
 \noindent
 menyetujui: \\ 
-( ) untuk mengunggah softcopy Tugas Akhir/Tesis saya diatas secara \textbf{penuh} atau \textit{\textbf{full-text}} di Repository Perpustakaan USK dan diakses atau terbaca lewat mesin pencari internet secara publik \\
-( ) untuk mengunggah \textit{softcopy} Tugas Akhir/Tesis kami diatas secara \textbf{parsial} atau \textbf{hanya bagian Tertentu} (misalnya \textbf{Cover, Lembar Pengesahan, Abstrak, Daftar Isi, Pendahuluan dan Kesimpulan}) ke Repository Perpustakaan Unsyiah dan diakses atau terbaca lewat mesin pencari internet secara publik \\
-( ) untuk \textbf{tidak membolehkan} sama sekali bagian Tugas Akhir/Tesis diakses online sampai dengan batas waktu 5 tahun dari tanggal kelulusan dengan alasan:.....
-\vspace{0.4cm}
+( ) untuk mengunggah softcopy Tugas Akhir saya diatas secara \textbf{penuh} atau \textit{\textbf{full-text}} di Repository Perpustakaan USK dan diakses atau terbaca lewat mesin pencari internet secara publik \\
+( ) untuk mengunggah \textit{softcopy} Tugas Akhir kami diatas secara \textbf{parsial} atau \textbf{hanya bagian Tertentu} (misalnya \textbf{Cover, Lembar Pengesahan, Abstrak, Daftar Isi, Pendahuluan dan Kesimpulan}) ke Repository Perpustakaan Unsyiah dan diakses atau terbaca lewat mesin pencari internet secara publik \\
+( ) untuk \textbf{tidak membolehkan} sama sekali bagian Tugas Akhir diakses online sampai dengan batas waktu 5 tahun dari tanggal kelulusan dengan alasan:.....\\
+\vspace{0.2cm}
 \noindent
-dan setuju memberikan atau mengunggah softcopy Tugas Akhir/Tesis kepada Perpustakaan USK secara penuh dalam bentuk PDF untuk disimpan secara private ke dalam Repository yang tidak bisa dijangkau oleh mesin pencari (mis. Google).
+dan setuju memberikan atau mengunggah softcopy Tugas Akhir kepada Perpustakaan USK secara penuh dalam bentuk PDF untuk disimpan secara private ke dalam Repository yang tidak bisa dijangkau oleh mesin pencari (mis. Google).
 
 \vspace{0.4cm}
 \noindent
@@ -37,7 +38,7 @@ Demikian pernyataan ini dibuat untuk dipergunakan sebagaimana mestinya
 	&Banda Aceh, 15 Juli 2025 \\
 	[-0.1cm]
 	&Yang menyatakan \\
-	[1.5cm]
+	[1cm]
 	&\underline{\@fullname}\\
 	&NPM. \@idnum 
 \end{tabular}
@@ -46,14 +47,14 @@ Demikian pernyataan ini dibuat untuk dipergunakan sebagaimana mestinya
 \begin{tabular}{lll}
 	Mengetahui, && \\
 	[-0.1cm]
-	Pembimbing &&Koordinator\\
-	&&Program Studi \\
-	[1.5cm]
+	Pembimbing &&Ketua Departemen Fisika FMIPA\\
+	&&Universitas Syiah Kuala\\
+	[1cm]
 	\underline{\@firstsupervisor}&&\underline{\@kaprodi}\\
 	NIP. \@firstnip&&NIP. \@kaprodinip
 \end{tabular}
 }
 
-
+\end{singlespacing}
 
 \makeatother

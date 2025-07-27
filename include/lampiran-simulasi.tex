@@ -1,0 +1,74 @@
+% =============================================================================
+% File: lampiran-simulasi.tex
+% Deskripsi: Lampiran teknis yang menjelaskan alur kerja simulasi spektrum.
+% =============================================================================
+
+\lampiran{Detail Teknis Alur Kerja Simulasi Spektrum}
+\label{app:simulasi}
+
+Lampiran ini memberikan rincian teknis langkah-demi-langkah mengenai proses simulasi spektrum emisi sintetis. Tujuannya adalah untuk menjembatani konsep teoretis yang diuraikan di Bab 2 dengan prosedur penelitian di Bab 3, dengan menunjukkan bagaimana setiap persamaan fundamental diterapkan secara praktis untuk menghasilkan satu sampel data spektrum.
+
+\subsection{Tahap Perencanaan: Membuat 'Buku Resep' yang Seimbang (Algoritma 1)}
+
+Sebelum simulasi spektrum individu dijalankan, langkah persiapan yang krusial adalah merancang sebuah rencana kombinasi sampel yang seimbang. Tanpa perencanaan ini, dataset yang dihasilkan secara acak akan sangat didominasi oleh elemen-elemen yang padat secara spektral (seperti Besi/Fe) dan kurang merepresentasikan elemen dengan sedikit garis emisi. Algoritma 1 (dirinci dalam Lampiran \ref{app:algo1}) mengatasi masalah ini dengan membuat sebuah 'buku resep' yang memastikan setiap elemen mendapatkan representasi yang adil. Proses ini terdiri dari beberapa tahap logis:
+
+\subsubsection*{Langkah A: Menghitung Bobot Kepadatan Spektral}
+Pertama, algoritma mengukur 'kepadatan' spektral dari setiap elemen secara individual. Ini dilakukan dengan mensimulasikan spektrum untuk satu elemen saja dan menghitung jumlah puncak emisi yang signifikan. Hasilnya adalah sebuah 'bobot' untuk setiap elemen, di mana elemen seperti Besi (Fe) akan memiliki bobot yang sangat tinggi, sementara elemen lain seperti Kalsium (Ca) memiliki bobot yang lebih rendah.
+
+\subsubsection*{Langkah B: Menentukan Target Frekuensi dengan Bobot Terbalik}
+Inti dari perencanaan ini adalah penggunaan bobot terbalik (\textit{inverse weight}). Elemen dengan bobot kepadatan tinggi (spektrum padat) diberi target frekuensi kemunculan yang lebih rendah, sementara elemen dengan spektrum jarang diberi target untuk muncul lebih sering. Hal ini secara efektif 'memaksa' dataset untuk tidak bias dan memberikan kesempatan yang adil bagi model untuk mempelajari semua jenis 'sidik jari' spektral.
+
+\subsubsection*{Langkah C: Konstruksi Resep Secara Iteratif}
+Dengan target frekuensi yang telah ditetapkan, algoritma secara iteratif membangun setiap resep. Pada setiap iterasi, ia memeriksa elemen mana yang paling 'dibutuhkan' (paling jauh dari targetnya) dan memprioritaskannya untuk dimasukkan ke dalam resep baru. Proses 'rakus' (\textit{greedy}) ini memastikan bahwa rencana kombinasi secara bertahap bergerak menuju distribusi elemen yang seimbang.
+
+\subsubsection*{Hasil Akhir Tahap Perencanaan}
+Keluaran dari tahap ini bukanlah data spektral, melainkan sebuah file terstruktur (misalnya, JSON) yang berisi daftar lengkap resep. Setiap resep mencakup ID unik, kombinasi elemen yang telah diseimbangkan, serta nilai suhu ($T$) dan kerapatan elektron ($n_e$) yang dipilih secara acak. 'Buku resep' inilah yang kemudian digunakan sebagai input untuk proses simulasi utama yang dijelaskan pada bagian selanjutnya.
+
+\subsection{Langkah 1: Penyiapan Parameter Input ('Resep')}
+Setiap proses simulasi dimulai dengan satu set parameter input yang unik, yang kami sebut sebagai 'resep'. Resep ini mendefinisikan kondisi fisis dari plasma yang akan disimulasikan.
+\begin{itemize}
+    \item \textbf{Set Elemen (\{$\{E\}\}$):} Sebuah himpunan elemen yang dipilih secara acak dari 18 elemen yang tersedia (misalnya, \{Al, Ca, Fe, Si, ...\}). Jumlah elemen dalam satu resep bervariasi antara 10 hingga 17.
+    \item \textbf{Suhu Plasma ($T$):} Nilai suhu acak yang dipilih dari rentang [5000 K, 15000 K].
+    \item \textbf{Kerapatan Elektron ($n_e$):} Nilai kerapatan elektron acak yang dipilih dari rentang [$10^{16}$ cm$^{-3}$, $10^{18}$ cm$^{-3}$].
+\end{itemize}
+Parameter-parameter ini menjadi input untuk langkah-langkah perhitungan fisis selanjutnya.
+
+\subsection{Langkah 2: Kalkulasi Rasio Ionisasi (Persamaan Saha)}
+Dengan suhu ($T$) dan kerapatan elektron ($n_e$) yang telah ditentukan, langkah pertama adalah menghitung keadaan ionisasi plasma. Untuk setiap elemen dalam resep, kita tentukan fraksi atom yang berada dalam keadaan netral ($f_{\text{neutral}}$) dan fraksi yang terionisasi satu kali ($f_{\text{ion}}$). Ini krusial karena spektrum emisi dari atom netral dan ionnya sangat berbeda. Perhitungan ini menggunakan Persamaan Saha (dari Bab 2):
+\begin{equation}
+\frac{n_{i+1}}{n_i} = \frac{2Z_{i+1,\text{int}}}{n_e Z_{i,\text{int}}} \left( \frac{2\pi m_e k_B T}{h^2} \right)^{3/2} e^{-\frac{E_{xi}}{k_B T}}
+\end{equation}
+di mana $n_{i+1}/n_i$ adalah rasio jumlah ion terhadap atom netral. Parameter atomik seperti energi ionisasi ($E_{xi}$) dan fungsi partisi internal ($Z_{\text{int}}$) diambil dari basis data NIST. Dari rasio ini, fraksi $f_{\text{neutral}}$ dan $f_{\text{ion}}$ dapat dihitung.
+
+\subsection{Langkah 3: Kalkulasi Populasi Tingkat Energi (Distribusi Boltzmann)}
+Setelah mengetahui fraksi atom netral dan ion, kita perlu menentukan bagaimana partikel-partikel ini terdistribusi di berbagai tingkat energi tereksitasi. Ini diatur oleh Distribusi Boltzmann, yang menyatakan bahwa tingkat energi yang lebih tinggi akan memiliki populasi yang lebih rendah pada suhu tertentu. Fungsi partisi ($Z$) dihitung terlebih dahulu:
+\begin{equation}
+Z = \sum_i g_i e^{-\frac{E_i}{k_B T}}
+\end{equation}
+Kemudian, populasi relatif ($N_k$) untuk setiap tingkat energi atas ($E_k$) dihitung sebagai:
+\begin{equation}
+N_k = \frac{N g_k e^{-\frac{E_k}{k_B T}}}{Z}
+\end{equation}
+di mana $N$ adalah jumlah total partikel (baik $f_{\text{neutral}}$ atau $f_{\text{ion}}$), dan parameter $g_k$ (degenerasi) serta $E_k$ (energi) diperoleh dari NIST.
+
+\subsection{Langkah 4: Perhitungan Intensitas Garis Spektral}
+Dengan populasi tingkat energi yang diketahui, intensitas relatif ($I_{ik}$) dari setiap transisi spektral (dari tingkat $k$ ke $i$) dapat dihitung. Intensitas ini sebanding dengan populasi tingkat energi atas ($N_k$) dan probabilitas transisi intrinsik ($A_{ki}$):
+\begin{equation}
+I_{ik} \propto \frac{N g_k A_{ki} e^{-\frac{E_k}{k_B T}}}{Z}
+\end{equation}
+Hasil dari langkah ini adalah "spektrum batang" (*stick spectrum*), yaitu sebuah set data yang berisi daftar panjang gelombang ($\lambda_{ik}$) dan intensitasnya yang ideal (berbentuk garis-garis tanpa lebar).
+
+\subsection{Langkah 5: Pelebaran Garis Spektral (Profil Gaussian)}
+Spektrum batang yang ideal tidak realistis. Dalam plasma nyata, garis-garis spektral memiliki lebar karena berbagai efek fisis. Dalam simulasi ini, kita memodelkan pelebaran Doppler (akibat gerakan termal partikel) dan pelebaran instrumental menggunakan profil Gaussian. Setiap "batang" intensitas dari langkah sebelumnya dikonvolusi dengan fungsi Gaussian:
+\begin{equation}
+G(\lambda) = \frac{1}{\sqrt{2\pi \sigma^2}} \exp\left(-\frac{(\lambda - \lambda_0)^2}{2\sigma^2}\right)
+\end{equation}
+Lebar Gaussian ($\sigma$) sendiri bergantung pada suhu plasma ($T$) dan massa partikel ($m$):
+\begin{equation}
+\sigma = \frac{\lambda_0}{c} \sqrt{\frac{k_B T}{m}}
+\end{equation}
+Proses ini mengubah setiap garis tajam menjadi puncak yang halus dan realistis.
+
+\subsection{Langkah 6: Normalisasi dan Finalisasi Spektrum}
+Langkah terakhir adalah menjumlahkan semua profil Gaussian yang telah dilebarkan dari semua transisi dan semua elemen dalam resep. Ini menghasilkan spektrum emisi komposit akhir. Spektrum ini kemudian dinormalisasi sehingga nilai intensitas maksimumnya adalah 1.
+Hasil akhirnya adalah sebuah array 1D dengan 4096 titik data, yang merepresentasikan satu sampel spektrum emisi sintetis yang siap digunakan untuk melatih model \textit{Informer}.

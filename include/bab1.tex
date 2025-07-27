@@ -20,19 +20,18 @@ Dengan melatih arsitektur \textit{Informer} pada set data sintetis yang komprehe
 \section{Rumusan Masalah}
 \par Ketergantungan pada kalibrasi eksperimental menjadi penghalang utama dalam penerapan LIBS. Sebuah metode yang memanfaatkan spektrum sintetis dan model \textit{Deep Learning} yang efisien seperti \textit{Informer} dengan mekanisme \textit{ProbSparse Self-Attention} diajukan untuk mengatasi masalah ini. Oleh karena itu, rumusan masalah penelitian ini adalah:
 \begin{enumerate}
-    \item Bagaimana model simulasi spektrum emisi sintetis dapat dikembangkan untuk mereplikasi kompleksitas spektral LIBS secara akurat berdasarkan prinsip-prinsip fisika fundamental?
-    \item Bagaimana sebuah metode analisis LIBS yang mengintegrasikan model \textit{Informer} dengan spektrum emisi sintetis yang telah disimulasikan dapat mencapai akurasi prediksi multi-elemen yang tinggi dan efisiensi komputasi untuk analisis cepat, dengan mengurangi ketergantungan pada kalibrasi eksperimental?
-    \item Seberapa efisien model \textit{Informer} dalam memproses spektrum LIBS resolusi tinggi, diukur dari segi waktu komputasi, untuk memastikan kepraktisan metode yang diusulkan?
-    \item Bagaimana pengaruh jumlah dan variasi data spektrum emisi sintetis terhadap kemampuan generalisasi dan ketahanan (\textit{robustness}) metode yang diusulkan dalam menghadapi spektrum uji dengan kondisi yang beragam?
+    \item Apakah spektrum emisi sintetis dapat mereplikasi kompleksitas spektrum eksperimental LIBS?
+    \item Apakah \textit{Deep Learning} model \textit{Informer} dapat dilatih untuk mempelajari Spektrum Emisi LIBS?
+    \item Bagaimana sebuah metode analisis LIBS menggunakan \textit{Informer} untuk deteksi cepat multi-elemen  pada spektrum emisi LIBS?
 \end{enumerate}
 
 \section{Tujuan Penelitian}
 Berdasarkan rumusan masalah, tujuan penelitian ini adalah:
 \begin{enumerate}
-    \item Mengembangkan model simulasi spektrum emisi sintetis yang mampu mereplikasi kompleksitas spektral LIBS secara akurat berdasarkan prinsip-prinsip fisika fundamental.
-    \item Mengembangkan sebuah metode analisis LIBS yang mengintegrasikan model \textit{Informer} dengan spektrum emisi sintetis yang telah disimulasikan, untuk prediksi multi-elemen.
-    \item Memvalidasi akurasi dan efisiensi komputasi metode yang dikembangkan untuk prediksi multi-elemen pada data spektrum emisi uji, serta menunjukkan kemampuannya untuk mengurangi ketergantungan pada kalibrasi eksperimental.
-    \item Menganalisis pengaruh jumlah dan variasi data spektrum emisi sintetis terhadap kemampuan generalisasi dan ketahanan (\textit{robustness}) metode yang diusulkan dalam menghadapi spektrum uji dengan kondisi yang beragam.
+    \item Mengembangkan  simulasi spektrum emisi sintetis yang mampu mereplikasi kompleksitas spektral LIBS.
+    \item Menguji metode \textit{Deep Learning} model \textit{Informer} sebagai untuk mempelajari spektrum emisi LIBS.
+    \item Mengembangkan sebuah metode analisis LIBS yang mengintegrasikan \textit{Deep Learning} model \textit{Informer} untuk deteksi cepat multi-elemen pada spektrum emisi LIBS.
+    \item Mengevaluasi keandalan model \textit{Informer} dengan metrik \textit{Recall, Precision dan F1-Score} pada tiap elemen.
 \end{enumerate}
 
 \section{Batasan Penelitian}

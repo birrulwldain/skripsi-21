@@ -96,6 +96,13 @@ Penelitian ini mengadopsi prosedur sistematis yang mencakup studi literatur, per
 
     \item \textbf{Pemodelan Simulasi Spektrum Emisi Atom} \\
     Simulasi spektrum emisi atom dilaksanakan dalam kondisi LTE, dengan asumsi plasma memiliki distribusi energi termal yang seragam dan dikendalikan oleh suhu plasma (\(T\)) dan densitas elektron (\(n_e\)). Intensitas garis spektral ditentukan oleh probabilitas transisi dan populasi tingkat energi, sedangkan pelebaran garis dimodelkan menggunakan profil Gaussian.
+    
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.6\textwidth]{images/Simulasi.drawio.pdf}
+        \caption{Diagram alur proses simulasi untuk menghasilkan dataset spektrum emisi.}
+        \label{fig:flowchart-simulasi}
+    \end{figure}
 
     Secara matematis, simulasi menghitung intensitas relatif dan mengaplikasikan profil Gaussian:
     \begin{equation}
@@ -135,7 +142,29 @@ Penelitian ini mengadopsi prosedur sistematis yang mencakup studi literatur, per
 
     Proses pemodelan simulasi ini terdiri dari dua algoritma utama yang dijelaskan di lampiran. Pertama, sebuah rencana kombinasi sampel yang seimbang dan beragam dibuat menggunakan \textbf{Algoritma~\ref{app:algo1}}. Kemudian, setiap resep dari rencana tersebut dieksekusi untuk menghasilkan spektrum emisi akhir menggunakan \textbf{Algoritma~\ref{app:algo2}}, yang mencakup seluruh proses fisika mulai dari kalkulasi rasio ionisasi, intensitas garis, hingga pelebaran spektral.
 
+    \item \textbf{Struktur dan Pembagian Dataset} \\
+    Setelah proses simulasi selesai, dihasilkan sebuah dataset komprehensif yang terdiri dari 50.000 sampel unik. Setiap sampel dalam dataset ini memiliki struktur pasangan yang terdiri dari:
+    \begin{enumerate}
+      \item \textbf{Fitur Input}: Sebuah array satu dimensi berisi 4096 titik data yang merepresentasikan intensitas spektrum emisi.
+      \item \textbf{Label Target}: Sebuah vektor \textit{multi-hot encoded} yang menunjukkan keberadaan (nilai 1) atau ketiadaan (nilai 0) dari setiap 18 elemen yang diteliti.
+    \end{enumerate}
+
+    Untuk memastikan proses pelatihan dan evaluasi model yang objektif dan dapat diandalkan, dataset ini kemudian dibagi secara acak menjadi tiga himpunan data (\textit{dataset}) yang terpisah dan tidak tumpang-tindih, dengan proporsi sebagai berikut:
+    \begin{itemize}
+        \item \textbf{Set Pelatihan (\textit{Training Set})}: \textbf{70\%} dari total data (35.000 sampel). Himpunan data ini digunakan secara eksklusif untuk melatih model, yaitu untuk mempelajari pola dan menyesuaikan bobot internalnya.
+        \item \textbf{Set Validasi (\textit{Validation Set})}: \textbf{15\%} dari total data (7.500 sampel). Himpunan data ini digunakan selama proses pelatihan untuk menyetel \textit{hyperparameter} model (seperti laju pembelajaran) dan untuk menerapkan mekanisme \textit{early stopping} guna mencegah \textit{overfitting}.
+        \item \textbf{Set Uji (\textit{Test Set})}: \textbf{15\%} dari total data (7.500 sampel). Himpunan data ini sama sekali tidak terlihat oleh model selama proses pelatihan dan validasi. Set ini hanya digunakan satu kali pada tahap akhir untuk memberikan evaluasi kinerja yang final dan tidak bias terhadap kemampuan generalisasi model pada data baru.
+    \end{itemize}
+    Pembagian ini dilakukan menggunakan strategi \textit{stratified split} untuk memastikan bahwa proporsi kemunculan setiap elemen (terutama elemen minor) dijaga agar tetap seimbang di ketiga set data tersebut.
+
     \item \textbf{Perancangan dan Perbandingan Arsitektur Model Informer} \\
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.6\textwidth]{images/deepl.drawio.pdf}
+        \caption{Diagram alur kerja proses \textit{deep learning} mulai dari persiapan data hingga evaluasi model.}
+        \label{fig:flowchart-deeplearning}
+    \end{figure}
+    
     Tahap ini melibatkan perancangan, pelatihan, dan perbandingan dua varian arsitektur model \textit{Informer} untuk menentukan konfigurasi yang paling optimal. Varian utama yang diuji adalah jumlah lapisan \textit{encoder} (2-layer vs. 3-layer), sementara hyperparameter lainnya dijaga konsisten pada awalnya. Model ini memanfaatkan mekanisme \textit{ProbSparse Self-Attention} untuk menangani data sekuensial panjang secara efisien.
 
     \textbf{Arsitektur Model}:
@@ -168,10 +197,10 @@ Penelitian ini mengadopsi prosedur sistematis yang mencakup studi literatur, per
       \end{tabular}
     \end{table}
 
-    \textbf{Proses Pelatihan}:
-    Model dilatih dengan tujuan meminimalkan *loss* dan memaksimalkan F1-Score pada data validasi. Untuk mencapai kinerja model yang optimal dan efisiensi komputasi, beberapa strategi pelatihan tingkat lanjut diterapkan:
+    \textbf{Proses Pelatihan}:\\
+    Model dilatih dengan tujuan meminimalkan \textit{loss} dan memaksimalkan F1-Score pada data validasi. Untuk mencapai kinerja model yang optimal dan efisiensi komputasi, beberapa strategi pelatihan tingkat lanjut diterapkan:
     \begin{itemize}
-        \item \textbf{Fungsi Kerugian (Loss Function)}: Digunakan \textbf{MultiLabelFocalLoss} dengan parameter \texttt{gamma}\(=2.0\). Fungsi ini dipilih secara spesifik untuk menangani potensi ketidakseimbangan distribusi elemen dalam dataset training. Bobot kelas (\texttt{pos\_weight}) juga dihitung dari dataset training dan digunakan untuk memberikan pinalti yang lebih besar pada kesalahan klasifikasi kelas minoritas.
+        \item \textbf{Fungsi Kerugian (Loss Function)}: Digunakan \textbf{MultiLabelFocalLoss} dengan parameter $\gamma=2.0$. Fungsi ini dipilih secara spesifik untuk menangani potensi ketidakseimbangan distribusi elemen dalam dataset training. Bobot kelas (\textit{pos\_weight}) juga dihitung dari dataset training dan digunakan untuk memberikan pinalti yang lebih besar pada kesalahan klasifikasi kelas minoritas.
         \item \textbf{Optimizer dan Penjadwal}: Digunakan optimizer \textbf{AdamW} yang merupakan varian dari Adam dengan perbaikan pada mekanisme \textit{weight decay}. Laju pembelajaran diatur secara dinamis menggunakan \textbf{OneCycleLR scheduler}, yang secara bertahap menaikkan laju pembelajaran dari nilai awal ke nilai maksimum, kemudian menurunkannya. Strategi ini terbukti efektif dalam membantu model menghindari \textit{local minima} dan mencapai konvergensi yang lebih cepat.
         \item \textbf{Ukuran Batch Efektif dan Akumulasi Gradien}: Untuk menstabilkan gradien dan secara efektif melatih model dengan \textit{batch size} yang lebih besar dari yang dapat ditampung oleh memori GPU, diterapkan teknik \textbf{gradient accumulation}. Dengan ukuran \textit{batch} 25 dan 4 langkah akumulasi, \textit{effective batch size} sebesar 100 tercapai.
         \item \textbf{Mixed-Precision Training}: Proses pelatihan dipercepat secara signifikan dengan mengaktifkan teknik \textit{mixed-precision} melalui \texttt{torch.amp}. Hal ini mengurangi penggunaan memori GPU dan memanfaatkan Tensor Cores untuk kalkulasi yang lebih cepat menggunakan format bilangan presisi 16-bit (FP16).

@@ -6,17 +6,15 @@
 
 \section{Kesimpulan}
 
-Penelitian ini berhasil memberikan \textbf{bukti konsep (proof of concept) yang kuat} untuk metode analisis LIBS berbasis model \textit{Deep Learning} yang dilatih sepenuhnya pada spektrum emisi sintetis, sebuah pendekatan yang dirancang untuk mengatasi ketergantungan pada kalibrasi eksperimental.
+Penelitian ini berhasil mengembangkan dan memvalidasi sebuah metode analisis LIBS yang mengintegrasikan simulasi spektrum emisi sintetis dengan model \textit{Deep Learning Informer}, yang secara langsung menjawab tujuan dan rumusan masalah yang diajukan.
 
-Validasi dataset sintetis menunjukkan kemampuannya mereplikasi kompleksitas spektral, termasuk fenomena interferensi, serta akurasi fisik yang tinggi dibandingkan dengan data referensi NIST ASD, menegaskan fondasi yang kokoh untuk pelatihan model.
+Pertama, penelitian ini berhasil \textbf{mengembangkan simulasi spektrum emisi sintetis yang mampu mereplikasi kompleksitas spektral LIBS} . Validasi terhadap data referensi NIST ASD dan kemampuan model untuk meniru fenomena fisis seperti interferensi dan kesetimbangan Saha membuktikan bahwa spektrum sintetis dapat mereplikasi kompleksitas spektrum eksperimental, sehingga menjawab \textbf{Rumusan Masalah 1} . Fondasi data latih yang kokoh ini menjadi dasar untuk pengujian model \textit{deep learning}.
 
-Evaluasi komprehensif terhadap arsitektur model \textit{Informer} mengungkapkan bahwa model dengan \textbf{2-layer encoder} mencapai \textbf{keseimbangan optimal} antara kompleksitas dan kinerja, menghasilkan F1-Score (Macro) sebesar \textbf{0.5797}. Kinerja ini secara signifikan lebih unggul dibandingkan dengan model 3-layer yang lebih kompleks, menyoroti pentingnya optimisasi arsitektur untuk mencegah \textit{overfitting} dan memaksimalkan generalisasi.
+Kedua, penelitian ini menunjukkan bahwa \textbf{model \textit{Deep Learning Informer} dapat dilatih secara efektif untuk mempelajari spektrum emisi LIBS} (Tujuan 2). Proses pelatihan yang stabil, seperti yang ditunjukkan oleh kurva pembelajaran , membuktikan bahwa model mampu menangkap struktur fisis dari data sintetis dan menjawab \textbf{Rumusan Masalah 2}.
 
-Keberhasilan model 2-layer dalam mencapai akurasi prediksi multi-elemen yang tinggi tanpa kalibrasi eksperimental, didukung oleh pelatihan eksklusif pada spektrum sintetis, secara langsung menjawab rumusan masalah pertama penelitian. Meskipun model menunjukkan kemampuan \textit{recall} yang tinggi, tantangan pada \textit{precision} untuk beberapa elemen minor tetap ada, mengindikasikan area untuk perbaikan lebih lanjut.
+Ketiga, \textbf{sebuah metode analisis LIBS untuk deteksi cepat multi-elemen telah berhasil dikembangkan} dengan mengintegrasikan model Informer (Tujuan 3). Evaluasi komprehensif (Tujuan 4) menunjukkan bahwa arsitektur 2-layer mencapai kinerja optimal dengan F1-Score (Macro) sebesar \textbf{0.6445}. Efisiensi komputasi dari arsitektur Informer, terutama mekanisme \textit{ProbSparse Self-Attention}, juga memungkinkan pemrosesan spektrum resolusi tinggi secara efisien. Gabungan antara akurasi dan efisiensi ini secara tuntas menjawab \textbf{Rumusan Masalah 3} mengenai pengembangan metode deteksi yang cepat dan andal untuk spektrum emisi LIBS multi-elemen.
 
-Efisiensi komputasi model \textit{Informer}, yang merupakan salah satu tujuan penelitian, juga terbukti melalui kemampuannya memproses spektrum resolusi tinggi.
-
-Secara keseluruhan, penelitian ini menegaskan potensi besar pendekatan berbasis DL dengan data sintetis untuk analisis spektral LIBS. Ini membuka jalan bagi pengembangan metode analisis unsur yang lebih efisien, hemat biaya, dan berpotensi sepenuhnya bebas kalibrasi, merevolusi aplikasi LIBS di berbagai bidang.
+Secara keseluruhan, keberhasilan model yang dilatih sepenuhnya pada data sintetis untuk melakukan identifikasi multi-elemen secara akurat memberikan bukti konsep yang kuat untuk sebuah paradigma analisis LIBS yang bebas kalibrasi. Penelitian ini menegaskan potensi besar pendekatan berbasis DL dengan data sintetis, membuka jalan bagi pengembangan metode analisis unsur yang lebih efisien, hemat biaya, dan dapat diakses secara luas di berbagai bidang.
 
 \section{Saran}
 Berdasarkan temuan dan keterbatasan yang telah diidentifikasi dalam penelitian ini, beberapa arah strategis untuk penelitian selanjutnya dapat direkomendasikan untuk membangun di atas fondasi yang telah diletakkan:

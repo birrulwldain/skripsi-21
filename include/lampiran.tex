@@ -4,47 +4,153 @@
 % Struktur: Hanya Lampiran 1, 2, dst., tanpa subbab atau section
 
 \begin{onehalfspace} % 1.5 spacing as per main document
-%====================================================================
-% Appendix A: Balanced Sample Combination Plan Generation
-%====================================================================
-\lampiran{Algoritma Pembangkitan Rencana Kombinasi Sampel}
+
+
+\lampiran{Detail Teknis Alur Kerja Simulasi dan Perencanaan}
+\label{app:simulasi_dan_perencanaan}
+
+Lampiran ini memberikan rincian teknis mengenai keseluruhan proses pembuatan dataset spektrum emisi sintetis, mulai dari tahap perencanaan hingga simulasi akhir. Tujuannya adalah untuk menjembatani konsep teoretis di Bab 2 dengan prosedur di Bab 3.
+
+\section*{Tahap Perencanaan: Membuat 'Buku Resep' yang Seimbang}
+Sebelum simulasi spektrum individu dijalankan, langkah persiapan yang krusial adalah merancang sebuah rencana kombinasi sampel yang seimbang. Tanpa perencanaan ini, dataset yang dihasilkan secara acak akan sangat didominasi oleh elemen-elemen yang padat secara spektral (seperti Besi/Fe) dan kurang merepresentasikan elemen dengan sedikit garis emisi. Proses ini, yang dirinci dalam Algoritma \ref{app:algo1}, mengatasi masalah ini dengan membuat sebuah 'buku resep' yang memastikan setiap elemen mendapatkan representasi yang adil.
+
+\subsection*{Menghitung Bobot Kepadatan Spektral}
+Pertama, algoritma mengukur 'kepadatan' spektral dari setiap elemen secara individual untuk menghasilkan sebuah bobot, $W_e$. Ini dilakukan dengan mensimulasikan spektrum untuk satu elemen saja dan menghitung jumlah puncak emisi yang signifikan. Hasilnya adalah sebuah 'bobot' untuk setiap elemen, di mana elemen seperti Besi (Fe) akan memiliki bobot yang sangat tinggi.
+
+\subsection*{Menentukan Target Frekuensi dengan Bobot Terbalik}
+Inti dari perencanaan ini adalah penggunaan bobot terbalik (\textit{inverse weight}) untuk menentukan target frekuensi kemunculan, $N_{\text{target}}$, untuk setiap elemen. Elemen dengan bobot kepadatan tinggi diberi target yang lebih rendah. Secara analitis, proporsi target untuk setiap elemen $e$ dihitung sebagai berikut:
+\begin{equation}
+\text{proporsi}_e = \frac{1 / (W_e + \epsilon)}{\sum_{j \in E} (1 / (W_j + \epsilon))}
+\end{equation}
+Kemudian, target frekuensi kemunculan total dihitung berdasarkan jumlah sampel total ($N_{\text{total}}$) dan rata-rata elemen per sampel ($k_{\text{avg}}$), dan target untuk setiap elemen ditentukan sebagai:
+\begin{equation}
+N_{\text{target}}(e) = \lceil \text{proporsi}_e \times (N_{\text{total}} \times k_{\text{avg}}) \rceil
+\end{equation}
+Langkah ini secara efektif 'memaksa' dataset untuk tidak bias dan memberikan kesempatan yang adil bagi model untuk mempelajari semua jenis 'sidik jari' spektral.
+
+\subsection*{Konstruksi Resep Secara Iteratif}
+Dengan target frekuensi yang telah ditetapkan, algoritma secara iteratif membangun setiap resep. Pada setiap iterasi, ia melacak sisa kemunculan yang dibutuhkan untuk setiap elemen, $N_{\text{tersisa}}$. Algoritma kemudian mengurutkan semua elemen berdasarkan nilai $N_{\text{tersisa}}$ secara menurun dan memilih $k$ elemen teratas (yang paling 'dibutuhkan') untuk dimasukkan ke dalam resep baru. Proses 'rakus' (\textit{greedy}) ini memastikan bahwa rencana kombinasi secara bertahap bergerak menuju distribusi elemen yang seimbang.
+
+\subsection*{Hasil Akhir Tahap Perencanaan}
+Keluaran dari tahap ini bukanlah data spektral, melainkan sebuah file terstruktur (misalnya, JSON) yang berisi daftar lengkap resep. 'Buku resep' inilah yang kemudian digunakan sebagai input untuk proses simulasi utama.
+
+\section*{Contoh Konkret: Menyeimbangkan Besi (Fe) dan Kalsium (Ca)}
+Untuk mengilustrasikan bagaimana tahap perencanaan memastikan keseimbangan, mari kita ambil contoh sederhana dengan dua elemen: Besi (Fe), yang memiliki spektrum sangat padat, dan Kalsium (Ca), yang spektrumnya jauh lebih jarang. Asumsikan kita ingin membuat 10.000 resep.
+
+\subsection*{Analisis Kepadatan Spektral}
+Pertama, algoritma menganalisis kepadatan spektral masing-masing elemen.
+\begin{itemize}
+    \item Besi (Fe): Ditemukan memiliki ribuan garis emisi. Bobot kepadatannya sangat tinggi, misal: Bobot(Fe) = 2500.
+    \item Kalsium (Ca): Memiliki lebih sedikit garis emisi yang kuat dan relevan. Bobot kepadatannya lebih rendah, misal: Bobot(Ca) = 150.
+\end{itemize}
+
+\subsection*{Perhitungan Target Frekuensi}
+Selanjutnya, algoritma menghitung bobot terbalik untuk menentukan seberapa sering setiap elemen harus muncul agar dataset seimbang.
+\begin{itemize}
+    \item Bobot Terbalik (Fe): $1 / 2500 = 0.0004$ (nilai rendah)
+    \item Bobot Terbalik (Ca): $1 / 150 \approx 0.0067$ (nilai jauh lebih tinggi)
+\end{itemize}
+Nilai-nilai ini digunakan untuk menghitung target frekuensi kemunculan. Hasilnya, algoritma akan menetapkan target agar Kalsium (Ca) muncul secara signifikan lebih sering di dalam 10.000 resep dibandingkan Besi (Fe). Ini adalah langkah kontra-intuitif yang secara aktif melawan bias alami dari kepadatan spektral.
+
+\subsection*{Konstruksi Resep Iteratif}
+Saat mulai membuat resep pertama, algoritma melihat "kebutuhan" untuk setiap elemen.
+\begin{itemize}
+    \item Pada awalnya, "kebutuhan" untuk Ca jauh lebih tinggi daripada Fe karena target frekuensinya lebih tinggi.
+    \item Oleh karena itu, pada resep-resep awal, Ca akan hampir selalu diprioritaskan untuk dimasukkan.
+    \item Setiap kali Ca dipilih, "kebutuhannya" berkurang satu. Proses ini berlanjut hingga target frekuensi untuk semua elemen mendekati terpenuhi, menghasilkan 'buku resep' yang seimbang secara statistik.
+\end{itemize}
+Dengan cara ini, model \textit{Deep Learning} akan menerima jumlah contoh yang cukup untuk mempelajari 'sidik jari' dari elemen yang jarang maupun yang padat.
+
+\section*{Tahap Simulasi: Menghasilkan Spektrum dari Resep}
+Setelah 'buku resep' dibuat, setiap resep dijalankan melalui alur kerja simulasi fisis berikut, yang dirinci dalam Algoritma \ref{app:algo2}.
+
+\subsection*{Penyiapan Parameter Input ('Resep')}
+Setiap proses simulasi dimulai dengan satu resep dari buku resep, yang berisi:
+\begin{itemize}
+    \item Set Elemen (\{E\}): Kombinasi elemen yang telah diseimbangkan.
+    \item Suhu Plasma ($T$): Nilai suhu acak dari rentang [5000 K, 15000 K].
+    \item Kerapatan Elektron ($n_e$): Nilai kerapatan elektron acak dari rentang [$10^{16}$ cm$^{-3}$, $10^{18}$ cm$^{-3}$].
+\end{itemize}
+
+\subsection*{Kalkulasi Rasio Ionisasi (Persamaan Saha)}
+Untuk setiap elemen, fraksi atom netral ($f_{\text{neutral}}$) dan terionisasi ($f_{\text{ion}}$) dihitung menggunakan Persamaan Saha untuk menentukan rasio jumlah ion terhadap atom netral ($n_{i+1}/n_i$):
+\begin{equation}
+\frac{n_{i+1}}{n_i} = \frac{2Z_{i+1,\text{int}}}{n_e Z_{i,\text{int}}} \left( \frac{2\pi m_e k_B T}{h^2} \right)^{3/2} e^{-\frac{E_{xi}}{k_B T}}
+\end{equation}
+di mana parameter atomik seperti energi ionisasi ($E_{xi}$) dan fungsi partisi internal ($Z_{\text{int}}$) diambil dari basis data NIST.
+
+\subsection*{Kalkulasi Populasi Tingkat Energi (Distribusi Boltzmann)}
+Distribusi partikel di berbagai tingkat energi tereksitasi ditentukan menggunakan Distribusi Boltzmann. Pertama, fungsi partisi ($Z$) dihitung dengan menjumlahkan semua tingkat energi yang mungkin:
+\begin{equation}
+Z = \sum_i g_i e^{-\frac{E_i}{k_B T}}
+\end{equation}
+Kemudian, populasi relatif ($N_k$) untuk setiap tingkat energi atas ($E_k$) dihitung sebagai:
+\begin{equation}
+N_k = \frac{N g_k e^{-\frac{E_k}{k_B T}}}{Z}
+\end{equation}
+di mana $N$ adalah jumlah total partikel (baik netral maupun ion), dan parameter $g_k$ (degenerasi) serta $E_k$ (energi) diperoleh dari NIST.
+
+\subsection*{Perhitungan Intensitas Garis Spektral}
+Intensitas relatif ($I_{\text{rel}}$) dari setiap transisi spektral sebanding dengan populasi tingkat energi atas ($N_k$) dan probabilitas transisi intrinsik ($A_{ki}$):
+\begin{equation}
+I_{\text{rel}} \propto N_k A_{ki} = \frac{N g_k A_{ki} e^{-\frac{E_k}{k_B T}}}{Z}
+\end{equation}
+Hasil dari langkah ini adalah "spektrum batang" (\textit{stick spectrum}), yaitu sebuah set data yang berisi daftar panjang gelombang dan intensitasnya yang ideal.
+
+\subsection*{Pelebaran Garis Spektral (Profil Gaussian)}
+Setiap "batang" intensitas dari langkah sebelumnya dikonvolusi dengan fungsi Gaussian ($G$) untuk memodelkan pelebaran Doppler dan instrumental, menciptakan puncak yang realistis:
+\begin{equation}
+I(\lambda) = I_{\text{rel}} \cdot G(\lambda - \lambda_{ij}, \sigma)
+\end{equation}
+di mana fungsi Gaussian didefinisikan sebagai:
+\begin{equation}
+G(\lambda) = \frac{1}{\sqrt{2\pi \sigma^2}} \exp\left(-\frac{(\lambda - \lambda_0)^2}{2\sigma^2}\right)
+\end{equation}
+dengan $\sigma$ adalah lebar standar deviasi dari puncak spektral.
+
+\subsection*{Normalisasi dan Finalisasi Spektrum}
+Semua profil Gaussian dijumlahkan untuk membentuk spektrum komposit akhir, yang kemudian dinormalisasi. Hasilnya adalah satu sampel data latih untuk model \textit{Informer}.
+
+\section*{Implementasi Pseudocode}
+Berikut adalah pseudocode formal untuk kedua tahap yang dijelaskan di atas.
+
 \begin{algorithm}[H]
 \small
 \caption{Algoritma Pembangkitan Rencana Kombinasi Sampel}
 \label{app:algo1}
 \begin{algorithmic}[1]
-    \REQUIRE NIST dataset $D_{\text{NIST}}$, Set of elements $E$, Temperature range $R_T$, Electron density range $R_{n_e}$, Total number of samples $N_{\text{total}}$, Average elements per sample $k_{\text{avg}}$
-    \ENSURE A sample combination plan $P$ containing $N_{\text{total}}$ recipes
+    \REQUIRE Dataset NIST $D_{\text{NIST}}$, Himpunan elemen $E$, Rentang suhu $R_T$, Rentang kerapatan elektron $R_{n_e}$, Jumlah total sampel $N_{\text{total}}$, Rata-rata elemen per sampel $k_{\text{avg}}$
+    \ENSURE Sebuah rencana kombinasi sampel $P$ berisi $N_{\text{total}}$ resep
     
-    \STATE \COMMENT{\textit{Phase 1: Pre-calculation of Spectral Density Weights}}
-    \STATE Initialize weight map $W \gets \emptyset$
-    \FORALL{element $e \in E$}
-        \STATE $S_e \gets \text{SimulateSingleSpectrum}(e, D_{\text{NIST}})$
-        \STATE $W[e] \gets \text{CountActivePeaks}(S_e)$ \COMMENT{Calculate the spectral "richness"}
+    \STATE \COMMENT{\textit{Fase 1: Pra-kalkulasi Bobot Kepadatan Spektral}}
+    \STATE Inisialisasi peta bobot $W \gets \emptyset$
+    \FORALL{elemen $e \in E$}
+        \STATE $S_e \gets \text{SimulasikanSpektrumTunggal}(e, D_{\text{NIST}})$
+        \STATE $W[e] \gets \text{HitungPuncakAktif}(S_e)$ \COMMENT{Hitung "kekayaan" spektral}
     \ENDFOR
     
-    \STATE \COMMENT{\textit{Phase 2: Determine Target Occurrence Frequencies}}
-    \STATE Initialize target occurrence map $N_{\text{target}} \gets \emptyset$
-    \STATE $\text{TotalInverseWeight} \gets \sum_{e \in E} (1 / (W[e] + \epsilon))$ \COMMENT{$\epsilon$ for numerical stability}
-    \STATE $\text{TotalOccurrences} \gets N_{\text{total}} \times k_{\text{avg}}$
-    \FORALL{element $e \in E$}
-        \STATE $\text{proportion}_e \gets (1 / (W[e] + \epsilon)) / \text{TotalInverseWeight}$
-        \STATE $N_{\text{target}}[e] \gets \lceil \text{proportion}_e \times \text{TotalOccurrences} \rceil$
+    \STATE \COMMENT{\textit{Fase 2: Tentukan Target Frekuensi Kemunculan}}
+    \STATE Inisialisasi peta target kemunculan $N_{\text{target}} \gets \emptyset$
+    \STATE $\text{TotalBobotTerbalik} \gets \sum_{e \in E} (1 / (W[e] + \epsilon))$ \COMMENT{$\epsilon$ untuk stabilitas numerik}
+    \STATE $\text{TotalKemunculan} \gets N_{\text{total}} \times k_{\text{avg}}$
+    \FORALL{elemen $e \in E$}
+        \STATE $\text{proporsi}_e \gets (1 / (W[e] + \epsilon)) / \text{TotalBobotTerbalik}$
+        \STATE $N_{\text{target}}[e] \gets \lceil \text{proporsi}_e \times \text{TotalKemunculan} \rceil$
     \ENDFOR
-    \STATE $N_{\text{remaining}} \gets N_{\text{target}}$ \COMMENT{Initialize remaining occurrences needed}
+    \STATE $N_{\text{tersisa}} \gets N_{\text{target}}$ \COMMENT{Inisialisasi sisa kemunculan yang dibutuhkan}
     
-    \STATE \COMMENT{\textit{Phase 3: Iterative Recipe Construction}}
-    \STATE Initialize plan $P \gets []$
-    \FOR{$i \gets 1 \ \text{to} \ N_{\text{total}}$}
-        \STATE $k \gets \text{RandomIntegerInRange}([10, 17])$
-        \STATE $E_{\text{sorted}} \gets \text{SortByValueDescending}(E, N_{\text{remaining}})$
-        \STATE $E_{\text{recipe}} \gets E_{\text{sorted}}[1 \dots k]$ \COMMENT{Select top k most needed elements}
-        \STATE $T_i \gets \text{SampleRandomFrom}(R_T)$
-        \STATE $n_{e,i} \gets \text{SampleRandomFrom}(R_{n_e})$
-        \STATE $r_i \gets \{ \text{id: } i, T: T_i, n_e: n_{e,i}, \text{elements: } E_{\text{recipe}} \}$
-        \STATE $P.\text{append}(r_i)$
-        \FORALL{element $e \in E_{\text{recipe}}$}
-            \STATE $N_{\text{remaining}}[e] \gets N_{\text{remaining}}[e] - 1$
+    \STATE \COMMENT{\textit{Fase 3: Konstruksi Resep Secara Iteratif}}
+    \STATE Inisialisasi rencana $P \gets []$
+    \FOR{$i \gets 1 \ \text{hingga} \ N_{\text{total}}$}
+        \STATE $k \gets \text{AngkaAcakDalamRentang}([10, 17])$
+        \STATE $E_{\text{terurut}} \gets \text{UrutkanBerdasarkanNilaiMenurun}(E, N_{\text{tersisa}})$
+        \STATE $E_{\text{resep}} \gets E_{\text{terurut}}[1 \dots k]$ \COMMENT{Pilih k elemen teratas yang paling dibutuhkan}
+        \STATE $T_i \gets \text{AmbilSampelAcakDari}(R_T)$
+        \STATE $n_{e,i} \gets \text{AmbilSampelAcakDari}(R_{n_e})$
+        \STATE $r_i \gets \{ \text{id: } i, T: T_i, n_e: n_{e,i}, \text{elemen: } E_{\text{resep}} \}$
+        \STATE $P.\text{tambahkan}(r_i)$
+        \FORALL{elemen $e \in E_{\text{resep}}$}
+            \STATE $N_{\text{tersisa}}[e] \gets N_{\text{tersisa}}[e] - 1$
         \ENDFOR
     \ENDFOR
     
@@ -52,50 +158,46 @@
 \end{algorithmic}
 \end{algorithm}
 
-%====================================================================
-% Appendix B: Per-Recipe Spectrum Simulation
-%====================================================================
-\lampiran{Algoritma Simulasi Spektrum Berdasarkan Rencana Kombinasi}
-\label{app:algo2}
 \begin{algorithm}[H]
 \small
 \caption{Simulasi Spektrum Berdasarkan Rencana Kombinasi}
+\label{app:algo2}
 \begin{algorithmic}[1]
-    \REQUIRE Combination plan $P$ (from Algorithm~\ref{app:algo1}), NIST Dataset $D_{\text{NIST}}$
-    \ENSURE Final set of emission spectra $\mathcal{S}$
+    \REQUIRE Rencana kombinasi $P$ (dari Algoritma~\ref{app:algo1}), Dataset NIST $D_{\text{NIST}}$
+    \ENSURE Himpunan akhir spektrum emisi $\mathcal{S}$
     
-    \STATE Initialize set of spectra: $\mathcal{S} \gets \emptyset$
-    \FORALL{recipe $r \in P$}
-        \STATE Extract parameters $T, n_e, E_{\text{recipe}}$ from recipe $r$.
-        \STATE $I_{\text{stick}} \gets \text{ZeroArray}(\text{spectrum resolution})$ \COMMENT{Initialize empty stick spectrum}
+    \STATE Inisialisasi himpunan spektrum: $\mathcal{S} \gets \emptyset$
+    \FORALL{resep $r \in P$}
+        \STATE Ekstrak parameter $T, n_e, E_{\text{resep}}$ dari resep $r$.
+        \STATE $I_{\text{batang}} \gets \text{ArrayNol}(\text{resolusi spektrum})$ \COMMENT{Inisialisasi spektrum batang kosong}
         
-        \FORALL{element $e \in E_{\text{recipe}}$}
-            \STATE \COMMENT{\textit{Step A: On-the-fly Ionization Ratio Calculation}}
-            \STATE $(f_{\text{neutral}}, f_{\text{ion}}) \gets \text{CalculateSahaFractions}(e, T, n_e, D_{\text{NIST}})$
+        \FORALL{elemen $e \in E_{\text{resep}}$}
+            \STATE \COMMENT{\textit{Langkah A: Kalkulasi Rasio Ionisasi}}
+            \STATE $(f_{\text{netral}}, f_{\text{ion}}) \gets \text{HitungFraksiSaha}(e, T, n_e, D_{\text{NIST}})$
             
-            \FORALL{ionization state $s \in \{\text{neutral, ion}\}$}
-                \IF{$s$ is neutral}
-                    \STATE $f_s \gets f_{\text{neutral}}$
+            \FORALL{keadaan ionisasi $s \in \{\text{netral, ion}\}$}
+                \IF{$s$ adalah netral}
+                    \STATE $f_s \gets f_{\text{netral}}$
                 \ELSE
                     \STATE $f_s \gets f_{\text{ion}}$
                 \ENDIF
-                \STATE $Z_s \gets \text{CalculatePartitionFunction}(e, s, T, D_{\text{NIST}})$
-                \IF{$Z_s \le 0$} \STATE \textbf{continue} \ENDIF
+                \STATE $Z_s \gets \text{HitungFungsiPartisi}(e, s, T, D_{\text{NIST}})$
+                \IF{$Z_s \le 0$} \STATE \textbf{lanjutkan} \ENDIF
                 
-                \STATE $\mathcal{T}_{e,s} \gets \text{GetTransitionsFor}(e, s, D_{\text{NIST}})$
-                \FORALL{transition $t \in \mathcal{T}_{e,s}$}
-                    \STATE \COMMENT{\textit{Step B: Line Intensity Calculation}}
-                    \STATE Extract parameters $\lambda_{ij}, E_k, g_k, A_{ki}$ from $t$.
+                \STATE $\mathcal{T}_{e,s} \gets \text{AmbilTransisiUntuk}(e, s, D_{\text{NIST}})$
+                \FORALL{transisi $t \in \mathcal{T}_{e,s}$}
+                    \STATE \COMMENT{\textit{Langkah B: Kalkulasi Intensitas Garis}}
+                    \STATE Ekstrak parameter $\lambda_{ij}, E_k, g_k, A_{ki}$ dari $t$.
                     \STATE $I_{\text{rel}} \gets \frac{g_k A_{ki} \exp(-E_k / k_B T)}{Z_s} \times f_s$
-                    \STATE $I_{\text{stick}}[\text{index}(\lambda_{ij})] \gets I_{\text{stick}}[\text{index}(\lambda_{ij})] + I_{\text{rel}}$
+                    \STATE $I_{\text{batang}}[\text{indeks}(\lambda_{ij})] \gets I_{\text{batang}}[\text{indeks}(\lambda_{ij})] + I_{\text{rel}}$
                 \ENDFOR
             \ENDFOR
         \ENDFOR
         
-        \STATE \COMMENT{\textit{Step C: Line Broadening and Storage}}
-        \STATE $I_{\text{final}} \gets \text{Convolve}(I_{\text{stick}}, \text{GaussianProfile}(T, \text{atomic mass}))$
-        \STATE $I_{\text{final}} \gets \text{NormalizeIntensity}(I_{\text{final}})$
-        \STATE Store spectrum $(I_{\text{final}}, r)$ in $\mathcal{S}$
+        \STATE \COMMENT{\textit{Langkah C: Pelebaran Garis dan Penyimpanan}}
+        \STATE $I_{\text{akhir}} \gets \text{Konvolusi}(I_{\text{batang}}, \text{ProfilGaussian}(T, \text{massa atom}))$
+        \STATE $I_{\text{akhir}} \gets \text{NormalisasiIntensitas}(I_{\text{akhir}})$ 
+        \STATE Simpan spektrum $(I_{\text{akhir}}, r)$ dalam $\mathcal{S}$
     \ENDFOR
     
     \STATE \RETURN $\mathcal{S}$
@@ -103,7 +205,9 @@
 \end{algorithm}
 
 
-
+%====================================================================
+% Other appendices follow
+%====================================================================
 \lampiran{Cuplikan Detail Prediksi Model pada Sampel 10 dari Dataset Uji}
 \label{app:prediction_details_sample_10}
 \begin{longtable}{p{0.25\textwidth}p{0.35\textwidth}p{0.35\textwidth}}
@@ -617,3 +721,106 @@
 
 
 \end{onehalfspace} % 1.5 spacing as per main document
+
+%====================================================================
+% Appendix B: Prediction Details
+%====================================================================
+% \lampiran{Cuplikan Detail Prediksi Model}
+% \label{app:prediction_details}
+% \input{include/prediction_details_table.tex} % Assuming you generate this table
+
+%====================================================================
+% Appendix C: Source Code
+%====================================================================
+% \lampiran{Contoh Kode Sumber}
+% \label{app:source_code}
+% \begin{verbatim}
+% # Contoh kode Python untuk simulasi
+% import numpy as np
+
+% def simulate_spectrum(elements, temperature):
+%     # Kode simulasi di sini
+%     pass
+% \end{verbatim}
+
+%====================================================================
+% Appendix D: Curriculum Vitae
+%====================================================================
+% ===================================================================
+% LAMPIRAN RIWAYAT HIDUP
+% Simpan sebagai file .tex terpisah dan panggil dengan \input{}
+% ===================================================================
+\clearpage
+% \lampiran{Riwayat Hidup} % Menggunakan chapter* agar tidak ada nomor dan tidak masuk Daftar Isi
+\chapter*{BIODATA}
+% --- Bagian Biodata Pribadi ---
+% Menggunakan tabular untuk merapikan posisi titik dua (:)
+% Ganti '9cm' dengan lebar yang Anda inginkan
+\begin{tabular}{l @{\hspace{1em}:\hspace{1em}} p{9cm}} 
+    Nama & Birrul Walidain \\
+    Tempat, tanggal lahir & Lhokseumawe, 11 November 2002 \\
+    Alamat & Jalan Cot Aron II Punge Blang Cut Kota Banda Aceh \\
+    Nama Ayah & Alm. Sudarmaji \\
+    Pekerjaan Ayah & - \\
+    Nama Ibu & Syamsiah, S.Pd. \\
+    Pekerjaan Ibu & Pensiun Guru \\
+    Alamat Orang Tua & Jalan Panglateh No. 22 Simpang Empat Kota Lhokseumawe\\
+\end{tabular}
+% \begin{tabular}{l @{\hspace{1em}:\hspace{1em}} l}
+%     \textbf{Nama} & Birrul Walidain \\
+%     \textbf{Tempat, tanggal lahir} & Lhokseumawe, 11 November 2002 \\
+%     \textbf{Alamat} & Jalan Cot Aron II Punge Blang Cut Kota Banda Aceh \\
+%     \textbf{Nama Ayah} & Alm. Sudarmaji \\
+%     \textbf{Pekerjaan Ayah} & - \\
+%     \textbf{Nama Ibu} & Syamsiah, S.Pd. \\
+%     \textbf{Pekerjaan Ibu} & Pensiun Guru \\
+%     \textbf{Alamat Orang Tua} & Jalan Panglateh No. 22 Simpang Empat Kota Lhokseumawe\\
+% \end{tabular}
+
+\vspace{0.4cm} % Memberi jarak vertikal
+
+% --- Bagian Riwayat Pendidikan ---
+\subsection*{Riwayat Pendidikan}
+
+\begin{center}
+\begin{tabular}{| l | p{4cm} | p{1.2cm} | p{3cm} | c |}
+    \hline
+    \textbf{Jenjang} & \textbf{Nama Sekolah} & \textbf{Bidang} & \textbf{Tempat} & \textbf{Tahun Ijazah} \\
+    \hline
+    SD & MIN Kota Lhokseumawe & - & Lhokseumawe & 2014 \\
+    \hline
+    SLTP & MTsN Kota Lhokseumawe & - & Lhokseumawe & 2017 \\
+    \hline
+    SLTA & SMAN 1 Lhokseumawe & IPA & Lhokseumawe & 2020 \\
+    \hline
+    Sarjana & Universitas Syiah Kuala & Fisika & Banda Aceh & 2025 \\
+    \hline
+\end{tabular}
+\end{center}
+
+% \vspace{0.9cm} % Memberi jarak vertikal
+
+% --- Bagian Karya Tulis ---
+\subsection*{Karya Tulis yang Pernah Dihasilkan}
+\begin{center}
+\begin{tabular}{| c | p{8cm} | c | c |}
+    \hline
+    \textbf{No} & \textbf{Judul} & \textbf{Tahun} & \textbf{Penerbit} \\
+    \hline
+    1 & Analisis Prediktif Spektrum Emisi \textit{Laser-Induced Breakdown Spectroscopy} (LIBS) Multi-Elemen Berbasis Simulasi Sintetis dengan Informer (Tugas Akhir) & 2025 & FMIPA USK  \\
+    \hline
+\end{tabular}
+\end{center}
+
+\vspace{0.9cm} % Jarak lebih besar untuk area tanda tangan
+
+% --- Bagian Tanda Tangan ---
+\begin{flushright}
+    Banda Aceh, 24 Juli 2025 \\ % Sesuaikan dengan tanggal
+    \vspace{4em} % Ruang untuk tanda tangan
+    
+    \underline{Birrul Walidain} \\
+    \vspace{-0.14cm}
+    NPM. 2008102010010
+\end{flushright}
+

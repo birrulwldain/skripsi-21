@@ -41,7 +41,7 @@ Proses ablasi laser, sebagai tahap awal, divisualisasikan pada Gambar~\ref{fig:l
     \end{center}
 \end{figure}
 
-Sistem LIBS terdiri dari beberapa komponen utama yang bekerja bersama untuk menghasilkan dan menganalisis spektrum emisi emisi emisi emisi emisi emisi, seperti ditunjukkan pada Gambar~\ref{fig:libs_setup}:
+Sistem LIBS terdiri dari beberapa komponen utama yang bekerja bersama untuk menghasilkan dan menganalisis spektrum emisi, seperti ditunjukkan pada Gambar~\ref{fig:libs_setup}:
 \begin{enumerate}
     \item \textbf{Laser}: Sumber laser, seperti Nd:YAG dengan panjang gelombang 1064 nm, menghasilkan pulsa berenergi tinggi untuk menguapkan material. Pulsa ini biasanya berdurasi sangat singkat (nanodetik) \citep{Cremers2013}.
     \item \textbf{Lensa Optik}: Lensa memfokuskan pulsa laser ke titik kecil pada sampel dan mengumpulkan cahaya yang dipancarkan dari plasma untuk diteruskan ke alat analisis \citep{Miziolek2006}.
@@ -67,6 +67,43 @@ Komputer & Mengendalikan laser, merekam spektrum emisi, dan mengidentifikasi ele
 \bottomrule
 \end{tabularx}
 \end{table}
+\subsection{Keunggulan, Tantangan, dan Penerapan LIBS}
+\label{sec:keunggulan_tantangan_libs}
+
+Sebagai teknik analisis, \textit{Laser-Induced Breakdown Spectroscopy} (LIBS) memiliki serangkaian keunggulan yang membuatnya sangat menarik untuk berbagai aplikasi, namun juga dihadapkan pada tantangan fundamental yang menjadi konteks penting bagi penelitian ini.
+
+\begin{table}[H]
+\centering
+\caption{Ringkasan Keunggulan dan Tantangan Metode LIBS.}
+\label{tab:keunggulan_tantangan}
+\begin{tabularx}{\textwidth}{
+  >{\raggedright\arraybackslash\hangindent=1em \hangafter=1}X 
+  >{\raggedright\arraybackslash\hangindent=1em \hangafter=1}X
+}
+\toprule
+\textbf{Keunggulan} & \textbf{Tantangan dan Kekurangan} \\
+\midrule
+\begin{itemize}
+    \item \textbf{Analisis Cepat \& Non-destruktif}: Mampu memberikan hasil analisis secara \textit{real-time} dengan hanya memerlukan sejumlah kecil material sampel \cite{cremers2013handbook}.
+    \item \textbf{Preparasi Sampel Minimal}: Sangat praktis untuk berbagai skenario karena tidak memerlukan preparasi sampel yang rumit \cite{cremers2013handbook}.
+    \item \textbf{Fleksibilitas Material}: Dapat diaplikasikan pada berbagai jenis sampel, termasuk logam, mineral, atau serat optik \cite{miziolek2006libs}.
+\end{itemize} & 
+\begin{itemize}
+    \item \textbf{Kompleksitas Spektrum}: Spektrum yang dihasilkan sangat kompleks dengan ribuan garis emisi yang dapat tumpang-tindih (interferensi) \cite{cremers2013handbook}.
+    \item \textbf{Efek Matriks \& Fluktuasi}: Akurasi dipengaruhi oleh efek matriks dan fluktuasi stokastik kondisi plasma dari satu tembakan laser ke tembakan berikutnya \cite{gaudiuso2023matrix}.
+    \item \textbf{Ketergantungan pada Kalibrasi}: Metode konvensional sangat bergantung pada proses kalibrasi yang mahal dan memakan waktu menggunakan sampel standar (CRMs) \cite{porizka2018review}.
+\end{itemize} \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Berkat keunggulannya, LIBS telah diterapkan di berbagai bidang ilmu pengetahuan dan teknologi. Beberapa area penerapan utamanya meliputi:
+\begin{itemize}
+    \item \textbf{Industri dan Analisis Material}: Untuk kontrol kualitas dan analisis komposisi logam, mineral, dan material lainnya \cite{kramida2022nist}.
+    \item \textbf{Eksplorasi Planet}: Digunakan dalam misi luar angkasa, seperti pada robot penjelajah Mars, untuk menganalisis komposisi batuan dan tanah \cite{kramida2022nist}.
+    \item \textbf{Penelitian Fisika dan Kimia}: Sebagai alat fundamental untuk studi plasma dan interaksi laser-materi \cite{miziolek2006libs}.
+    \item \textbf{Aplikasi Lainnya}: Mencakup analisis lingkungan, deteksi bahan berbahaya, serta aplikasi dalam bidang biomedis \cite{porizka2018review}.
+\end{itemize}
 \subsection{Database NIST untuk Spektrum LIBS}
 
 NIST menyediakan \textit{Atomic Spectra Database} (ASD) sebagai sumber data spektral untuk LIBS \citep{Kramida2023}. ASD mencakup lebih dari 180.000 garis spektral dan 90.000 tingkat energi untuk 99 elemen, dengan rentang panjang gelombang 0,4~\AA{} hingga 20.000~\si{\micro\meter}, mendukung identifikasi elemen dalam plasma LIBS. Antarmuka khusus LIBS pada ASD memungkinkan perhitungan spektrum emisi dalam kondisi LTE berdasarkan suhu dan densitas elektron, menggunakan persamaan Saha dan Boltzmann untuk memodelkan intensitas garis emisi. Data ini divalidasi secara kritis, relevan untuk analisis material di berbagai aplikasi, seperti eksplorasi planet dan industri \citep{Kramida2022}. Tabel~\ref{tab:nist_features} merangkum fitur utama ASD untuk LIBS.
@@ -354,11 +391,33 @@ Parameter Fisis pelebaran garis dalam LIBS meliputi:
   \item \textbf{Resolusi Spektral}: Pelebaran instrumental dan Doppler dapat mengaburkan garis spektral yang berdekatan, mengurangi kemampuan untuk membedakan transisi \citep{Aragon2008}.
 \end{itemize}
 
-Kemudian profil Voigt dihitung menggunakan algoritma numerik, seperti aproksimasi Humlíček, untuk memodelkan garis spektral dengan akurasi tinggi sambil meminimalkan biaya komputasi \citep{Griem1997}. Pendekatan ini memungkinkan analisis kuantitatif parameter plasma dan komposisi elemen dengan memisahkan kontribusi Gaussian dan Lorentzian melalui dek convolusi \citep{Aragon2008}.
+Kemudian profil Voigt dihitung menggunakan algoritma numerik, seperti aproksimasi Humlíček, untuk memodelkan garis spektral dengan akurasi tinggi sambil meminimalkan biaya komputasi \citep{Griem1997}. Pendekatan ini memungkinkan analisis kuantitatif parameter plasma dan komposisi elemen dengan memisahkan kontribusi Gaussian dan Lorentzian melalui dekonvolusi \citep{Aragon2008}.
 
-\section{Pembelajaran Mendalam: Pemodelan Deret Waktu Berbasis \textit{Transformer}}
+\section{\textit{Deep Learning}}
 
-Pemodelan deret waktu adalah inti dari analisis data sekuensial, seperti prediksi cuaca, analisis data spektral, dan berbagai aplikasi berbasis deret waktu. Tantangan utamanya adalah menangkap ketergantungan jarak jauh (\textit{long-range dependencies}) dalam urutan panjang dengan efisiensi komputasi tinggi. Pemodelan deret waktu telah berkembang dari \textit{Recurrent Neural Networks} (RNN) \citep{Bengio1994}, yang terhambat oleh masalah \textit{vanishing gradient} dan pemrosesan sekuensial \citep{Hochreiter1997}. Model seperti \textit{Long Short-Term Memory} (LSTM) dan \textit{Gated Recurrent Unit} (GRU) meningkatkan penanganan ketergantungan jarak jauh, tetapi tetap kurang efisien untuk deret waktu sangat panjang \citep{Hochreiter1997}. \textit{Transformer}, diperkenalkan oleh \citet{Vaswani2017}, merevolusi pemrosesan deret waktu dengan mekanisme \textit{self-attention} yang memungkinkan pemrosesan paralel dan panjang jalur maksimum \( O(1) \). Namun, kompleksitas kuadratiknya (\( O(n^2) \)) membatasi skalabilitas untuk urutan panjang.
+Kecerdasan buatan  adalah bidang ilmu yang berkembang pesat dengan tujuan untuk mengotomatisasi tugas-tugas intelektual dan menciptakan mesin yang dapat berpikir. Awalnya, Kecerdasan Buatan berfokus pada penyelesaian masalah yang dapat dideskripsikan melalui aturan matematika formal, namun tantangan sebenarnya terletak pada tugas-tugas yang intuitif bagi manusia, seperti mengenali ucapan atau wajah. Untuk mengatasi tantangan ini, muncul sub-bidang AI yang dikenal sebagai \textit{machine learning} (pembelajaran mesin), sebuah pendekatan yang memungkinkan komputer untuk memperoleh pengetahuannya sendiri dengan mengekstraksi pola dari data mentah. Di dalam \textit{machine learning}, terdapat pendekatan spesifik yang disebut \textit{deep learning} (pembelajaran mendalam), yang menjadi fokus utama dalam literatur modern\parencite{Goodfellow2016}.
+
+Menurut Goodfellow et al., \textit{deep learning} adalah jenis \textit{machine learning} yang memungkinkan komputer untuk belajar dari pengalaman dan memahami dunia sebagai hierarki konsep. Pendekatan ini menghindari kebutuhan bagi operator manusia untuk secara formal menentukan semua pengetahuan yang dibutuhkan komputer. Konsep sentral dalam \textit{deep learning} adalah pembelajaran representasi (\textit{representation learning}), yaitu kemampuan untuk menemukan tidak hanya pemetaan dari representasi ke output, tetapi juga representasi itu sendiri. Kinerja algoritma \textit{machine learning} sangat bergantung pada representasi data yang diberikan. \textit{Deep learning} memecahkan masalah ini dengan menyusun representasi dalam bentuk hierarki konsep-konsep sederhana yang kemudian dibangun menjadi konsep-konsep yang lebih kompleks. Sebagai contoh, sebuah sistem dapat mengenali citra seseorang dengan terlebih dahulu mengidentifikasi keberadaan tepi (\textit{edges}), kemudian menyusunnya menjadi kontur dan sudut (\textit{corners and contours}), lalu menjadi bagian objek (\textit{object parts}), dan akhirnya menjadi identitas objek itu sendiri. Struktur berlapis-lapis inilah yang memberikan nama \textit{deep} pada pendekatan ini\parencite{Goodfellow2016}.
+
+Kerangka kerja \textit{deep learning} diimplementasikan melalui berbagai arsitektur jaringan saraf tiruan (\textit{artificial neural networks}). Arsitektur-arsitektur ini, meskipun berbeda dalam spesialisasi, berbagi prinsip dasar komposisi fungsi berlapis untuk membangun representasi yang semakin abstrak.
+
+\subsection{Feedforward Deep Networks (Multilayer Perceptrons)}
+\textit{Feedforward deep networks}, juga dikenal sebagai \textit{multilayer perceptrons} (MLPs), adalah arsitektur \textit{deep learning} yang klasik. Model ini merupakan fungsi matematika yang memetakan sekumpulan nilai input ke nilai output melalui komposisi banyak fungsi yang lebih sederhana, di mana setiap fungsi komponen disebut sebagai lapisan (\textit{layer}) jaringan. Dengan jumlah unit tersembunyi yang cukup, MLP dapat menjadi penghampir universal (\textit{universal approximators}), yang mampu merepresentasikan fungsi kompleks apa pun. Lapisan-lapisan tersembunyi ini bertugas untuk mempelajari fitur atau representasi dari data, yang kemudian digunakan oleh lapisan output untuk melakukan tugas akhir, seperti klasifikasi atau regresi\parencite{Goodfellow2016}.
+
+\subsection{Convolutional Networks}
+\textit{Convolutional Networks} (CNNs) adalah jenis jaringan saraf khusus untuk memproses data yang memiliki topologi seperti \textit{grid}, contohnya adalah data citra (\textit{grid} piksel 2D) dan data deret waktu (\textit{grid} 1D). CNN memanfaatkan operasi matematika yang disebut konvolusi sebagai pengganti perkalian matriks umum di setidaknya salah satu lapisannya. Arsitektur CNN didasarkan pada tiga ide utama: konektivitas renggang (\textit{sparse connectivity}), pembagian parameter (\textit{parameter sharing}), dan representasi ekuivarian (\textit{equivariant representations}). Selain itu, CNN hampir selalu menyertakan lapisan \textit{pooling}, yang berfungsi untuk membuat representasi menjadi invarian terhadap translasi kecil pada input. Desain CNN sangat terinspirasi oleh sistem visual biologis, di mana neuron di korteks visual primer (V1) memiliki medan reseptif lokal, yang serupa dengan cara kerja unit detektor pada CNN\parencite{Goodfellow2016}.
+
+\subsection{Sequence Modeling: Recurrent and Recursive Nets}
+Untuk memodelkan data sekuensial, seperti teks atau ucapan, arsitektur khusus telah dikembangkan. Ide utamanya adalah pembagian parameter di berbagai bagian model, yang memungkinkan generalisasi pada contoh dengan panjang yang bervariasi. \textit{Recurrent Neural Networks} (RNNs) mengimplementasikan ide ini dengan menerapkan fungsi transisi yang sama pada "keadaan" (\textit{state}) tersembunyi di setiap langkah waktu. Keadaan ini bertindak sebagai ringkasan dari sekuens masa lalu yang diperlukan untuk membuat prediksi di masa depan. Tantangan utama dalam melatih RNN adalah kesulitan dalam mempelajari dependensi jangka panjang (\textit{long-term dependencies}) karena gradien cenderung menghilang atau meledak seiring waktu. Varian yang lebih canggih seperti \textit{Long Short-Term Memory} (LSTM) dirancang untuk mengatasi masalah ini dengan menggunakan unit gerbang (\textit{gating units}) untuk mengontrol aliran informasi. Selain itu, \textit{Recursive Neural Networks} merupakan generalisasi dari RNN yang beroperasi pada struktur data hierarkis seperti pohon, bukan hanya sekuens linear\parencite{Goodfellow2016}.
+
+\subsection{Model Probabilistik Terstruktur dan Generatif}
+Di luar arsitektur yang berfokus pada tugas-tugas supervisi, penelitian \textit{deep learning} juga mencakup pengembangan model probabilistik terstruktur yang kompleks. Model-model ini menggunakan graf untuk merepresentasikan interaksi langsung antara variabel acak, yang memungkinkan deskripsi distribusi probabilitas yang kompleks secara efisien. Salah satu blok bangunan fundamental dalam kategori ini adalah \textit{Restricted Boltzmann Machine} (RBM), sebuah model berbasis energi dengan variabel terlihat dan tersembunyi yang terhubung dalam graf bipartit. RBM dapat ditumpuk untuk membentuk model yang lebih dalam, seperti \textit{Deep Belief Networks} (DBNs) dan \textit{Deep Boltzmann Machines} (DBMs), yang merupakan model generatif mendalam yang sepenuhnya tidak terarah. Model-model ini mengatasi tantangan komputasi yang ditimbulkan oleh fungsi partisi yang sulit dilacak melalui berbagai metode inferensi dan pelatihan aproksimatif\parencite{Goodfellow2016}.
+
+Meskipun arsitektur-arsitektur yang telah dibahas, khususnya \textit{Recurrent Neural Networks} (RNNs) dan variannya seperti LSTM, telah terbukti sangat kuat untuk data sekuensial, keterbatasan fundamentalnya dalam menangani dependensi jangka panjang—akibat masalah seperti \textit{vanishing gradient} (di mana sinyal error menjadi terlalu kecil untuk memperbarui lapisan-lapisan awal secara efektif)—menjadi penghalang dalam aplikasi yang melibatkan deret waktu yang sangat panjang. Keterbatasan inilah yang mendorong pengembangan arsitektur generasi berikutnya yang tidak lagi bergantung pada pemrosesan rekursif. Dari kebutuhan ini, lahir arsitektur \textit{Transformer}, yang menawarkan pendekatan revolusioner untuk pemodelan sekuensial melalui mekanisme perhatian (\textit{attention mechanism}).
+
+\subsection{Arsitektur Transformer untuk Pemodelan Deret Waktu}
+
+Seperti yang telah disinggung pada sub-bab sebelumnya, model berbasis \textit{Recurrent Neural Networks} (RNN) \citep{Bengio1994} terhambat oleh masalah \textit{vanishing gradient} dan pemrosesan sekuensial saat memproses sekuens yang panjang \citep{Hochreiter1997}. Model seperti \textit{Long Short-Term Memory} (LSTM) dan \textit{Gated Recurrent Unit} (GRU) meningkatkan penanganan ketergantungan jarak jauh, tetapi tetap kurang efisien untuk deret waktu sangat panjang \citep{Hochreiter1997}. \textit{Transformer}, diperkenalkan oleh \citet{Vaswani2017}, merevolusi pemrosesan deret waktu dengan mekanisme \textit{self-attention} (sebuah proses yang memungkinkan model untuk menimbang pentingnya setiap bagian dari data input saat memproses bagian lain) yang memungkinkan pemrosesan paralel dan panjang jalur maksimum \( O(1) \). Namun, kompleksitas kuadratiknya (\( O(n^2) \)) membatasi skalabilitas untuk urutan panjang.
 
 \begin{table}[H]
 \centering
@@ -449,54 +508,55 @@ x_{\text{input}} = x + PE \label{eq:bab2_eq41}
 \end{equation}
 dengan \( x \in \mathbb{R}^{n \times 512} \) sebagai vektor representasi token. Fungsi sinusoid memastikan pola periodik yang mendukung generalisasi ke urutan panjang, krusial untuk peramalan deret waktu panjang seperti prediksi cuaca bulanan. Sifat ini memungkinkan model mempertahankan urutan temporal tanpa ketergantungan sekuensial.
 
-\subsection{Kelebihan dan Keterbatasan}
+\subsection{Perbandingan Arsitektur: \textit{Transformer} vs. \textit{Informer}}
 
-\textit{Transformer} menawarkan keunggulan signifikan untuk pemodelan deret waktu \citep{Vaswani2017}:
-\begin{enumerate}
-    \item \textbf{Ketergantungan Jarak Jauh}: Panjang jalur maksimum \( O(1) \), memungkinkan model menangkap hubungan temporal seperti pola musiman tanpa batasan RNN.
-    \item \textbf{Paralelisme}: Pemrosesan paralel mengurangi waktu pelatihan (12 jam pada 8 GPU P100 untuk WMT 2014).
-    \item \textbf{Fleksibilitas}: Digeneralisasi ke tugas seperti analisis spektral (F1 92.7 untuk \textit{parsing}).
-\end{enumerate}
+\textit{Transformer} menawarkan keunggulan signifikan dibandingkan arsitektur sekuensial sebelumnya seperti RNN, terutama dalam kemampuannya menangani dependensi jarak jauh melalui pemrosesan paralel. Namun, seperti yang ditunjukkan pada Tabel~\ref{tab:transformer_vs_informer}, arsitektur ini memiliki keterbatasan fundamental terkait efisiensi komputasi pada sekuens yang panjang. Keterbatasan inilah yang secara langsung diatasi oleh arsitektur \textit{Informer}, yang dirancang khusus untuk tugas-tugas yang melibatkan data sekuensial panjang seperti spektrum LIBS.
 
-Namun, keterbatasan meliputi:
-\begin{enumerate}
-    \item \textbf{Kompleksitas Kuadratik}: Kompleksitas waktu per lapisan adalah \( O(n^2 \cdot d) \) untuk \textit{self-attention} dan \( O(n \cdot d \cdot d_{\text{ff}}) \) untuk FFN, menghasilkan total:
-    \begin{equation}
-    \text{Waktu} = O(N \cdot (n^2 \cdot d + n \cdot d \cdot d_{\text{ff}})) \label{eq:bab2_eq42}
-    \end{equation}
-    Memori juga kuadratik: \( O(N \cdot n^2) \), membatasi skalabilitas untuk deret waktu panjang.
-    \item \textbf{Kebutuhan Memori}: Penumpukan \( N=6 \) lapisan meningkatkan kebutuhan memori, terutama untuk \( n \) besar.
-    \item \textbf{Decoding Lambat}: \textit{Dynamic decoding} auto-regresif memperlambat inferensi \citep{Zhou2021}.
-\end{enumerate}
-Keterbatasan ini mendorong pengembangan varian seperti \textit{Informer}, yang mengurangi kompleksitas menjadi x menggunakan \textit{ProbSparse self-attention}.
+\begin{table}[H]
+\centering
+\caption{Perbandingan Karakteristik \textit{Transformer} dan \textit{Informer}}
+\label{tab:transformer_vs_informer}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X}
+\toprule
+\textbf{Aspek} & \textbf{\textit{Transformer}} & \textbf{\textit{Informer}} \\
+\midrule
+\textbf{Kompleksitas Waktu (per lapis)} & Kuadratik, \textbf{O(L\textsuperscript{2})}. Menjadi sangat lambat pada sekuens panjang. & Log-linear, \textbf{O(L log L)}. Jauh lebih efisien berkat \textit{ProbSparse Self-Attention}. \\
+\addlinespace
+\textbf{Kebutuhan Memori (per lapis)} & Kuadratik, \textbf{O(L\textsuperscript{2})}. Membatasi panjang sekuens input yang bisa diproses. & Log-linear, \textbf{O(L log L)}. Dioptimalkan lebih lanjut dengan \textit{Self-Attention Distilling}. \\
+\addlinespace
+\textbf{Kemampuan Menangani Sekuens Panjang} & Terbatas. Sering mengalami \textit{out-of-memory} pada input yang sangat panjang. & Unggul. Dirancang khusus untuk memproses sekuens yang sangat panjang secara efisien. \\
+\addlinespace
+\textbf{Kecepatan Inferensi (Prediksi)} & Lambat, \textbf{O(L)}. Melakukan prediksi secara langkah-demi-langkah (\textit{step-by-step}). & Sangat Cepat, \textbf{O(1)}. Menghasilkan seluruh sekuens output dalam satu langkah maju (\textit{one-shot}). \\
+\addlinespace
+\textbf{Penanganan Dependensi Jarak Jauh} & Baik. Mampu menghubungkan titik data yang jauh melalui jalur O(1). & Sangat Baik. Mempertahankan kemampuan \textit{Transformer} sambil memungkinkan analisis pada sekuens yang lebih panjang. \\
+\bottomrule
+\end{tabularx}
+\end{table}
 
-\section{Teknik Pelatihan Lanjutan untuk Model Deep Learning}
 
-\subsection{Focal Loss}
+\section{Teknik Pelatihan Lanjutan untuk Model \textit{Deep Learning}}
 
-Focal Loss adalah sebuah pengembangan dari fungsi kerugian (*loss function*) Cross-Entropy yang dirancang khusus untuk mengatasi masalah ketidakseimbangan kelas (*class imbalance*) dalam tugas klasifikasi. Pada banyak dataset eksperimental, termasuk data spektrometri, distribusi kelas seringkali tidak merata, di mana beberapa kelas (sampel positif) jauh lebih sedikit daripada kelas lainnya (sampel negatif).
+\subsection{\textit{Focal Loss}}
 
-Focal Loss bekerja dengan cara memodifikasi fungsi Cross-Entropy standar agar memberikan bobot yang lebih kecil pada sampel yang sudah dapat diklasifikasikan dengan mudah (*well-classified examples*). Dengan demikian, model dapat memfokuskan proses pelatihannya pada sampel-sampel yang sulit (*hard examples*). Secara matematis, Focal Loss didefinisikan sebagai:
+\textit{Focal Loss} adalah sebuah pengembangan dari fungsi kerugian (\textit{loss function}) \textit{Cross-Entropy} yang dirancang khusus untuk mengatasi masalah ketidakseimbangan kelas (\textit{class imbalance}) dalam tugas klasifikasi. Pada banyak dataset eksperimental, termasuk data spektrometri, distribusi kelas seringkali tidak merata, di mana beberapa kelas (sampel positif) jauh lebih sedikit daripada kelas lainnya (sampel negatif).
+
+\textit{Focal Loss} bekerja dengan cara memodifikasi fungsi \textit{Cross-Entropy} standar agar memberikan bobot yang lebih kecil pada sampel yang sudah dapat diklasifikasikan dengan mudah (\textit{well-classified examples}). Dengan demikian, model dapat memfokuskan proses pelatihannya pada sampel-sampel yang sulit (\textit{hard examples}). Secara matematis, \textit{Focal Loss} didefinisikan sebagai:
 \begin{equation}
 \text{FL}(p_t) = -\alpha_t (1 - p_t)^\gamma \log(p_t)
 \end{equation}
-di mana \(p_t\) adalah probabilitas yang diprediksi model untuk kelas yang benar, \(\gamma\) adalah parameter pemfokusan, dan \(\alpha_t\) adalah faktor pembobotan. Ketika \(\gamma > 0\), loss untuk sampel yang mudah diklasifikasikan (di mana \(p_t\) mendekati 1) akan dikurangi, sehingga kontribusi dari sampel yang sulit menjadi lebih signifikan dalam perhitungan gradien untuk pembaruan bobot model \parencite{Lin2017FocalLoss}.
+di mana \(p_t\) adalah probabilitas yang diprediksi model untuk kelas yang benar, \(\gamma\) adalah parameter pemfokusan, dan \(\alpha_t\) adalah faktor pembobotan. Ketika \(\gamma > 0\), \textit{loss} untuk sampel yang mudah diklasifikasikan (di mana \(p_t\) mendekati 1) akan dikurangi, sehingga kontribusi dari sampel yang sulit menjadi lebih signifikan dalam perhitungan gradien untuk pembaruan bobot model \parencite{Lin2017FocalLoss}.
 
-\subsection{Mixed-Precision Training}
+\subsection{\textit{Mixed-Precision Training}}
 
-	\textit{Deep Learning} (Pelatihan Presisi Campuran) adalah sebuah teknik untuk mengoptimalkan proses pelatihan model 	\textit{Deep Learning} dengan menggunakan kombinasi antara format bilangan 	\textit{floating-point} presisi 32-bit (FP32 atau 	\textit{single precision}) dan presisi 16-bit (FP16 atau 	\textit{half precision}).
+	\textit{Mixed-Precision Training} (Pelatihan Presisi Campuran) adalah sebuah teknik untuk mengoptimalkan proses pelatihan model 	\textit{deep learning} dengan menggunakan kombinasi antara format bilangan 	\textit{floating-point} presisi 32-bit (FP32 atau 	\textit{single precision}) dan presisi 16-bit (FP16 atau 	\textit{half precision}).
 
-Teknik ini memberikan dua keuntungan utama. Pertama, penggunaan presisi 16-bit secara signifikan mengurangi jejak memori (*memory footprint*) yang dibutuhkan oleh model di GPU, sehingga memungkinkan pelatihan dengan ukuran 	\textit{batch} (*batch size*) yang lebih besar atau model dengan arsitektur yang lebih kompleks. Kedua, pada unit pemrosesan grafis (GPU) modern yang dilengkapi dengan Tensor Cores, operasi matematis menggunakan presisi 16-bit dapat dieksekusi jauh lebih cepat dibandingkan presisi 32-bit, sehingga mempersingkat total waktu pelatihan secara drastis. Untuk mencegah masalah numerik seperti 	\textit{gradient underflow} (gradien menjadi nol karena nilainya terlalu kecil dalam presisi 16-bit), teknik ini umumnya diimplementasikan bersama dengan 	\textit{loss scaling} \parencite{Micikevicius2018MixedPrecision}.
+Teknik ini memberikan dua keuntungan utama. Pertama, penggunaan presisi 16-bit secara signifikan mengurangi jejak memori (\textit{memory footprint}) yang dibutuhkan oleh model di GPU, sehingga memungkinkan pelatihan dengan ukuran 	\textit{batch} (\textit{batch size}) yang lebih besar atau model dengan arsitektur yang lebih kompleks. Kedua, pada unit pemrosesan grafis (GPU) modern yang dilengkapi dengan \textit{Tensor Cores}, operasi matematis menggunakan presisi 16-bit dapat dieksekusi jauh lebih cepat dibandingkan presisi 32-bit, sehingga mempersingkat total waktu pelatihan secara drastis. Untuk mencegah masalah numerik seperti 	\textit{gradient underflow} (gradien menjadi nol karena nilainya terlalu kecil dalam presisi 16-bit), teknik ini umumnya diimplementasikan bersama dengan 	\textit{loss scaling} \parencite{Micikevicius2018MixedPrecision}.
 
-\subsection{Optimisasi Hyperparameter Otomatis}
+\section{\textit{Informer}}
 
-Optimisasi 	\textit{hyperparameter} adalah proses menemukan kombinasi 	\textit{hyperparameter} (misalnya, 	\textit{learning rate}, 	\textit{dropout rate}, jumlah 	\textit{layer}) yang menghasilkan kinerja model terbaik. Metode manual seperti 	\textit{grid search} atau 	\textit{random search} seringkali tidak efisien secara komputasi.
+Pemodelan deret waktu panjang (\textit{long sequence time-series forecasting}, LSTF) menghadapi tantangan dalam menangkap ketergantungan jarak jauh pada urutan dengan panjang \( n \gg 1000 \), seperti prediksi konsumsi energi atau lalu lintas \citep{Wu2021}. Meskipun \textit{Transformer} \citep{Vaswani2017} unggul dalam menangkap pola temporal, kompleksitas kuadratiknya (\( O(n^2 \cdot d) \)) menyebabkan kebutuhan memori dan waktu komputasi yang sangat besar, membuatnya tidak praktis untuk sekuens yang sangat panjang seperti data spektral resolusi tinggi. 
 
-	\textit{Framework} optimisasi otomatis modern menggunakan algoritma pencarian yang lebih cerdas, salah satunya berbasis 	\textit{Bayesian Optimization}. Selain itu, 	\textit{framework} ini mengimplementasikan mekanisme 	\textit{pruning} (pemangkasan). 	\textit{Pruning} adalah strategi untuk menghentikan 	\textit{trial} (percobaan) pelatihan secara dini jika kinerjanya terdeteksi tidak menjanjikan berdasarkan metrik evaluasi pada epoch-epoch awal. Dengan menghentikan 	\textit{trial} yang buruk lebih awal, sumber daya komputasi dapat dialokasikan untuk mengeksplorasi kombinasi 	\textit{hyperparameter} lain yang lebih potensial, membuat proses pencarian menjadi jauh lebih efisien \parencite{Akiba2019Optuna}.
-
-\section{	\textit{Informer}}
-
-Pemodelan deret waktu panjang (\textit{long sequence time-series forecasting}, LSTF) menghadapi tantangan dalam menangkap ketergantungan jarak jauh pada urutan dengan panjang \( n \gg 1000 \), seperti prediksi konsumsi energi atau lalu lintas \citep{Wu2021}. Meskipun \textit{Transformer} \citep{Vaswani2017} unggul dalam menangkap pola temporal, kompleksitas kuadratiknya (\( O(n^2 \cdot d) \)) menyebabkan kebutuhan memori dan waktu komputasi yang sangat besar, membuatnya tidak praktis untuk sekuens yang sangat panjang seperti data spektral resolusi tinggi. Untuk mengatasi limitasi fundamental ini, \citet{Zhou2021} memperkenalkan \textbf{\textit{Informer}}, sebuah arsitektur yang dirancang secara spesifik untuk menjadi \textbf{solusi yang lebih efektif dan efisien dalam menangani LSTF}. Argumen utama dari \textcite{Zhou2021} adalah bahwa dengan tiga inovasi kunci—yaitu \textit{ProbSparse Self-Attention} dengan kompleksitas \( O(L \log L) \), \textit{self-attention distilling} untuk memperpendek sekuens di lapisan dalam, dan \textit{decoder} generatif untuk inferensi cepat—\textit{Informer} mampu mencapai kinerja yang lebih tinggi dengan penggunaan sumber daya komputasi yang jauh lebih rendah, menjadikannya pilihan yang superior untuk aplikasi yang melibatkan data sekuensial panjang.
+Untuk mengatasi limitasi fundamental ini, \citet{Zhou2021} memperkenalkan \textbf{\textit{Informer}}, sebuah arsitektur yang dirancang secara spesifik untuk menjadi \textbf{solusi yang lebih efektif dan efisien dalam menangani LSTF}. Pemilihan arsitektur ini sangat relevan dengan sifat fisis data LIBS. Spektrum emisi secara alami bersifat 'jarang' (\textit{sparse}), di mana informasi penting terkonsentrasi pada puncak-puncak emisi yang tajam, sementara sebagian besar data adalah garis dasar. Argumen utama dari \textcite{Zhou2021} adalah bahwa dengan tiga inovasi kunci—yaitu \textit{ProbSparse Self-Attention} yang secara teoretis mampu mengeksploitasi sifat jarang ini dengan kompleksitas \( O(L \log L) \), \textit{self-attention distilling} untuk memperpendek sekuens di lapisan dalam, dan \textit{decoder} generatif untuk inferensi cepat—\textit{Informer} mampu mencapai kinerja yang lebih tinggi dengan penggunaan sumber daya komputasi yang jauh lebih rendah, menjadikannya pilihan yang superior untuk aplikasi yang melibatkan data sekuensial panjang.
 
 \subsection{Arsitektur \textit{Informer}}
 
@@ -604,25 +664,27 @@ dengan \( \mathbf{u}_i^t \in \mathbb{R}^{d_{\text{model}}} \) sebagai proyeksi m
 
 \subsection{Metrik Evaluasi}
 
-Evaluasi kinerja \textit{Informer} dilakukan menggunakan beberapa metrik untuk mengukur akurasi prediksi dan kemampuan model dalam mengidentifikasi elemen secara tepat. Metrik utama yang digunakan meliputi \textit{Mean Squared Error} (MSE), \textit{Mean Absolute Error} (MAE), \textit{Root Mean Squared Error} (RMSE), dan \textit{F1-Score} (Macro).
+Untuk mengevaluasi kinerja model dalam tugas klasifikasi multi-label pada penelitian ini, metrik yang berfokus pada akurasi identifikasi elemen menjadi krusial. Kinerja model dievaluasi berdasarkan kemampuannya untuk mengklasifikasikan setiap elemen dengan benar, yang diukur menggunakan \textit{True Positives} (TP), \textit{False Positives} (FP), dan \textit{False Negatives} (FN).
 
-\textit{Mean Squared Error} (MSE) mengukur rata-rata kuadrat selisih antara nilai prediksi \( \hat{\mathbf{y}}_i^t \) dan nilai aktual \( \mathbf{y}_i^t \), yang didefinisikan sebagai:
+\textbf{Presisi (\textit{Precision})} mengukur seberapa akurat prediksi positif yang dibuat oleh model. Secara analitis, presisi dihitung sebagai:
 \begin{equation}
-\text{MSE} = \frac{1}{L_y} \sum_{i=1}^{L_y} (\mathbf{y}_i^t - \hat{\mathbf{y}}_i^t)^2 \label{eq:bab2_eq51}
+\text{Precision} = \frac{\text{TP}}{\text{TP} + \text{FP}}
 \end{equation}
-\textit{Mean Absolute Error} (MAE) menghitung rata-rata kesalahan absolut:
-\begin{equation}
-\text{MAE} = \frac{1}{L_y} \sum_{i=1}^{L_y} |\mathbf{y}_i^t - \hat{\mathbf{y}}_i^t| \label{eq:bab2_eq52}
-\end{equation}
-Sedangkan \textit{Root Mean Squared Error} (RMSE) didefinisikan sebagai akar kuadrat dari \textit{MSE}:
-\begin{equation}
-\text{RMSE} = \sqrt{\frac{1}{L_y} \sum_{i=1}^{L_y} (\mathbf{y}_i^t - \hat{\mathbf{y}}_i^t)^2} \label{eq:bab2_eq53}
-\end{equation}
-Untuk masalah klasifikasi multi-label, terutama dalam konteks identifikasi elemen, metrik evaluasi yang lebih informatif diperlukan. \textbf{Presisi (\textit{Precision})} mengukur seberapa akurat prediksi positif yang dibuat oleh model, dengan menjawab pertanyaan: "Dari semua elemen yang diprediksi ada, berapa persen yang benar-benar ada?". \textbf{Recall} (juga dikenal sebagai sensitivitas) mengukur seberapa lengkap model dalam menemukan semua sampel positif yang relevan, dengan menjawab pertanyaan: "Dari semua elemen yang seharusnya terdeteksi, berapa persen yang berhasil ditemukan oleh model?".
+Metrik ini menjawab pertanyaan: "Dari semua elemen yang diprediksi ada, berapa persen yang benar-benar ada?".
 
-Sebagai penyeimbang antara kedua metrik tersebut, \textbf{F1-Score} digunakan sebagai metrik kunci. F1-Score adalah rata-rata harmonik dari presisi dan *recall*, yang memberikan representasi kinerja yang seimbang. Versi Macro menghitung F1-Score untuk setiap kelas secara independen dan kemudian mengambil rata-ratanya, memberikan bobot yang sama untuk setiap kelas tanpa memandang jumlah sampel per kelas. Ini sangat relevan untuk memastikan model berkinerja baik di semua elemen, termasuk elemen minor.
+\textbf{Recall} (juga dikenal sebagai sensitivitas) mengukur seberapa lengkap model dalam menemukan semua sampel positif yang relevan. Formulanya adalah:
+\begin{equation}
+\text{Recall} = \frac{\text{TP}}{\text{TP} + \text{FN}}
+\end{equation}
+Metrik ini menjawab pertanyaan: "Dari semua elemen yang seharusnya terdeteksi, berapa persen yang berhasil ditemukan oleh model?".
 
-Metrik-metrik ini memungkinkan perbandingan kinerja \textit{Informer} dengan model lain serta evaluasi komprehensif terhadap kemampuan model dalam memprediksi spektrum emisi dan mengidentifikasi elemen.
+Sebagai penyeimbang antara kedua metrik tersebut, \textbf{F1-Score} digunakan sebagai metrik kunci. F1-Score adalah rata-rata harmonik dari presisi dan \textit{recall}, yang memberikan representasi kinerja yang seimbang dan dihitung sebagai:
+\begin{equation}
+\text{F1-Score} = 2 \times \frac{\text{Precision} \times \text{Recall}}{\text{Precision} + \text{Recall}}
+\end{equation}
+Versi Macro menghitung F1-Score untuk setiap kelas secara independen dan kemudian mengambil rata-ratanya, memberikan bobot yang sama untuk setiap kelas tanpa memandang jumlah sampel per kelas. Ini sangat relevan untuk memastikan model berkinerja baik di semua elemen, termasuk elemen minor.
+
+Metrik-metrik ini memungkinkan evaluasi komprehensif terhadap kemampuan model dalam mengidentifikasi elemen dari spektrum emisi.
 
 
 Berdasarkan tinjauan pustaka, jelas bahwa tantangan utama dalam analisis LIBS terletak pada kompleksitas spektral dan interferensi. Di sisi lain, arsitektur \textit{Informer} menunjukkan potensi luar biasa dalam memodelkan dependensi jarak jauh pada data sekuensial yang panjang dan kompleks. Oleh karena itu, penelitian ini berhipotesis bahwa dengan melatih \textit{Informer} pada dataset sintetis yang realistis, model ini dapat 'mempelajari' fisika fundamental di balik spektrum LIBS dan mengatasi tantangan tersebut tanpa memerlukan kalibrasi konvensional.

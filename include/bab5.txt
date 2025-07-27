@@ -1,0 +1,32 @@
+%-------------------------------------------------------------------------------
+%                            BAB V
+%               		KESIMPULAN DAN SARAN
+%-------------------------------------------------------------------------------
+\chapter{KESIMPULAN DAN SARAN}
+
+\section{Kesimpulan}
+
+Penelitian ini berhasil memberikan \textbf{bukti konsep (proof of concept) yang kuat} untuk metode analisis LIBS berbasis model \textit{Deep Learning} yang dilatih sepenuhnya pada spektrum emisi sintetis, sebuah pendekatan yang dirancang untuk mengatasi ketergantungan pada kalibrasi eksperimental.
+
+Validasi dataset sintetis menunjukkan kemampuannya mereplikasi kompleksitas spektral, termasuk fenomena interferensi, serta akurasi fisik yang tinggi dibandingkan dengan data referensi NIST ASD, menegaskan fondasi yang kokoh untuk pelatihan model.
+
+Evaluasi komprehensif terhadap arsitektur model \textit{Informer} mengungkapkan bahwa model dengan \textbf{2-layer encoder} mencapai \textbf{keseimbangan optimal} antara kompleksitas dan kinerja, menghasilkan F1-Score (Macro) sebesar \textbf{0.5797}. Kinerja ini secara signifikan lebih unggul dibandingkan dengan model 3-layer yang lebih kompleks, menyoroti pentingnya optimisasi arsitektur untuk mencegah \textit{overfitting} dan memaksimalkan generalisasi.
+
+Keberhasilan model 2-layer dalam mencapai akurasi prediksi multi-elemen yang tinggi tanpa kalibrasi eksperimental, didukung oleh pelatihan eksklusif pada spektrum sintetis, secara langsung menjawab rumusan masalah pertama penelitian. Meskipun model menunjukkan kemampuan \textit{recall} yang tinggi, tantangan pada \textit{precision} untuk beberapa elemen minor tetap ada, mengindikasikan area untuk perbaikan lebih lanjut.
+
+Efisiensi komputasi model \textit{Informer}, yang merupakan salah satu tujuan penelitian, juga terbukti melalui kemampuannya memproses spektrum resolusi tinggi.
+
+Secara keseluruhan, penelitian ini menegaskan potensi besar pendekatan berbasis DL dengan data sintetis untuk analisis spektral LIBS. Ini membuka jalan bagi pengembangan metode analisis unsur yang lebih efisien, hemat biaya, dan berpotensi sepenuhnya bebas kalibrasi, merevolusi aplikasi LIBS di berbagai bidang.
+
+\section{Saran}
+Berdasarkan temuan dan keterbatasan yang telah diidentifikasi dalam penelitian ini, beberapa arah strategis untuk penelitian selanjutnya dapat direkomendasikan untuk membangun di atas fondasi yang telah diletakkan:
+\begin{enumerate}
+    \item \textbf{Validasi Lebih Lanjut dengan Data Spektral Eksperimental:} Meskipun model telah menunjukkan potensi aplikasinya melalui pengujian pada data eksperimental yang sudah ada, validasi yang lebih ekstensif menggunakan data spektral eksperimental dari beragam komposisi matriks tetap menjadi langkah krusial berikutnya. Pengujian terhadap data spektral eksperimental dengan beragam komposisi matriks akan secara langsung menguji ketahanan dan kemampuan generalisasi model dalam menghadapi efek matriks yang tidak terduga, yang merupakan salah satu keterbatasan utama dari pendekatan berbasis simulasi.
+    \item \textbf{Perluasan Database dan Kondisi Simulasi:} Untuk mengatasi keterbatasan cakupan elemen dan asumsi LTE, penelitian selanjutnya disarankan untuk:
+    \begin{itemize}
+        \item Memperluas dataset sintetis dengan menyertakan lebih banyak elemen, terutama elemen-elemen penting secara industri atau lingkungan yang belum tercakup.
+        \item Mengembangkan model simulasi yang lebih canggih dengan mempertimbangkan kondisi non-LTE, yang dapat meningkatkan realisme spektrum yang dihasilkan dan akurasi model pada fase plasma yang lebih dinamis.
+    \end{itemize}
+    \item \textbf{Pengembangan Analisis Kuantitatif:} Saat ini, model berfokus pada identifikasi kualitatif. Sebuah langkah maju yang signifikan adalah mengembangkan arsitektur yang mampu melakukan analisis kuantitatif untuk memprediksi konsentrasi absolut atau relatif dari setiap elemen. Ini akan secara drastis meningkatkan nilai praktis dari metode yang diusulkan.
+    \item \textbf{Eksplorasi Arsitektur dan Interpretabilitas:} Meskipun \textit{Informer} terbukti efisien, penelitian di masa depan dapat mengeksplorasi arsitektur alternatif seperti model hibrida (CNN-Transformer) yang mungkin lebih baik dalam menangkap fitur spektral lokal dan dependensi global. Selain itu, penerapan teknik interpretabilitas (misalnya, SHAP atau LIME) sangat direkomendasikan untuk membuka "kotak hitam" model, memberikan pemahaman fisis tentang fitur spektral apa yang menjadi dasar prediksi, dan pada akhirnya, meningkatkan kepercayaan terhadap metode ini.
+\end{enumerate}

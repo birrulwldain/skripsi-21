@@ -389,7 +389,7 @@
 					\setlength{\parsep}{0pt}
 					\item[]{\makebox[2.5cm]{Nama\hfill} : \@fullname}
 					\item[]{\makebox[2.5cm]{NPM\hfill} : \@idnum}
-					\item[]{\makebox[2.5cm]{Program Studi\hfill} : \@dept}
+					\item[]{\makebox[2.5cm]{Program Studi\hfill} : Sarjana \@dept}
 				\end{compactitem}
 			\end{singlespace}
 			%\vspace{2.0cm} edited 16/04/2022
@@ -417,7 +417,7 @@
 				\begin{tabular}{lll}
 					&&Mengetahui:\\
 					Dekan FMIPA & \hfill &
-					Koordinator Prodi S1 Fisika FMIPA\\ 
+					Ketua Departemen Fisika FMIPA\\ 
 					\vspace{-0.27cm} & \vspace{-0.27cm} & \vspace{-0.27cm}\\
 					Universitas Syiah Kuala, & & Universitas Syiah Kuala,\\
 					\vspace{0.3cm} & \vspace{0.3cm} & \vspace{0.3cm}\\
@@ -427,7 +427,10 @@
 		\end{doublespace}
 
 		\vspace{0.9cm}
-		% Lulus Sidang Sarjana pada hari \@approvaldate
+		Lulus Sidang Sarjana pada hari Kamis, 24 Juli 2025\\
+		\vspace{0.5cm}
+
+		Tugas Akhir disahkan pada hari Kamis, 24 Juli 2025
 	\end{center}
 } 
 %sidang

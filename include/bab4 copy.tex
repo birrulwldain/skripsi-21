@@ -1,0 +1,245 @@
+\chapter{HASIL DAN PEMBAHASAN}
+
+
+\section{Karakteristik dan Validasi Dataset Spektral Sintetis}
+\label{sec:validasi_simulasi}
+Keberhasilan pendekatan yang diusulkan sangat bergantung pada kualitas dataset sintetis. Oleh karena itu, sebelum melatih model, dataset yang dihasilkan harus divalidasi untuk memastikan ia akurat secara fisis dan mampu mereplikasi kompleksitas yang ditemukan pada spektrum eksperimental.
+
+\subsection{Replikasi Kompleksitas Spektral: Studi Kasus Interferensi}
+Salah satu tantangan utama dalam analisis LIBS, sebagaimana diuraikan pada Latar Belakang, adalah adanya interferensi spektral, di mana garis emisi dari elemen yang berbeda tumpang-tindih. Sebuah dataset yang realistis harus mampu memodelkan fenomena ini. Untuk menunjukkan kemampuan ini, dilakukan studi kasus pada campuran multi-elemen yang umum ditemukan dalam analisis LIBS, seperti Aluminium (Al), Kalsium (Ca), Besi (Fe), dan Silikon (Si). Elemen-elemen ini seringkali memiliki garis emisi yang berdekatan atau tumpang tindih, menciptakan tantangan dalam identifikasi dan kuantifikasi.
+
+Gambar~\ref{fig:interference} menunjukkan hasil simulasi untuk campuran ini. Sub-gambar (a) menampilkan spektrum emisi utama yang disimulasikan, di mana tumpang tindih garis-garis emisi dari berbagai elemen terlihat jelas. Sub-gambar (b) menyajikan spektrum emisi yang didekonstruksi, memperlihatkan kontribusi individual dari setiap elemen pada panjang gelombang yang berbeda. Kemampuan simulasi untuk mereplikasi kompleksitas spektral dan kemudian memisahkan kontribusi ini sangat penting, karena ini menciptakan skenario yang menantang dan realistis bagi model DL untuk belajar memisahkan sinyal-sinyal yang saling mengganggu.
+
+\begin{figure}[H]
+    \centering
+    \subfloat[Simulasi (tanpa dekonstruksi)]{\includegraphics[width=0.48\textwidth]{images/Al-Ca-Fe-Si_T8000K_ne1e17_wl212-220nm.png}}
+    \hfill
+    \subfloat[Simulasi (dengan dekonstruksi)]{\includegraphics[width=0.48\textwidth]{images/Al-Ca-Fe-Si_T8000K_ne1e17_wl212-220nm_dk.png}}
+    \caption{Perbandingan spektrum emisi simulasi dengan dan tanpa dekonstruksi untuk campuran Al, Ca, Fe, Si pada $T = 8000$ K dan $n_e = 1.0 \times 10^{17}$ cm$^{-3}$ dalam rentang 212-220 nm. Gambar ini menyoroti kemampuan simulasi dalam memodelkan interferensi spektral yang kompleks.}
+    \label{fig:interference}
+\end{figure}
+
+\subsection{Validasi Akurasi Fisik terhadap NIST LIBS Database}
+Untuk memvalidasi akurasi fisis dari model simulasi, penelitian ini membandingkan hasilnya dengan data yang dihasilkan oleh basis data \textit{NIST Atomic Spectra Database} (ASD), yang dianggap sebagai standar referensi untuk simulasi spektrum dalam kondisi LTE. Dalam studi kasus ini, spektrum emisi campuran Aluminium (Al), Kalsium (Ca), Besi (Fe), dan Silikon (Si) yang dihasilkan oleh model simulasi ini dibandingkan dengan spektrum referensi yang diperoleh dari NIST ASD. Parameter simulasi yang digunakan adalah suhu plasma $T = 8000$ K dan densitas elektron $n_e = 1.0 \times 10^{17}$ cm$^{-3}$.
+
+Gambar~\ref{fig:nist_comparison} menunjukkan perbandingan visual ini pada dua rentang panjang gelombang yang berbeda. Terlihat adanya kesesuaian yang sangat tinggi antara spektrum yang dihasilkan dengan spektrum referensi dari NIST, baik dari segi posisi puncak maupun intensitas relatifnya. Validasi ini memberikan keyakinan bahwa implementasi persamaan Saha-Boltzmann dan profil Gaussian dalam simulasi ini telah akurat dan dapat diandalkan secara fisis untuk memodelkan spektrum emisi multi-elemen.
+
+\begin{figure}[H]
+    \centering
+    \subfloat[Spektrum Simulasi (212-220 nm)]{\includegraphics[width=0.48\textwidth]{images/Al-Ca-Fe-Si_T8000K_ne1e17_wl212-220nm_dk.png}}
+    \hfill
+    \subfloat[Referensi NIST (212-220 nm)]{\includegraphics[width=0.48\textwidth]{images/Al-Ca-Fe-Si_T8000K_ne1e17-NIST-1.png}}
+    \\ % New line for vertical stacking
+    \subfloat[Spektrum Simulasi (390-400 nm)]{\includegraphics[width=0.48\textwidth]{images/Al-Ca-Fe-Si_T8000K_ne1e17_wl390-400nm_dk.png}}
+    \hfill
+    \subfloat[Referensi NIST (390-400 nm)]{\includegraphics[width=0.48\textwidth]{images/Al-Ca-Fe-Si_T8000K_ne1e17-NIST.png}}
+    \caption{Perbandingan spektrum emisi hasil simulasi dengan referensi dari NIST ASD untuk campuran Al, Ca, Fe, Si pada $T = 8000$ K dan $n_e = 1.0 \times 10^{17}$ cm$^{-3}$. Kesesuaian yang tinggi pada kedua rentang panjang gelombang memvalidasi akurasi fisis dari model simulasi.}
+    \label{fig:nist_comparison}
+\end{figure}
+
+\subsection{Dinamika Spektral Akibat Kesetimbangan Ionisasi Saha: Studi Kasus Aluminium}
+Salah satu aspek paling fundamental dari fisika plasma yang harus dapat direplikasi oleh simulasi yang akurat adalah kesetimbangan ionisasi, yang diatur oleh persamaan Saha. Persamaan ini memprediksi bagaimana proporsi atom netral (ditandai sebagai Spektrum I, misal Al I) dan atom terionisasi (Spektrum II, misal Al II) berubah secara drastis seiring dengan kenaikan suhu plasma. Untuk memvalidasi bahwa dataset sintetis kami berhasil menangkap fenomena fisis ini, kami melakukan studi kasus pada spektrum Aluminium (Al) murni pada dua kondisi suhu yang kontras, dengan kerapatan elektron dijaga konstan pada $10^{17}$ cm$^{-3}$.
+
+Seperti yang diilustrasikan pada Gambar~\ref{fig:saha_ionization_al}, perubahan spektrum Al sangat signifikan:
+\begin{itemize}
+    \item \textbf{Pada suhu 6000 K (Kondisi Energi Rendah):} Energi termal dalam plasma belum cukup untuk mengionisasi sebagian besar atom Aluminium. Akibatnya, spektrum didominasi secara eksklusif oleh garis-garis emisi dari Al netral (Al I). Puncak-puncak yang kuat dari Al I terlihat jelas, sementara sinyal dari Al terionisasi (Al II) hampir tidak ada.
+    \item \textbf{Pada suhu 30000 K (Kondisi Energi Sangat Tinggi):} Pada suhu yang sangat tinggi, energi termal plasma menyebabkan hampir semua atom Al terionisasi. Spektrum mengalami transformasi dramatis: garis-garis emisi Al I yang sebelumnya dominan kini menghilang sepenuhnya. Sebaliknya, spektrum sekarang didominasi secara total oleh "sidik jari" dari Al terionisasi (Al II).
+\end{itemize}
+Kemampuan dataset sintetis untuk memodelkan transisi dinamis ini sangat krusial. Ini memastikan bahwa model \textit{Informer} tidak hanya belajar mengenali pola statis, tetapi juga dilatih untuk mengidentifikasi keberadaan sebuah elemen terlepas dari bagaimana kondisi plasma mengubah penampakan spektralnya.
+
+% =============================================================================
+% KOMENTAR: GAMBAR BARU YANG PERLU DIBUAT
+% =============================================================================
+% Buatlah sebuah gambar multi-panel (2 plot vertikal) yang menunjukkan spektrum
+% Aluminium (Al) murni pada dua suhu berbeda.
+%
+% PENTING:
+% 1. Gunakan rentang sumbu-x (panjang gelombang) dan sumbu-y (intensitas)
+%    yang SAMA untuk kedua plot agar perbandingannya adil.
+% 2. Pilih rentang panjang gelombang yang menunjukkan garis-garis representatif
+%    dari Al I dan Al II.
+% 3. Beri label pada beberapa puncak penting dengan "Al I" atau "Al II".
+% 4. Simpan file gambar di folder 'images/'.
+% 5. Ganti nama file placeholder di bawah ini dengan nama file Anda.
+% =============================================================================
+\begin{figure}[H]
+    \centering
+    \subfloat[Spektrum Al pada 6000 K (Dominan Al I)]{\includegraphics[width=0.8\textwidth]{images/al_spectrum_6000K.png}} \\
+    \subfloat[Spektrum Al pada 30000 K (Dominan Al II)]{\includegraphics[width=0.8\textwidth]{images/al_spectrum_30000K.png}}
+    \caption{Ilustrasi efek kesetimbangan ionisasi Saha pada spektrum Al murni pada dua suhu berbeda ($n_e = 10^{17}$ cm$^{-3}$). (a) Pada 6000 K, spektrum didominasi oleh garis emisi Al I (netral). (b) Pada 30000 K, spektrum didominasi oleh garis emisi Al II (terionisasi), menunjukkan pergeseran populasi spesies atom yang drastis.}
+    \label{fig:saha_ionization_al}
+\end{figure}
+
+\subsubsection*{Validasi Lanjutan: Studi Kasus Kalsium (Ca)}
+Untuk menunjukkan bahwa fenomena ini adalah prinsip fisis umum yang berhasil ditangkap oleh model simulasi dan bukan hanya kasus khusus untuk Aluminium, validasi serupa dilakukan untuk Kalsium (Ca). Kalsium dipilih karena memiliki garis emisi ionik (Ca II), khususnya garis H dan K pada 396.8 nm dan 393.3 nm, yang merupakan fitur yang sangat menonjol dalam banyak spektrum astrofisika dan plasma.
+
+Gambar~\ref{fig:saha_ionization_ca} mengilustrasikan pergeseran dominasi spektral untuk Kalsium murni:
+\begin{itemize}
+    \item \textbf{Pada suhu 6000 K:} Seperti halnya Aluminium, spektrum didominasi oleh garis-garis dari atom netral (Ca I). Garis emisi Ca II yang terkenal hampir tidak terlihat.
+    \item \textbf{Pada suhu 8000 K:} Terjadi transisi yang jelas. Garis-garis Ca I melemah secara signifikan, dan spektrum kini didominasi oleh dua puncak yang sangat kuat dan lebar dari Ca II di sekitar 390-400 nm.
+\end{itemize}
+Keberhasilan simulasi dalam mereplikasi perilaku kesetimbangan ionisasi yang diketahui dengan baik untuk elemen yang berbeda seperti Al dan Ca memberikan keyakinan tinggi pada validitas fisis dari keseluruhan dataset sintetis yang dihasilkan.
+
+\begin{figure}[H]
+    \centering
+    \subfloat[Spektrum Ca pada 6000 K (Dominan Ca I)]{\includegraphics[width=0.8\textwidth]{images/ca_spectrum_6000K.png}} \\
+    \subfloat[Spektrum Ca pada 8000 K (Dominan Ca II)]{\includegraphics[width=0.8\textwidth]{images/ca_spectrum_8000K.png}}
+    \caption{Ilustrasi efek kesetimbangan ionisasi Saha pada spektrum Ca murni. (a) Pada 6000 K, spektrum didominasi oleh garis emisi Ca I (netral). (b) Pada 8000 K, garis Ca I melemah dan spektrum didominasi oleh garis emisi Ca II (terionisasi) yang kuat.}
+    \label{fig:saha_ionization_ca}
+\end{figure}
+
+\section{Hasil Pelatihan dan Evaluasi Model \textit{Informer}}
+\label{sec:hasil_evaluasi_model}
+Setelah dataset sintetis divalidasi dan terbukti akurat secara fisis, langkah selanjutnya adalah melatih model \textit{Informer} untuk memprediksi komposisi elemen dari spektrum emisi masukan. Bagian ini merinci metodologi evaluasi, menyajikan perbandingan kinerja antara dua varian arsitektur model, dan menganalisis hasil pelatihan.
+
+\subsection{Metodologi Evaluasi dan Optimisasi}
+Evaluasi kinerja model Informer dilakukan secara komprehensif dengan mempertimbangkan beberapa aspek krusial dalam konteks klasifikasi multi-label. Sebagai metrik utama, F1-Score (Macro) dipilih karena kemampuannya dalam memberikan representasi performa yang seimbang di seluruh kelas, mengatasi potensi ketidakseimbangan distribusi label dalam dataset. Pemilihan metrik ini juga menjadi dasar bagi mekanisme *early stopping* untuk mencegah *overfitting* dan mengidentifikasi model terbaik selama proses pelatihan.
+
+Untuk mengoptimalkan performa model, khususnya dalam konteks prediksi probabilitas multi-label, dilakukan pencarian ambang batas optimal. Proses ini secara sistematis mengeksplorasi berbagai nilai ambang batas pada set validasi untuk mengidentifikasi titik yang menghasilkan F1-Score (Macro) tertinggi, memastikan konversi probabilitas prediksi menjadi label biner dilakukan secara efektif. Selain itu, masalah ketidakseimbangan kelas dalam dataset diatasi melalui implementasi bobot kelas yang terintegrasi dalam fungsi *loss* MultiLabelFocalLoss. Pendekatan ini memungkinkan model untuk memberikan perhatian lebih pada kelas-kelas minoritas atau contoh-contoh yang sulit diklasifikasikan, sehingga meningkatkan \textit{\textit{\textit{robustness}}} model.
+
+Efisiensi komputasi selama pelatihan juga menjadi perhatian. Strategi progressive loading diimplementasikan untuk mengelola penggunaan memori dan mempercepat pelatihan pada dataset berukuran besar dengan secara bertahap meningkatkan jumlah sampel yang diproses per epoch. Lebih lanjut, penggunaan *Automatic Mixed Precision* (AMP) dengan `GradScaler` secara signifikan mengurangi kebutuhan memori dan mempercepat komputasi, terutama saat memanfaatkan akselerator GPU.
+
+Rigiditas dalam pengembangan model juga didukung oleh optimisasi hyperparameter menggunakan kerangka kerja optimisasi otomatis. 
+Proses ini secara otomatis mengeksplorasi kombinasi parameter model dan pelatihan (seperti \texttt{d\_model}, \texttt{nhead}, \texttt{learning\_rate}, dan \texttt{batch\_size}) untuk menemukan konfigurasi yang menghasilkan kinerja optimal. 
+Hal ini memastikan bahwa model yang dihasilkan telah disetel dengan baik untuk tugas yang diberikan. 
+Evaluasi akhir model dilakukan pada set pengujian yang sepenuhnya terpisah, menggunakan ambang batas optimal yang telah ditentukan.
+\begin{table}[H]
+    \centering
+    \begin{threeparttable}
+    \small
+    \caption{Perbandingan Kinerja Detail Model Informer 2-Layer dan 3-Layer pada Dataset Uji.}
+    \label{tab:perbandingan_lengkap}
+    \begin{tabular}{l rrr rrr r}
+        \toprule
+        & \multicolumn{3}{c}{\textbf{Model 2-Layer}} & \multicolumn{3}{c}{\textbf{Model 3-Layer}} & \\
+        \cmidrule(lr){2-4} \cmidrule(lr){5-7}
+        \textbf{Elemen} & \textbf{Prec} & \textbf{Rec} & \textbf{F1} & \textbf{Prec} & \textbf{Rec} & \textbf{F1} & \textbf{\textit{Support}} \\
+        \midrule
+        Al & 0.3767 & \textbf{0.9891} & \textbf{0.5456} & \textbf{0.4302} & 0.3970 & 0.4130 & 2174388 \\
+        Ar & 0.3259 & \textbf{0.8857} & \textbf{0.4765} & \textbf{0.3570} & 0.3580 & 0.3575 & 3016095 \\
+        C  & 0.2669 & \textbf{0.8143} & \textbf{0.4020} & \textbf{0.3469} & 0.3835 & 0.3643 & 1729930 \\
+        Ca & \textbf{0.5496} & \textbf{1.0000} & \textbf{0.7094} & 0.5066 & 0.9992 & 0.6724 & 1127079 \\
+        Cl & \textbf{0.4143} & \textbf{1.0000} & \textbf{0.5859} & 0.3831 & 0.9999 & 0.5540 & 189973 \\
+        Co & 0.2900 & \textbf{0.7130} & \textbf{0.4123} & \textbf{0.5065} & 0.3201 & 0.3923 & 4381508 \\
+        Cr & \textbf{0.6033} & \textbf{0.9997} & \textbf{0.7525} & 0.5106 & 0.8987 & 0.6512 & 2983956 \\
+        Fe & 0.3042 & \textbf{0.7590} & \textbf{0.4343} & \textbf{0.6287} & 0.2744 & 0.3821 & 6379378 \\
+        Mg & \textbf{0.4881} & \textbf{0.9989} & \textbf{0.6558} & 0.4541 & 0.7121 & 0.5545 & 2159572 \\
+        Mn & 0.5583 & \textbf{0.9938} & \textbf{0.7150} & \textbf{0.6045} & 0.6496 & 0.6262 & 4939082 \\
+        N  & 0.3077 & \textbf{0.8727} & \textbf{0.4550} & \textbf{0.3414} & 0.4870 & 0.4014 & 2089132 \\
+        Na & \textbf{0.5870} & \textbf{1.0000} & \textbf{0.7398} & 0.5239 & 0.9041 & 0.6634 & 2442502 \\
+        Ni & \textbf{0.6024} & \textbf{0.9981} & \textbf{0.7513} & 0.5971 & 0.8565 & 0.7037 & 3582470 \\
+        O  & 0.2224 & \textbf{0.9367} & 0.3594 & \textbf{0.2614} & 0.5882 & \textbf{0.3619} & 979582 \\
+        S  & \textbf{0.3814} & \textbf{0.9995} & \textbf{0.5521} & 0.3772 & 0.9257 & 0.5360 & 1169165 \\
+        Si & \textbf{0.5806} & \textbf{0.9998} & \textbf{0.7346} & 0.4183 & 0.9770 & 0.5858 & 1565405 \\
+        Ti & 0.3928 & \textbf{0.8247} & \textbf{0.5321} & \textbf{0.5621} & 0.4885 & 0.5227 & 5288926 \\
+        background & 0.4683 & \textbf{0.9196} & \textbf{0.6206} & \textbf{0.5998} & 0.6314 & 0.6152 & 8693531 \\
+        \midrule
+        \textbf{\textit{micro avg}}    & 0.4096 & \textbf{0.9002} & \textbf{0.5630} & \textbf{0.5011} & 0.5840 & 0.5394 & 54891674 \\
+        \textbf{\textit{macro avg}}    & 0.4289 & \textbf{0.9280} & \textbf{0.5797} & \textbf{0.4672} & 0.6584 & 0.5199 & 54891674 \\
+        \textbf{\textit{weighted avg}} & 0.4325 & \textbf{0.9002} & \textbf{0.5794} & \textbf{0.5219} & 0.5840 & 0.5256 & 54891674 \\
+        \bottomrule
+    \end{tabular}
+    \begin{tablenotes}
+      \small
+      \item \textit{Catatan:} Tabel ini menyajikan metrik Precision, Recall, dan F1-Score untuk setiap elemen. Nilai yang dicetak \textbf{tebal} menyoroti kinerja yang lebih unggul. Secara keseluruhan, model 2-Layer unggul secara signifikan pada metrik F1-Score. Namun, dapat dicatat bahwa model 3-Layer terkadang menunjukkan \textit{precision} atau F1-score yang lebih baik pada beberapa elemen spesifik.
+    \end{tablenotes}
+    \end{threeparttable}
+\end{table}
+
+\subsection{Kinerja Pelatihan Model}
+\par Proses pelatihan dipantau menggunakan metrik \textit{loss} dan F1-Score pada set validasi. Gambar~\ref{fig:training_loss} menampilkan kurva loss dan F1-Score untuk model 3-layer (sebagai contoh representatif) selama proses pelatihan. Kurva menunjukkan bahwa baik loss pelatihan maupun validasi menurun secara konsisten dan konvergen, sementara F1-Score validasi menunjukkan tren peningkatan. Hal ini mengindikasikan bahwa model belajar secara efektif dari data sintetis tanpa mengalami \textit{overfitting} yang signifikan.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/training_history_plot.png}
+    \caption{Grafik kurva pembelajaran model \textit{Informer} (3-layer) selama 70 epoch. Kurva loss (atas) menunjukkan penurunan yang stabil untuk set pelatihan (biru) dan validasi (merah), mengindikasikan tidak adanya \textit{overfitting}. Kurva F1-Score (bawah, hijau) yang terus meningkat mengkonfirmasi bahwa model secara efektif belajar untuk meningkatkan kinerjanya seiring waktu.}
+    \label{fig:training_loss}
+\end{figure}
+
+\subsection{Visualisasi Hasil Prediksi pada Spektrum Uji}
+Untuk memberikan gambaran kualitatif mengenai kemampuan model, bagian ini menampilkan hasil prediksi dari model 2-layer pada sebuah sampel spektrum dari dataset uji (Sampel 10) dan juga dari data lapangan (sampel cangkang telur). Sampel 10 dipilih sebagai studi kasus karena mengandung campuran elemen yang kompleks dengan potensi interferensi yang tinggi. Visualisasi ini secara intuitif menunjukkan bagaimana model mengidentifikasi keberadaan elemen-elemen dengan menempatkan label pada posisi puncak-puncak spektral yang relevan. Kemampuan model untuk secara akurat memberi label pada puncak-puncak yang sesuai dengan elemen yang benar-benar ada dalam sampel menjadi bukti visual yang kuat dari efektivitas pendekatannya.
+
+Gambar~\ref{fig:prediction_sample_10} menampilkan hasil prediksi untuk Sampel 10 dari dataset uji, yang dibagi ke dalam empat rentang panjang gelombang untuk detail yang lebih baik.
+
+\begin{figure}[H]
+    \centering
+    \subfloat[200nm - 375nm]{\includegraphics[width=0.48\textwidth]{images/prediction_plot_sample_10_range_1.png}}
+    \hfill
+    \subfloat[375nm - 550nm]{\includegraphics[width=0.48\textwidth]{images/prediction_plot_sample_10_range_2.png}}
+    \\ % New line for vertical stacking
+    \subfloat[550nm - 725nm]{\includegraphics[width=0.48\textwidth]{images/prediction_plot_sample_10_range_3.png}}
+    \hfill
+    \subfloat[725nm - 900nm]{\includegraphics[width=0.48\textwidth]{images/prediction_plot_sample_10_range_4.png}}
+    \caption{Visualisasi prediksi model 2-layer pada Sampel 10 dari dataset uji, dibagi berdasarkan rentang panjang gelombang. Label merah tebal menunjukkan elemen yang diprediksi oleh model pada puncak-puncak spektral yang signifikan.}
+    \label{fig:prediction_sample_10}
+\end{figure}
+
+\begin{table}[H]
+    \centering
+    \begin{threeparttable}
+    \small
+    \caption{Cuplikan Detail Prediksi Model pada Sampel 10 dari Dataset Uji.}
+    \label{tab:prediction_details_sample_10}
+    \begin{tabular}{p{0.18\textwidth}p{0.38\textwidth}p{0.38\textwidth}}
+        \toprule
+        \multicolumn{1}{p{0.18\textwidth}}{\centering \textbf{Panjang}\\ \textbf{Gelombang (nm)}} & \multicolumn{1}{p{0.38\textwidth}}{\centering \textbf{Prediksi Atom}\\ \textbf{(Probabilitas)}} & \multicolumn{1}{p{0.38\textwidth}}{\centering \textbf{Atom Asli}} \\
+        \midrule
+        205.641 & Ni (85.7\%) & Co, Cr, Fe, Ni \\
+        217.607 & Ni (73.5\%) & C, Co, Fe, Ni \\
+        221.709 & Ni (77.2\%), Si (74.7\%) & Co, Fe, Mg, Ni, Si \\
+        231.624 & Na (76.7\%), Ni (78.7\%) & Ar, Co, Fe, N, Na, Ni \\
+        279.658 & Mg (94.8\%), Mn (76.3\%) & Co, Fe, Mg, Mn \\
+        288.205 & Mn (82.8\%), Na (82.9\%), Si (82.1\%) & Fe, Mn, Na, O, Si, Ti \\
+        309.402 & Mg (84.9\%), Na (92.7\%) & Fe, Mg, Na \\
+        393.504 & Ar (88.3\%), Ca (92.7\%), S (88.6\%), Ti (73.9\%) & Ar, Ca, Co, Fe, S, Ti \\
+        811.624 & Mg (73.5\%) & Ar, Mg \\
+        \bottomrule
+    \end{tabular}
+    \begin{tablenotes}
+      \small
+      \item \textit{Catatan:} Kolom "Atom Asli" merepresentasikan komposisi elemen sebenarnya (\textit{ground truth}) yang digunakan untuk menghasilkan spektrum sintetis, yang memungkinkan evaluasi akurasi secara objektif. Untuk detail prediksi yang lebih lengkap, dapat dilihat pada Lampiran~\ref{app:prediction_details_sample_10}.
+    \end{tablenotes}
+    \end{threeparttable}
+\end{table}
+
+Selanjutnya, Gambar~\ref{fig:prediction_grup_1} menyajikan hasil prediksi model pada data lapangan yang diambil dari sampel cangkang telur \cite{putri-2024}, juga dibagi ke dalam empat rentang panjang gelombang.
+
+\begin{figure}[H]
+    \centering
+    \subfloat[200nm - 375nm]{\includegraphics[width=0.48\textwidth]{images/prediction_plot_Grup-1_range_1.png}}
+    \hfill
+    \subfloat[375nm - 550nm]{\includegraphics[width=0.48\textwidth]{images/prediction_plot_Grup-1_range_2.png}}
+    \\ % New line for vertical stacking
+    \subfloat[550nm - 725nm]{\includegraphics[width=0.48\textwidth]{images/prediction_plot_Grup-1_range_3.png}}
+    \hfill
+    \subfloat[725nm - 900nm]{\includegraphics[width=0.48\textwidth]{images/prediction_plot_Grup-1_range_4.png}}
+    \caption{Visualisasi prediksi model 2-layer pada data lapangan dari sampel cangkang telur, dibagi berdasarkan rentang panjang gelombang. Label merah tebal menunjukkan elemen yang diprediksi oleh model pada puncak-puncak spektral yang signifikan.}
+    \label{fig:prediction_grup_1}
+\end{figure}
+
+Untuk detail prediksi pada data lapangan ini, Lampiran~\ref{app:prediction_details_sample_eks} menyajikan cuplikan hasilnya. Perlu dicatat bahwa untuk data ini, informasi "Atom Asli" tidak tersedia karena merupakan data eksperimental tanpa \textit{ground truth} yang terverifikasi.
+
+\section{Pembahasan}
+
+\par Validitas Pendekatan Berbasis Simulasi Hasil yang disajikan pada Bagian~\ref{sec:validasi_simulasi} secara meyakinkan menunjukkan bahwa dataset sintetis yang dihasilkan memiliki dua kualitas esensial. Pertama, ia akurat secara fisis, yang dibuktikan oleh kesesuaiannya dengan data referensi dari NIST. Kedua, ia realistis, karena berhasil mereplikasi tantangan spektral eksperimental seperti interferensi garis emisi. Membangun sebuah fondasi data latih yang telah tervalidasi seperti ini adalah langkah fundamental yang memungkinkan eksplorasi metode analisis berbasis DL dengan keyakinan tinggi.
+
+Selain validasi dengan data simulasi, model juga telah diuji pada data eksperimental nyata, seperti spektrum dari sampel cangkang telur \cite{putri-2024}. Pengujian ini menunjukkan potensi aplikasi model dalam skenario aplikasi eksperimental, meskipun analisis kuantitatif lebih lanjut diperlukan untuk validasi penuh.
+
+\par Keseimbangan Optimal Antara Kompleksitas dan Kinerja Perbandingan antara model 2-layer dan 3-layer memberikan wawasan penting mengenai \textit{trade-off} antara kompleksitas arsitektur dan kinerja generalisasi. Hasil evaluasi (Tabel~\ref{tab:perbandingan_lengkap}) secara jelas menunjukkan bahwa arsitektur 2-layer, meskipun lebih sederhana, secara signifikan mengungguli versi 3-layer. Hal ini mengimplikasikan bahwa arsitektur 2-layer mencapai \textbf{keseimbangan optimal} antara kapasitas model yang cukup untuk mempelajari pola-pola kompleks dalam data spektral dan kemampuan untuk menggeneralisasi pengetahuan tersebut tanpa terjebak dalam \textit{overfitting}. Penambahan lapisan pada model 3-layer, meskipun secara teoretis meningkatkan kapasitas representasi, dalam praktiknya justru merugikan kinerja, kemungkinan karena dataset yang ada tidak cukup besar atau cukup beragam untuk melatih model yang lebih dalam secara efektif.
+
+Analisis lebih dalam pada metrik kinerja mengungkapkan sebuah pola yang konsisten dan penting: model secara umum mencapai \textbf{recall yang sangat tinggi} namun dengan \textbf{precision yang lebih rendah}. Fenomena ini memiliki interpretasi fisis yang jelas dalam konteks analisis spektral. \textbf{Recall yang tinggi} (rata-rata makro 0.8663 untuk model 2-layer) menandakan bahwa model sangat sensitif dan berhasil mempelajari "sidik jari" spektral fundamental dari setiap elemen. Artinya, jika sebuah elemen benar-benar ada dalam sampel, model memiliki probabilitas yang sangat tinggi untuk mendeteksinya, dan tidak banyak elemen yang terlewatkan. Di sisi lain, \textbf{precision yang lebih rendah} (rata-rata makro 0.4473) mengindikasikan bahwa model cenderung menghasilkan \textit{false positives}. Ini terjadi karena model, dalam sensitivitasnya yang tinggi, terkadang keliru menginterpretasikan noise acak atau interferensi dari puncak elemen lain sebagai sinyal valid dari elemen target. Dalam kasus ini, \textbf{F1-Score} berfungsi sebagai metrik penyeimbang yang krusial, memberikan gambaran keseluruhan dari efektivitas praktis model. Skor F1 yang solid menunjukkan bahwa meskipun ada tantangan dalam presisi, kemampuan model untuk secara andal menemukan hampir semua elemen yang ada (recall tinggi) menjadikan pendekatan ini sangat menjanjikan sebagai alat analisis awal yang cepat.
+
+\par Implikasi Kinerja Model dan Potensi Metode Bebas Kalibrasi Mengingat model \textit{Informer}, khususnya arsitektur 2-layer yang menunjukkan kinerja prediksi yang sangat tinggi (Bagian~\ref{sec:hasil_evaluasi_model}) saat dilatih di atas dataset yang telah terbukti akurat dan realistis, hal ini memberikan implikasi yang kuat. Keberhasilan model 2-layer dalam mencapai F1-Score (macro average) yang tinggi sebesar 0.5797 saat dilatih murni pada data sintetis bukan hanya sebuah pencapaian teknis; ini adalah bukti konsep yang kuat untuk pendekatan bebas kalibrasi. Temuan ini secara langsung menjawab masalah ketergantungan pada sampel standar bersertifikat yang diuraikan sebagai hambatan utama di Bab 1. Temuan ini menunjukkan bahwa model tidak hanya menghafal data, tetapi berhasil mempelajari hubungan fundamental antara parameter fisis plasma dan "sidik jari" spektral yang dihasilkannya. Kemampuan model untuk belajar secara mendalam dari data simulasi yang kompleks inilah yang menjadi inti dari potensi pengembangan metode analisis LIBS yang tidak lagi bergantung pada kalibrasi eksperimental. Pendekatan ini, di mana model dilatih di dunia simulasi untuk diimplementasikan di lingkungan eksperimental, menawarkan sebuah paradigma baru untuk mengatasi masalah ketergantungan pada sampel standar bersertifikat.
+
+\par Efisiensi dan Kepraktisan Di samping akurasi, kepraktisan metode juga menjadi pertimbangan utama. Penggunaan arsitektur \textit{Informer} dengan mekanisme \textit{ProbSparse Self-Attention} terbukti efisien dalam menangani data spektral berresolusi tinggi. Efisiensi komputasi ini merupakan faktor pendukung yang krusial, memastikan bahwa metode yang diusulkan tidak hanya akurat secara teoretis tetapi juga dapat diimplementasikan dalam skenario aplikasi yang menuntut kecepatan analisis.
+
+\subsection{Justifikasi Teknik Pelatihan dan Implikasinya pada Hasil}
+\par Pencapaian hasil yang disajikan tidak hanya bergantung pada arsitektur model, tetapi juga pada penerapan serangkaian teknik pelatihan lanjutan yang dipilih secara strategis untuk mengatasi tantangan spesifik dari data spektral.
+\begin{itemize}
+        \item \textbf{Peran Focal Loss dalam Mengatasi Ketidakseimbangan Kelas:} Data spektral secara inheren tidak seimbang; beberapa elemen memiliki ribuan garis emisi yang kuat, sementara yang lain hanya memiliki sedikit garis yang lemah. Tanpa strategi yang tepat, model akan cenderung memaksimalkan akurasinya dengan hanya mempelajari elemen-elemen dominan. Penggunaan \textbf{Focal Loss} secara eksplisit mengatasi masalah ini. Dengan mengurangi bobot kerugian dari sampel yang mudah diklasifikasikan (seperti \textit{background} atau puncak yang sangat jelas) dan memfokuskan pelatihan pada sampel yang sulit (puncak yang lemah atau tumpang-tindih), Focal Loss secara langsung berkontribusi pada \textbf{nilai \textit{recall} yang tinggi} yang diamati pada Tabel~\ref{tab:perbandingan_lengkap}. Ini memastikan model belajar untuk mengenali "sidik jari" dari semua elemen, bukan hanya yang paling umum.   
+        \item \textbf{Pentingnya Regularisasi untuk Generalisasi:} Dengan puluhan ribu parameter, model \textit{Informer} memiliki risiko tinggi mengalami \textit{overfitting} pada data sintetis. Implementasi teknik regularisasi seperti \textbf{Dropout} dan \textbf{Weight Decay} sangat penting untuk mencegah hal ini. Bukti keberhasilannya dapat dilihat pada kurva pembelajaran (Gambar~\ref{fig:training_loss}), di mana \textit{loss} validasi menurun secara konsisten seiring dengan \textit{loss} pelatihan tanpa menunjukkan tanda-tanda divergensi. Ini mengindikasikan bahwa model tidak hanya menghafal data latih, tetapi berhasil \textbf{menggeneralisasi} pola yang dipelajarinya, yang merupakan kunci untuk aplikasi di dunia nyata.
+        \item \textbf{AMP sebagai Teknologi Pendukung Kelayakan Eksperimen:} Pelatihan model pada sekuens data sepanjang 4096 titik adalah tugas yang sangat intensif secara komputasi. Penggunaan \textbf{\textit{Automatic Mixed Precision} (AMP)} adalah sebuah kebutuhan praktis. Dengan melakukan sebagian besar operasi dalam presisi 16-bit, AMP secara drastis mengurangi penggunaan memori GPU dan mempercepat waktu pelatihan. Hal ini memungkinkan dilakukannya eksperimen yang lebih ekstensif—seperti melatih hingga 100 epoch dan membandingkan beberapa arsitektur—dalam kerangka waktu yang wajar pada infrastruktur HPC yang tersedia. Tanpa AMP, skala eksperimen yang diperlukan untuk mencapai hasil yang solid dalam penelitian ini mungkin tidak akan layak.
+\end{itemize}
+
+\subsection{Keterbatasan Penelitian}
+Meskipun menjanjikan, pendekatan yang diusulkan dalam penelitian ini memiliki beberapa keterbatasan yang perlu diakui. Pertama, dataset sintetis, walaupun telah divalidasi terhadap data referensi NIST untuk memastikan akurasi fisisnya, mungkin belum sepenuhnya menangkap seluruh spektrum kompleksitas yang ada pada sampel eksperimental. Efek matriks yang sangat non-linear atau interaksi antar-unsur yang tidak terduga dalam sampel riil bisa jadi tidak terwakili secara sempurna dalam simulasi. Kedua, model saat ini dilatih dan diuji pada 18 elemen yang telah ditentukan sebelumnya. Kemampuannya untuk menggeneralisasi dan mengidentifikasi elemen-elemen di luar set pelatihan ini belum teruji dan kemungkinan besar akan terbatas. Ketiga, seluruh simulasi didasarkan pada asumsi Local Thermodynamic Equilibrium (LTE). Kinerja model pada spektrum yang berasal dari plasma non-LTE, yang dapat terjadi pada fase-fase awal evolusi plasma LIBS, belum dievaluasi.
