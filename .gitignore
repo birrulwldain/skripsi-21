@@ -78,8 +78,8 @@ tikz-external/
 *.csv
 *.dat
 *.dta
-engine/data/dataset-50.h5
-engine/dataset-50.h5
+/engine/data/dataset-50.h5
+/engine/dataset-50.h5
 
 *.adoc
 
