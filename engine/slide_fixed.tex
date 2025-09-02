@@ -1,0 +1,211 @@
+\documentclass{beamer}
+
+% --- PREAMBLE ---
+\usepackage[utf8]{inputenc}
+\usepackage[indonesian]{babel}
+\usepackage{graphicx}
+\usepackage{listings} % Untuk kode
+
+% Konfigurasi untuk blok kode
+\lstset{
+  basicstyle=\small\ttfamily,
+  breaklines=true,
+  backgroundcolor=\color{gray!10},
+  frame=single,
+  rulecolor=\color{black!40}
+}
+
+% --- TEMA PRESENTASI ---
+% Anda bisa mengganti tema sesuai selera (contoh: Madrid, Boadilla, Warsaw, etc.)
+\usetheme{Madrid}
+\usecolortheme{beaver}
+
+% --- INFORMASI JUDUL ---
+\title[Coding \& DL untuk Analisis LIBS]{Penggunaan Coding dan Deep Learning untuk Analisis Spektrum LIBS}
+\subtitle{Studi Kasus Implementasi Teknis Berbasis Data Sintetis}
+\author{Oleh: Birrul Walidain}
+\institute{Program Studi Fisika \\ Fakultas Matematika dan Ilmu Pengetahuan Alam \\ Universitas Syiah Kuala}
+\date{Agustus 2025}
+
+\begin{document}
+
+% --- SLIDE 1: HALAMAN JUDUL ---
+\begin{frame}
+  \titlepage
+\end{frame}
+
+% --- Menambahkan section untuk membuat agenda otomatis ---
+\section*{Pendahuluan}
+\section{Pondasi: Ekosistem Python}
+\section{Implementasi Coding: Generasi Dataset}
+\section{Implementasi Coding: Manajemen Data}
+\section{Implementasi Deep Learning: Model \& Pelatihan}
+\section{Implementasi Deep Learning: Evaluasi}
+\section{Kesimpulan}
+
+% --- SLIDE 2: AGENDA PRESENTASI ---
+\begin{frame}
+  \frametitle{Agenda Presentasi}
+  \tableofcontents
+\end{frame}
+
+% --- SLIDE 3: KONTEKS MASALAH ---
+\begin{frame}
+  \frametitle{Konteks: Tantangan Analisis LIBS}
+  
+  \begin{block}{Masalah Fundamental}
+    Analisis LIBS konvensional terhambat oleh \textbf{kompleksitas spektrum}, \textbf{variabilitas sinyal}, dan ketergantungan pada proses \textbf{kalibrasi} yang mahal dan lambat.
+  \end{block}
+  
+  \begin{alertblock}{Solusi Berbasis Komputasi (Paradigma Baru)}
+    Mengembangkan metode analisis \textbf{bebas kalibrasi} dengan melatih model \textit{Deep Learning} pada \textbf{dataset sintetis} skala besar. Pendekatan ini sepenuhnya bergantung pada implementasi \textit{coding} yang efisien.
+  \end{alertblock}
+\end{frame}
+
+% --- SLIDE 4: PONDASI PYTHON ---
+\begin{frame}
+  \frametitle{Pondasi: Ekosistem Python untuk Fisika Komputasi}
+  
+  Pemilihan Python bukan tanpa alasan. Ekosistemnya menyediakan semua alat yang dibutuhkan untuk menjembatani fisika dan \textit{deep learning}.
+  
+  \begin{itemize}
+    \item \textbf{Komputasi Numerik (\texttt{NumPy}):} 
+    Menjadi inti dari semua operasi data spektral. Kalkulasi fisika seperti Persamaan Saha-Boltzmann dieksekusi secara efisien menggunakan \textbf{operasi vektor}, menghindari \textit{loop} `for` yang lambat.
+    
+    \item \textbf{Manajemen Data (\texttt{h5py} \& \texttt{Pandas}):} 
+    Digunakan untuk mengelola 50.000 sampel data secara terstruktur. \texttt{h5py} krusial untuk menangani dataset yang lebih besar dari memori RAM.
+    
+    \item \textbf{\textit{Framework Deep Learning} (\texttt{PyTorch}):} 
+    Menyediakan "blok bangunan" modular untuk merancang, melatih, dan mengevaluasi arsitektur jaringan saraf yang kompleks seperti \textit{Informer}.
+    
+    \item \textbf{Evaluasi \& Visualisasi (\texttt{scikit-learn} \& \texttt{Matplotlib}):} 
+    Untuk menghitung metrik performa model secara akurat dan memvisualisasikan hasil untuk interpretasi fisis.
+  \end{itemize}
+\end{frame}
+
+% --- SLIDE 5: CODING GENERASI DATASET ---
+\begin{frame}
+  \frametitle{Implementasi Coding: Generasi Dataset Sintetis}
+  
+  Tahap ini adalah tentang menerjemahkan persamaan fisika ke dalam kode Python yang efisien dan dapat diskalakan.
+  
+  \begin{block}{Alur Kerja Kode}
+    \begin{enumerate}
+      \item \textbf{Perencanaan Kombinasi:} Modul standar Python seperti \texttt{itertools} dan logika skrip digunakan untuk menghasilkan "resep" kombinasi elemen yang seimbang secara statistik.
+      
+      \item \textbf{Kalkulasi Intensitas (Vektorisasi):} Populasi tingkat energi dan intensitas relatif dihitung untuk semua transisi secara bersamaan menggunakan \texttt{NumPy}.
+      \begin{lstlisting}[language=Python]
+# Contoh konseptual vektorisasi dengan NumPy
+intensities = (g_k * A_ki * np.exp(-E_k / (k_B * T))) / Z
+      \end{lstlisting}
+      
+      \item \textbf{Pelebaran Garis (\textit{Broadening}):} Spektrum "batang" yang ideal diubah menjadi spektrum yang realistis dengan melakukan konvolusi menggunakan fungsi dari pustaka \texttt{SciPy} (\texttt{scipy.signal.convolve}).
+    \end{enumerate}
+  \end{block}
+\end{frame}
+
+% --- SLIDE 6: CODING MANAJEMEN DATA ---
+\begin{frame}
+  \frametitle{Implementasi Coding: Manajemen \& Pemuatan Data}
+  
+  Dataset yang besar memerlukan strategi penanganan yang efisien untuk proses pelatihan.
+  
+  \begin{block}{Penyimpanan dengan \texttt{h5py}}
+  Seluruh 50.000 spektrum dan labelnya disimpan dalam satu file HDF5. Ini memungkinkan \textbf{akses data yang sangat cepat} dan pemuatan data secara bertahap (\textit{on-the-fly loading}) tanpa membebani memori.
+  \end{block}
+  
+  \begin{block}{Pemuat Data Kustom dengan \texttt{PyTorch}}
+  Kelas \texttt{Dataset} kustom diimplementasikan di PyTorch untuk menjadi jembatan antara file HDF5 di disk dan model selama pelatihan.
+  \begin{lstlisting}[language=Python]
+from torch.utils.data import Dataset
+import h5py
+
+class LIBSDataset(Dataset):
+    def __init__(self, h5_path):
+        self.h5_file = h5py.File(h5_path, 'r')
+        self.spectra = self.h5_file['spectra']
+        self.labels = self.h5_file['labels']
+
+    def __len__(self):
+        return len(self.spectra)
+
+    def __getitem__(self, idx):
+        # Mengambil satu sampel data
+        spectrum = self.spectra[idx]
+        label = self.labels[idx]
+        return spectrum, label
+  \end{lstlisting}
+  \end{block}
+\end{frame}
+
+% --- SLIDE 7: IMPLEMENTASI DEEP LEARNING ---
+\begin{frame}
+  \frametitle{Implementasi Deep Learning: Arsitektur Model \& Pelatihan}
+  
+  \begin{block}{Arsitektur Model Informer dengan \texttt{PyTorch}}
+    \begin{itemize}
+        \item Model dibangun secara modular menggunakan kelas \texttt{nn.Module} dari PyTorch.
+        \item Komponen utamanya adalah \textbf{mekanisme atensi (\textit{attention})} yang dioptimalkan untuk sekuens panjang. Efisiensi komputasi (kompleksitas $O(L \log L)$) lebih baik dibandingkan Transformer standar ($O(L^2)$).
+        \item Tujuannya agar model dapat menghubungkan puncak-puncak spektral yang letaknya berjauhan secara efisien.
+    \end{itemize}
+  \end{block}
+
+  \begin{block}{Teknik Pelatihan}
+    \begin{itemize}
+      \item \textbf{\textit{Loss Function}:} \textbf{Focal Loss} digunakan agar model lebih fokus belajar dari sinyal-sinyal elemen yang lemah atau sulit terdeteksi.
+      \item \textbf{Optimizer:} \textbf{AdamW} dipilih sebagai algoritma optimasi modern yang membantu model belajar lebih cepat dan stabil.
+      \item \textbf{Akselerasi Pelatihan:} Proses dipercepat signifikan menggunakan \textbf{\textit{Automatic Mixed Precision}} (\texttt{torch.amp}) untuk memanfaatkan \textit{Tensor Cores} pada GPU modern.
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+% --- SLIDE 8: EVALUASI MODEL ---
+\begin{frame}
+  \frametitle{Implementasi Deep Learning: Evaluasi Kinerja}
+
+  \begin{block}{Evaluasi Kuantitatif dengan \texttt{scikit-learn}}
+    \begin{itemize}
+        \item Kinerja model pada data uji diukur menggunakan fungsi \texttt{classification\_report}.
+        \item Fungsi ini secara otomatis menghitung metrik-metrik penting seperti \textbf{Precision}, \textbf{Recall}, dan \textbf{F1-Score} untuk setiap elemen, memberikan gambaran lengkap tentang performa model.
+    \end{itemize}
+  \end{block}
+  
+  \begin{block}{Pemrosesan Lanjutan: Pencarian Ambang Batas}
+    \begin{itemize}
+        \item Output model adalah probabilitas (0-1). Sebuah skrip Python dibuat untuk mencari \textbf{ambang batas (threshold)} optimal pada data validasi.
+        \item Langkah ini krusial untuk mengubah probabilitas menjadi keputusan akhir (elemen "ada" atau "tidak ada") dan memaksimalkan F1-Score.
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+% --- SLIDE 9: KESIMPULAN ---
+\begin{frame}
+  \frametitle{Kesimpulan: Peran Sentral Coding \& Deep Learning}
+  
+  \begin{enumerate}
+    \item \textbf{\textit{Coding} sebagai Jembatan:} Kode Python, khususnya dengan \texttt{NumPy} dan \texttt{SciPy}, berhasil menjadi jembatan antara teori fisika plasma dan data latih yang dapat digunakan oleh mesin.
+    
+    \item \textbf{\textit{Deep Learning} sebagai "Analis" Otomatis:} Arsitektur Informer yang diimplementasikan dengan \texttt{PyTorch} terbukti mampu "belajar" fisika fundamental dari spektrum emisi untuk melakukan identifikasi multi-elemen.
+    
+    \item \textbf{Ekosistem Terintegrasi:} Keberhasilan pendekatan ini sangat bergantung pada bagaimana ekosistem Python memungkinkan seluruh alur kerja—mulai dari simulasi, manajemen data, hingga pelatihan model AI—dapat berjalan secara mulus dan otomatis.
+  \end{enumerate}
+  
+  \vspace{1em}
+  \centering
+  \structure{Pendekatan ini membuka jalan bagi metode analisis unsur yang lebih cepat, efisien, dan otomatis.}
+\end{frame}
+
+% --- SLIDE 10: TERIMA KASIH ---
+\begin{frame}
+  \frametitle{Terima Kasih \& Diskusi}
+  
+  \vfill
+  \centering
+  \Huge{\textbf{Terima Kasih}}
+  \vspace{2em}
+  
+  \Large{Pertanyaan \& Diskusi}
+  \vfill
+\end{frame}
+
+\end{document}

@@ -1,0 +1,124 @@
+\documentclass[12pt, a4paper]{article}
+
+% --- PREAMBLE ---
+\usepackage[utf8]{inputenc}
+\usepackage[indonesian]{babel}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{csquotes}
+\usepackage[style=ieee,backend=biber]{biblatex}
+\addbibresource{../daftar-pustaka.bib}
+
+% Mengatur margin halaman
+\geometry{
+ a4paper,
+ total={170mm,257mm},
+ left=20mm,
+ top=20mm,
+}
+
+% Mengatur hyperlink
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+
+% Mendefinisikan perintah kustom untuk sub-seksi yang lebih rapi
+\newcommand{\subsectiontitle}[1]{\subsection*{\large\bfseries #1}}
+
+
+% --- INFORMASI DOKUMEN ---
+\title{\vspace{-2cm}\huge\bfseries Ringkasan Komprehensif: \\ Pemanfaatan Python dan Deep Learning untuk Analisis Spektrum LIBS}
+\author{\large Oleh: Birrul Walidain}
+\date{\normalsize Agustus 2025}
+
+
+\begin{document}
+
+\maketitle
+\thispagestyle{empty} % Menghilangkan nomor halaman pada halaman judul
+\newpage
+
+% --- DAFTAR ISI ---
+\tableofcontents
+\newpage
+
+% --- BAGIAN 1: PENDAHULUAN ---
+\section{Pendahuluan: Konteks \& Solusi Penelitian}
+
+\subsectiontitle{Masalah Fundamental dalam Analisis LIBS}
+\begin{itemize}
+    \item \textbf{Kompleksitas Spektrum}: Analisis terhambat oleh ribuan garis emisi yang seringkali tumpang-tindih, menyebabkan interferensi spektral.
+    \item \textbf{Variabilitas Sinyal}: Adanya fluktuasi kondisi plasma (suhu dan densitas elektron) dari satu tembakan laser ke tembakan berikutnya menyebabkan sinyal yang tidak konsisten.
+    \item \textbf{Ketergantungan pada Kalibrasi}: Metode konvensional sangat bergantung pada \textit{Certified Reference Materials} (CRMs) yang mahal, memakan waktu, dan seringkali tidak praktis untuk berbagai jenis sampel.
+\end{itemize}
+
+\subsectiontitle{Solusi yang Diajukan (Paradigma Baru)}
+\begin{itemize}
+    \item \textbf{Tujuan Utama}: Mengembangkan metode analisis \textbf{bebas kalibrasi (\textit{calibration-free})} untuk mengatasi ketergantungan pada sampel standar.
+    \item \textbf{Kunci Inovasi}: Melatih model \textit{Deep Learning} secara eksklusif pada \textbf{dataset sintetis} skala besar (50.000 sampel) yang dihasilkan berdasarkan prinsip-prinsip pertama fisika plasma.
+    \item \textbf{Pemilihan Alat}: \textbf{Ekosistem Python} dipilih sebagai fondasi karena menyediakan perangkat terintegrasi untuk keseluruhan alur kerja, mulai dari komputasi ilmiah, manajemen data, hingga implementasi \textit{deep learning}.
+\end{itemize}
+
+% --- BAGIAN 2: IMPLEMENTASI CODING ---
+\section{Implementasi \textit{Coding}: Dari Fisika ke Dataset}
+
+\subsectiontitle{Generasi Dataset Sintetis}
+\begin{itemize}
+    \item \textbf{Tahap 1: Perencanaan Resep}: Sebuah skrip Python dirancang untuk membuat rencana kombinasi elemen yang seimbang secara statistik. Tujuannya adalah untuk \textbf{menghindari bias data} terhadap elemen dengan spektrum padat (contoh: Besi) dan memastikan representasi yang cukup untuk elemen dengan spektrum jarang.
+    \item \textbf{Tahap 2: Simulasi Fisis}: Persamaan fundamental seperti \textbf{Saha-Boltzmann} dan profil pelebaran garis \textbf{Gaussian} diterjemahkan ke dalam kode Python. Pustaka \texttt{NumPy} dan \texttt{SciPy} digunakan untuk melakukan kalkulasi secara efisien melalui operasi vektor, sehingga memungkinkan generasi 50.000 spektrum unik.
+\end{itemize}
+
+\subsectiontitle{Manajemen Data Skala Besar}
+\begin{itemize}
+    \item \textbf{Penyimpanan Efisien}: Seluruh dataset disimpan dalam format file tunggal **HDF5** menggunakan pustaka \texttt{h5py}. Pendekatan ini memungkinkan akses data yang sangat cepat dan pemuatan data secara bertahap (\textit{on-the-fly loading}), yang krusial untuk dataset yang lebih besar dari memori sistem.
+    \item \textbf{Pemuatan Data untuk Pelatihan}: Kelas \texttt{Dataset} kustom diimplementasikan dalam \textbf{PyTorch}. Kelas ini berfungsi sebagai jembatan yang efisien antara file HDF5 di disk dan model AI selama proses pelatihan, dengan menyediakan data dalam \textit{batch}.
+\end{itemize}
+
+% --- BAGIAN 3: IMPLEMENTASI DEEP LEARNING ---
+\section{Implementasi \textit{Deep Learning}: Model \& Analisis}
+
+\subsectiontitle{Arsitektur Model dan Pemilihan}
+\begin{itemize}
+    \item \textbf{Model Informer}: Sebuah varian dari arsitektur Transformer dipilih karena efisiensinya dalam menangani sekuens data yang panjang, seperti spektrum resolusi tinggi (4096 titik data).
+    \item \textbf{Implementasi Modular}: Arsitektur ini dibangun secara modular menggunakan \textit{framework} \textbf{PyTorch}, yang memberikan fleksibilitas tinggi dalam perancangan.
+\end{itemize}
+
+\subsectiontitle{Teknik Pelatihan Tingkat Lanjut}
+\begin{itemize}
+    \item \textbf{\textit{Loss Function}}: \textbf{Focal Loss} digunakan untuk memaksa model agar lebih fokus belajar dari sinyal elemen yang lemah atau sulit terdeteksi di tengah interferensi spektral yang kompleks.
+    \item \textbf{Akselerasi Pelatihan}: Proses pelatihan dipercepat secara signifikan menggunakan \textbf{\textit{Automatic Mixed Precision}} (\texttt{torch.amp}). Teknik ini memanfaatkan \textit{Tensor Cores} pada GPU modern untuk melakukan kalkulasi dengan presisi lebih rendah (16-bit) tanpa mengorbankan akurasi secara signifikan.
+\end{itemize}
+
+\subsectiontitle{Evaluasi dan Interpretasi Hasil}
+\begin{itemize}
+    \item \textbf{Kinerja Kuantitatif}: Pustaka \textbf{Scikit-learn} digunakan untuk mengevaluasi kinerja model pada data uji. Metrik standar seperti \textbf{Precision, Recall, dan F1-Score} dihitung untuk memberikan gambaran objektif tentang kemampuan model.
+    \item \textbf{Bukti Kualitatif}: Pustaka \textbf{Matplotlib} digunakan untuk memvisualisasikan hasil prediksi. Visualisasi ini menunjukkan kemampuan model untuk melakukan "dekonvolusi" atau memecah spektrum kompleks menjadi elemen-elemen penyusunnya, yang berfungsi sebagai bukti visual bahwa model telah "belajar" fisika spektral.
+\end{itemize}
+
+% --- BAGIAN 4: JUSTIFIKASI METODOLOGI ---
+\section{Justifikasi Metodologi: Perbandingan dengan Aplikasi Lain}
+
+\subsectiontitle{Python vs. OriginPro}
+\begin{itemize}
+    \item \textbf{OriginPro}: Unggul untuk \textbf{analisis interaktif} dan \textit{peak fitting} pada skala kecil hingga menengah. Namun, tidak dirancang untuk \textbf{automasi simulasi skala besar} (50.000 sampel) dan \textbf{tidak memiliki kapabilitas \textit{deep learning}} bawaan.
+\end{itemize}
+
+\subsectiontitle{Python vs. Perangkat Lunak Spektroskopi Khusus (e.g., NIST Tool)}
+\begin{itemize}
+    \item \textbf{NIST Tool}: Berperan sebagai \textbf{sumber data rujukan dan validator} ("standar emas") untuk spektrum individual. Namun, merupakan alat bantu \textit{lookup}, bukan \textbf{lingkungan pemrograman} untuk membangun alur kerja otomatis dan melatih model AI.
+\end{itemize}
+
+\subsectiontitle{Python vs. MATLAB}
+\begin{itemize}
+    \item \textbf{MATLAB}: Merupakan alternatif yang sangat mumpuni dengan \textit{toolbox} yang kuat, namun memerlukan \textbf{lisensi berbayar yang mahal}, yang menjadi penghalang untuk aksesibilitas dan reproduktifitas penelitian.
+    \item \textbf{Keunggulan Python}: Dipilih karena kombinasi unggul dari \textbf{aksesibilitas (gratis \& \textit{open-source})}, serta \textbf{ekosistem \textit{deep learning}-nya (PyTorch/TensorFlow) yang lebih fleksibel} dan memiliki komunitas yang lebih besar dan aktif.
+\end{itemize}
+
+% --- DAFTAR PUSTAKA ---
+\printbibliography[title=Daftar Pustaka]
+
+\end{document}

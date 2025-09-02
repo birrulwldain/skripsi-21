@@ -1,0 +1,142 @@
+\documentclass[12pt, a4paper]{article}
+
+% --- PREAMBLE ---
+\usepackage[utf8]{inputenc}
+\usepackage[indonesian]{babel}
+\usepackage{graphicx}
+\usepackage[a4paper, margin=1in]{geometry}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{csquotes}
+\usepackage{xcolor}
+
+% Mengatur format judul seksi
+\titleformat{\section}
+  {\normalfont\Large\bfseries\newpage}{\thesection}{1em}{}
+\titleformat{\subsection}
+  {\normalfont\large\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}[runin]
+  {\normalfont\normalsize\bfseries}{}{0em}{}[\quad]
+
+% Mengatur hyperlink
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor=cyan,
+}
+
+% --- INFORMASI DOKUMEN ---
+\title{\vspace{-2cm}\huge\bfseries Panduan Materi Presentasi Detail (3 Jam): \\ \Large Otomatisasi Analisis Spektrum LIBS dari Prinsip Fisika hingga Kecerdasan Buatan}
+\author{\large Disusun oleh: Birrul Walidain}
+\date{\normalsize Berdasarkan Tesis: ``Analisis Prediktif Spektrum Emisi LIBS Multi-Elemen Berbasis Simulasi Sintetis dengan Informer''}
+
+
+\begin{document}
+
+\maketitle
+\thispagestyle{empty}
+
+\tableofcontents
+
+% ===================================================================
+% MODUL 1: FONDASI & TANTANGAN ANALISIS LIBS (60 Menit)
+% ===================================================================
+\section{Modul 1: Fondasi \& Tantangan Analisis LIBS (60 Menit)}
+
+\subsection{Pembukaan dan Latar Belakang (15 Menit)}
+
+\subsubsection*{Slide 1-3: Pengenalan}
+\begin{itemize}
+    \item \textbf{Konten}: Buka presentasi dengan Judul, Agenda, dan Pengenalan singkat tentang apa itu LIBS, prinsip dasarnya, serta aplikasi pentingnya di berbagai bidang.
+    \item \textit{Saran Ilustrasi}: Gunakan diagram skematik proses LIBS dari tesis Anda.
+\end{itemize}
+
+\subsection{Tantangan Inti dalam Analisis LIBS (15 Menit)}
+
+\subsubsection*{Slide 4: Kompleksitas dan Keterbatasan Metode Konvensional}
+\begin{itemize}
+    \item \textbf{Konten}: Jelaskan masalah utama: spektrum yang sangat padat, interferensi, variabilitas sinyal, efek matriks, dan ketergantungan pada proses kalibrasi yang mahal dan lambat.
+    \item \textit{Saran Ilustrasi}: Tampilkan spektrum multi-elemen yang sangat ``ramai'' dan sorot area di mana puncak-puncak saling tumpang tindih.
+\end{itemize}
+
+\subsection{Alur Kerja Analisis Kualitatif Manual (30 Menit)}
+
+\subsubsection*{Slide 5-10: Studi Kasus: Menjadi "Detektif" Spektral}
+\begin{itemize}
+    \item \textbf{Konten}: Pandu audiens melalui proses analisis manual yang subjektif, lambat, dan rentan kesalahan, menggunakan software plotting dan database NIST sebagai contoh. Bangun urgensi mengapa pendekatan baru diperlukan.
+    \item \textit{Saran Ilustrasi}: Gunakan serangkaian screenshot dari software plotting dan website NIST.
+\end{itemize}
+
+% ===================================================================
+% MODUL 2: SOLUSI KOMPUTASI DENGAN PYTHON (75 Menit)
+% ===================================================================
+\section{Modul 2: Solusi Komputasi dengan Python \& Deep Learning (75 Menit)}
+
+\subsection{Momen Refleksi: Melampaui Paradigma ``Kotak Hitam'' (10 Menit)}
+
+\subsubsection*{Slide 11-12: Kemandirian Melalui Kode}
+\begin{itemize}
+    \item \textbf{Konten}: Sampaikan argumen filosofis tentang ketergantungan pada perangkat lunak ``kotak hitam'' dalam sains dan pendidikan. Perkenalkan pendekatan berbasis \textit{coding} sebagai paradigma alternatif yang mendorong kemandirian, pemahaman mendalam, dan transparansi.
+\end{itemize}
+
+% --- BAGIAN YANG DIINTEGRASIKAN ---
+\subsection{Implementasi Solusi: Dari Ide Hingga Hasil}
+
+\subsubsection*{Slide 13: Pondasi Solusi - Ekosistem Python}
+\begin{itemize}
+    \item \textbf{Konten}: Setelah menetapkan filosofi, perkenalkan alat-alat yang mewujudkannya. Jelaskan peran setiap komponen utama: \texttt{NumPy} (komputasi numerik), \texttt{PyTorch} (framework AI), \texttt{Scikit-learn} (evaluasi), \texttt{Matplotlib} (visualisasi), dan \texttt{h5py} (manajemen data).
+    \item \textit{Saran Ilustrasi}: Infografis logo Python dikelilingi oleh logo-logo pustaka tersebut.
+\end{itemize}
+
+\subsubsection*{Slide 14: Alur Kerja Komputasi: Dari Ide Hingga Model}
+\begin{itemize}
+    \item \textbf{Konten}: Berikan gambaran besar dari keseluruhan proses otomatis. Jelaskan alur kerja \textbf{Planner $\rightarrow$ Job $\rightarrow$ Merge $\rightarrow$ Train} sebagai pendekatan sistematis untuk mengelola kompleksitas proyek.
+    \item \textit{Saran Ilustrasi}: Gunakan diagram alir penelitian dari PDF Anda (Gambar 8, Slide 17).
+\end{itemize}
+
+\subsubsection*{Slide 15: Tahap 1 - Simulasi Spektrum: Menerjemahkan Fisika Menjadi Data}
+\begin{itemize}
+    \item \textbf{Konten}: Jelaskan proses pembuatan dataset sintetis. Tekankan bahwa ini bukan tebakan, melainkan didasarkan pada hukum fisika fundamental (Persamaan Saha-Boltzmann) dan data dari NIST ASD. Sebutkan skala masifnya (\textbf{50.000 sampel unik}) dan keberagaman datanya (rentang suhu 5000-15000 K, dll.) untuk melatih model yang tangguh.
+    \item \textit{Saran Ilustrasi}: Gunakan diagram alur simulasi dari PDF Anda (Gambar 9, Slide 18).
+\end{itemize}
+
+\subsubsection*{Slide 16: Tahap 2 - Pelatihan Model AI: Mengajarkan Mesin untuk "Melihat"}
+\begin{itemize}
+    \item \textbf{Konten}: Jelaskan proses pelatihan AI. Perkenalkan model \textbf{Informer} sebagai arsitektur yang dipilih karena efisiensinya untuk data sekuensial panjang (4096 titik). Jelaskan tujuannya (klasifikasi multi-label) dan strategi "mengajar" yang digunakan, seperti \textbf{Focal Loss} untuk fokus pada sinyal lemah.
+    \item \textit{Saran Ilustrasi}: Tampilkan grafik kurva pelatihan dari PDF Anda (Gambar 10, Slide 25) sebagai bukti visual proses belajar.
+\end{itemize}
+
+\subsubsection*{Slide 17: Tahap 3 - Hasil \& Validasi Kinerja}
+\begin{itemize}
+    \item \textbf{Konten}: Sajikan hasil kuantitatif. Sebutkan bahwa model \textbf{Informer 2-Lapis} adalah yang paling optimal dengan **F1-Score 0.6445**. Jelaskan interpretasi dari hasil ini: model sangat sensitif (Recall tinggi) namun juga merefleksikan kesulitan fisis nyata dalam membedakan sinyal kompleks (Precision moderat).
+    \item \textit{Saran Ilustrasi}: Tampilkan tabel perbandingan kinerja dari PDF Anda (Tabel 4.4, Slide 26).
+\end{itemize}
+
+\subsubsection*{Slide 18: Visualisasi Prediksi: Melihat Cara Kerja AI dalam Aksi}
+\begin{itemize}
+    \item \textbf{Konten}: Berikan bukti visual yang kuat. Tunjukkan bagaimana model menganalisis spektrum yang belum pernah dilihatnya, baik pada \textbf{data sintetis} maupun pada \textbf{data eksperimental nyata} (cangkang telur), untuk mendemonstrasikan potensi praktisnya.
+    \item \textit{Saran Ilustrasi}: Tampilkan plot prediksi pada data sintetis (Gambar 11, Slide 27) dan data eksperimental (Gambar 13, Slide 29).
+\end{itemize}
+
+% ===================================================================
+% MODUL 3: HASIL, PERBANDINGAN, DAN DISKUSI (Total 30 Menit)
+% ===================================================================
+\section{Modul 3: Analisis, Perbandingan, dan Diskusi (30 Menit)}
+
+\subsubsection*{Slide 19: Analisis Komparatif}
+\begin{itemize}
+    \item \textbf{Konten}: Tampilkan tabel perbandingan \textit{side-by-side} antara alur kerja manual dengan pendekatan otomatis dalam hal Waktu, Objektivitas, dan Skalabilitas. Sampaikan juga perbandingan dengan Origin dan MATLAB untuk justifikasi metodologi yang komprehensif.
+\end{itemize}
+
+\subsubsection*{Slide 20: Kesimpulan \& Arah Masa Depan}
+\begin{itemize}
+    \item \textbf{Konten}: Ringkas kembali bahwa penelitian ini memberikan \textbf{bukti konsep} untuk analisis LIBS yang bebas kalibrasi. Sebutkan potensi dan saran untuk pengembangan di masa depan (analisis kuantitatif, perluasan elemen).
+\end{itemize}
+
+\subsubsection*{Slide 21: Sesi Tanya Jawab (Q\&A) dan Penutup}
+\begin{itemize}
+    \item \textbf{Konten}: Sediakan slide penutup dengan informasi kontak (Email, GitHub) dan ucapan terima kasih.
+\end{itemize}
+
+
+\end{document}

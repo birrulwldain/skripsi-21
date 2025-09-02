@@ -1,0 +1,213 @@
+\documentclass[12pt, a4paper]{article}
+
+% --- PREAMBLE ---
+\usepackage[utf8]{inputenc}
+\usepackage[english,indonesian]{babel} % English sebagai bahasa fallback
+\usepackage{graphicx}
+\usepackage[a4paper, margin=1in]{geometry}
+\usepackage{hyperref}
+\usepackage{bookmark}
+\usepackage{titlesec}
+\usepackage[autostyle=true]{csquotes}
+
+% Mengatur format judul seksi
+\titleformat{\section}
+  {\normalfont\Large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}
+  {\normalfont\large\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}[runin]
+  {\normalfont\normalsize\bfseries}{}{0em}{}[\quad]
+
+% Mengatur hyperlink
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor=cyan,
+    citecolor=green,
+    pdfstartview=FitH,
+}
+
+% --- INFORMASI DOKUMEN ---
+\title{\vspace{-2cm}\huge\bfseries Panduan dan Materi Presentasi (3 Jam): \\ \Large Otomatisasi Analisis Spektrum LIBS dengan Python dan Deep Learning}
+\author{\large Disusun oleh: Birrul Walidain}
+\date{\normalsize Berdasarkan Tesis: ``Analisis Prediktif Spektrum Emisi LIBS Multi-Elemen Berbasis Simulasi Sintetis dengan Informer''}
+
+
+\begin{document}
+
+\maketitle
+\thispagestyle{empty}
+
+\tableofcontents
+\newpage
+
+% ===================================================================
+% MODUL 1: FONDASI & TANTANGAN ANALISIS LIBS (Total 60 Menit)
+% ===================================================================
+\section{Modul 1: Fondasi \& Tantangan Analisis LIBS (60 Menit)}
+
+\subsection{Pembukaan dan Latar Belakang (15 Menit)}
+
+\subsubsection*{Slide 1: Halaman Judul}
+\begin{itemize}
+    \item \textbf{Konten}: Judul Presentasi (``Dari Analisis Manual ke Kecerdasan Buatan: Otomatisasi Identifikasi Unsur dalam Spektroskopi LIBS Menggunakan Python''), Nama Presenter, Institusi, dan Tanggal.
+    \item \textit{Saran Gambar}: Latar belakang abstrak bertema teknologi/fisika dan logo Universitas.
+\end{itemize}
+
+\subsubsection*{Slide 2: Agenda Lokakarya}
+\begin{itemize}
+    \item \textbf{Konten}: Tampilkan struktur 3 modul utama, jelaskan durasi setiap modul, dan sebutkan waktu istirahat untuk memberikan gambaran yang jelas kepada audiens.
+    \item \textit{Saran Gambar}: Desain minimalis dengan ikon kecil di samping setiap poin agenda (misal: ikon roda gigi untuk ``coding'', otak untuk ``deep learning'').
+\end{itemize}
+
+\subsubsection*{Slide 3: Pengenalan Laser-Induced Breakdown Spectroscopy (LIBS)}
+\begin{itemize}
+    \item \textbf{Konten}: Jelaskan secara ringkas apa itu LIBS, prinsip dasarnya (ablasi laser, formasi plasma, emisi atom), dan mengapa LIBS menjadi teknik yang penting di berbagai bidang (industri, geologi, eksplorasi luar angkasa).
+    \item \textit{Saran Gambar}: Gunakan diagram skematik proses LIBS yang ada di skripsi Anda (mirip Gambar 2.1) atau diagram sistem LIBS (Gambar 2.2).
+\end{itemize}
+
+\subsection{Tantangan Inti dalam Analisis LIBS (15 Menit)}
+
+\subsubsection*{Slide 4: Kompleksitas ``Sidik Jari'' Spektral}
+\begin{itemize}
+    \item \textbf{Konten}: Jelaskan bahwa spektrum LIBS sangat padat dan dapat berisi ribuan garis emisi. Tekankan dua masalah utama yang dihadapi analis: \textbf{Interferensi Spektral} (puncak yang tumpang-tindih) dan \textbf{Efek Matriks}.
+    \item \textit{Saran Gambar}: Tampilkan contoh spektrum multi-elemen yang sangat ``ramai'' dari dataset Anda. Gunakan panah atau lingkaran untuk menyorot beberapa area di mana puncak-puncak jelas saling tumpang tindih.
+\end{itemize}
+
+\subsection{Alur Kerja Analisis Kualitatif Manual (30 Menit)}
+
+\subsubsection*{Slide 5: Studi Kasus: Analisis Manual Satu Spektrum LIBS}
+\begin{itemize}
+    \item \textbf{Konten}: Perkenalkan sesi ini sebagai simulasi kerja seorang analis. Objektifnya adalah mengidentifikasi unsur utama dalam satu spektrum LIBS eksperimental. Sebutkan alat yang digunakan (Software Plotting seperti Origin dan website NIST ASD). Tekankan dari awal bahwa proses ini \textbf{subjektif, lambat, dan rentan kesalahan}.
+\end{itemize}
+
+\subsubsection*{Slide 6: Langkah 1 - Identifikasi Puncak Dominan}
+\begin{itemize}
+    \item \textbf{Konten}: Jelaskan proses membuka file data, lalu secara visual atau menggunakan fitur \textit{peak finder}, mengidentifikasi 5-10 puncak dengan intensitas tertinggi. Tampilkan daftar contoh panjang gelombang ($\lambda$) yang ditemukan.
+    \item \textit{Saran Gambar}: Screenshot software plotting (misal: Origin) yang menampilkan spektrum dengan beberapa puncak utama yang ditandai dengan jelas.
+\end{itemize}
+
+\subsubsection*{Slide 7: Langkah 2 - Investigasi Puncak Terkuat (Pekerjaan Detektif)}
+\begin{itemize}
+    \item \textbf{Konten}: Ambil satu puncak terkuat (misal, 393.37 nm). Jelaskan proses pencariannya di database NIST dengan rentang toleransi. Tunjukkan ``keribetan'' utama: database menghasilkan \textbf{banyak kemungkinan} unsur untuk satu puncak. Buat hipotesis awal berdasarkan garis yang paling umum/kuat.
+    \item \textit{Saran Gambar}: Screenshot dari website NIST ASD yang menampilkan halaman hasil pencarian untuk satu panjang gelombang, dengan beberapa kemungkinan unsur yang muncul.
+\end{itemize}
+
+\subsubsection*{Slide 8: Langkah 3 - Konfirmasi Hipotesis dengan Pola Pendukung}
+\begin{itemize}
+    \item \textbf{Konten}: Jelaskan logikanya: jika ada unsur X, maka seharusnya ada juga garis-garis kuat lainnya dari unsur X. Prosesnya adalah mencari garis pendamping di NIST, lalu kembali ke plot untuk memverifikasi keberadaan puncak tersebut.
+    \item \textit{Saran Gambar}: Plot spektrum yang sama, namun sekarang dengan beberapa puncak yang membentuk ``pola'' atau ``konstelasi'' sidik jari satu unsur (misal, Kalsium) yang dilingkari.
+\end{itemize}
+
+\subsubsection*{Slide 9: Langkah 4 - Iterasi dan Ambiguitas Lanjutan}
+\begin{itemize}
+    \item \textbf{Konten}: Jelaskan bahwa proses diulang untuk puncak lain. Kemudian, perkenalkan masalah \textbf{interferensi/tumpang tindih} secara eksplisit. Gunakan contoh puncak di $\sim$396 nm yang bisa jadi merupakan tumpang tindih antara Al I dan Ca II. Tekankan bahwa keputusan di sini memerlukan keahlian dan bersifat subjektif.
+\end{itemize}
+
+\subsubsection*{Slide 10: Ringkasan Keterbatasan Alur Kerja Manual}
+\begin{itemize}
+    \item \textbf{Konten}: Buat daftar poin-poin kelemahan yang telah didemonstrasikan: \textbf{Subjektif} (bergantung pada analis), \textbf{Lambat} (memakan waktu per spektrum), \textbf{Rentan Kesalahan} (mudah salah interpretasi), dan \textbf{Tidak Kuantitatif}.
+\end{itemize}
+\begin{itemize}
+    \item \textbf{Konten}: Jelaskan bahwa proses diulang untuk puncak lain. Kemudian, perkenalkan masalah \textbf{interferensi/tumpang tindih} secara eksplisit. Gunakan contoh puncak di $\sim$396 nm yang bisa jadi merupakan tumpang tindih antara Al I dan Ca II. Tekankan bahwa keputusan di sini memerlukan keahlian dan bersifat subjektif.
+\end{itemize}
+
+\subsubsection*{Slide 10: Ringkasan Keterbatasan Alur Kerja Manual}
+\begin{itemize}
+    \item \textbf{Konten}: Buat daftar poin-poin kelemahan yang telah didemonstrasikan: \textbf{Subjektif} (bergantung pada analis), \textbf{Lambat} (memakan waktu per spektrum), \textbf{Rentan Kesalahan} (mudah salah interpretasi), dan \textbf{Tidak Kuantitatif}.
+\end{itemize}
+
+% ===================================================================
+% MODUL 2: SOLUSI KOMPUTASI DENGAN PYTHON (Total 75 Menit)
+% ===================================================================
+\section{Modul 2: Solusi Komputasi dengan Python \& Deep Learning (75 Menit)}
+
+% SLIDE BARU: BAGIAN FILOSOFIS SEBAGAI JEMBATAN NARATIF
+\subsection{Momen Refleksi: Melampaui Paradigma ``Kotak Hitam'' (15 Menit)}
+
+\subsubsection*{Slide 11: Paradigma ``Kotak Hitam'' dalam Sains \& Pendidikan}
+\begin{itemize}
+    \item \textbf{Konten}: Ajak audiens merefleksikan bahwa proses manual tidak hanya rumit, tapi seringkali membuat kita bergantung pada perangkat lunak komersial sebagai \textbf{``kotak hitam'' (\textit{black box})}. Jelaskan implikasinya dalam pendidikan: mahasiswa dan peneliti diajarkan menjadi \textbf{pengguna}, bukan \textbf{pencipta}. Akibatnya, hubungan antara persamaan fisika fundamental dan hasil akhir di layar menjadi kabur.
+    \item \textit{Saran Gambar}: Diagram sederhana: [Persamaan Fisika] $\rightarrow$ [Kotak Hitam Besar dengan Tanda Tanya] $\rightarrow$ [Grafik Hasil Akhir].
+\end{itemize}
+
+\subsubsection*{Slide 12: Solusi - Kemandirian Melalui Kode: Menerjemahkan Fisika}
+\begin{itemize}
+    \item \textbf{Konten}: Perkenalkan pendekatan penelitian ini sebagai paradigma alternatif: \textbf{kemandirian dalam menerjemahkan fisika}. Jelaskan bahwa \textit{coding} (khususnya Python) berfungsi sebagai jembatan langsung dari pemikiran manusia ke eksekusi mesin. Tekankan manfaatnya: \textbf{memaksa pemahaman mendalam}, memberikan \textbf{kontrol \& transparansi penuh}, dan \textbf{mendemokratisasi sains} melalui alat \textit{open-source}.
+    \item \textit{Saran Gambar}: Diagram kontras: [Persamaan Fisika] $\rightarrow$ [Cuplikan Kode Python] $\rightarrow$ [Grafik Hasil Akhir], dengan panah berlabel "Kontrol \& Transparansi".
+\end{itemize}
+
+\subsection{Pondasi Komputasi (15 Menit)}
+
+\subsubsection*{Slide 13: Mengapa Python? Ekosistem untuk Sains}
+\begin{itemize}
+    \item \textbf{Konten}: Jelaskan peran setiap komponen utama: \texttt{NumPy} untuk komputasi vektor, \texttt{PyTorch} sebagai framework AI, \texttt{Scikit-learn} untuk evaluasi, \texttt{Matplotlib} untuk visualisasi, dan \texttt{h5py} untuk manajemen data.
+    \item \textit{Saran Gambar}: Infografis logo Python dikelilingi oleh logo-logo pustaka tersebut.
+\end{itemize}
+
+\subsubsection*{Slide 14: Implementasi Coding: Dari Fisika ke Dataset}
+\begin{itemize}
+    \item \textbf{Konten}: Tunjukkan bagaimana persamaan fisika (Saha-Boltzmann) diterjemahkan ke kode \texttt{NumPy} yang efisien (vektorisasi). Jelaskan juga proses ``Perencanaan Resep'' untuk menghindari bias data. Jelaskan penggunaan format HDF5 untuk efisiensi penyimpanan dan kelas \texttt{Dataset} kustom di PyTorch.
+    \item \textit{Saran Gambar}: Cuplikan kode Python yang relevan atau diagram alur data.
+\end{itemize}
+
+
+\subsection{Pengenalan Deep Learning untuk Spektroskopi (20 Menit)}
+
+\subsubsection*{Slide 15: Apa itu Deep Learning?}
+\begin{itemize}
+    \item \textbf{Konten}: Gunakan analogi ``analis super'' yang belajar dari ribuan contoh. Jelaskan bahwa model ini mampu mengenali pola-pola kompleks (sidik jari spektral) yang sulit atau bahkan tidak mungkin dilihat oleh mata manusia.
+\end{itemize}
+
+\subsubsection*{Slide 16: Arsitektur Model Informer}
+\begin{itemize}
+    \item \textbf{Konten}: Perkenalkan arsitektur Transformer dan Informer secara konseptual. Jelaskan bahwa model ini dirancang khusus untuk data sekuensial panjang seperti spektrum, dan memiliki keunggulan efisiensi komputasi.
+    \item \textit{Saran Gambar}: Diagram arsitektur Informer yang disederhanakan dari skripsi Anda (Gambar 3.4).
+\end{itemize}
+
+\subsection{Proses Pelatihan Model (25 Menit)}
+
+\subsubsection*{Slide 17: Bagaimana Model ``Belajar''?}
+\begin{itemize}
+    \item \textbf{Konten}: Jelaskan proses pelatihan secara konseptual: model menerima input spektrum, membuat prediksi, membandingkan prediksinya dengan jawaban yang benar, lalu mengoreksi dirinya sendiri. Proses ini diulang ribuan kali.
+\end{itemize}
+
+\subsubsection*{Slide 18: Teknik Pelatihan Tingkat Lanjut}
+\begin{itemize}
+    \item \textbf{Konten}: Jelaskan secara singkat tujuan dari teknik yang digunakan: \textbf{Focal Loss} untuk fokus pada sinyal lemah dan \textbf{Automatic Mixed Precision} untuk mempercepat pelatihan di GPU.
+    \item \textit{Saran Gambar}: Tampilkan kurva pelatihan (loss vs epoch) dari skripsi Anda (Gambar 4.6) sebagai bukti visual dari proses belajar yang berhasil.
+\end{itemize}
+
+% ===================================================================
+% MODUL 3: HASIL, PERBANDINGAN, DAN DISKUSI (Total 30 Menit)
+% ===================================================================
+\section{Modul 3: Hasil, Perbandingan, dan Diskusi (30 Menit)}
+
+\subsubsection*{Slide 19: Hasil Evaluasi Kinerja}
+\begin{itemize}
+    \item \textbf{Konten}: Tampilkan tabel ringkasan hasil kuantitatif (F1-Score, Precision, Recall) dari data uji (Tabel 4.5).
+    \item \textit{Saran Gambar}: Tampilkan contoh visualisasi prediksi model pada satu spektrum uji (Gambar 4.7), yang menunjukkan keberhasilan dekonvolusi spektral.
+\end{itemize}
+
+\subsubsection*{Slide 20: Perbandingan Alur Kerja: Manual vs. Otomatis}
+\begin{itemize}
+    \item \textbf{Konten}: Buat tabel perbandingan \textit{side-by-side} yang menyoroti perbedaan drastis antara alur kerja manual dan otomatis dalam hal: \textbf{Waktu}, \textbf{Objektivitas}, \textbf{Skalabilitas}, dan \textbf{Kapabilitas Analisis}.
+\end{itemize}
+
+\subsubsection*{Slide 21: Perbandingan dengan Aplikasi Lain (Origin, MATLAB, dll.)}
+\begin{itemize}
+    \item \textbf{Konten}: Masukkan poin-poin perbandingan dengan Origin, NIST Tool, dan MATLAB yang telah kita diskusikan sebelumnya untuk memberikan justifikasi metodologi yang kuat.
+\end{itemize}
+
+\subsubsection*{Slide 21: Kesimpulan \& Arah Masa Depan}
+\begin{itemize}
+    \item \textbf{Konten}: Ringkas kembali bagaimana pendekatan berbasis Python \& DL berhasil mengatasi keterbatasan analisis manual. Sebutkan potensi dan saran untuk pengembangan di masa depan (misal: analisis kuantitatif, penambahan unsur baru).
+\end{itemize}
+
+\subsubsection*{Slide 22: Sesi Tanya Jawab (Q\&A) dan Penutup}
+\begin{itemize}
+    \item \textbf{Konten}: Sediakan slide penutup dengan informasi kontak dan ucapan terima kasih.
+\end{itemize}
+
+
+\end{document}
