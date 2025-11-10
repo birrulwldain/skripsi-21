@@ -1,0 +1,424 @@
+% CHAPTER 1
+\chapter{PENDAHULUAN \& RUANG LINGKUP}
+
+\section{Pendahuluan}
+
+Python adalah bahasa pemrograman yang sangat populer untuk analisis data, machine learning, dan komputasi ilmiah di berbagai bidang. Panduan ini akan fokus pada instalasi Python menggunakan \textbf{Miniconda}, yang merupakan distribusi Python yang ringan namun powerful untuk keperluan scientific computing.
+\\
+\textbf{Catatan:} Dokumen ini difokuskan \emph{hanya} untuk pengguna macOS.
+
+\section{Persyaratan Sistem}
+
+\subsection{Spesifikasi Minimum}
+\begin{itemize}
+    \item RAM: 4 GB (disarankan 8 GB atau lebih)
+    \item Storage: 5 GB ruang kosong
+    \item Koneksi internet untuk download
+    \item Sistem operasi yang didukung (fokus dokumen ini):
+    \begin{itemize}
+        \item macOS 10.15 atau lebih baru (disarankan macOS 12+ pada Apple Silicon/Intel)
+    \end{itemize}
+\end{itemize}
+
+\chapter{INSTALASI MINICONDA DI MACOS}
+
+\section{Mengapa Miniconda?}
+
+Miniconda adalah distribusi Python yang ideal untuk scientific computing karena:
+\begin{itemize}
+    \item \textbf{Ringan:} Hanya menginstall komponen essential
+    \item \textbf{Fleksibel:} Kontrol penuh terhadap package yang diinstall
+    \item \textbf{Environment Management:} Mudah mengelola multiple environment
+    \item \textbf{Scientific Focus:} Optimized untuk scientific computing
+    \item \textbf{Cross-platform:} Konsisten lintas OS; panduan ini memfokuskan langkah pada macOS
+\end{itemize}
+
+\section{Instalasi Miniconda di macOS}
+
+% Only macOS install steps remain, Windows and Linux blocks removed
+% \subsubsection{macOS} % removed as per instruction
+\begin{enumerate}
+    \item Download installer dari \url{https://docs.conda.io/en/latest/miniconda.html} (Lihat Gambar~\ref{fig:macos-download})
+    \item Pilih installer sesuai arsitektur: \textbf{arm64 \(Apple Silicon\)} atau \textbf{x86\_64 \(Intel\)}.
+    \item Install menggunakan salah satu metode:
+    
+    \textbf{Metode 1: Graphical Installer}
+    \begin{itemize}
+        \item Download file \texttt{.pkg}
+        \item Double-click dan ikuti wizard instalasi
+    \end{itemize}
+    
+    \textbf{Metode 2: Command Line (Recommended)}
+    \begin{lstlisting}[language=bash]
+# Download installer (pilih salah satu sesuai arsitektur)
+# Apple Silicon (arm64)
+curl -O https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-arm64.sh
+# Intel (x86_64)
+# curl -O https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh
+
+# Install (ganti nama file sesuai yang diunduh)
+bash Miniconda3-latest-MacOSX-arm64.sh
+
+# Saat ditanya "Do you wish the installer to initialize Miniconda3", jawab "yes"
+    \end{lstlisting}
+Lihat Gambar~\ref{fig:macos-terminal-curl} untuk contoh tampilan Terminal saat mengunduh dan menjalankan installer.
+    
+    \item Restart terminal atau jalankan:
+    \begin{lstlisting}[language=bash]
+source ~/.zshrc  # untuk zsh
+# atau
+source ~/.bash_profile  # untuk bash
+conda init zsh  # atau bash/fish sesuai shell
+    \end{lstlisting}
+Lihat Gambar~\ref{fig:macos-conda-init}.
+    
+    \item Verifikasi instalasi:
+    \begin{lstlisting}[language=bash]
+conda --version
+python --version
+which python
+    \end{lstlisting}
+Contoh verifikasi pada Gambar~\ref{fig:macos-conda-version}.
+\end{enumerate}
+
+% ==== Placeholder Gambar Proses Instalasi macOS ====
+% ==== Placeholder Gambar Proses Instalasi macOS ====
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=0.9\linewidth]{Images/ss-20.05.37.png}
+  \caption{Contoh halaman unduhan Miniconda untuk macOS dengan pilihan arsitektur (arm64 untuk Apple Silicon atau x86\_64 untuk Intel).}
+  \label{fig:macos-download}
+\end{figure}
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=0.9\linewidth]{Images/ss-20.09.44.png}
+  \caption{Contoh tampilan Terminal ketika menjalankan perintah \texttt{curl} dan \texttt{bash} untuk memasang Miniconda.}
+  \label{fig:macos-terminal-curl}
+\end{figure}
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=0.9\linewidth]{Images/ss-20.11.40.png}
+  \caption{Contoh proses inisialisasi shell menggunakan \texttt{conda init} dan pemuatan \texttt{~/.zshrc}.}
+  \label{fig:macos-conda-init}
+\end{figure}
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=0.9\linewidth]{Images/ss-20.14.21.png}
+  \caption{Verifikasi \texttt{conda --version}, \texttt{python --version}, dan \texttt{which python}.}
+  \label{fig:macos-conda-version}
+\end{figure}
+
+% ==== END Placeholder Gambar Proses Instalasi macOS ====
+
+
+\chapter{KONFIGURASI \& LINGKUNGAN PENGEMBANGAN}
+
+\section{Konfigurasi Awal Miniconda}
+
+Setelah Miniconda terinstall, kita akan setup environment untuk belajar (untuk tugas ini, hanya paket NumPy, SymPy, dan SciPy yang perlu diinstal):
+
+\begin{lstlisting}[language=bash]
+# Update conda ke versi terbaru
+conda update -n base -c defaults conda
+
+# Buat environment baru untuk belajar
+conda create --name belajar python=3.13.0
+
+# Aktivasi environment
+conda activate belajar
+
+# Rekomendasi: aktifkan channel conda-forge dan strict priority
+conda config --add channels conda-forge
+conda config --set channel_priority strict
+
+# Install paket yang ditugaskan
+conda install python=3.13.0 numpy sympy scipy
+
+# Verifikasi instalasi
+python -c "import numpy, sympy, scipy; print('Assigned packages OK')"
+\end{lstlisting}
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=0.9\linewidth]{Images/ss-20.14.21.png}
+  \caption{Pembuatan environment \texttt{belajar} dan instalasi paket inti.}
+  \label{fig:macos-env-setup}
+\end{figure}
+
+
+\subsection{Mengelola Environment}
+
+\begin{lstlisting}[language=bash]
+# List semua environment
+conda env list
+
+# Aktivasi environment
+conda activate belajar
+
+# Deaktivasi environment
+conda deactivate
+
+# Export environment untuk sharing
+conda env export > environment.yml
+# atau versi ringkas (tanpa build hash): conda env export --from-history > environment.yml
+
+# Create environment dari file
+conda env create -f environment.yml
+
+# Remove environment
+conda env remove --name belajar
+\end{lstlisting}
+
+\section{Setup Development Environment}
+
+\subsection{Jupyter Notebook untuk Analisis Interaktif}
+
+Jupyter Notebook sangat penting untuk pembelajaran dan eksperimen interaktif:
+
+\begin{lstlisting}[language=bash]
+# Install Jupyter di environment belajar
+conda activate belajar
+conda install jupyterlab notebook
+
+# Tambahkan kernel ke Jupyter
+python -m ipykernel install --user --name belajar --display-name "Python (Belajar)"
+
+# Jalankan Jupyter Notebook
+jupyter notebook
+
+# Atau JupyterLab (interface modern)
+jupyter lab
+\end{lstlisting}
+\begin{figure}[t]
+  \centering
+  %\includegraphics[width=0.9\linewidth]{images/macos-06-jupyterlab.png}
+  \caption{JupyterLab berjalan di peramban dengan kernel \texttt{Python (Belajar)}.}
+  \label{fig:macos-jlab}
+\end{figure}
+
+\subsection{IDE yang Direkomendasikan}
+
+\subsubsection{VS Code dengan Extension}
+\begin{enumerate}
+    \item Download VS Code dari \url{https://code.visualstudio.com/}
+    \item Install extension berikut:
+    \begin{itemize}
+        \item Python (Microsoft)
+        \item Jupyter (Microsoft)
+        \item Python Docstring Generator
+        \item Pylint
+        \item GitLens (untuk version control)
+    \end{itemize}
+    \item Configure Python interpreter:
+    \begin{itemize}
+        \item Tekan \texttt{Ctrl+Shift+P} (Windows/Linux) atau \texttt{Cmd+Shift+P} (macOS)
+        \item Pilih "Python: Select Interpreter"
+        \item Pilih interpreter dari environment belajar
+    \end{itemize}
+\end{enumerate}
+
+\subsubsection{Spyder (Scientific Python IDE)}
+\begin{lstlisting}[language=bash]
+conda activate belajar
+conda install spyder
+spyder
+\end{lstlisting}
+
+\section{Package Management Best Practices}
+
+\subsubsection{Menggunakan environment.yml}
+
+Buat file \texttt{environment.yml} minimal sebagai berikut:
+
+\begin{lstlisting}
+dependencies:
+  - python=3.13.0
+  - numpy
+  - sympy
+  - scipy
+  - jupyter
+  - ipykernel
+\end{lstlisting}
+
+\subsubsection{Install dari environment.yml}
+\begin{lstlisting}[language=bash]
+conda env create -f environment.yml
+conda activate geofisika
+\end{lstlisting}
+
+% ===== Inserted: INSTAL SYMPY & SCIPY, VS CODE TUTORIAL =====
+
+\chapter{APLIKASI, TROUBLESHOOTING, DAN PENUTUP}
+
+\section{Instal SymPy dan SciPy}
+\subsection{Menggunakan pip}
+\begin{lstlisting}[language=bash]
+# Pastikan berada di environment "belajar"
+conda activate belajar
+
+# Perbarui pip (opsional)
+python -m pip install --upgrade pip
+
+# Instal SymPy dan SciPy via pip
+pip install sympy scipy
+
+# Verifikasi versi
+python -c "import sympy, scipy; print(sympy.__version__, scipy.__version__)"
+\end{lstlisting}
+
+\subsection{Menggunakan conda}
+\begin{lstlisting}[language=bash]
+# Pastikan berada di environment "belajar"
+conda activate belajar
+
+# Instal SymPy dan SciPy via conda
+conda install sympy scipy
+
+# Verifikasi versi
+python -c "import sympy, scipy; print(sympy.__version__, scipy.__version__)"
+\end{lstlisting}
+
+\section{Menjalankan Python di VS Code}
+\begin{enumerate}
+  \item Instal VS Code dari \url{https://code.visualstudio.com/} dan ekstensi \textbf{Python} (Microsoft).
+  \item Buka folder kerja baru, buat berkas \texttt{hello.py} berisi:
+\begin{lstlisting}[language=Python]
+print("Belajar program python")
+\end{lstlisting}
+  \item Pilih interpreter: tekan \texttt{Cmd+Shift+P} \(macOS\) → ketik "Python: Select Interpreter" → pilih interpreter dari environment \texttt{belajar}.
+  \item Jalankan: klik tombol \textbf{Run} di kanan atas editor, atau tekan \texttt{Ctrl+F5}.
+  \item Output "Belajar program python" akan muncul di panel Terminal/Output VS Code.
+\end{enumerate}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.9\linewidth]{Images/ss-20.17.11.png}
+\caption{Tampilan VS Code saat menjalankan program \texttt{belajar.py} di environment \texttt{belajar}.}
+\label{fig:vscode-run}
+\end{figure}
+
+% ====== END Inserted Section =======
+
+\subsection{Test Script Python}
+
+Buat file \texttt{test\_installation.py} dengan konten berikut:
+
+\begin{lstlisting}[language=Python]
+#!/usr/bin/env python3
+"""
+Script untuk test instalasi Python dan package essentials
+"""
+
+import sys
+import platform
+
+def test_python_installation():
+    print("=== Python Installation Test ===")
+    print(f"Python Version: {sys.version}")
+    print(f"Platform: {platform.platform()}")
+    print(f"Architecture: {platform.architecture()}")
+    
+def test_essential_packages():
+    print("\n=== Testing Essential Packages ===")
+    packages = ['numpy', 'sympy', 'scipy']
+    
+    for package in packages:
+        try:
+            __import__(package)
+            print(f"[OK] {package} - OK")
+        except ImportError:
+            print(f"[ERROR] {package} - NOT FOUND")
+
+if __name__ == "__main__":
+    test_python_installation()
+    test_essential_packages()
+    print("\n=== Test Completed ===")
+\end{lstlisting}
+
+Jalankan script dengan:
+\begin{lstlisting}[language=bash]
+python test_installation.py
+\end{lstlisting}
+
+\section{Troubleshooting Common Issues}
+
+% Remove Windows Issues and Linux Issues blocks (macOS Issues retained)
+\subsection{macOS Issues}
+\begin{itemize}
+    \item \textbf{Certificate errors:} Untuk Conda, sertifikat biasanya sudah terkelola. Jika ada error SSL, perbarui paket CA: \texttt{conda install certifi ca-certificates}
+    \item \textbf{Command not found:} Gunakan \texttt{python3} dan \texttt{pip3}
+\end{itemize}
+
+\section{Best Practices}
+
+\subsection{Environment Management}
+\begin{enumerate}
+    \item Selalu gunakan virtual environment untuk setiap project
+    \item Dokumentasikan dependencies dalam \texttt{environment.yml} (preferable untuk conda)
+    \item Gunakan version control (Git) untuk project code
+    \item Regular update package menggunakan \texttt{pip list --outdated}
+\end{enumerate}
+
+\subsection{Security Considerations}
+\begin{enumerate}
+    \item Download Python hanya dari sumber official
+    \item Verifikasi checksum file installer
+    \item Hati-hati dengan package dari PyPI yang tidak terverifikasi
+    \item Gunakan \texttt{pip-audit} untuk security scanning
+    \item Gunakan Apple Silicon arm64 build jika Mac Anda M1/M2/M3; hindari mencampur paket x86\_64 melalui Rosetta kecuali sangat diperlukan.
+\end{enumerate}
+
+\section{Resources dan Referensi}
+
+\subsection{Official Documentation}
+\begin{itemize}
+    \item Python Official: \url{https://docs.python.org/}
+    \item pip Documentation: \url{https://pip.pypa.io/}
+    \item Virtual Environments: \url{https://docs.python.org/3/tutorial/venv.html}
+\end{itemize}
+
+\subsection{Learning Resources}
+\begin{itemize}
+    \item Python.org Tutorial: \url{https://docs.python.org/3/tutorial/}
+    \item Real Python: \url{https://realpython.com/}
+    \item Python Package Index: \url{https://pypi.org/}
+\end{itemize}
+
+\subsection{Community}
+\begin{itemize}
+    \item Python Community: \url{https://www.python.org/community/}
+    \item Stack Overflow: \url{https://stackoverflow.com/questions/tagged/python}
+    \item Reddit: \url{https://www.reddit.com/r/Python/}
+\end{itemize}
+
+\section{Kesimpulan}
+
+Instalasi Python dengan \textbf{Miniconda} merupakan pilihan optimal karena:
+
+\begin{itemize}
+    \item \textbf{Lightweight dan Efisien:} Hanya menginstall komponen yang diperlukan.
+    \item \textbf{Environment Management:} Mudah mengelola multiple project dengan dependencies berbeda.
+    \item \textbf{Scientific Computing:} Dioptimalkan untuk paket sains umum seperti NumPy dan SciPy.
+\end{itemize}
+
+\subsection{Workflow Recommended}
+
+\begin{enumerate}
+    \item Install Miniconda
+    \item Buat environment khusus untuk setiap project: \texttt{conda create --name project\_name python=3.13.0}
+    \item Install package yang diperlukan: \texttt{conda install package\_name}
+    \item Dokumentasikan environment: \texttt{conda env export > environment.yml}
+    \item Gunakan Jupyter Notebook untuk analisis interaktif
+    \item Gunakan VS Code atau Spyder untuk development script
+\end{enumerate}
+
+\subsection{Next Steps}
+
+Setelah setup selesai, Anda dapat:
+\begin{itemize}
+    \item Lanjutkan latihan dasar Python dan NumPy/SciPy.
+    \item Gunakan Jupyter Notebook untuk eksplorasi interaktif.
+    \item Kembangkan proyek kecil dengan struktur environment yang terdokumentasi.
+\end{itemize}
