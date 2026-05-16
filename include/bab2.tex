@@ -124,7 +124,9 @@ Akses & \textit{Online} di \url{https://physics.nist.gov/asd} \citep{Kramida2023
 \bottomrule
 \end{tabularx}
 \end{table}
+
 \section{Emisi Spektral}
+
 \subsection{Prinsip Dasar}
 
 Spektroskopi memanfaatkan emisi atau penyerapan foton untuk menganalisis komposisi material, dengan aplikasi seperti LIBS yang mengukur panjang gelombang emisi untuk mengidentifikasi unsur dalam plasma \citep{CremersRadzemski2013}. Eksitasi atom oleh energi eksternal, seperti laser, menghasilkan emisi foton yang mencerminkan struktur energi atom. Hukum Planck menghubungkan energi foton dengan frekuensinya melalui
@@ -145,6 +147,7 @@ P \propto |\langle \psi_k | \vec{\mu} | \psi_i \rangle|^2, \label{eq:bab2_eq2}
 \end{equation}
 dengan \( \psi_i \) dan \( \psi_k \) sebagai keadaan awal dan akhir, serta \( \hat{\mu} \) sebagai operator momen dipol. Transisi yang memenuhi aturan seleksi memiliki probabilitas tinggi, menghasilkan garis spektral yang kuat, sedangkan transisi yang melanggar aturan (transisi terlarang) memiliki probabilitas rendah dan menghasilkan garis spektral lemah, yang terkadang masih terdeteksi dalam kondisi tertentu, seperti pada atom berat. Untuk atom hidrogen, aturan seleksi memungkinkan transisi seri Balmer (misalnya, H\(\alpha\), H\(\beta\), H\(\gamma\)), yang menghasilkan garis spektral kuat dalam rentang tampak, penting untuk aplikasi seperti LIBS. 
 \par Kopling spin-orbit, yang timbul dari interaksi antara momentum sudut orbital dan spin elektron, menyebabkan pemisahan tingkat energi menjadi sub-level, dikenal sebagai struktur halus (\textit{fine structure}). Efek ini lebih signifikan pada atom dengan nomor atom tinggi, seperti natrium atau merkuri, karena pengaruh relativistik yang meningkatkan interaksi spin-orbit. Sebagai contoh, pada natrium, garis D (sekitar 589 nm) menunjukkan pemisahan struktur halus akibat kopling spin-orbit, yang terdeteksi sebagai dua garis spektral berdekatan dalam spektroskopi. Dalam LIBS, aturan seleksi membantu memprediksi garis spektral yang dominan, seperti H\(\alpha\) untuk hidrogen atau garis natrium untuk atom alkali, memungkinkan analisis kuantitatif komposisi plasma. Transisi terlarang, seperti pelanggaran \( \Delta S = 0 \), dapat terjadi pada atom berat karena kopling spin-orbit yang kuat, menghasilkan garis spektral lemah yang tetap relevan dalam analisis spektral presisi tinggi \citep{Griffiths2005, CremersRadzemski2013, Demtroder2010}.
+
 \subsection{Transisi Elektronik Atom Hidrogen}
 
 Dalam atom hidrogen, energi elektron pada tingkat kuantum \( n \) diberikan oleh
@@ -195,6 +198,7 @@ Diagram Grotrian memvisualisasikan tingkat energi dan transisi yang diizinkan, s
         \caption{Diagram Grotrian untuk atom hidrogen pada seri Balmer dengan \(\lambda_{\text{H}\alpha} = 656.28 \, \text{nm}\), \(\lambda_{\text{H}\beta} = 486.13 \, \text{nm}\), \(\lambda_{\text{H}\gamma} = 434.05 \, \text{nm}\). \label{fig:grotrian}}
     \end{center}
 \end{figure}
+
 \section{Distrbusi Populasi dan Ionisasi dalam Plasma LIBS}
 
 \subsection{Distribusi Boltzmann}
@@ -393,6 +397,9 @@ Parameter Fisis pelebaran garis dalam LIBS meliputi:
 
 Kemudian profil Voigt dihitung menggunakan algoritma numerik, seperti aproksimasi Humlíček, untuk memodelkan garis spektral dengan akurasi tinggi sambil meminimalkan biaya komputasi \citep{Griem1997}. Pendekatan ini memungkinkan analisis kuantitatif parameter plasma dan komposisi elemen dengan memisahkan kontribusi Gaussian dan Lorentzian melalui dekonvolusi \citep{Aragon2008}.
 
+
+
+
 \section{\textit{Deep Learning}}
 
 Kecerdasan buatan  adalah bidang ilmu yang berkembang pesat dengan tujuan untuk mengotomatisasi tugas-tugas intelektual dan menciptakan mesin yang dapat berpikir. Awalnya, Kecerdasan Buatan berfokus pada penyelesaian masalah yang dapat dideskripsikan melalui aturan matematika formal, namun tantangan sebenarnya terletak pada tugas-tugas yang intuitif bagi manusia, seperti mengenali ucapan atau wajah. Untuk mengatasi tantangan ini, muncul sub-bidang AI yang dikenal sebagai \textit{machine learning} (pembelajaran mesin), sebuah pendekatan yang memungkinkan komputer untuk memperoleh pengetahuannya sendiri dengan mengekstraksi pola dari data mentah. Di dalam \textit{machine learning}, terdapat pendekatan spesifik yang disebut \textit{deep learning} (pembelajaran mendalam), yang menjadi fokus utama dalam literatur modern\parencite{Goodfellow2016}.
@@ -532,7 +539,6 @@ dengan \( x \in \mathbb{R}^{n \times 512} \) sebagai vektor representasi token. 
 \bottomrule
 \end{tabularx}
 \end{table}
-
 
 \section{Teknik Pelatihan Lanjutan untuk Model \textit{Deep Learning}}
 
